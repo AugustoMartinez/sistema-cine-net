@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 excepciones\LetrasException.class
 cine\user\GestionUsuario.class
 cine\user\RegistroCliente.class
@@ -27,3 +28,5 @@ SistemaCine.class
 cine\user\Login$1.class
 cine\Genero.class
 cine\cinelugar\Funcion.class
+=======
+>>>>>>> f8e0c8935078686a348fdad67b98f8fab8762b27

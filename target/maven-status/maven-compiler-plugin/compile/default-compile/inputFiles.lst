@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Reserva.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Cliente.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Imprimible.java
@@ -22,3 +23,30 @@ C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Sesion.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Clasificacion.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Funcion.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Admin.java
+=======
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Duenio.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\Clasificacion.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Funcion.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Usuario.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\Horario.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Cliente.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\GestionUsuario.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\LongitudPasswordException.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\Genero.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\SistemaCine.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Butaca.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Admin.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\Costos.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Login.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\EmailException.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Pelicula.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Sesion.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Sala.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\LetrasException.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\Imprimible.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\RegistroCliente.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\Validacion\Validaciones_1.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Cine.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Reserva.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\CampoVacioException.java
+>>>>>>> f8e0c8935078686a348fdad67b98f8fab8762b27
