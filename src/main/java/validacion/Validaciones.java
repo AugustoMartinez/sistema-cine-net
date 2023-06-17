@@ -1,5 +1,5 @@
 
-package org.example;
+package validacion;
 
 import excepciones.CampoVacioException;
 import excepciones.EmailException;
