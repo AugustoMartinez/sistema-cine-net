@@ -4,8 +4,10 @@ import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
+import validacion.Validaciones;
 
 public abstract class Usuario {
+
     private String email;
     private String password;
     private String nombre;
@@ -25,13 +27,12 @@ public abstract class Usuario {
         return email;
     }
 
-    public void setEmail(String email) throws EmailException,CampoVacioException{
-        if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
-            throw new EmailException("Email inválido");
-        }else if(email.isEmpty()){
-        throw new CampoVacioException("email");
-        }else{
-            this.email = email;
+    public void setEmail(String email) throws EmailException, CampoVacioException {
+        try{
+            Validaciones.validarEmail(email);
+            this.email=email;
+        }catch(EmailException | CampoVacioException e){
+            System.out.println(e.getMessage());
         }
     }
 
@@ -39,26 +40,25 @@ public abstract class Usuario {
         return password;
     }
 
-    public void setPassword(String password) throws LongitudPasswordException,CampoVacioException {
-        if (password.length() < 8) {
-        throw new LongitudPasswordException();
-    }else if(password.isEmpty()){
-        throw new CampoVacioException("contraseña");
-    }
-        this.password = password;
+    public void setPassword(String password) throws LongitudPasswordException, CampoVacioException {
+        try{
+            Validaciones.validarPassword(password);
+            this.password=password;
+        }catch(LongitudPasswordException | CampoVacioException e ){
+            System.out.println(e.getMessage());
+        }
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) throws LetrasException,CampoVacioException{
-        if (!nombre.matches("[a-zA-Z]+")) {
-            throw new LetrasException("El campo debe contener solo letras");
-        }else if(nombre.isEmpty()){
-        throw new CampoVacioException("nombre");
-        }else{
+    public void setNombre(String nombre) throws LetrasException, CampoVacioException {
+        try {
+            Validaciones.validarNombre(nombre);
             this.nombre = nombre;
+        } catch (LetrasException | CampoVacioException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -66,13 +66,12 @@ public abstract class Usuario {
         return apellido;
     }
 
-    public void setApellido(String apellido) throws LetrasException,CampoVacioException{
-        if (!apellido.matches("[a-zA-Z]+")) {
-            throw new LetrasException("El campo debe contener solo letras");
-        }else if(nombre.isEmpty()){
-        throw new CampoVacioException(apellido);
-        }else{
+    public void setApellido(String apellido) throws LetrasException, CampoVacioException {
+        try {
+            Validaciones.validarApellido(nombre);
             this.apellido = apellido;
+        } catch (LetrasException | CampoVacioException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -80,9 +79,9 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return "Informacion del usuario: { \n" +
-                "Nombre y apellido: '" + nombre + apellido + "\n" +
-                "Contraseña: " + password + "\n" +
-                "Email: '" + nombre + '\n' + '}';
+        return "Informacion del usuario: { \n"
+                + "Nombre y apellido: '" + nombre + apellido + "\n"
+                + "Contraseña: " + password + "\n"
+                + "Email: '" + nombre + '\n' + '}';
     }
 }

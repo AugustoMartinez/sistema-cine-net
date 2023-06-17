@@ -1,5 +1,5 @@
 
-import cine.user.Login;
+import ui.Login;
 
 
 public class SistemaCine {

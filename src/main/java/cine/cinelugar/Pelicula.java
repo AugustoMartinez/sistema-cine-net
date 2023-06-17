@@ -1,7 +1,9 @@
 package cine.cinelugar;
 
+
 import cine.Clasificacion;
 import cine.Genero;
+import excepciones.CampoVacioException;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,7 +13,7 @@ public class Pelicula {
     private String nombre;
     private boolean baja;
     private Genero genero;
-    private Set tipo = new HashSet<String>();
+    private Set tipo;
     private Integer duracion;
     private String descripcion;
     private Clasificacion clasificacion;
@@ -24,14 +26,19 @@ public class Pelicula {
         this.descripcion = descripcion;
         this.clasificacion = clasificacion;
         this.fechaEstreno = fechaEstreno;
+        this.tipo = new HashSet();
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombre) throws CampoVacioException{
+        if(nombre.isEmpty()){
+            throw new CampoVacioException("Nombre película");
+        }else{
+            this.nombre = nombre;
+        }
     }
 
     public boolean isBaja() {
@@ -46,7 +53,10 @@ public class Pelicula {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(Genero genero) throws CampoVacioException{
+        if(genero.toString().isEmpty()){
+            throw new CampoVacioException("Genero");
+        }
         this.genero = genero;
     }
 
@@ -66,7 +76,10 @@ public class Pelicula {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
+    public void setDescripcion(String descripcion) throws CampoVacioException{
+        if(descripcion.isEmpty()){
+            throw new CampoVacioException(nombre);
+        }
         this.descripcion = descripcion;
     }
 
@@ -76,6 +89,18 @@ public class Pelicula {
 
     public Date getFechaEstreno() {
         return fechaEstreno;
+    }
+
+    public Set getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Set tipo) throws CampoVacioException{
+        if(tipo.isEmpty()){
+            throw new CampoVacioException(nombre);
+        }else{
+            this.tipo = tipo;
+        }
     }
 
 }
