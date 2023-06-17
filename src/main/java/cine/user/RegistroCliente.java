@@ -27,11 +27,15 @@ public class RegistroCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,20 +43,43 @@ public class RegistroCliente extends javax.swing.JFrame {
         Background.setPreferredSize(new java.awt.Dimension(800, 500));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblNombre.setText("Nombre");
+        Background.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
 
-        jLabel2.setText("jLabel2");
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+        lblApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblApellido.setText("Apellido");
+        Background.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
-        jLabel3.setText("jLabel3");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblEmail.setText("Email");
+        Background.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
 
-        jLabel4.setText("jLabel4");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
+        lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblPassword.setText("Password");
+        Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
-        jTextField1.setText("jTextField1");
-        Background.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 310, -1));
+
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 310, -1));
+
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 310, -1));
+
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 310, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel5.setText("Registrarse");
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,8 +92,13 @@ public class RegistroCliente extends javax.swing.JFrame {
             .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(816, 508));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,10 +137,14 @@ public class RegistroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
