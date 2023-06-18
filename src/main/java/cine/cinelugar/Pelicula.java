@@ -29,6 +29,10 @@ public class Pelicula {
         this.tipo = new HashSet();
     }
 
+    public Pelicula() {
+    }
+    
+
     public String getNombre() {
         return nombre;
     }

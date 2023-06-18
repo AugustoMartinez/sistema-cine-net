@@ -31,6 +31,7 @@ ui\RegistroCliente$3.class
 cine\Horario.class
 SistemaCine.class
 cine\Genero.class
+excepciones\SoloNumerosException.class
 ui\RegistroPelicula$4.class
 validacion\Validaciones.class
 cine\cinelugar\Funcion.class

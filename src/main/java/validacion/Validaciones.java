@@ -5,6 +5,7 @@ import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
+import excepciones.SoloNumerosException;
 
 public class Validaciones {
 
@@ -46,5 +47,18 @@ public class Validaciones {
         
     }
     
+    public static void validarCampo(String campo) throws CampoVacioException{
+        if (campo.isEmpty() || campo==null) {
+            throw new CampoVacioException( " ");
+        }
+    }
    
+    public static void validarNumeros(String str) throws SoloNumerosException, CampoVacioException{
+        if (str.isEmpty()) {
+            throw new CampoVacioException("duración");
+        }
+        if(!str.matches("\\d+")){
+            throw new SoloNumerosException("Por favor ingrese solamente dígitos.");
+        }
+    }
 }
