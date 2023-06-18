@@ -126,15 +126,11 @@ public class RegistroCliente extends javax.swing.JFrame {
             cliente.setEmail(txtEmail.getText());
             cliente.setPassword(new String(txtPassword.getPassword()));
             JOptionPane.showMessageDialog(null, cliente.toString()); 
-        }catch (CampoVacioException e){
-            System.out.println(e.getMessage());
-        }catch (EmailException e){
-            System.out.println(e.getMessage());
-        }catch (LetrasException e){
-            System.out.println(e.getMessage());
-        }catch (LongitudPasswordException e){
-            System.out.println(e.getMessage());
+        }catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        
+        
        
                 // TODO add your handling code here:
     }//GEN-LAST:event_jLabel5MouseClicked
