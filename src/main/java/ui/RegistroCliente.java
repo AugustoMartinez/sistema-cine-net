@@ -168,9 +168,9 @@ public class RegistroCliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
             }else{
                 Cine.getListaUsuarios().add(cliente);
-                //persistir
+                Persistencia.actualizarUsuarios();
                 JOptionPane.showMessageDialog(null, "Registro exitoso!");
-            }
+            }//Evaluar excepcion de persistencia
         }catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
