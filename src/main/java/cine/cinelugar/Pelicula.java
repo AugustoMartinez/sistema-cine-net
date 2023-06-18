@@ -2,18 +2,19 @@ package cine.cinelugar;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+
 
 public class Pelicula implements Serializable{
     private String nombre;
     private boolean baja;
     private String genero;
-    private HashSet<String> tipo;
+    private HashMap<String, Boolean> tipo;
     private Integer duracion;
     private String descripcion;
     private String clasificacion;
     private Date fechaEstreno;
+    
 
     public Pelicula(String nombre, String genero, Integer duracion, String descripcion, String clasificacion, Date fechaEstreno) {
         this.nombre = nombre;
@@ -22,11 +23,11 @@ public class Pelicula implements Serializable{
         this.descripcion = descripcion;
         this.clasificacion = clasificacion;
         this.fechaEstreno = fechaEstreno;
-        this.tipo = new HashSet();
+        this.tipo = new HashMap<>();
     }
 
     public Pelicula() {
-        this.tipo = new HashSet();
+        this.tipo = new HashMap<>();
     }
 
     @Override
@@ -35,15 +36,14 @@ public class Pelicula implements Serializable{
                 "\nNombre: " + nombre + 
                 "\nGenero: " + genero + 
                 "\nDuración: " + duracion +
-                "\nTipo: " + tipo + 
+                "\nTipo: " +  tipo +
                 "\nClasificación: " + clasificacion +
                 "\nEstreno: " + fechaEstreno +
                 "\nDescripción: " + descripcion  ;
     }
     
-    
-    public void agregarTipo(String tipo){
-        this.tipo.add(tipo);
+    public void agregarTipo(boolean tipo, String str){
+        this.tipo.put(str, tipo);
     }
 
     public String getNombre() {
@@ -70,13 +70,15 @@ public class Pelicula implements Serializable{
         this.genero = genero;
     }
 
-    public HashSet<String> getTipo() {
+    public HashMap<String, Boolean> getTipo() {
         return tipo;
     }
 
-    public void setTipo(HashSet<String> tipo) {
+    public void setTipo(HashMap<String, Boolean> tipo) {
         this.tipo = tipo;
     }
+
+
 
     public Integer getDuracion() {
         return duracion;

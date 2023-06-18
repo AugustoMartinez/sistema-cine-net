@@ -4,14 +4,13 @@
  */
 package ui;
 
+import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
 import excepciones.CampoVacioException;
-import excepciones.EmailException;
-import excepciones.LetrasException;
-import excepciones.LongitudPasswordException;
 import excepciones.SoloNumerosException;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import persistencia.Persistencia;
 import validacion.Validaciones;
 
 /**
@@ -52,9 +51,11 @@ public class RegistroPelicula extends javax.swing.JFrame {
         txtSinopsis = new javax.swing.JTextArea();
         listGenero = new javax.swing.JComboBox<>();
         listClas = new javax.swing.JComboBox<>();
-        dateFecha = new javax.swing.JFormattedTextField();
         check3d = new javax.swing.JCheckBox();
-        checkAtmos = new javax.swing.JCheckBox();
+        check3dAtmos = new javax.swing.JCheckBox();
+        dateFecha = new com.toedter.calendar.JDateChooser();
+        check2dAtmos = new javax.swing.JCheckBox();
+        check2d = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,13 +112,17 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
         listClas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "PG13", "R", "NC17" }));
 
-        dateFecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
         check3d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check3d.setText("3D");
 
-        checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        checkAtmos.setText("Atmos");
+        check3dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check3dAtmos.setText("3D Atmos");
+
+        check2dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check2dAtmos.setText("2D Atmos");
+
+        check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check2d.setText("2D");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,29 +131,34 @@ public class RegistroPelicula extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkAtmos)
-                    .addComponent(check3d)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
                     .addComponent(listGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(listClas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel6)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(37, 37, 37)
                             .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(dateFecha, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(listClas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(check2d)
+                            .addGap(32, 32, 32)
+                            .addComponent(check2dAtmos)))
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(check3d)
+                        .addGap(32, 32, 32)
+                        .addComponent(check3dAtmos)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,13 +180,17 @@ public class RegistroPelicula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(listClas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(check3d)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(check2dAtmos)
+                    .addComponent(check2d))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkAtmos)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(check3dAtmos)
+                    .addComponent(check3d))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(8, 8, 8)
-                .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,7 +226,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
             Pelicula pelicula = new Pelicula();
             Validaciones.validarCampo(txtNombre.getText());
             Validaciones.validarCampo(txtSinopsis.getText());
-            Validaciones.validarCampo(dateFecha.getText());
+            Validaciones.validarCampo(dateFecha.getDateFormatString());
             Validaciones.validarNumeros(txtDuracion.getText());
             
             pelicula.setNombre(txtNombre.getText());
@@ -220,14 +234,21 @@ public class RegistroPelicula extends javax.swing.JFrame {
             pelicula.setGenero(listGenero.getSelectedItem().toString());
             pelicula.setClasificacion(listClas.getSelectedItem().toString());
             pelicula.setDescripcion(txtSinopsis.getText());
-            pelicula.setFechaEstreno((Date)dateFecha.getValue());
+            pelicula.setFechaEstreno((Date)dateFecha.getDate());
             if(check3d.isSelected()){
-                pelicula.agregarTipo("3d");
+                pelicula.agregarTipo(true,"3D");
             }
-            if(checkAtmos.isSelected()){
-                pelicula.agregarTipo("Atmos");
+            if(check2d.isSelected()){
+                pelicula.agregarTipo(true, "2D");
             }
-            //Pelicula pelicula = new Pelicula(txtNombre.getText(), listGenero.getSelectedItem().toString(), txtDuracion.getText(), Integer.parseInt(txtDuracion.getText()), listClas.getSelectedItem().toString(), dateFecha.getSelectedText());
+            if(check3dAtmos.isSelected()){
+                pelicula.agregarTipo(true, "3D Atmos");
+            }
+            if(check2dAtmos.isSelected()){
+                pelicula.agregarTipo(true, "2D Atmos");
+            }
+            Cine.getListaPeliculas().add(pelicula);
+            Persistencia.actualizarPeliculas();
             
             JOptionPane.showMessageDialog(null, pelicula.toString()); 
         }catch (CampoVacioException | SoloNumerosException e){
@@ -245,8 +266,10 @@ public class RegistroPelicula extends javax.swing.JFrame {
         txtDuracion.setText("");
         txtSinopsis.setText("");
         check3d.setSelected(false);
-        checkAtmos.setSelected(false);
-        dateFecha.setText("");
+        check3dAtmos.setSelected(false);
+        check2d.setSelected(false);
+        check2dAtmos.setSelected(false);
+        dateFecha.setDate(null);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void listGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGeneroActionPerformed
@@ -293,9 +316,11 @@ public class RegistroPelicula extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JCheckBox check2d;
+    private javax.swing.JCheckBox check2dAtmos;
     private javax.swing.JCheckBox check3d;
-    private javax.swing.JCheckBox checkAtmos;
-    private javax.swing.JFormattedTextField dateFecha;
+    private javax.swing.JCheckBox check3dAtmos;
+    private com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -15,6 +15,7 @@ public class Cine {
     public Cine() {
         
     }
+    
 
     public static String getDireccion() {
         return direccion;
