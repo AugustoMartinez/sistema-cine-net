@@ -8,7 +8,7 @@ public class Pelicula {
     private String nombre;
     private boolean baja;
     private String genero;
-    private Set tipo;
+    private HashSet<String> tipo;
     private Integer duracion;
     private String descripcion;
     private String clasificacion;
@@ -25,6 +25,7 @@ public class Pelicula {
     }
 
     public Pelicula() {
+        this.tipo = new HashSet();
     }
 
     @Override
@@ -40,6 +41,9 @@ public class Pelicula {
     }
     
     
+    public void agregarTipo(String tipo){
+        this.tipo.add(tipo);
+    }
 
     public String getNombre() {
         return nombre;
@@ -65,11 +69,11 @@ public class Pelicula {
         this.genero = genero;
     }
 
-    public Set getTipo() {
+    public HashSet<String> getTipo() {
         return tipo;
     }
 
-    public void setTipo(Set tipo) {
+    public void setTipo(HashSet<String> tipo) {
         this.tipo = tipo;
     }
 
