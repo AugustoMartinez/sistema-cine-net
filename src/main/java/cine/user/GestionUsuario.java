@@ -52,7 +52,7 @@ public class GestionUsuario {
     {
         ObjectMapper objectMapper = new ObjectMapper();
         List<Cliente> resultados = new ArrayList<>();
-
+        
         try {
 
             Cliente[] resultadosArray = objectMapper.readValue(new File("src/main/resources/Cliente.json"), Cliente[].class);

@@ -89,6 +89,11 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setText("Registrarse");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
 
         btnRegistrar.setText("Registro");
