@@ -10,7 +10,6 @@ package ui;
  */
 public class RegistroPelicula extends javax.swing.JFrame {
 
-    private String genero;
     /**
      * Creates new form RegistroPelicula
      */
@@ -36,24 +35,14 @@ public class RegistroPelicula extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtDuracion = new javax.swing.JTextField();
-<<<<<<< Updated upstream
-        txtEstreno = new javax.swing.JTextField();
-=======
         jTextField5 = new javax.swing.JTextField();
->>>>>>> Stashed changes
         btnAgregar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-<<<<<<< Updated upstream
-        txtDescripcion = new javax.swing.JTextArea();
-        listGenero = new javax.swing.JComboBox<>();
-        listClas = new javax.swing.JComboBox<>();
-=======
         jTextArea1 = new javax.swing.JTextArea();
         listGenero = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
->>>>>>> Stashed changes
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,15 +86,9 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
         btnVolver.setText("Volver");
 
-<<<<<<< Updated upstream
-        txtDescripcion.setColumns(20);
-        txtDescripcion.setRows(5);
-        jScrollPane1.setViewportView(txtDescripcion);
-=======
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
->>>>>>> Stashed changes
 
         listGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Comedia", "Documental", "Drama", "Horror", "Suspenso" }));
         listGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -114,11 +97,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< Updated upstream
-        listClas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATP", "PM13", "PM16", "PM18" }));
-=======
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "PG13", "R", "NC17", " ", " " }));
->>>>>>> Stashed changes
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,15 +112,9 @@ public class RegistroPelicula extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-<<<<<<< Updated upstream
-                    .addComponent(listClas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> Stashed changes
                     .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -172,19 +145,11 @@ public class RegistroPelicula extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< Updated upstream
-                .addComponent(listClas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEstreno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> Stashed changes
                 .addGap(24, 24, 24)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,7 +193,6 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
     private void listGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGeneroActionPerformed
         // TODO add your handling code here:
-        this.genero=listGenero.getSelectedItem().toString();
     }//GEN-LAST:event_listGeneroActionPerformed
 
     
@@ -271,10 +235,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnVolver;
-<<<<<<< Updated upstream
-=======
     private javax.swing.JComboBox<String> jComboBox2;
->>>>>>> Stashed changes
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -283,18 +244,10 @@ public class RegistroPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-<<<<<<< Updated upstream
-    private javax.swing.JComboBox<String> listClas;
-    private javax.swing.JComboBox<String> listGenero;
-    private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextField txtDuracion;
-    private javax.swing.JTextField txtEstreno;
-=======
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JComboBox<String> listGenero;
     private javax.swing.JTextField txtDuracion;
->>>>>>> Stashed changes
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
