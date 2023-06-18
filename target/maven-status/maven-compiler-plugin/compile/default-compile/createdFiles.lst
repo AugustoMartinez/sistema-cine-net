@@ -6,11 +6,13 @@ cine\Costos.class
 ui\RegistroCliente$4.class
 cine\user\Cliente.class
 ui\RegistroPelicula$1.class
+File\FilePersistence.class
 cine\user\Admin.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
 ui\RegistroPelicula$5.class
 excepciones\CampoVacioException.class
+persistencia\Persistencia.class
 cine\cinelugar\Reserva.class
 ui\RegistroCliente$2.class
 cine\user\Usuario.class
@@ -31,6 +33,7 @@ ui\Login.class
 ui\RegistroCliente$3.class
 cine\Horario.class
 SistemaCine.class
+File\PersistenceCollecion.class
 cine\Genero.class
 excepciones\SoloNumerosException.class
 ui\RegistroPelicula$4.class
