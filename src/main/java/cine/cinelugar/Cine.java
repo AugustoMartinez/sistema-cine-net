@@ -5,73 +5,72 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cine {
-    private String direccion;
-    private List<Sala> listaSalas;
-    private List<Pelicula> listaPeliculas;
-    private String nombre;
-    private List<Funcion> listaFunciones;
-    private List<Usuario> listaUsuarios;
+    private static String direccion="";
+    private static List<Sala> listaSalas= new ArrayList<>();
+    private static List<Pelicula> listaPeliculas= new ArrayList<>();
+    private static String nombre="";
+    private static List<Funcion> listaFunciones= new ArrayList<>();
+    private static List<Usuario> listaUsuarios= new ArrayList<>();
 
-    public Cine(String direccion, String nombre) {
-        this.direccion = direccion;
-        this.listaSalas = new ArrayList<>();
-        this.listaPeliculas = new ArrayList<>();
-        this.nombre = nombre;
-        this.listaFunciones = new ArrayList<>();
-        this.listaUsuarios = new ArrayList<>();
+    public Cine() {
+        
     }
 
-    public String getDireccion() {
+    public static String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public static void setDireccion(String direccion) {
+        Cine.direccion = direccion;
     }
 
-    public List<Sala> getListaSalas() {
+    public static List<Sala> getListaSalas() {
         return listaSalas;
     }
 
-    public void setListaSalas(List<Sala> listaSalas) {
-        this.listaSalas = listaSalas;
+    public static void setListaSalas(List<Sala> listaSalas) {
+        Cine.listaSalas = listaSalas;
     }
 
-    public List<Pelicula> getListaPeliculas() {
+    public static List<Pelicula> getListaPeliculas() {
         return listaPeliculas;
     }
 
-    public void setListaPeliculas(List<Pelicula> listaPeliculas) {
-        this.listaPeliculas = listaPeliculas;
+    public static void setListaPeliculas(List<Pelicula> listaPeliculas) {
+        Cine.listaPeliculas = listaPeliculas;
     }
 
-    public String getNombre() {
+    public static String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public static void setNombre(String nombre) {
+        Cine.nombre = nombre;
     }
 
-    public List<Funcion> getListaFunciones() {
+    public static List<Funcion> getListaFunciones() {
         return listaFunciones;
     }
 
-    public void setListaFunciones(List<Funcion> listaFunciones) {
-        this.listaFunciones = listaFunciones;
+    public static void setListaFunciones(List<Funcion> listaFunciones) {
+        Cine.listaFunciones = listaFunciones;
     }
 
-    public List<Usuario> getListaUsuarios() {
+    public static List<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
 
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public static void setListaUsuarios(List<Usuario> listaUsuarios) {
+        Cine.listaUsuarios = listaUsuarios;
     }
     
-    
-    
-    
-    
+    public static boolean buscarUsuarioPorEmail(String email) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

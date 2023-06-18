@@ -134,7 +134,13 @@ public class RegistroCliente extends javax.swing.JFrame {
             cliente.setApellido(txtApellido.getText());
             cliente.setEmail(txtEmail.getText());
             cliente.setPassword(new String(txtPassword.getPassword()));
-            JOptionPane.showMessageDialog(null, cliente.toString()); 
+            if(Cine.buscarUsuarioPorEmail(cliente.getEmail())==true){
+                JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
+            }else{
+                Cine.getListaUsuarios().add(cliente);
+                //persistir
+                JOptionPane.showMessageDialog(null, "Registro exitoso!");
+            }
         }catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
