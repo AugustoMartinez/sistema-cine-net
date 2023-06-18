@@ -10,8 +10,10 @@ import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import validacion.Validaciones;
+import persistencia.Persistencia;
 
 /**
  *
@@ -138,9 +140,9 @@ public class RegistroCliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
             }else{
                 Cine.getListaUsuarios().add(cliente);
-                //persistir
+                Persistencia.actualizarUsuarios();
                 JOptionPane.showMessageDialog(null, "Registro exitoso!");
-            }
+            }//Evaluar excepcion de persistencia
         }catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -162,7 +164,13 @@ public class RegistroCliente extends javax.swing.JFrame {
             cliente.setApellido(txtApellido.getText());
             cliente.setEmail(txtEmail.getText());
             cliente.setPassword(new String(txtPassword.getPassword()));
-            JOptionPane.showMessageDialog(null, cliente.toString()); 
+            if(Cine.buscarUsuarioPorEmail(cliente.getEmail())==true){
+                JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
+            }else{
+                Cine.getListaUsuarios().add(cliente);
+                //persistir
+                JOptionPane.showMessageDialog(null, "Registro exitoso!");
+            }
         }catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

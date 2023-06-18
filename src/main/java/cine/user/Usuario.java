@@ -4,9 +4,10 @@ import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
+import java.io.Serializable;
 import validacion.Validaciones;
 
-public abstract class Usuario {
+public abstract class Usuario implements Serializable{
 
     private String email;
     private String password;

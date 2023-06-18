@@ -4,6 +4,9 @@
  */
 package ui;
 
+import cine.cinelugar.Cine;
+import persistencia.Persistencia;
+
 /**
  *
  * @author Diego
@@ -127,6 +130,7 @@ this.setVisible(false);
         //</editor-fold>
 
         /* Create and display the form */
+        Persistencia.leerDatos();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             new Login().setVisible(true);

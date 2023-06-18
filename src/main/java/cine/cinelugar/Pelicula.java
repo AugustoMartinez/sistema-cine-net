@@ -1,10 +1,11 @@
 package cine.cinelugar;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Pelicula {
+public class Pelicula implements Serializable{
     private String nombre;
     private boolean baja;
     private String genero;

@@ -1,9 +1,10 @@
 package cine.cinelugar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sala {
+public class Sala implements Serializable{
     private Integer id;
     static private Integer idActual = 1;
     private List listaButacas = new ArrayList<Butaca>();

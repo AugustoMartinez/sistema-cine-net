@@ -1,4 +1,6 @@
 package cine.cinelugar;
 
-public class Funcion {
+import java.io.Serializable;
+
+public class Funcion implements Serializable{
 }
