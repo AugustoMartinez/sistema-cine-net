@@ -45,6 +45,7 @@ public class RegistroCliente extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
+        btnRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,12 +89,15 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setText("Registrarse");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
+
+        btnRegistrar.setText("Registro");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
             }
         });
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
+        Background.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,6 +139,24 @@ public class RegistroCliente extends javax.swing.JFrame {
                 // TODO add your handling code here:
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        try{
+            Cliente cliente=new Cliente();
+            Validaciones.validarNombre(txtNombre.getText());
+            Validaciones.validarApellido(txtApellido.getText());
+            Validaciones.validarEmail(txtEmail.getText());
+            Validaciones.validarPassword(txtPassword.getText());
+            cliente.setNombre(txtNombre.getText());
+            cliente.setApellido(txtApellido.getText());
+            cliente.setEmail(txtEmail.getText());
+            cliente.setPassword(new String(txtPassword.getPassword()));
+            JOptionPane.showMessageDialog(null, cliente.toString()); 
+        }catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +194,7 @@ public class RegistroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblEmail;
