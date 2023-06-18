@@ -10,6 +10,7 @@ import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
 import excepciones.SoloNumerosException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import validacion.Validaciones;
 
@@ -190,17 +191,24 @@ public class RegistroPelicula extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(519, 737));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    // ============== BTN AGREGAR PELÍCULA.
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-        
+
         try{
             Pelicula pelicula = new Pelicula();
             Validaciones.validarCampo(txtNombre.getText());
             Validaciones.validarCampo(txtSinopsis.getText());
             Validaciones.validarCampo(dateFecha.getText());
             Validaciones.validarNumeros(txtDuracion.getText());
-           
+            
+            pelicula.setNombre(txtNombre.getText());
+            pelicula.setDuracion(Integer.parseInt(txtDuracion.getText()));
+            pelicula.setGenero(listGenero.getSelectedItem().toString());
+            pelicula.setClasificacion(listClas.getSelectedItem().toString());
+            pelicula.setDescripcion(txtSinopsis.getText());
+            pelicula.setFechaEstreno((Date)dateFecha.getValue());
+            //Pelicula pelicula = new Pelicula(txtNombre.getText(), listGenero.getSelectedItem().toString(), txtDuracion.getText(), Integer.parseInt(txtDuracion.getText()), listClas.getSelectedItem().toString(), dateFecha.getSelectedText());
+            
             JOptionPane.showMessageDialog(null, pelicula.toString()); 
         }catch (CampoVacioException | SoloNumerosException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -213,6 +221,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void listGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGeneroActionPerformed
