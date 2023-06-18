@@ -4,6 +4,15 @@
  */
 package ui;
 
+import cine.cinelugar.Cine;
+import cine.user.Cliente;
+import excepciones.CampoVacioException;
+import excepciones.EmailException;
+import excepciones.LetrasException;
+import excepciones.LongitudPasswordException;
+import javax.swing.JOptionPane;
+import validacion.Validaciones;
+
 /**
  *
  * @author Diego
@@ -79,6 +88,11 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setText("Registrarse");
         jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,6 +113,31 @@ public class RegistroCliente extends javax.swing.JFrame {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        try{
+            Cliente cliente=new Cliente();
+            Validaciones.validarNombre(txtNombre.getText());
+            Validaciones.validarApellido(txtApellido.getText());
+            Validaciones.validarEmail(txtEmail.getText());
+            Validaciones.validarPassword(txtPassword.getText());
+            cliente.setNombre(txtNombre.getText());
+            cliente.setApellido(txtApellido.getText());
+            cliente.setEmail(txtEmail.getText());
+            cliente.setPassword(new String(txtPassword.getPassword()));
+            JOptionPane.showMessageDialog(null, cliente.toString()); 
+        }catch (CampoVacioException e){
+            System.out.println(e.getMessage());
+        }catch (EmailException e){
+            System.out.println(e.getMessage());
+        }catch (LetrasException e){
+            System.out.println(e.getMessage());
+        }catch (LongitudPasswordException e){
+            System.out.println(e.getMessage());
+        }
+       
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments

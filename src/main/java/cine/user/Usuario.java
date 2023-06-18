@@ -54,12 +54,8 @@ public abstract class Usuario {
     }
 
     public void setNombre(String nombre) throws LetrasException, CampoVacioException {
-        try {
-            Validaciones.validarNombre(nombre);
-            this.nombre = nombre;
-        } catch (LetrasException | CampoVacioException e) {
-            System.out.println(e.getMessage());
-        }
+        
+        this.nombre=nombre;
     }
 
     public String getApellido() {
@@ -80,8 +76,8 @@ public abstract class Usuario {
     @Override
     public String toString() {
         return "Informacion del usuario: { \n"
-                + "Nombre y apellido: '" + nombre + apellido + "\n"
+                + "Nombre y apellido: '" + nombre +" "+ apellido + "\n"
                 + "Contraseña: " + password + "\n"
-                + "Email: '" + nombre + '\n' + '}';
+                + "Email: '" + email + '\n' + '}';
     }
 }

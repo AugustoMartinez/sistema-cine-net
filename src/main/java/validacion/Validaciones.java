@@ -10,9 +10,9 @@ public class Validaciones {
 
     public static void validarNombre(String nombre) throws CampoVacioException, LetrasException {
         if (!nombre.matches("[a-zA-Z]+")) {
-            throw new LetrasException("El campo debe contener solo letras");
+            throw new LetrasException("En el nombre solo se permiten letras");
         }
-        if (nombre.isEmpty()) {
+        if (nombre.isEmpty() || nombre==null) {
             throw new CampoVacioException("nombre");
         }
     }

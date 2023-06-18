@@ -22,6 +22,7 @@ cine\cinelugar\Pelicula.class
 cine\user\Sesion.class
 ui\Login$1.class
 ui\Login.class
+ui\RegistroCliente$3.class
 cine\Horario.class
 SistemaCine.class
 cine\Genero.class

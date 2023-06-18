@@ -1,6 +1,5 @@
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Reserva.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Cliente.java
-C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Login.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\validacion\Validaciones.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Genero.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Usuario.java
@@ -9,14 +8,15 @@ C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\excepciones\EmailException
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\Duenio.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Cine.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Pelicula.java
+C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\ui\RegistroCliente.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\excepciones\CampoVacioException.java
+C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\ui\Login.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\excepciones\LongitudPasswordException.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Sala.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Horario.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Clasificacion.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\cinelugar\Funcion.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Imprimible.java
-C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\user\RegistroCliente.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\cine\Costos.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\SistemaCine.java
 C:\Users\Diego\Desktop\sistema-cine-net\src\main\java\excepciones\LetrasException.java
