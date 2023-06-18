@@ -3,6 +3,7 @@ cine\user\GestionUsuario.class
 ui\Login$2.class
 ui\RegistroPelicula.class
 cine\Costos.class
+ui\RegistroCliente$4.class
 cine\user\Cliente.class
 ui\RegistroPelicula$1.class
 cine\user\Admin.class
