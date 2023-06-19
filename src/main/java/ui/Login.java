@@ -5,7 +5,7 @@
 package ui;
 
 import cine.cinelugar.Cine;
-import cine.user.Cliente;
+import cine.user.*;
 import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
@@ -123,19 +123,27 @@ public class Login extends javax.swing.JFrame {
 
     private void lblLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMousePressed
         // TODO add your handling code here:
-        /*try {
+        try {
             Validaciones.validarEmail(txtEmail.getText());
             Validaciones.validarPassword(txtPassword.getText());
-            if (Cine.buscarUsuarioPorEmail(cliente.getEmail()) == true) {
-                JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
+            if (Cine.validarLoginYCargarSesion(txtEmail.getText(), txtPassword.getText()) == true) {
+                Sesion.setEmailLogeado(txtEmail.getText());
+                if (Sesion.getTipo().equals("Cliente")) {
+                    this.dispose();
+                    new MenuCliente().setVisible(true);
+                } else if (Sesion.getTipo().equals("Gerente")) {
+                    this.dispose();
+                    new MenuGerente().setVisible(true);
+                } else if (Sesion.getTipo().equals("Admin")) {
+                    this.dispose();
+                    new MenuAdmin().setVisible(true);
+                }
             } else {
-                Cine.getListaUsuarios().add(cliente);
-                Persistencia.actualizarUsuarios();
-                JOptionPane.showMessageDialog(null, "Registro exitoso!");
-            }//Evaluar excepcion de persistencia
-        } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
+                JOptionPane.showMessageDialog(null, "Email o contraseña incorrecta!");
+            }
+        } catch (CampoVacioException | EmailException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }*/
+        }
     }//GEN-LAST:event_lblLoginMousePressed
 
     /**
