@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ui;
+import cine.cinelugar.Cine;
+import cine.cinelugar.Pelicula;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +20,8 @@ public class GestionPelicula extends javax.swing.JFrame {
      */
     public GestionPelicula() {
         initComponents();
+        actualizarListPeliculas();
+        
     }
 
     /**
@@ -27,49 +34,151 @@ public class GestionPelicula extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JLabel();
+        btnAgregarPelicula = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        listPeliculas = new javax.swing.JComboBox<>();
+        btnModificarPelicula = new javax.swing.JLabel();
+        btnBajaPelicula = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(204, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(600, 420));
-        setMinimumSize(new java.awt.Dimension(600, 420));
+        setMaximumSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 450));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 420));
+        setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 450));
         jPanel1.setName(""); // NOI18N
+
+        btnVolver.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnVolverMousePressed(evt);
+            }
+        });
+
+        btnAgregarPelicula.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        btnAgregarPelicula.setText("Agregar película");
+        btnAgregarPelicula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregarPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarPeliculaMousePressed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel1.setText("Modificar cartelera");
+
+        listPeliculas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+
+        btnModificarPelicula.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        btnModificarPelicula.setText("Modificar");
+        btnModificarPelicula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnModificarPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnModificarPeliculaMousePressed(evt);
+            }
+        });
+
+        btnBajaPelicula.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        btnBajaPelicula.setText("Dar baja");
+        btnBajaPelicula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBajaPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBajaPeliculaMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVolver)
+                    .addComponent(btnAgregarPelicula)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnModificarPelicula)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBajaPelicula)))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVolver)
+                .addGap(34, 34, 34)
+                .addComponent(btnAgregarPelicula)
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarPelicula)
+                    .addComponent(btnBajaPelicula))
+                .addGap(235, 235, 235))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnVolverMousePressed
+
+    private void btnAgregarPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaMousePressed
+        RegistroPelicula reg = new RegistroPelicula();
+        reg.setVisible(true);
+        reg.setLocationRelativeTo(this);
+    }//GEN-LAST:event_btnAgregarPeliculaMousePressed
+
+    private void btnModificarPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarPeliculaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarPeliculaMousePressed
+
+    private void btnBajaPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMousePressed
+        if(listPeliculas.getSelectedItem()!=null){
+           for(Pelicula e: Cine.getListaPeliculas()){
+               if(e.getNombre().equals(listPeliculas.getSelectedItem())){
+                   e.setBaja(true);
+               }
+           }
+        }
+        actualizarListPeliculas();
+    }//GEN-LAST:event_btnBajaPeliculaMousePressed
+
+    private void actualizarListPeliculas(){
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        listPeliculas.setModel(model);
+        for(Pelicula e: Cine.getListaPeliculas()){
+            model.addElement(e.getNombre());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -106,6 +215,12 @@ public class GestionPelicula extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnAgregarPelicula;
+    private javax.swing.JLabel btnBajaPelicula;
+    private javax.swing.JLabel btnModificarPelicula;
+    private javax.swing.JLabel btnVolver;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> listPeliculas;
     // End of variables declaration//GEN-END:variables
 }

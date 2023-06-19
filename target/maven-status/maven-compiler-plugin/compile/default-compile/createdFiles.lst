@@ -4,17 +4,23 @@ cine\Costos.class
 cine\user\Cliente.class
 ui\MenuAdmin$2.class
 ui\MenuGerente.class
+cine\user\Gerente.class
 ui\RegistroPelicula$1.class
+ui\SalaCine.class
 ui\MenuGerente$1.class
 ui\RegistroPelicula$5.class
 excepciones\CampoVacioException.class
 cine\cinelugar\Reserva.class
 ui\RegistroCliente$2.class
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 cine\user\Duenio.class
 >>>>>>> 9a54df7dff290d08f1b8c0df865c676e9956a036
+=======
+>>>>>>> Stashed changes
 ui\MenuAdmin$1.class
+ui\SalaCine$1.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
 cine\cinelugar\Butaca.class
@@ -22,6 +28,7 @@ cine\Clasificacion.class
 cine\user\Sesion.class
 cine\Horario.class
 cine\Genero.class
+ui\GestionPelicula$3.class
 ui\RegistroPelicula$4.class
 ui\MenuCliente$1.class
 validacion\Validaciones.class
@@ -33,19 +40,23 @@ ui\GestionPelicula.class
 ui\RegistroPelicula.class
 ui\RegistroCliente$4.class
 ui\GestionPelicula$1.class
+ui\SalaCine$ButtonController.class
 persistencia\FilePersistence.class
 cine\user\Admin.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
 ui\RegistroPelicula$6.class
 persistencia\Persistencia.class
+ui\GestionPelicula$4.class
 cine\user\Usuario.class
 cine\cinelugar\Cine.class
 ui\Login$3.class
 ui\RegistroPelicula$3.class
 cine\Imprimible.class
 ui\RegistroPelicula$2.class
+ui\GestionPelicula$5.class
 cine\cinelugar\Pelicula.class
+ui\GestionPelicula$2.class
 ui\Login$1.class
 ui\MenuAdmin$3.class
 ui\Login.class
