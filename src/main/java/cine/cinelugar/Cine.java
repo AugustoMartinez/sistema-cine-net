@@ -1,6 +1,6 @@
 package cine.cinelugar;
 
-import cine.user.*;
+import cine.user.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,16 +74,9 @@ public class Cine {
         return false;
     }
     
-    public static boolean validarLoginYCargarSesion(String email, String contraseña) {
+    public static boolean validarLogin(String email, String contraseña) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email)&& usuario.getPassword().equals(contraseña)) {
-                if(usuario instanceof Cliente){
-                    Sesion.setTipo("Cliente");
-                }else if(usuario instanceof Gerente){
-                    Sesion.setTipo("Gerente");
-                }else if(usuario instanceof Admin){
-                    Sesion.setTipo("Admin");
-                }
                 return true;
             }
         }
