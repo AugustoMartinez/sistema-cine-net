@@ -1,4 +1,5 @@
 excepciones\LetrasException.class
+ui\MenuCliente.class
 cine\user\GestionUsuario.class
 ui\Login$2.class
 ui\RegistroPelicula.class
@@ -15,6 +16,7 @@ excepciones\CampoVacioException.class
 persistencia\Persistencia.class
 cine\cinelugar\Reserva.class
 ui\RegistroCliente$2.class
+ui\RegistroCliente$5.class
 cine\user\Usuario.class
 cine\cinelugar\Cine.class
 ui\Login$3.class
@@ -37,6 +39,7 @@ persistencia\PersistenceCollecion.class
 cine\Genero.class
 excepciones\SoloNumerosException.class
 ui\RegistroPelicula$4.class
+ui\MenuCliente$1.class
 validacion\Validaciones.class
 cine\cinelugar\Funcion.class
 ui\RegistroCliente$1.class

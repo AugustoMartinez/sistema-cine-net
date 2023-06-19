@@ -66,7 +66,7 @@ public class Login extends javax.swing.JFrame {
         lblLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
-        lblRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblRegistrarse.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
         lblRegistrarse.setText("Registrarse");
         lblRegistrarse.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {

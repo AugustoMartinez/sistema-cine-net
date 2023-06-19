@@ -74,4 +74,13 @@ public class Cine {
         return false;
     }
     
+    public static boolean validarLogin(String email, String contraseña) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getEmail().equals(email)&& usuario.equals(contraseña)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }
