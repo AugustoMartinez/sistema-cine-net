@@ -8,6 +8,12 @@ public class Gerente extends Usuario{
         isAdmin = true;
     }
 
+    public Gerente() {
+        this.isAdmin = isAdmin;
+    }
+
+    
+    
     void setAdmin(boolean estado){
         isAdmin = estado;
     }

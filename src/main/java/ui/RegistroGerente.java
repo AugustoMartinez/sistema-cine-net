@@ -6,26 +6,27 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.user.Cliente;
+import cine.user.Gerente;
 import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
-import java.io.IOException;
 import javax.swing.JOptionPane;
-import validacion.Validaciones;
 import persistencia.Persistencia;
+import validacion.Validaciones;
 
 /**
  *
- * @author Diego
+ * @author Hoid
  */
-public class RegistroCliente extends javax.swing.JFrame {
+public class RegistroGerente extends javax.swing.JFrame {
 
     /**
-     * Creates new form RegistroCliente
+     * Creates new form RegistroGerente
      */
-    public RegistroCliente() {
+    public RegistroGerente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -50,7 +51,7 @@ public class RegistroCliente extends javax.swing.JFrame {
         lblVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setUndecorated(true);
 
         Background.setMaximumSize(new java.awt.Dimension(800, 500));
         Background.setMinimumSize(new java.awt.Dimension(800, 500));
@@ -123,13 +124,10 @@ public class RegistroCliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(816, 508));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
@@ -140,26 +138,22 @@ public class RegistroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRegistrarseMouseClicked
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblVolverMouseClicked
-
     private void lblRegistrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMousePressed
         // TODO add your handling code here:
         try {
-            Cliente cliente = new Cliente();
+            Gerente gerente = new Gerente();
             Validaciones.validarNombre(txtNombre.getText());
             Validaciones.validarApellido(txtApellido.getText());
             Validaciones.validarEmail(txtEmail.getText());
             Validaciones.validarPassword(txtPassword.getText());
-            cliente.setNombre(txtNombre.getText());
-            cliente.setApellido(txtApellido.getText());
-            cliente.setEmail(txtEmail.getText());
-            cliente.setPassword(new String(txtPassword.getPassword()));
-            if (Cine.buscarUsuarioPorEmail(cliente.getEmail()) == true) {
+            gerente.setNombre(txtNombre.getText());
+            gerente.setApellido(txtApellido.getText());
+            gerente.setEmail(txtEmail.getText());
+            gerente.setPassword(new String(txtPassword.getPassword()));
+            if (Cine.buscarUsuarioPorEmail(gerente.getEmail()) == true) {
                 JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
             } else {
-                Cine.getListaUsuarios().add(cliente);
+                Cine.getListaUsuarios().add(gerente);
                 Persistencia.actualizarUsuarios();
                 JOptionPane.showMessageDialog(null, "Registro exitoso!");
                 new Login().setVisible(true);
@@ -170,9 +164,33 @@ public class RegistroCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblRegistrarseMousePressed
 
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+        // TODO add your handling code here:
+        try {
+            Gerente gerente = new Gerente();
+            Validaciones.validarNombre(txtNombre.getText());
+            Validaciones.validarApellido(txtApellido.getText());
+            Validaciones.validarEmail(txtEmail.getText());
+            Validaciones.validarPassword(txtPassword.getText());
+            gerente.setNombre(txtNombre.getText());
+            gerente.setApellido(txtApellido.getText());
+            gerente.setEmail(txtEmail.getText());
+            gerente.setPassword(new String(txtPassword.getPassword()));
+            if (Cine.buscarUsuarioPorEmail(gerente.getEmail()) == true) {
+                JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
+            } else {
+                Cine.getListaUsuarios().add(gerente);
+                Persistencia.actualizarUsuarios();
+                JOptionPane.showMessageDialog(null, "Registro exitoso!");
+                this.dispose();
+            }//Evaluar excepcion de persistencia
+        } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_lblVolverMouseClicked
+
     private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
         // TODO add your handling code here:
-        new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMousePressed
 
@@ -193,20 +211,20 @@ public class RegistroCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistroCliente().setVisible(true);
+                new RegistroGerente().setVisible(true);
             }
         });
     }

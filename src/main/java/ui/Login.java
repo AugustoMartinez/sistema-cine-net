@@ -155,6 +155,7 @@ public class Login extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -175,12 +176,18 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         Persistencia.leerDatos();
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
 
             }
         });
+        Admin admin = new Admin("rtoresani@gmail.com", "12345678", "Rafael", "Toresani");
+        Cine.getListaUsuarios().add(admin);
+        Persistencia.actualizarUsuarios();
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

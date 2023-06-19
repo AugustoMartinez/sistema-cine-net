@@ -24,10 +24,12 @@ public class Pelicula implements Serializable{
         this.clasificacion = clasificacion;
         this.fechaEstreno = fechaEstreno;
         this.tipo = new HashMap<>();
+        this.baja=false;
     }
 
     public Pelicula() {
         this.tipo = new HashMap<>();
+        this.baja=false;
     }
 
     @Override
