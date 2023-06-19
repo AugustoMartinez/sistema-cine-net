@@ -239,7 +239,21 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarGerenteMousePressed
 
     private void btnModificarGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarGerenteMousePressed
-        // TODO add your handling code here:
+        String nombre;
+        for(int i=0; i<Cine.getListaUsuarios().size(); i++){
+            if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
+                nombre= Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
+                if (nombre.equals(listGerentes.getSelectedItem())) {
+                    ModificarGerente mod = new ModificarGerente(((Gerente) Cine.getListaUsuarios().get(i)));
+                    mod.setVisible(true);
+                    mod.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+            }
+        }
+        
+        
+        
     }//GEN-LAST:event_btnModificarGerenteMousePressed
 
     private void btnBajaGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaGerenteMousePressed
