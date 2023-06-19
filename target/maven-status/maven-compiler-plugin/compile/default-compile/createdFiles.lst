@@ -5,14 +5,15 @@ cine\user\Cliente.class
 ui\MenuAdmin$2.class
 ui\MenuGerente.class
 ui\RegistroPelicula$1.class
+ui\SalaCine.class
 ui\MenuGerente$1.class
 ui\RegistroPelicula$5.class
 excepciones\CampoVacioException.class
 cine\cinelugar\Reserva.class
 ui\RegistroCliente$2.class
-ui\RegistroCliente$5.class
 cine\user\Duenio.class
 ui\MenuAdmin$1.class
+ui\SalaCine$1.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
 cine\cinelugar\Butaca.class
@@ -31,6 +32,7 @@ ui\GestionPelicula.class
 ui\RegistroPelicula.class
 ui\RegistroCliente$4.class
 ui\GestionPelicula$1.class
+ui\SalaCine$ButtonController.class
 persistencia\FilePersistence.class
 cine\user\Admin.class
 cine\cinelugar\Sala.class
@@ -50,5 +52,6 @@ ui\Login.class
 ui\RegistroCliente$3.class
 SistemaCine.class
 persistencia\PersistenceCollecion.class
+ui\Login$4.class
 excepciones\SoloNumerosException.class
 cine\cinelugar\Funcion.class
