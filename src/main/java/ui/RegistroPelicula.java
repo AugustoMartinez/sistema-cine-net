@@ -6,6 +6,7 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
+import cine.user.Sesion;
 import excepciones.CampoVacioException;
 import excepciones.PeliculaRegistradaException;
 import excepciones.SoloNumerosException;
@@ -209,9 +210,15 @@ public class RegistroPelicula extends javax.swing.JFrame {
     }//GEN-LAST:event_listGeneroActionPerformed
 
     private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
-        this.dispose();
-        MenuAdmin admin = new MenuAdmin();
-        admin.setVisible(true);
+        if (Sesion.getTipo().equals("Admin")) {
+            this.dispose();
+            MenuAdmin admin = new MenuAdmin();
+            admin.setVisible(true);
+        } else if (Sesion.getTipo().equals("Gerente")) {
+            this.dispose();
+            MenuGerente gerente = new MenuGerente();
+            gerente.setVisible(true);
+        }
     }//GEN-LAST:event_btnVolverMousePressed
 
     private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked

@@ -6,6 +6,7 @@ cine\user\Cliente.class
 ui\MenuAdmin$2.class
 ui\MenuGerente.class
 cine\user\Gerente.class
+ui\MenuGerente$5.class
 ui\RegistroPelicula$1.class
 ui\SalaCine.class
 ui\MenuGerente$1.class
@@ -35,6 +36,7 @@ cine\Genero.class
 ui\RegistroPelicula$4.class
 ui\MenuAdmin$5.class
 ui\RegistroPelicula$7.class
+ui\MenuGerente$3.class
 ui\MenuCliente$1.class
 validacion\Validaciones.class
 ui\ModificarGerente$3.class
@@ -63,8 +65,10 @@ cine\cinelugar\Cine.class
 ui\Login$3.class
 ui\RegistroPelicula$3.class
 cine\Imprimible.class
+ui\MenuGerente$4.class
 ui\RegistroPelicula$2.class
 ui\RegistroGerente$1.class
+ui\MenuGerente$2.class
 cine\cinelugar\Pelicula.class
 ui\Login$1.class
 ui\MenuAdmin$3.class

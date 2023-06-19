@@ -15,6 +15,7 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 import validacion.Validaciones;
+import cine.user.Sesion;
 
 /**
  *
@@ -28,7 +29,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
     private Pelicula pelicula;
     
     public ModificarPelicula(Pelicula pelicula) {
-        this.pelicula=pelicula;
+        this.pelicula = pelicula;
         initComponents();
         cargarDatos();
     }
@@ -194,9 +195,17 @@ public class ModificarPelicula extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
-        this.dispose();
-        MenuAdmin admin = new MenuAdmin();
-        admin.setVisible(true);
+        if (Sesion.getTipo().equals("Admin")) {
+            this.dispose();
+            MenuAdmin admin = new MenuAdmin();
+            admin.setVisible(true);
+        } else if (Sesion.getTipo().equals("Gerente")) {
+            this.dispose();
+            MenuGerente gerente = new MenuGerente();
+            gerente.setVisible(true);
+        }
+        
+
     }//GEN-LAST:event_btnVolverMousePressed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -212,42 +221,42 @@ public class ModificarPelicula extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarMouseClicked
 
     private void btnModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMousePressed
-        try{
-            String nombreViejo= pelicula.getNombre();
-            Boolean flag=false;
+        try {
+            String nombreViejo = pelicula.getNombre();
+            Boolean flag = false;
             Validaciones.validarCampo(txtNombre.getText());
             Validaciones.validarCampo(txtSinopsis.getText());
             Validaciones.validarCampo(dateFecha.getDateFormatString());
             Validaciones.validarNumeros(txtDuracion.getText());
-
+            
             this.pelicula.setNombre(txtNombre.getText());
             this.pelicula.setDuracion(Integer.parseInt(txtDuracion.getText()));
             this.pelicula.setGenero(listGenero.getSelectedItem().toString());
             this.pelicula.setClasificacion(listClas.getSelectedItem().toString());
             this.pelicula.setDescripcion(txtSinopsis.getText());
-            this.pelicula.setFechaEstreno((Date)dateFecha.getDate());
-            if(check3d.isSelected()){
-                pelicula.agregarTipo(true,"3D");
+            this.pelicula.setFechaEstreno((Date) dateFecha.getDate());
+            if (check3d.isSelected()) {
+                pelicula.agregarTipo(true, "3D");
             }
-            if(check2d.isSelected()){
+            if (check2d.isSelected()) {
                 pelicula.agregarTipo(true, "2D");
             }
-            if(check3dAtmos.isSelected()){
+            if (check3dAtmos.isSelected()) {
                 pelicula.agregarTipo(true, "3D Atmos");
             }
-            if(check2dAtmos.isSelected()){
+            if (check2dAtmos.isSelected()) {
                 pelicula.agregarTipo(true, "2D Atmos");
             }
-            for(int i = 0; i<Cine.getListaPeliculas().size() && flag==false; i++){
-                if(Cine.getListaPeliculas().get(i).getNombre().equals(nombreViejo)){
+            for (int i = 0; i < Cine.getListaPeliculas().size() && flag == false; i++) {
+                if (Cine.getListaPeliculas().get(i).getNombre().equals(nombreViejo)) {
                     Cine.getListaPeliculas().add(i, pelicula);
-                    flag=true;
+                    flag = true;
                 }
             }
             Persistencia.actualizarPeliculas();
-
-            JOptionPane.showMessageDialog(null,"Pelicula agregada exitosamente!\n"+ pelicula.toString());
-        }catch (CampoVacioException | SoloNumerosException e){
+            
+            JOptionPane.showMessageDialog(null, "Pelicula agregada exitosamente!\n" + pelicula.toString());
+        } catch (CampoVacioException | SoloNumerosException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnModificarMousePressed
@@ -277,8 +286,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
         check2dAtmos.setSelected(!check3dAtmos.isSelected());
     }//GEN-LAST:event_check3dAtmosMousePressed
-
-    private void cargarDatos(){
+    
+    private void cargarDatos() {
         //===========================
         txtDuracion.setText(String.valueOf(pelicula.getDuracion()));
         txtNombre.setText(pelicula.getNombre());
@@ -286,32 +295,30 @@ public class ModificarPelicula extends javax.swing.JFrame {
         listGenero.setSelectedItem(pelicula.getGenero());
         listClas.setSelectedItem(pelicula.getClasificacion());
         
-        if(pelicula.getFechaEstreno() != null){
+        if (pelicula.getFechaEstreno() != null) {
             dateFecha.setDate(pelicula.getFechaEstreno());
         }
         
-        
-
         for (Map.Entry<String, Boolean> entry : pelicula.getTipo().entrySet()) {
             String key = entry.getKey();
             Boolean value = entry.getValue();
-            if(key.equals("2D")){
-                if(value){
+            if (key.equals("2D")) {
+                if (value) {
                     check2d.setSelected(true);
                 }
             }
-            if(key.equals("3D")){
-                if(value){
+            if (key.equals("3D")) {
+                if (value) {
                     check3d.setSelected(true);
                 }
             }
-            if(key.equals("2D ATMOS")){
-                if(value){
+            if (key.equals("2D ATMOS")) {
+                if (value) {
                     check2dAtmos.setSelected(true);
                 }
             }
-            if(key.equals("3D ATMOS")){
-                if(value){
+            if (key.equals("3D ATMOS")) {
+                if (value) {
                     check3dAtmos.setSelected(true);
                 }
             }
