@@ -1,10 +1,13 @@
 
 package validacion;
 
+import cine.cinelugar.Cine;
+import cine.cinelugar.Pelicula;
 import excepciones.CampoVacioException;
 import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
+import excepciones.PeliculaRegistradaException;
 import excepciones.SoloNumerosException;
 
 public class Validaciones {
@@ -49,7 +52,7 @@ public class Validaciones {
     
     public static void validarCampo(String campo) throws CampoVacioException{
         if (campo.isEmpty() || campo==null) {
-            throw new CampoVacioException( " ");
+            throw new CampoVacioException( campo + " no puede estar vacio");
         }
     }
    
@@ -59,6 +62,14 @@ public class Validaciones {
         }
         if(!str.matches("\\d+")){
             throw new SoloNumerosException("Por favor ingrese solamente dígitos.");
+        }
+    }
+    
+    public static void validarPelicula(String str) throws PeliculaRegistradaException{
+        for(Pelicula e: Cine.getListaPeliculas()){
+            if(e.getNombre().equalsIgnoreCase(str)){
+                throw new PeliculaRegistradaException("El nombre ingresado ya existe.");
+            }
         }
     }
 }

@@ -50,7 +50,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         lblVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
 
         Background.setMaximumSize(new java.awt.Dimension(800, 500));
         Background.setMinimumSize(new java.awt.Dimension(800, 500));

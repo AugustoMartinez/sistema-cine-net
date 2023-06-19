@@ -156,7 +156,8 @@ public class RegistroGerente extends javax.swing.JFrame {
                 Cine.getListaUsuarios().add(gerente);
                 Persistencia.actualizarUsuarios();
                 JOptionPane.showMessageDialog(null, "Registro exitoso!");
-                new Login().setVisible(true);
+                MenuAdmin adm = new MenuAdmin();
+                adm.setVisible(true);
                 this.dispose();
             }//Evaluar excepcion de persistencia
         } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
@@ -191,6 +192,8 @@ public class RegistroGerente extends javax.swing.JFrame {
 
     private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
         // TODO add your handling code here:
+        MenuAdmin admin = new MenuAdmin();
+        admin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMousePressed
 

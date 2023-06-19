@@ -27,9 +27,11 @@ C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Sal
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\LetrasException.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\user\Gerente.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\Imprimible.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\PeliculaRegistradaException.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Cine.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\cine\cinelugar\Reserva.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\persistencia\Persistencia.java
+C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\ui\ModificarPelicula.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\CampoVacioException.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\ui\Login.java
 C:\Users\Hoid\Documents\GitHub\sistema-cine-net\src\main\java\excepciones\SoloNumerosException.java

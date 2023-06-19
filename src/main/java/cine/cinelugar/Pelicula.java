@@ -23,12 +23,12 @@ public class Pelicula implements Serializable{
         this.descripcion = descripcion;
         this.clasificacion = clasificacion;
         this.fechaEstreno = fechaEstreno;
-        this.tipo = new HashMap<>();
+        this.setearTipos();
         this.baja=false;
     }
 
     public Pelicula() {
-        this.tipo = new HashMap<>();
+        this.setearTipos();
         this.baja=false;
     }
 
@@ -48,6 +48,14 @@ public class Pelicula implements Serializable{
         this.tipo.put(str, tipo);
     }
 
+    private void setearTipos(){
+        this.tipo = new HashMap<>();
+        this.tipo.put("2D", false);
+        this.tipo.put("2D ATMOS", false);
+        this.tipo.put("3D", false);
+        this.tipo.put("3D ATMOS", false);
+    }
+    
     public String getNombre() {
         return nombre;
     }

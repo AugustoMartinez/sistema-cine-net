@@ -7,8 +7,11 @@ package ui;
 import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
 import excepciones.CampoVacioException;
+import excepciones.PeliculaRegistradaException;
 import excepciones.SoloNumerosException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 import validacion.Validaciones;
@@ -117,10 +120,20 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
         check3d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check3d.setText("3D");
+        check3d.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                check3dMousePressed(evt);
+            }
+        });
         jPanel1.add(check3d, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
 
         check3dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check3dAtmos.setText("3D Atmos");
+        check3dAtmos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                check3dAtmosMousePressed(evt);
+            }
+        });
         jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 155, 29));
 
@@ -168,13 +181,11 @@ public class RegistroPelicula extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
-                .addContainerGap(32, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(656, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,6 +225,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
             Validaciones.validarCampo(txtSinopsis.getText());
             Validaciones.validarCampo(dateFecha.getDateFormatString());
             Validaciones.validarNumeros(txtDuracion.getText());
+            Validaciones.validarPelicula(txtNombre.getText());
             
             pelicula.setNombre(txtNombre.getText());
             pelicula.setDuracion(Integer.parseInt(txtDuracion.getText()));
@@ -237,7 +249,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
             Persistencia.actualizarPeliculas();
             
             JOptionPane.showMessageDialog(null,"Pelicula agregada exitosamente!\n"+ pelicula.toString()); 
-        }catch (CampoVacioException | SoloNumerosException e){
+        }catch (CampoVacioException | SoloNumerosException | PeliculaRegistradaException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnAgregarMousePressed
@@ -257,6 +269,16 @@ public class RegistroPelicula extends javax.swing.JFrame {
         check2dAtmos.setSelected(false);
         dateFecha.setDate(null);
     }//GEN-LAST:event_btnLimpiarMousePressed
+
+    private void check3dMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check3dMousePressed
+        // TODO add your handling code here:
+        check2d.setSelected(!check3d.isSelected());
+    }//GEN-LAST:event_check3dMousePressed
+
+    private void check3dAtmosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check3dAtmosMousePressed
+        // TODO add your handling code here:
+        check2dAtmos.setSelected(!check3dAtmos.isSelected());
+    }//GEN-LAST:event_check3dAtmosMousePressed
 
     
     /**

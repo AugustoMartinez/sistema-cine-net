@@ -9,6 +9,7 @@ import cine.cinelugar.Pelicula;
 import cine.user.Gerente;
 import cine.user.Usuario;
 import javax.swing.DefaultComboBoxModel;
+import persistencia.Persistencia;
 
 /**
  *
@@ -194,6 +195,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMousePressed
+        Persistencia.actualizarPeliculas();
+        Persistencia.actualizarUsuarios();
         this.dispose();
     }//GEN-LAST:event_btnCerrarSesionMousePressed
 
@@ -201,10 +204,20 @@ public class MenuAdmin extends javax.swing.JFrame {
         RegistroPelicula reg = new RegistroPelicula();
         reg.setVisible(true);
         reg.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarPelicula1MousePressed
 
     private void btnModificarPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarPeliculaMousePressed
-        // TODO add your handling code here:
+
+        for (Pelicula e : Cine.getListaPeliculas()) {
+            if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
+                this.dispose();
+                ModificarPelicula mod = new ModificarPelicula(e);
+                mod.setVisible(true);
+                mod.setLocationRelativeTo(null);
+            }
+        }
+        //btnModificarPelicula mod = new ModificarPelicula()
     }//GEN-LAST:event_btnModificarPeliculaMousePressed
 
     private void btnBajaPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMousePressed
@@ -222,6 +235,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         RegistroGerente reg = new RegistroGerente();
         reg.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarGerenteMousePressed
 
     private void btnModificarGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarGerenteMousePressed
@@ -229,30 +243,43 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarGerenteMousePressed
 
     private void btnBajaGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaGerenteMousePressed
-        // TODO add your handling code here:
+
+        String nombre;      
+        // FUNCIÓN FEA
+        for(int i=0; i<Cine.getListaUsuarios().size(); i++){
+            if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
+                nombre= Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
+                if (nombre.equals(listGerentes.getSelectedItem())) {
+                    System.out.println("HOLA");
+                    ((Gerente) Cine.getListaUsuarios().get(i)).setAdmin(false);
+                }
+            }
+        }
+        actualizarGerentes();
     }//GEN-LAST:event_btnBajaGerenteMousePressed
-   
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
         for (Pelicula e : Cine.getListaPeliculas()) {
-            if(!e.isBaja()){
+            if (!e.isBaja()) {
                 model.addElement(e.getNombre());
             }
-            
         }
     }
 
-    private void actualizarGerentes(){
+    private void actualizarGerentes() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listGerentes.setModel(model);
         for (Usuario e : Cine.getListaUsuarios()) {
-            if(e instanceof Gerente){
-                model.addElement(e.getNombre() + " " + e.getApellido());
+            if (e instanceof Gerente) {
+                if (((Gerente) e).getIsAdmin()==true) {
+                    model.addElement(e.getNombre() + " " + e.getApellido());
+                }
             }
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */

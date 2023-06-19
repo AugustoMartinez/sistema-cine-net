@@ -9,14 +9,19 @@ public class Gerente extends Usuario{
     }
 
     public Gerente() {
-        this.isAdmin = isAdmin;
+        this.isAdmin = true;
     }
 
     
     
-    void setAdmin(boolean estado){
+    public void setAdmin(boolean estado){
         isAdmin = estado;
     }
+
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
 
     //ABM Peliculas
 
