@@ -1,4 +1,5 @@
 excepciones\LetrasException.class
+ui\MenuAdmin.class
 ui\MenuCliente.class
 cine\user\GestionUsuario.class
 ui\Login$2.class
@@ -6,9 +7,11 @@ ui\RegistroPelicula.class
 cine\Costos.class
 ui\RegistroCliente$4.class
 cine\user\Cliente.class
+ui\MenuGerente.class
 ui\RegistroPelicula$1.class
 persistencia\FilePersistence.class
 cine\user\Admin.class
+ui\MenuGerente$1.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
 ui\RegistroPelicula$5.class
@@ -16,12 +19,12 @@ excepciones\CampoVacioException.class
 persistencia\Persistencia.class
 cine\cinelugar\Reserva.class
 ui\RegistroCliente$2.class
-ui\RegistroCliente$5.class
 cine\user\Usuario.class
 cine\cinelugar\Cine.class
 ui\Login$3.class
 ui\RegistroPelicula$3.class
 cine\user\Duenio.class
+ui\MenuAdmin$1.class
 cine\Imprimible.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
