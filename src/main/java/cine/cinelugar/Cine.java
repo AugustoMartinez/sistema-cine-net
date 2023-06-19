@@ -76,7 +76,7 @@ public class Cine {
     
     public static boolean validarLogin(String email, String contraseña) {
         for (Usuario usuario : listaUsuarios) {
-            if (usuario.getEmail().equals(email)&& usuario.equals(contraseña)) {
+            if (usuario.getEmail().equals(email)&& usuario.getPassword().equals(contraseña)) {
                 return true;
             }
         }
