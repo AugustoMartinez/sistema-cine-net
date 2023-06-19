@@ -5,7 +5,14 @@
 package ui;
 
 import cine.cinelugar.Cine;
+import cine.user.Cliente;
+import excepciones.CampoVacioException;
+import excepciones.EmailException;
+import excepciones.LetrasException;
+import excepciones.LongitudPasswordException;
+import javax.swing.JOptionPane;
 import persistencia.Persistencia;
+import validacion.Validaciones;
 
 /**
  *
@@ -64,6 +71,11 @@ public class Login extends javax.swing.JFrame {
         lblLogin.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblLogin.setText("Login");
         lblLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblLoginMousePressed(evt);
+            }
+        });
         jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
         lblRegistrarse.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
@@ -72,6 +84,9 @@ public class Login extends javax.swing.JFrame {
         lblRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRegistrarseMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblRegistrarseMousePressed(evt);
             }
         });
         jPanel1.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
@@ -96,11 +111,32 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void lblRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMouseClicked
-RegistroCliente reg=new RegistroCliente();
-reg.setVisible(true);
-this.setVisible(false);
-// TODO add your handling code here:
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_lblRegistrarseMouseClicked
+
+    private void lblRegistrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMousePressed
+        // TODO add your handling code here:
+        new RegistroCliente().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblRegistrarseMousePressed
+
+    private void lblLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMousePressed
+        // TODO add your handling code here:
+        /*try {
+            Validaciones.validarEmail(txtEmail.getText());
+            Validaciones.validarPassword(txtPassword.getText());
+            if (Cine.buscarUsuarioPorEmail(cliente.getEmail()) == true) {
+                JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
+            } else {
+                Cine.getListaUsuarios().add(cliente);
+                Persistencia.actualizarUsuarios();
+                JOptionPane.showMessageDialog(null, "Registro exitoso!");
+            }//Evaluar excepcion de persistencia
+        } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }*/
+    }//GEN-LAST:event_lblLoginMousePressed
 
     /**
      * @param args the command line arguments
@@ -133,8 +169,8 @@ this.setVisible(false);
         Persistencia.leerDatos();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            new Login().setVisible(true);
-                
+                new Login().setVisible(true);
+
             }
         });
     }
