@@ -19,7 +19,7 @@ import javax.swing.SwingUtilities;
 public class SalaCine extends javax.swing.JFrame {
 
     private int FILAS=7;
-    private int COLUMNAS=25;
+    private int COLUMNAS=21;
     JButton[][] SALA;
     
     
@@ -36,8 +36,8 @@ public class SalaCine extends javax.swing.JFrame {
      public void setMatriz(){
         
         SALA = new JButton[FILAS][COLUMNAS];
-        int x=50;
-        int y=50;
+        int x=37;
+        int y=75;
         int c=0;
         
          for(int i=0 ; i<FILAS ; i++)
@@ -46,7 +46,7 @@ public class SalaCine extends javax.swing.JFrame {
            {
                SALA[i][j] = new JButton(); 
                SALA[i][j].setBackground(Color.white);
-               SALA[i][j].setBounds(x,y,25,20);
+               SALA[i][j].setBounds(x,y,25,26);
                //0 es desactivado (color blanco)
                SALA[i][j].setName("0");
                
@@ -58,18 +58,18 @@ public class SalaCine extends javax.swing.JFrame {
                
                //panelBotones es el design (dibujo)
                jPanelSala.add(SALA[i][j]);
-               x += 26;
+               x += 30;
                c++;
                
                //para que se haga un espacio
-               if(c == 5)
+               if(c == 7)
                {
                    c=0;
-                   x += 10;
+                   x += 20;
                }
            }
-           y += 16;
-           x=50;
+           y += 30;
+           x=37;
         }
        
     }

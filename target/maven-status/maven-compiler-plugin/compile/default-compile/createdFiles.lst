@@ -12,10 +12,6 @@ ui\RegistroPelicula$5.class
 excepciones\CampoVacioException.class
 cine\cinelugar\Reserva.class
 ui\RegistroCliente$2.class
-<<<<<<< HEAD
-cine\user\Duenio.class
-=======
->>>>>>> 27d36f4946217b46f0241d58b240bb2b38c16090
 ui\MenuAdmin$1.class
 ui\SalaCine$1.class
 ui\RegistroCliente.class
