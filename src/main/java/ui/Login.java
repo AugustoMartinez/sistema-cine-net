@@ -130,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                 Sesion.setEmailLogeado(txtEmail.getText());
                 if (Sesion.getTipo().equals("Cliente")) {
                     this.dispose();
-                    new MenuCliente().setVisible(true);
+                    new MenuCliente(txtEmail.getText()).setVisible(true);
                 } else if (Sesion.getTipo().equals("Gerente")) {
                     this.dispose();
                     new MenuGerente().setVisible(true);

@@ -4,6 +4,7 @@ ui\MenuAdmin$2.class
 ui\MenuGerente.class
 ui\CreacionSala$AccionBotones.class
 ui\MenuGerente$5.class
+ui\MenuCliente$3.class
 ui\RegistroPelicula$1.class
 excepciones\CampoVacioException.class
 ui\RegistroCliente$2.class
@@ -14,6 +15,7 @@ cine\cinelugar\Butaca.class
 cine\user\Sesion.class
 ui\MenuAdmin$8.class
 cine\Horario.class
+ui\ModificarUsuario$3.class
 cine\Genero.class
 ui\RegistroPelicula$4.class
 ui\MenuAdmin$5.class
@@ -46,6 +48,7 @@ ui\SalaCine.class
 ui\MenuGerente$1.class
 ui\RegistroPelicula$5.class
 ui\ModificarPelicula$5.class
+ui\ModificarUsuario.class
 cine\cinelugar\Reserva.class
 ui\RegistroGerente.class
 ui\MenuAdmin$6.class
@@ -73,6 +76,7 @@ cine\user\GestionUsuario.class
 ui\RegistroGerente$2.class
 ui\ModificarSala$1.class
 ui\RegistroCliente$4.class
+ui\ModificarUsuario$2.class
 ui\SalaCine$ButtonController.class
 persistencia\FilePersistence.class
 ui\MenuAdmin$4.class
@@ -80,6 +84,7 @@ ui\ModificarGerente$2.class
 ui\MenuGerente$7.class
 ui\RegistroPelicula$6.class
 persistencia\Persistencia.class
+ui\MenuCliente$2.class
 ui\ModificarPelicula$7.class
 ui\CreacionSala.class
 cine\user\Usuario.class
@@ -87,6 +92,7 @@ ui\Login$3.class
 cine\Imprimible.class
 ui\RegistroGerente$1.class
 ui\MenuGerente$2.class
+ui\ModificarUsuario$1.class
 ui\CreacionSala$3.class
 ui\MenuAdmin$3.class
 ui\ModificarGerente$1.class
