@@ -4,6 +4,15 @@
  */
 package ui;
 
+import cine.cinelugar.Cine;
+import cine.cinelugar.Pelicula;
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+
 /**
  *
  * @author horus
@@ -15,6 +24,29 @@ public class MenuReserva extends javax.swing.JFrame {
      */
     public MenuReserva() {
         initComponents();
+        actualizarListPeliculas();
+    }
+    
+    private void actualizarListPeliculas() {
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        listPeliculas.setModel(model);
+        for (Pelicula e : Cine.getListaPeliculas()) {
+            if (!e.isBaja()) {
+                model.addElement(e.getNombre());
+            }
+        }
+    }
+    
+    public void iniciar(Pelicula pelicula){
+        lblImagen.setHorizontalAlignment(JLabel.CENTER);
+        lblImagen.setBorder(new LineBorder(Color.black,2,true));
+        try{
+            Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
+            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen.setIcon(imgIcon);
+        }catch (Exception e){
+            System.out.println("Algo se rompio al leer los datos de la Pelicula");
+        }  
     }
 
     /**
@@ -26,138 +58,111 @@ public class MenuReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        listFunciones = new javax.swing.JComboBox<>();
+        lblFunciones = new javax.swing.JLabel();
+        lblPeliculas = new javax.swing.JLabel();
+        listPeliculas = new javax.swing.JComboBox<>();
+        btnReservar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        lblSala = new javax.swing.JLabel();
+        listSalas = new javax.swing.JComboBox<>();
+        btnSelectButaca = new javax.swing.JButton();
+        lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setText("Funciones Disponibles");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel2.setText("Peliculas disponibles");
-
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        listFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                listFuncionesActionPerformed(evt);
             }
         });
+        getContentPane().add(listFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 136, 222, 34));
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 51));
-        jButton1.setText("Hacer reserva");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lblFunciones.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblFunciones.setText("Funciones Disponibles");
+        getContentPane().add(lblFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 97, -1, -1));
+
+        lblPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblPeliculas.setText("Peliculas disponibles");
+        getContentPane().add(lblPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 12, -1, -1));
+
+        listPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                listPeliculasActionPerformed(evt);
             }
         });
+        getContentPane().add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 51, 222, 34));
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnReservar.setBackground(new java.awt.Color(102, 255, 51));
+        btnReservar.setText("Hacer reserva");
+        btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnReservarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 315, 120, 33));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel3.setText("Seleccionar sala");
-
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 315, 100, 33));
 
-        jButton3.setText("Seleccionar butaca");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        lblSala.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblSala.setText("Seleccionar sala");
+        getContentPane().add(lblSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 194, -1, -1));
+
+        listSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                listSalasActionPerformed(evt);
             }
         });
+        getContentPane().add(listSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 233, 222, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 199, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(223, 223, 223))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(114, 114, 114))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34))))
-        );
+        btnSelectButaca.setText("Seleccionar butaca");
+        btnSelectButaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectButacaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSelectButaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 233, -1, 35));
+        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 150, 200));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void listPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_listPeliculasActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnReservarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        this.dispose();
+        MenuCliente cliente = new MenuCliente();
+        cliente.setVisible(true);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void listSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listSalasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_listSalasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnSelectButacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectButacaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnSelectButacaActionPerformed
+
+    private void listFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listFuncionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listFuncionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,14 +200,15 @@ public class MenuReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnReservar;
+    private javax.swing.JButton btnSelectButaca;
+    private javax.swing.JLabel lblFunciones;
+    private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblPeliculas;
+    private javax.swing.JLabel lblSala;
+    private javax.swing.JComboBox<String> listFunciones;
+    private javax.swing.JComboBox<String> listPeliculas;
+    private javax.swing.JComboBox<String> listSalas;
     // End of variables declaration//GEN-END:variables
 }

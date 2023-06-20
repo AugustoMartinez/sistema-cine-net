@@ -30,6 +30,7 @@ ui\ModificarPelicula$4.class
 cine\user\Admin.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
+ui\MenuReserva$7.class
 cine\cinelugar\Cine.class
 ui\RegistroPelicula$3.class
 ui\MenuGerente$4.class
@@ -66,6 +67,7 @@ ui\ModificarSala$2.class
 ui\ModificarGerente.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
+ui\MenuCliente$4.class
 ui\MenuGerente$9.class
 ui\ModificarSala$AccionBotones.class
 cine\Clasificacion.class
