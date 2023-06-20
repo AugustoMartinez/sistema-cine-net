@@ -248,6 +248,13 @@ public class MenuGerente extends javax.swing.JFrame {
 
     private void lblModificarSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarSalaMousePressed
         // TODO add your handling code here:
+        for (Sala e : Cine.getListaSalas()) {
+            if (e.getNombre().equals(listSalas.getSelectedItem())) {
+                this.dispose();
+                ModificarSala algo=new ModificarSala(e);
+                algo.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_lblModificarSalaMousePressed
 
     private void lblDarBajaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDarBajaMousePressed

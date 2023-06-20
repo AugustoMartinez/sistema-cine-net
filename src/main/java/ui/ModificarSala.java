@@ -7,6 +7,8 @@ package ui;
 import cine.cinelugar.Cine;
 import cine.cinelugar.Sala;
 import cine.user.Sesion;
+import excepciones.CampoVacioException;
+import excepciones.SoloNumerosException;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,17 +20,9 @@ import persistencia.Persistencia;
  *
  * @author Diego
  */
-public class CreacionSala extends javax.swing.JFrame {
+public class ModificarSala extends javax.swing.JFrame {
 
-    /**
-     * Creates new form test
-     */
-    public CreacionSala() {
-        initComponents();
-        setLocationRelativeTo(null);
-        botones();
-        lblNombreSala.setText(sala.getNombre());
-    }
+    
     
     int filas =10;
     int columnas =20;
@@ -36,7 +30,24 @@ public class CreacionSala extends javax.swing.JFrame {
     int anchoBoton =25;
     int ejeX=20;
     int ejeY=20;
-    Sala sala=new Sala(filas,columnas);
+    public Sala sala=new Sala(filas, columnas);
+    /**
+     * Creates new form ModificarSala
+     */
+    public ModificarSala(Sala sala) {
+        initComponents();
+        this.sala=sala;
+        setLocationRelativeTo(null);
+        botones();
+        lblNombreSala.setText(sala.getNombre());
+    }
+
+    public ModificarSala() {
+    }
+    
+    
+    
+    
     
     
     public JToggleButton [][] jtBotones =new JToggleButton[filas][columnas];
@@ -48,10 +59,17 @@ public class CreacionSala extends javax.swing.JFrame {
                 jtBotones[i][j]= new JToggleButton();
                 jtBotones[i][j].setBounds(ejeX,ejeY,largoBoton,anchoBoton);
                 //jtBotones[i][j].setFont hay que hacer esto
-                jtBotones[i][j].setBackground(Color.BLUE);
-                
                 AccionBotones accion=new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
+                if(sala.getButacas()[i][j].isExiste()==true)
+                {
+                    jtBotones[i][j].setSelected(true);
+                    jtBotones[i][j].setBackground(Color.RED);
+                }else{
+                    jtBotones[i][j].setBackground(Color.BLUE);
+                }
+                
+                
                 
                 
                 pnlBotones.add(jtBotones[i][j]);
@@ -86,6 +104,9 @@ public class CreacionSala extends javax.swing.JFrame {
             }
         }
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,18 +117,17 @@ public class CreacionSala extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
         lblVolver = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblModificar = new javax.swing.JLabel();
         lblNombreSala = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1200, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
 
-        background.setMinimumSize(new java.awt.Dimension(1280, 720));
-        background.setName(""); // NOI18N
-        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -117,44 +137,41 @@ public class CreacionSala extends javax.swing.JFrame {
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
-        background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1240, 430));
+        jPanel1.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 124, 1240, 460));
 
-        lblVolver.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblVolver.setText("Atras");
+        lblVolver.setText("Volver");
         lblVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblVolverMousePressed(evt);
             }
         });
-        background.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 40));
+        jPanel1.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 60, 20));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Agregar Sala");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblModificar.setText("Modificar");
+        lblModificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
+                lblModificarMousePressed(evt);
             }
         });
-        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 150, 50));
+        jPanel1.add(lblModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, 100, 40));
 
-        lblNombreSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        background.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
+        lblNombreSala.setText("jLabel1");
+        jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -173,17 +190,30 @@ public class CreacionSala extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblVolverMousePressed
 
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+    private void lblModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarMousePressed
         // TODO add your handling code here:
-        if(sala.getCapacidad()>0){
-            Cine.getListaSalas().add(sala);
-            Persistencia.actualizarSalas();
-            JOptionPane.showMessageDialog(null, "Sala creada correctamente!");
+        
+        String nombreviejo=sala.getNombre();
+        if (sala.getCapacidad()>0){
+            boolean flag=false;
+        for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
+                if (Cine.getListaSalas().get(i).getNombre().equals(nombreviejo)) {
+                    Cine.getListaSalas().set(i, sala);
+                    flag = true;
+                }
+            }
+            Persistencia.actualizarSalas(); 
+            JOptionPane.showMessageDialog(null, "Sala modificada exitosamente!" + sala.toString());
             lblVolverMousePressed(evt);
+            this.dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
+            JOptionPane.showMessageDialog(null, "La sala debe tener 1 asiento o mas!" + sala.toString());
         }
-    }//GEN-LAST:event_jLabel2MousePressed
+        
+
+        
+        
+    }//GEN-LAST:event_lblModificarMousePressed
 
     /**
      * @param args the command line arguments
@@ -202,29 +232,27 @@ public class CreacionSala extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreacionSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreacionSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreacionSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreacionSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreacionSala().setVisible(true);
-                
+                //new ModificarSala().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblModificar;
     private javax.swing.JLabel lblNombreSala;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel pnlBotones;

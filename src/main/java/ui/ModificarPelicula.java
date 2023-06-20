@@ -284,7 +284,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
             }
             for (int i = 0; i < Cine.getListaPeliculas().size() && flag == false; i++) {
                 if (Cine.getListaPeliculas().get(i).getNombre().equals(nombreViejo)) {
-                    Cine.getListaPeliculas().add(i, pelicula);
+                    Cine.getListaPeliculas().set(i, pelicula);
                     flag = true;
                 }
             }

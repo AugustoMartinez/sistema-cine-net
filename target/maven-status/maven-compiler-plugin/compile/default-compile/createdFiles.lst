@@ -9,6 +9,7 @@ excepciones\CampoVacioException.class
 ui\RegistroCliente$2.class
 ui\RegistroGerente$4.class
 ui\ModificarPelicula$3.class
+ui\ModificarSala.class
 cine\cinelugar\Butaca.class
 cine\user\Sesion.class
 ui\MenuAdmin$8.class
@@ -35,6 +36,7 @@ cine\cinelugar\Pelicula.class
 ui\Login$1.class
 SistemaCine.class
 excepciones\SoloNumerosException.class
+ui\ModificarSala$3.class
 ui\Login$2.class
 ui\RegistroPelicula$8.class
 cine\Costos.class
@@ -53,10 +55,12 @@ excepciones\PeliculaRegistradaException.class
 ui\SalaCine$1.class
 ui\MenuGerente$10.class
 ui\RegistroGerente$3.class
+ui\ModificarSala$2.class
 ui\ModificarGerente.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
 ui\MenuGerente$9.class
+ui\ModificarSala$AccionBotones.class
 cine\Clasificacion.class
 ui\MenuGerente$6.class
 ui\CreacionSala$1.class
@@ -67,6 +71,7 @@ excepciones\LetrasException.class
 ui\MenuAdmin.class
 cine\user\GestionUsuario.class
 ui\RegistroGerente$2.class
+ui\ModificarSala$1.class
 ui\RegistroCliente$4.class
 ui\SalaCine$ButtonController.class
 persistencia\FilePersistence.class
