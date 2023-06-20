@@ -6,7 +6,9 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
+import cine.cinelugar.Sala;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import persistencia.Persistencia;
 
 /**
@@ -40,10 +42,13 @@ public class MenuGerente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnModificarPelicula = new javax.swing.JLabel();
         btnBajaPelicula = new javax.swing.JLabel();
+        lblAgregarSala = new javax.swing.JLabel();
+        listSalas = new javax.swing.JComboBox<>();
+        lblModificarSala = new javax.swing.JLabel();
+        lblDarBaja = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 500));
@@ -69,6 +74,11 @@ public class MenuGerente extends javax.swing.JFrame {
         });
 
         listPeliculas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        listPeliculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listPeliculasActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel1.setText("Modificar cartelera");
@@ -91,6 +101,35 @@ public class MenuGerente extends javax.swing.JFrame {
             }
         });
 
+        lblAgregarSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblAgregarSala.setText("Agregar Sala");
+        lblAgregarSala.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblAgregarSala.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAgregarSalaMousePressed(evt);
+            }
+        });
+
+        listSalas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+
+        lblModificarSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblModificarSala.setText("Modificar");
+        lblModificarSala.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblModificarSala.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblModificarSalaMousePressed(evt);
+            }
+        });
+
+        lblDarBaja.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblDarBaja.setText("Dar baja");
+        lblDarBaja.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblDarBaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDarBajaMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,16 +138,26 @@ public class MenuGerente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAgregarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnModificarPelicula)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBajaPelicula))
-                    .addComponent(btnAgregarPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblModificarSala)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblDarBaja))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnModificarPelicula)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBajaPelicula)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +170,15 @@ public class MenuGerente extends javax.swing.JFrame {
                     .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificarPelicula)
                     .addComponent(btnBajaPelicula))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addGap(93, 93, 93)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblAgregarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModificarSala)
+                            .addComponent(lblDarBaja))
+                        .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -177,7 +234,22 @@ public class MenuGerente extends javax.swing.JFrame {
         actualizarListPeliculas();
     }//GEN-LAST:event_btnBajaPeliculaMousePressed
 
-    
+    private void lblAgregarSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarSalaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblAgregarSalaMousePressed
+
+    private void lblModificarSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarSalaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblModificarSalaMousePressed
+
+    private void lblDarBajaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDarBajaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblDarBajaMousePressed
+
+    private void listPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listPeliculasActionPerformed
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
@@ -187,6 +259,17 @@ public class MenuGerente extends javax.swing.JFrame {
             }
         }
     }
+
+    private void actualizarListSalas() {
+        DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
+        listSalas.setModel(model2);
+        for (Sala e : Cine.getListaSalas()) {
+
+            model2.addElement(e.getNombre());
+
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -229,6 +312,10 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JLabel btnModificarPelicula;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAgregarSala;
+    private javax.swing.JLabel lblDarBaja;
+    private javax.swing.JLabel lblModificarSala;
     private javax.swing.JComboBox<String> listPeliculas;
+    private javax.swing.JComboBox<String> listSalas;
     // End of variables declaration//GEN-END:variables
 }

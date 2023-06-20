@@ -5,6 +5,7 @@ cine\Costos.class
 cine\user\Cliente.class
 ui\MenuAdmin$2.class
 ui\MenuGerente.class
+ui\CreacionSala$AccionBotones.class
 cine\user\Gerente.class
 ui\MenuGerente$5.class
 ui\RegistroPelicula$1.class
@@ -27,12 +28,15 @@ ui\RegistroGerente$3.class
 ui\ModificarGerente.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
+ui\MenuGerente$9.class
 cine\cinelugar\Butaca.class
 cine\Clasificacion.class
 cine\user\Sesion.class
 ui\MenuAdmin$8.class
+ui\MenuGerente$6.class
 cine\Horario.class
 cine\Genero.class
+ui\CreacionSala$1.class
 ui\RegistroPelicula$4.class
 ui\MenuAdmin$5.class
 ui\RegistroPelicula$7.class
@@ -55,11 +59,13 @@ persistencia\FilePersistence.class
 ui\MenuAdmin$4.class
 ui\ModificarGerente$2.class
 cine\user\Admin.class
+ui\MenuGerente$7.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
 ui\RegistroPelicula$6.class
 persistencia\Persistencia.class
 ui\ModificarPelicula$7.class
+ui\CreacionSala.class
 cine\user\Usuario.class
 cine\cinelugar\Cine.class
 ui\Login$3.class
@@ -81,4 +87,5 @@ persistencia\PersistenceCollecion.class
 ui\Login$4.class
 excepciones\SoloNumerosException.class
 ui\ModificarPelicula$1.class
+ui\MenuGerente$8.class
 cine\cinelugar\Funcion.class
