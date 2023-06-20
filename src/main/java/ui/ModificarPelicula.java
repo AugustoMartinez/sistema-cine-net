@@ -248,7 +248,6 @@ public class ModificarPelicula extends javax.swing.JFrame {
         }catch (Exception e){
             System.out.println("Algo se rompio al leer los datos de la Pelicula");
         }  
-
     }//GEN-LAST:event_btnVolverMousePressed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed

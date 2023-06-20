@@ -23,6 +23,7 @@ ui\MenuAdmin$5.class
 ui\RegistroFuncion$2.class
 ui\RegistroPelicula$7.class
 validacion\Validaciones.class
+ui\MenuReserva$6.class
 ui\ModificarGerente$3.class
 ui\ModificarPelicula$6.class
 ui\MenuAdmin$7.class
@@ -33,7 +34,11 @@ cine\user\Admin.class
 ui\RegistroFuncion$6.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
+<<<<<<< HEAD
+ui\MenuReserva$7.class
+=======
 ui\ModificarSala$4.class
+>>>>>>> 5853b931e29d6eabd3bb541fc09cb8a86ecb2a92
 cine\cinelugar\Cine.class
 ui\RegistroPelicula$3.class
 ui\MenuGerente$4.class
@@ -46,6 +51,10 @@ excepciones\SoloNumerosException.class
 ui\MenuAdmin$12.class
 ui\ModificarSala$3.class
 ui\MenuReserva$1.class
+<<<<<<< HEAD
+ui\MenuReserva$5.class
+=======
+>>>>>>> 5853b931e29d6eabd3bb541fc09cb8a86ecb2a92
 ui\Login$2.class
 ui\RegistroPelicula$8.class
 cine\Costos.class
@@ -75,6 +84,7 @@ ui\ModificarSala$2.class
 ui\ModificarGerente.class
 ui\RegistroCliente.class
 excepciones\LongitudPasswordException.class
+ui\MenuCliente$4.class
 ui\MenuGerente$9.class
 ui\ModificarSala$AccionBotones.class
 cine\Clasificacion.class
@@ -90,7 +100,11 @@ ui\MenuReserva.class
 ui\RegistroGerente$2.class
 ui\ModificarSala$1.class
 ui\RegistroCliente$4.class
+<<<<<<< HEAD
+ui\MenuReserva$3.class
+=======
 ui\CreacionSala$4.class
+>>>>>>> 5853b931e29d6eabd3bb541fc09cb8a86ecb2a92
 ui\ModificarUsuario$2.class
 ui\SalaCine$ButtonController.class
 persistencia\FilePersistence.class
@@ -112,6 +126,7 @@ ui\MenuGerente$2.class
 ui\ModificarUsuario$1.class
 ui\CreacionSala$3.class
 ui\MenuAdmin$3.class
+ui\MenuReserva$4.class
 ui\ModificarGerente$1.class
 ui\ModificarPelicula$8.class
 ui\Login.class

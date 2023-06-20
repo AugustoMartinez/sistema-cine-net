@@ -3,9 +3,7 @@ package cine.user;
 import cine.cinelugar.Reserva;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Cliente extends Usuario{
     List listaReserva = new ArrayList<Reserva>();

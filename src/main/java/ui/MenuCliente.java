@@ -67,6 +67,11 @@ public class MenuCliente extends javax.swing.JFrame {
         lbGenerarReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbGenerarReserva.setText("Generar reserva");
         lbGenerarReserva.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbGenerarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbGenerarReservaMouseClicked(evt);
+            }
+        });
         jPanel1.add(lbGenerarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 280, 90));
 
         lbEditarDatos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -132,6 +137,14 @@ public class MenuCliente extends javax.swing.JFrame {
     private void lbEditarDatosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditarDatosMousePressed
 
     }//GEN-LAST:event_lbEditarDatosMousePressed
+
+    private void lbGenerarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbGenerarReservaMouseClicked
+        // TODO add your handling code here:
+        MenuReserva menuReserva = new MenuReserva();
+        menuReserva.setVisible(true);
+        menuReserva.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_lbGenerarReservaMouseClicked
 
     /**
      * @param args the command line arguments
