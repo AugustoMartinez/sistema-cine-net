@@ -161,11 +161,11 @@ public class ModificarUsuario extends javax.swing.JFrame {
             for (int i = 0; i < Cine.getListaUsuarios().size() && flag == false; i++) {
                 if (Cine.getListaUsuarios().get(i).getEmail().equals(emailViejo)) {
                     if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
-
+                        //flag=true;
                         Cine.getListaUsuarios().set(i, cliente);
                         Persistencia.actualizarUsuarios(); 
                         JOptionPane.showMessageDialog(null, "Datos guardados correctamente!");
-                        MenuCliente mc = new MenuCliente();
+                        MenuCliente mc = new MenuCliente(txtEmail.getText());
                         mc.setVisible(true);    
                         this.dispose();
                     }
