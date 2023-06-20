@@ -231,7 +231,7 @@ public class MenuGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarPeliculaMousePressed
 
     private void btnBajaPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMousePressed
-        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             String nombre = listSalas.getSelectedItem().toString();
             if (listPeliculas.getSelectedItem() != null) {

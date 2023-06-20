@@ -25,6 +25,7 @@ public class MenuReserva extends javax.swing.JFrame {
     public MenuReserva() {
         initComponents();
         actualizarListPeliculas();
+        iniciar();
     }
     
     private void actualizarListPeliculas() {
@@ -37,18 +38,28 @@ public class MenuReserva extends javax.swing.JFrame {
         }
     }
     
-    public void iniciar(Pelicula pelicula){
+    public void iniciar(){
         lblImagen.setHorizontalAlignment(JLabel.CENTER);
         lblImagen.setBorder(new LineBorder(Color.black,2,true));
         try{
-            Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
+            Image img = new ImageIcon(retornaPelicula().getRutaImagen()).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(imgIcon);
         }catch (Exception e){
-            System.out.println("Algo se rompio al leer los datos de la Pelicula");
+            System.out.println("No hay nada :C");
         }  
     }
 
+    private Pelicula retornaPelicula() {
+        String str = listPeliculas.getSelectedItem().toString();
+        for (Pelicula e : Cine.getListaPeliculas()) {
+            if (str.contains(e.getNombre())) {
+                return e;
+            }
+        }
+        return null;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,6 +150,7 @@ public class MenuReserva extends javax.swing.JFrame {
 
     private void listPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculasActionPerformed
         // TODO add your handling code here:
+        iniciar();
     }//GEN-LAST:event_listPeliculasActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
