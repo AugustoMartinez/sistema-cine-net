@@ -10,10 +10,15 @@ import cine.user.Sesion;
 import excepciones.CampoVacioException;
 import excepciones.PeliculaRegistradaException;
 import excepciones.SoloNumerosException;
+import java.awt.Image;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import persistencia.PersistenceCollecion;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 
@@ -22,7 +27,7 @@ import validacion.Validaciones;
  * @author Hoid
  */
 public class RegistroPelicula extends javax.swing.JFrame {
-
+    Pelicula pelicula = new Pelicula();
     /**
      * Creates new form RegistroPelicula
      */
@@ -44,7 +49,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTextImagen = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtDuracion = new javax.swing.JTextField();
@@ -57,8 +62,11 @@ public class RegistroPelicula extends javax.swing.JFrame {
         dateFecha = new com.toedter.calendar.JDateChooser();
         check2dAtmos = new javax.swing.JCheckBox();
         check2d = new javax.swing.JCheckBox();
-        btnAgregar = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btnCargar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JLabel();
         btnVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -86,9 +94,9 @@ public class RegistroPelicula extends javax.swing.JFrame {
         jLabel4.setText("Clasificacion");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 156, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel5.setText("Fecha de estreno");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblTextImagen.setText("Cargar Imagen de cartelera");
+        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel6.setText("Sinopsis:");
@@ -106,7 +114,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
         txtSinopsis.setRows(5);
         jScrollPane1.setViewportView(txtSinopsis);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 237, 743, 131));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 237, 280, 131));
 
         listGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Comedia", "Documental", "Drama", "Horror", "Suspenso" }));
         listGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -145,18 +153,19 @@ public class RegistroPelicula extends javax.swing.JFrame {
         check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check2d.setText("2D");
         jPanel1.add(check2d, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 65, -1, -1));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 180, 200));
 
-        btnAgregar.setText("Agregar");
-        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnAgregarMousePressed(evt);
+        jLabel7.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel7.setText("Fecha de estreno");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+
+        btnCargar.setText("Cargar Imagen");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 136, 60));
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -168,7 +177,19 @@ public class RegistroPelicula extends javax.swing.JFrame {
                 btnLimpiarMousePressed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 100, 60));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 100, 60));
+
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarMousePressed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 136, 60));
 
         btnVolver.setText("Volver");
         btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -177,24 +198,19 @@ public class RegistroPelicula extends javax.swing.JFrame {
                 btnVolverMousePressed(evt);
             }
         });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 94, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(656, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(800, 500));
@@ -227,7 +243,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
         try{
-            Pelicula pelicula = new Pelicula();
+            
             Validaciones.validarCampo(txtNombre.getText());
             Validaciones.validarCampo(txtSinopsis.getText());
             Validaciones.validarCampo(dateFecha.getDateFormatString());
@@ -287,6 +303,26 @@ public class RegistroPelicula extends javax.swing.JFrame {
         check2dAtmos.setSelected(!check3dAtmos.isSelected());
     }//GEN-LAST:event_check3dAtmosMousePressed
 
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg","png","gif");
+        jFileChooser.setFileFilter(filtrado);
+        
+        int respuesta = jFileChooser.showOpenDialog(this);
+        
+        try {
+            if(respuesta == jFileChooser.APPROVE_OPTION){
+                pelicula.setRutaImagen(jFileChooser.getSelectedFile().getPath());
+                Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
+                ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+                lblImagen.setIcon(imgIcon);
+            }
+        } catch (Exception e) {
+            System.out.println("Fallo la carga de datos de las imagenes");
+        }
+    }//GEN-LAST:event_btnCargarActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -325,6 +361,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAgregar;
+    private javax.swing.JButton btnCargar;
     private javax.swing.JLabel btnLimpiar;
     private javax.swing.JLabel btnVolver;
     private javax.swing.JCheckBox check2d;
@@ -336,10 +373,12 @@ public class RegistroPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private static javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblTextImagen;
     private javax.swing.JComboBox<String> listClas;
     private javax.swing.JComboBox<String> listGenero;
     private javax.swing.JTextField txtDuracion;
