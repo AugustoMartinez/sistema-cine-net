@@ -72,6 +72,7 @@ ui\Login$3.class
 ui\RegistroPelicula$3.class
 cine\Imprimible.class
 ui\MenuGerente$4.class
+ui\RegistroPelicula$9.class
 ui\RegistroPelicula$2.class
 ui\RegistroGerente$1.class
 ui\MenuGerente$2.class
@@ -79,6 +80,7 @@ cine\cinelugar\Pelicula.class
 ui\Login$1.class
 ui\MenuAdmin$3.class
 ui\ModificarGerente$1.class
+ui\ModificarPelicula$8.class
 ui\Login.class
 ui\RegistroCliente$3.class
 ui\ModificarPelicula.class

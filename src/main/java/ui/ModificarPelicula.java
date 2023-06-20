@@ -16,6 +16,11 @@ import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 import cine.user.Sesion;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import persistencia.PersistenceCollecion;
 
 /**
  *
@@ -64,10 +69,12 @@ public class ModificarPelicula extends javax.swing.JFrame {
         check2dAtmos = new javax.swing.JCheckBox();
         check3d = new javax.swing.JCheckBox();
         check3dAtmos = new javax.swing.JCheckBox();
+        lblImagen = new javax.swing.JLabel();
+        lblTextImagen = new javax.swing.JLabel();
+        btnCargar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -107,7 +114,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         txtSinopsis.setRows(5);
         jScrollPane1.setViewportView(txtSinopsis);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 237, 743, 131));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 237, 240, 131));
 
         listGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Comedia", "Documental", "Drama", "Horror", "Suspenso" }));
         listGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +138,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnModificarMousePressed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 136, 60));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 136, 60));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -143,7 +150,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnLimpiarMousePressed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, 100, 60));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 100, 60));
 
         btnVolver.setText("Volver");
         btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -152,7 +159,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnVolverMousePressed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 94, 60));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 94, 60));
 
         check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check2d.setText("2D");
@@ -179,6 +186,19 @@ public class ModificarPelicula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 180, 200));
+
+        lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblTextImagen.setText("Cargar Imagen de cartelera");
+        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
+
+        btnCargar.setText("Cargar Imagen");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,6 +225,16 @@ public class ModificarPelicula extends javax.swing.JFrame {
             gerente.setVisible(true);
         }
         
+    }
+    
+    public void iniciar(){
+        try{
+            Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
+            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen.setIcon(imgIcon);
+        }catch (Exception e){
+            System.out.println("Algo se rompio al leer los datos de la Pelicula");
+        }  
 
     }//GEN-LAST:event_btnVolverMousePressed
 
@@ -286,6 +316,26 @@ public class ModificarPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
         check2dAtmos.setSelected(!check3dAtmos.isSelected());
     }//GEN-LAST:event_check3dAtmosMousePressed
+
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg","png","gif");
+        jFileChooser.setFileFilter(filtrado);
+
+        int respuesta = jFileChooser.showOpenDialog(this);
+
+        try {
+            if(respuesta == jFileChooser.APPROVE_OPTION){
+                pelicula.setRutaImagen(jFileChooser.getSelectedFile().getPath());
+                Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
+                ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+                lblImagen.setIcon(imgIcon);
+            }
+        } catch (Exception e) {
+            System.out.println("Fallo la carga de datos de las imagenes");
+        }
+    }//GEN-LAST:event_btnCargarActionPerformed
     
     private void cargarDatos() {
         //===========================
@@ -294,7 +344,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         txtSinopsis.setText(pelicula.getDescripcion());
         listGenero.setSelectedItem(pelicula.getGenero());
         listClas.setSelectedItem(pelicula.getClasificacion());
-        
+        iniciar();
         if (pelicula.getFechaEstreno() != null) {
             dateFecha.setDate(pelicula.getFechaEstreno());
         }
@@ -330,6 +380,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCargar;
     private javax.swing.JLabel btnLimpiar;
     private javax.swing.JLabel btnModificar;
     private javax.swing.JLabel btnVolver;
@@ -346,6 +397,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private static javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblTextImagen;
     private javax.swing.JComboBox<String> listClas;
     private javax.swing.JComboBox<String> listGenero;
     private javax.swing.JTextField txtDuracion;

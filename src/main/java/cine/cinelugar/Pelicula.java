@@ -14,9 +14,10 @@ public class Pelicula implements Serializable{
     private String descripcion;
     private String clasificacion;
     private Date fechaEstreno;
+    private String rutaImagen;
     
 
-    public Pelicula(String nombre, String genero, Integer duracion, String descripcion, String clasificacion, Date fechaEstreno) {
+    public Pelicula(String nombre, String genero, Integer duracion, String descripcion, String clasificacion, Date fechaEstreno, String rutaImagen) {
         this.nombre = nombre;
         this.genero = genero;
         this.duracion = duracion;
@@ -25,6 +26,7 @@ public class Pelicula implements Serializable{
         this.fechaEstreno = fechaEstreno;
         this.setearTipos();
         this.baja=false;
+        this.rutaImagen = rutaImagen;
     }
 
     public Pelicula() {
@@ -41,7 +43,8 @@ public class Pelicula implements Serializable{
                 "\nTipo: " +  tipo +
                 "\nClasificación: " + clasificacion +
                 "\nEstreno: " + fechaEstreno +
-                "\nDescripción: " + descripcion  ;
+                "\nDescripción: " + descripcion +
+                "\nRutaImagen" + rutaImagen;
     }
     
     public void agregarTipo(boolean tipo, String str){
@@ -67,6 +70,16 @@ public class Pelicula implements Serializable{
     public boolean isBaja() {
         return baja;
     }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+    
+    
 
     public void setBaja(boolean baja) {
         this.baja = baja;
