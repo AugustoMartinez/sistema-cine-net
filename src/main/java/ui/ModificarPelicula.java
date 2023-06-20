@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 import cine.user.Sesion;
+import java.awt.Color;
 import java.awt.Image;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,6 +24,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import persistencia.PersistenceCollecion;
 
@@ -75,8 +78,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
         check3d = new javax.swing.JCheckBox();
         check3dAtmos = new javax.swing.JCheckBox();
         lblImagen = new javax.swing.JLabel();
-        lblTextImagen = new javax.swing.JLabel();
         btnCargar = new javax.swing.JButton();
+        lblTextImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -133,6 +136,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         jPanel1.add(listClas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 157, 130, -1));
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 155, 29));
 
+        btnModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnModificar.setText("Modificar");
         btnModificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -143,8 +147,9 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnModificarMousePressed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 136, 60));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 100, 40));
 
+        btnLimpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,8 +160,9 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnLimpiarMousePressed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 100, 60));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 100, 40));
 
+        btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVolver.setText("Volver");
         btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,7 +170,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnVolverMousePressed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 94, 60));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 94, 40));
 
         check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check2d.setText("2D");
@@ -191,11 +197,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
-        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 180, 200));
-
-        lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        lblTextImagen.setText("Cargar Imagen de cartelera");
-        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 150, 230));
 
         btnCargar.setText("Cargar Imagen");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +205,11 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnCargarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 110, 40));
+
+        lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblTextImagen.setText("Cargar Imagen de cartelera");
+        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,6 +239,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
     }
     
     public void iniciar(){
+        lblImagen.setHorizontalAlignment(JLabel.CENTER);
+        lblImagen.setBorder(new LineBorder(Color.black,2,true));
         try{
             Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
@@ -326,7 +334,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
         String rutaDest = "";
         JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg","png","gif");
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, JFIF, PNG & GIF", "jpg","png","gif","jfif");
         jFileChooser.setFileFilter(filtrado);
 
         int respuesta = jFileChooser.showOpenDialog(this);
@@ -391,7 +399,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCargar;
+    private static javax.swing.JButton btnCargar;
     private javax.swing.JLabel btnLimpiar;
     private javax.swing.JLabel btnModificar;
     private javax.swing.JLabel btnVolver;
