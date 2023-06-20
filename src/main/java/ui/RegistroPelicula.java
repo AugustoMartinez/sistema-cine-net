@@ -42,6 +42,8 @@ public class RegistroPelicula extends javax.swing.JFrame {
      */
     public RegistroPelicula() {
         initComponents();
+        lblImagen.setHorizontalAlignment(JLabel.CENTER);
+        lblImagen.setBorder(new LineBorder(Color.black,2,true));
     }
     
     
@@ -176,7 +178,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
                 btnCargarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 110, 40));
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 120, 40));
 
         btnLimpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnLimpiar.setText("Limpiar");
