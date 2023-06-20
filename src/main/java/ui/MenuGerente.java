@@ -24,6 +24,7 @@ public class MenuGerente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         actualizarListPeliculas();
+        actualizarListSalas();
     }
 
     /**
@@ -111,6 +112,11 @@ public class MenuGerente extends javax.swing.JFrame {
         });
 
         listSalas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        listSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listSalasActionPerformed(evt);
+            }
+        });
 
         lblModificarSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         lblModificarSala.setText("Modificar");
@@ -236,6 +242,8 @@ public class MenuGerente extends javax.swing.JFrame {
 
     private void lblAgregarSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarSalaMousePressed
         // TODO add your handling code here:
+        new CreacionSala().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblAgregarSalaMousePressed
 
     private void lblModificarSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarSalaMousePressed
@@ -249,6 +257,10 @@ public class MenuGerente extends javax.swing.JFrame {
     private void listPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listPeliculasActionPerformed
+
+    private void listSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listSalasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listSalasActionPerformed
 
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();

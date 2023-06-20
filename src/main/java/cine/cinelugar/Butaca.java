@@ -1,6 +1,8 @@
 package cine.cinelugar;
 
-public class Butaca {
+import java.io.Serializable;
+
+public class Butaca implements Serializable{
     private Integer posY;
     private Integer posX;
     private boolean existe;

@@ -4,11 +4,15 @@
  */
 package ui;
 
+import cine.cinelugar.Cine;
 import cine.cinelugar.Sala;
+import cine.user.Sesion;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
+import persistencia.Persistencia;
 
 /**
  *
@@ -23,6 +27,7 @@ public class CreacionSala extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         botones();
+        lblNombreSala.setText(sala.getNombre());
     }
     
     int filas =10;
@@ -32,6 +37,7 @@ public class CreacionSala extends javax.swing.JFrame {
     int ejeX=20;
     int ejeY=20;
     Sala sala=new Sala(filas,columnas);
+    
     
     public JToggleButton [][] jtBotones =new JToggleButton[filas][columnas];
     
@@ -92,6 +98,9 @@ public class CreacionSala extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
+        lblVolver = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblNombreSala = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1200, 720));
@@ -113,6 +122,25 @@ public class CreacionSala extends javax.swing.JFrame {
 
         background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1240, 430));
 
+        lblVolver.setText("Atras");
+        lblVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblVolverMousePressed(evt);
+            }
+        });
+        background.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 20));
+
+        jLabel2.setText("Agregar Sala");
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
+        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, -1, -1));
+        background.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,6 +154,31 @@ public class CreacionSala extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
+        // TODO add your handling code here:
+        if (Sesion.getTipo().equals("Admin")) {
+            this.dispose();
+            MenuAdmin admin = new MenuAdmin();
+            admin.setVisible(true);
+        } else if (Sesion.getTipo().equals("Gerente")) {
+            this.dispose();
+            MenuGerente gerente = new MenuGerente();
+            gerente.setVisible(true);
+        }
+    }//GEN-LAST:event_lblVolverMousePressed
+
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        // TODO add your handling code here:
+        if(sala.getCapacidad()>0){
+            Cine.getListaSalas().add(sala);
+            Persistencia.actualizarSalas();
+            JOptionPane.showMessageDialog(null, "Sala creada correctamente!");
+            lblVolverMousePressed(evt);
+        }else{
+            JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
+        }
+    }//GEN-LAST:event_jLabel2MousePressed
 
     /**
      * @param args the command line arguments
@@ -159,12 +212,16 @@ public class CreacionSala extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CreacionSala().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblNombreSala;
+    private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel pnlBotones;
     // End of variables declaration//GEN-END:variables
 }
