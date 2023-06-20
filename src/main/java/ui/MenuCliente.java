@@ -6,7 +6,7 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.user.Cliente;
-import javax.swing.DefaultComboBoxModel;
+import persistencia.Persistencia;
 
 /**
  *
@@ -22,12 +22,14 @@ public class MenuCliente extends javax.swing.JFrame {
     public MenuCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Persistencia.actualizarUsuarios();
     }
 
     public MenuCliente(String email) {
         initComponents();
         this.email = email;
         this.setLocationRelativeTo(null);
+        Persistencia.actualizarUsuarios();
     }
 
     /**

@@ -141,7 +141,11 @@ public class ModificarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void lblGuardarCambiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarCambiosMouseClicked
-        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_lblGuardarCambiosMouseClicked
+
+    private void lblGuardarCambiosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarCambiosMousePressed
+         // TODO add your handling code here:
         String emailViejo = cliente.getEmail();
         Boolean flag = false;
         try {
@@ -158,11 +162,11 @@ public class ModificarUsuario extends javax.swing.JFrame {
                 if (Cine.getListaUsuarios().get(i).getEmail().equals(emailViejo)) {
                     if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
 
-                        Cine.getListaUsuarios().add(i, cliente);
-                        Persistencia.actualizarUsuarios();
-                        MenuCliente mc = new MenuCliente(txtEmail.getText());
-                        mc.setVisible(true);    
+                        Cine.getListaUsuarios().set(i, cliente);
+                        Persistencia.actualizarUsuarios(); 
                         JOptionPane.showMessageDialog(null, "Datos guardados correctamente!");
+                        MenuCliente mc = new MenuCliente();
+                        mc.setVisible(true);    
                         this.dispose();
                     }
                 }
@@ -170,13 +174,12 @@ public class ModificarUsuario extends javax.swing.JFrame {
         } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_lblGuardarCambiosMouseClicked
-
-    private void lblGuardarCambiosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarCambiosMousePressed
-        // TODO add your handling code here:
 
     }//GEN-LAST:event_lblGuardarCambiosMousePressed
 
+    
+    
+    
     private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
         // TODO add your handling code here:
         try {
@@ -195,7 +198,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
                 Cine.getListaUsuarios().add(cliente);
                 Persistencia.actualizarUsuarios();
                 JOptionPane.showMessageDialog(null, "Registro exitoso!");
-                this.dispose();
+ 
             }//Evaluar excepcion de persistencia
         } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -204,7 +207,8 @@ public class ModificarUsuario extends javax.swing.JFrame {
 
     private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
         // TODO add your handling code here:
-        new MenuCliente().setVisible(true);
+        MenuCliente mc = new MenuCliente(txtEmail.getText());
+        mc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMousePressed
 
