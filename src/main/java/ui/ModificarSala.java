@@ -40,15 +40,14 @@ public class ModificarSala extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         botones();
         lblNombreSala.setText(sala.getNombre());
+        if(sala.getAtmos()){
+            checkAtmos.setSelected(true);
+        }
     }
 
     public ModificarSala() {
     }
-    
-    
-    
-    
-    
+
     
     public JToggleButton [][] jtBotones =new JToggleButton[filas][columnas];
     
@@ -122,6 +121,7 @@ public class ModificarSala extends javax.swing.JFrame {
         lblVolver = new javax.swing.JLabel();
         lblModificar = new javax.swing.JLabel();
         lblNombreSala = new javax.swing.JLabel();
+        checkAtmos = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -163,6 +163,15 @@ public class ModificarSala extends javax.swing.JFrame {
         lblNombreSala.setText("jLabel1");
         jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
 
+        checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        checkAtmos.setText("ATMOS");
+        checkAtmos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAtmosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, 110, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,6 +204,9 @@ public class ModificarSala extends javax.swing.JFrame {
         
         String nombreviejo=sala.getNombre();
         if (sala.getCapacidad()>0){
+            if(checkAtmos.isSelected()){
+                sala.setAtmos(true);
+            }
             boolean flag=false;
         for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
                 if (Cine.getListaSalas().get(i).getNombre().equals(nombreviejo)) {
@@ -214,6 +226,10 @@ public class ModificarSala extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_lblModificarMousePressed
+
+    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
+
+    }//GEN-LAST:event_checkAtmosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,6 +267,7 @@ public class ModificarSala extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox checkAtmos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblModificar;
     private javax.swing.JLabel lblNombreSala;

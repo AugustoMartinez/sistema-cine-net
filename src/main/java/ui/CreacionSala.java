@@ -101,6 +101,7 @@ public class CreacionSala extends javax.swing.JFrame {
         lblVolver = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblNombreSala = new javax.swing.JLabel();
+        checkAtmos = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1200, 720));
@@ -146,6 +147,15 @@ public class CreacionSala extends javax.swing.JFrame {
         lblNombreSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         background.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
 
+        checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        checkAtmos.setText("ATMOS");
+        checkAtmos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAtmosActionPerformed(evt);
+            }
+        });
+        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, 110, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,6 +186,9 @@ public class CreacionSala extends javax.swing.JFrame {
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
         // TODO add your handling code here:
         if(sala.getCapacidad()>0){
+            if(checkAtmos.isSelected()){
+                sala.setAtmos(true);
+            }
             Cine.getListaSalas().add(sala);
             Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala creada correctamente!");
@@ -184,6 +197,10 @@ public class CreacionSala extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
         }
     }//GEN-LAST:event_jLabel2MousePressed
+
+    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
+
+    }//GEN-LAST:event_checkAtmosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +241,7 @@ public class CreacionSala extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JCheckBox checkAtmos;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblNombreSala;
     private javax.swing.JLabel lblVolver;

@@ -13,6 +13,8 @@ import javax.swing.DefaultComboBoxModel;
 import cine.Horario;
 import cine.cinelugar.Funcion;
 import cine.user.Sesion;
+import javax.swing.JOptionPane;
+import persistencia.Persistencia;
 
 /**
  *
@@ -54,6 +56,11 @@ public class RegistroFuncion extends javax.swing.JFrame {
         setResizable(false);
 
         listPelicula.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        listPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listPeliculaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel1.setText("Pelicula:");
@@ -153,7 +160,19 @@ public class RegistroFuncion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
-        
+        Funcion funcion = new Funcion();
+
+        if (retornaHorario() != null && retornaSala()!=null && retornaPelicula()!=null) {
+            funcion.setNombre(listPelicula.getSelectedItem().toString());
+            funcion.setHorario(retornaHorario());
+            funcion.setPelicula(retornaPelicula());
+            funcion.setDia(jCalendar1.getDate());
+            funcion.setSala(retornaSala());
+            
+            Cine.getListaFunciones().add(funcion);
+            Persistencia.actualizarFunciones();
+            JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
+        }
     }//GEN-LAST:event_btnAgregarMousePressed
 
     private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
@@ -178,6 +197,11 @@ public class RegistroFuncion extends javax.swing.JFrame {
         actualizarListHorarios();
     }//GEN-LAST:event_jCalendar1MouseEntered
 
+    private void listPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculaActionPerformed
+        // TODO add your handling code here:
+        actualizarListSalas();
+    }//GEN-LAST:event_listPeliculaActionPerformed
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPelicula.setModel(model);
@@ -199,24 +223,75 @@ public class RegistroFuncion extends javax.swing.JFrame {
     private void actualizarListSalas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listSala.setModel(model);
+
         for (Sala e : Cine.getListaSalas()) {
-            model.addElement(e.getNombre());
+            if (listPelicula.getSelectedItem().toString().contains("Atmos")) {
+                if (e.getAtmos()) {
+                    model.addElement(e.getNombre());
+                }
+            } else {
+                if (!e.getAtmos()) {
+                    model.addElement(e.getNombre());
+                }
+            }
         }
     }
 
     private void actualizarListHorarios() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listHorario.setModel(model);
-        for (Funcion e : Cine.getListaFunciones()) {
-            if (e.getDia().equals(jCalendar1.getDate())) {
-                for (Horario f : Horario.values()) {
-                    if(!e.getHorario().equals(f)){
-                        model.addElement(f.getHorario());
+        if (!Cine.getListaFunciones().isEmpty()) {
+            for (Funcion e : Cine.getListaFunciones()) {
+                if (e.getDia().equals(jCalendar1.getDate())) {
+                    for (Horario f : Horario.values()) {
+                        if (!e.getHorario().equals(f)) {
+                            model.addElement(f.getHorario());
+                        }
                     }
                 }
             }
+        } else {
+            for (Horario f : Horario.values()) {
+                model.addElement(f.getHorario());
+            }
         }
     }
+
+    private Horario retornaHorario() {
+        String str = listHorario.getSelectedItem().toString();
+        for (Horario e : Horario.values()) {
+            if (e.getHorario().equals(str)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    private Pelicula retornaPelicula() {
+        String str = listPelicula.getSelectedItem().toString();
+        for (Pelicula e : Cine.getListaPeliculas()) {
+            if (str.contains(e.getNombre())) {
+                return e;
+            }
+        }
+        return null;
+    }
+    
+    private Sala retornaSala(){
+        String str = listSala.getSelectedItem().toString();
+        for(Sala e: Cine.getListaSalas()){
+            if(str.equals(e.getNombre())){
+                if(!e.getDisponible()){
+                    return e;
+                }else{
+                    JOptionPane.showMessageDialog(null, "La sala seleccionada no está disponible");
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+    
 
     /**
      * @param args the command line arguments
