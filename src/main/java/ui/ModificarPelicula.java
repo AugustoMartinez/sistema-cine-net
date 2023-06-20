@@ -17,6 +17,10 @@ import persistencia.Persistencia;
 import validacion.Validaciones;
 import cine.user.Sesion;
 import java.awt.Image;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -32,6 +36,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
      * Creates new form ModificarPelicula
      */
     private Pelicula pelicula;
+    public static final String rutaDestino = "src\\main\\images\\";
     
     public ModificarPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
@@ -319,6 +324,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
         // TODO add your handling code here:
+        String rutaDest = "";
         JFileChooser jFileChooser = new JFileChooser();
         FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg","png","gif");
         jFileChooser.setFileFilter(filtrado);
@@ -327,7 +333,12 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
         try {
             if(respuesta == jFileChooser.APPROVE_OPTION){
-                pelicula.setRutaImagen(jFileChooser.getSelectedFile().getPath());
+                rutaDest = rutaDestino + jFileChooser.getSelectedFile().getName();
+                Path Destino = Paths.get(rutaDest);
+                String origin = jFileChooser.getSelectedFile().getPath();
+                Path Origen = Paths.get(origin);
+                Files.copy(Origen, Destino, StandardCopyOption.REPLACE_EXISTING);
+                pelicula.setRutaImagen(rutaDest);
                 Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
                 ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
                 lblImagen.setIcon(imgIcon);
