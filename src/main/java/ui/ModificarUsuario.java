@@ -161,7 +161,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
             for (int i = 0; i < Cine.getListaUsuarios().size() && flag == false; i++) {
                 if (Cine.getListaUsuarios().get(i).getEmail().equals(emailViejo)) {
                     if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
-                        //flag=true;
+                        flag=true;
                         Cine.getListaUsuarios().set(i, cliente);
                         Persistencia.actualizarUsuarios(); 
                         JOptionPane.showMessageDialog(null, "Datos guardados correctamente!");
@@ -177,9 +177,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lblGuardarCambiosMousePressed
 
-    
-    
-    
+
     private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
         // TODO add your handling code here:
         try {

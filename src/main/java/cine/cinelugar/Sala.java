@@ -9,12 +9,18 @@ public class Sala implements Serializable{
     private String nombre;
     private Butaca[][] butacas;
     private Integer capacidad;
+    private Boolean atmos;
+    private Boolean disponible;
+    private Boolean baja;
 
     public Sala(int filas, int columnas) {
         this.id = Cine.getListaSalas().size()+1;
         this.nombre="Sala " + id;
         this.butacas=new Butaca[filas][columnas];
         this.capacidad=0;
+        this.atmos=false;
+        this.disponible=false;
+        this.baja = false;
         inicializarButacas();
     }
     
@@ -25,7 +31,31 @@ public class Sala implements Serializable{
             }
         }
     }
+
+    public Boolean getBaja() {
+        return baja;
+    }
+
+    public void setBaja(Boolean baja) {
+        this.baja = baja;
+    }
     
+
+    public Boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
+    }
+    
+    public Boolean getAtmos() {
+        return atmos;
+    }
+
+    public void setAtmos(Boolean atmos) {
+        this.atmos = atmos;
+    }
 
     public String getNombre() {
         return nombre;
