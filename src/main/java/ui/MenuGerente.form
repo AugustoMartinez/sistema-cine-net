@@ -69,7 +69,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblModificarSala" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lblDarBaja" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnBajaSala" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="listPeliculas" min="-2" pref="345" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblModificarSala" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDarBaja" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBajaSala" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="listSalas" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
@@ -249,7 +249,7 @@
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblModificarSalaMousePressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDarBaja">
+        <Component class="javax.swing.JLabel" name="btnBajaSala">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Rockwell" size="20" style="0"/>
@@ -262,7 +262,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblDarBajaMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBajaSalaMousePressed"/>
           </Events>
         </Component>
       </SubComponents>

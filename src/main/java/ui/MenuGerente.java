@@ -9,6 +9,7 @@ import cine.cinelugar.Pelicula;
 import cine.cinelugar.Sala;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
 /**
@@ -46,7 +47,7 @@ public class MenuGerente extends javax.swing.JFrame {
         lblAgregarSala = new javax.swing.JLabel();
         listSalas = new javax.swing.JComboBox<>();
         lblModificarSala = new javax.swing.JLabel();
-        lblDarBaja = new javax.swing.JLabel();
+        btnBajaSala = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,12 +128,12 @@ public class MenuGerente extends javax.swing.JFrame {
             }
         });
 
-        lblDarBaja.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        lblDarBaja.setText("Dar baja");
-        lblDarBaja.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblDarBaja.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBajaSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        btnBajaSala.setText("Dar baja");
+        btnBajaSala.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBajaSala.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblDarBajaMousePressed(evt);
+                btnBajaSalaMousePressed(evt);
             }
         });
 
@@ -156,7 +157,7 @@ public class MenuGerente extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblModificarSala)
                                 .addGap(18, 18, 18)
-                                .addComponent(lblDarBaja))
+                                .addComponent(btnBajaSala))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -182,7 +183,7 @@ public class MenuGerente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblModificarSala)
-                            .addComponent(lblDarBaja))
+                            .addComponent(btnBajaSala))
                         .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,14 +231,18 @@ public class MenuGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarPeliculaMousePressed
 
     private void btnBajaPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMousePressed
-        if (listPeliculas.getSelectedItem() != null) {
-            for (Pelicula e : Cine.getListaPeliculas()) {
-                if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
-                    e.setBaja(true);
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre = listSalas.getSelectedItem().toString();
+            if (listPeliculas.getSelectedItem() != null) {
+            for (int i = 0; i < Cine.getListaPeliculas().size(); i++) {
+                if (Cine.getListaPeliculas().get(i).getNombre().equals(listPeliculas.getSelectedItem())) {
+                    Cine.getListaPeliculas().remove(i);
                 }
             }
         }
         actualizarListPeliculas();
+        }
     }//GEN-LAST:event_btnBajaPeliculaMousePressed
 
     private void lblAgregarSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarSalaMousePressed
@@ -257,9 +262,20 @@ public class MenuGerente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblModificarSalaMousePressed
 
-    private void lblDarBajaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDarBajaMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblDarBajaMousePressed
+    private void btnBajaSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaSalaMousePressed
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre = listSalas.getSelectedItem().toString();
+            for (int i = 0; i < Cine.getListaSalas().size(); i++) {
+                for (Sala sala : Cine.getListaSalas()) {
+                    if (sala.getNombre().equals(nombre)) {
+                        Cine.getListaSalas().remove(i);
+                    }
+                }
+            }
+            actualizarSalas();
+        }
+    }//GEN-LAST:event_btnBajaSalaMousePressed
 
     private void listPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculasActionPerformed
         // TODO add your handling code here:
@@ -286,6 +302,15 @@ public class MenuGerente extends javax.swing.JFrame {
 
             model2.addElement(e.getNombre());
 
+        }
+    }
+    private void actualizarSalas() {
+        DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
+        listSalas.setModel(model2);
+        for (Sala e : Cine.getListaSalas()) {
+            if (!e.getBaja()) {
+                model2.addElement(e.getNombre());
+            }
         }
     }
 
@@ -327,12 +352,12 @@ public class MenuGerente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAgregarPelicula1;
     private javax.swing.JLabel btnBajaPelicula;
+    private javax.swing.JLabel btnBajaSala;
     private javax.swing.JLabel btnCerrarSesion;
     private javax.swing.JLabel btnModificarPelicula;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgregarSala;
-    private javax.swing.JLabel lblDarBaja;
     private javax.swing.JLabel lblModificarSala;
     private javax.swing.JComboBox<String> listPeliculas;
     private javax.swing.JComboBox<String> listSalas;

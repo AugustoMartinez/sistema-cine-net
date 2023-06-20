@@ -183,43 +183,43 @@ public class MenuAdmin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAgregarGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btnAgregarPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCrearFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnModificarPelicula)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnBajaPelicula))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAgregarPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(412, 412, 412)
+                                .addComponent(btnCrearFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblAgregarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblAgregarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblModificarSala)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnBajaSala))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(listGerentes, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnModificarGerente)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnBajaGerente)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(lblModificarSala)
+                                .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnBajaSala))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnModificarPelicula)
                                 .addGap(18, 18, 18)
-                                .addComponent(listGerentes, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnModificarGerente)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBajaGerente)))
+                                .addComponent(btnBajaPelicula)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -246,11 +246,12 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblAgregarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblModificarSala)
-                            .addComponent(btnBajaSala))
-                        .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnBajaSala)
+                            .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -298,14 +299,19 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarPeliculaMousePressed
 
     private void btnBajaPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMousePressed
-        if (listPeliculas.getSelectedItem() != null) {
-            for (Pelicula e : Cine.getListaPeliculas()) {
-                if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
-                    e.setBaja(true);
+        
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre = listSalas.getSelectedItem().toString();
+            if (listPeliculas.getSelectedItem() != null) {
+            for (int i = 0; i < Cine.getListaPeliculas().size(); i++) {
+                if (Cine.getListaPeliculas().get(i).getNombre().equals(listPeliculas.getSelectedItem())) {
+                    Cine.getListaPeliculas().remove(i);
                 }
             }
         }
         actualizarListPeliculas();
+        }
     }//GEN-LAST:event_btnBajaPeliculaMousePressed
 
     private void btnAgregarGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarGerenteMousePressed
@@ -328,24 +334,28 @@ public class MenuAdmin extends javax.swing.JFrame {
                 }
             }
         }
-
-
     }//GEN-LAST:event_btnModificarGerenteMousePressed
 
     private void btnBajaGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaGerenteMousePressed
 
-        String nombre;
-        // FUNCIÓN FEA
-        for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
-            if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
-                nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
-                if (nombre.equals(listGerentes.getSelectedItem())) {
-                    System.out.println("HOLA");
-                    ((Gerente) Cine.getListaUsuarios().get(i)).setAdmin(false);
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre;
+            // FUNCIÓN FEA
+            for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+                if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
+                    nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
+                    if (nombre.equals(listGerentes.getSelectedItem())) {
+                        System.out.println("HOLA");
+                        Cine.getListaUsuarios().remove(i);
+                    }
                 }
             }
+            actualizarGerentes();
+
         }
-        actualizarGerentes();
+
+
     }//GEN-LAST:event_btnBajaGerenteMousePressed
 
     private void btnCrearFuncionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMousePressed
@@ -380,11 +390,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
-            String nombre=listSalas.getSelectedItem().toString();
+            String nombre = listSalas.getSelectedItem().toString();
             for (int i = 0; i < Cine.getListaSalas().size(); i++) {
                 for (Sala sala : Cine.getListaSalas()) {
                     if (sala.getNombre().equals(nombre)) {
-                        sala.setBaja(true);
+                        Cine.getListaSalas().remove(i);
                     }
                 }
             }
