@@ -11,6 +11,7 @@ ui\RegistroCliente$2.class
 ui\RegistroGerente$4.class
 ui\ModificarPelicula$3.class
 ui\ModificarSala.class
+ui\RegistroFuncion$5.class
 cine\cinelugar\Butaca.class
 cine\user\Sesion.class
 ui\MenuAdmin$8.class
@@ -19,6 +20,7 @@ ui\ModificarUsuario$3.class
 cine\Genero.class
 ui\RegistroPelicula$4.class
 ui\MenuAdmin$5.class
+ui\RegistroFuncion$2.class
 ui\RegistroPelicula$7.class
 validacion\Validaciones.class
 ui\ModificarGerente$3.class
@@ -42,12 +44,15 @@ ui\ModificarSala$3.class
 ui\Login$2.class
 ui\RegistroPelicula$8.class
 cine\Costos.class
+ui\RegistroFuncion$4.class
 cine\user\Cliente.class
 cine\user\Gerente.class
 ui\SalaCine.class
 ui\MenuGerente$1.class
 ui\RegistroPelicula$5.class
 ui\ModificarPelicula$5.class
+ui\RegistroFuncion$1.class
+ui\MenuAdmin$9.class
 ui\ModificarUsuario.class
 cine\cinelugar\Reserva.class
 ui\RegistroGerente.class
@@ -90,6 +95,8 @@ ui\CreacionSala.class
 cine\user\Usuario.class
 ui\Login$3.class
 cine\Imprimible.class
+ui\RegistroFuncion$3.class
+ui\RegistroFuncion.class
 ui\RegistroGerente$1.class
 ui\MenuGerente$2.class
 ui\ModificarUsuario$1.class
