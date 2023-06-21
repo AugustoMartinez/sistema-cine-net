@@ -159,6 +159,7 @@
     <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
       <Events>
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jCalendar1MouseEntered"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jCalendar1MousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="btnAgregar">

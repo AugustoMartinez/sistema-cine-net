@@ -271,17 +271,18 @@ public class RegistroPelicula extends javax.swing.JFrame {
             pelicula.setDescripcion(txtSinopsis.getText());
             pelicula.setFechaEstreno((Date)dateFecha.getDate());
             if(check3d.isSelected()){
-                pelicula.agregarTipo(true,"3D");
+                pelicula.getTipo().replace("3D", true);
             }
             if(check2d.isSelected()){
-                pelicula.agregarTipo(true, "2D");
+                pelicula.getTipo().replace("2D", true);
             }
             if(check3dAtmos.isSelected()){
-                pelicula.agregarTipo(true, "3D Atmos");
+                pelicula.getTipo().replace("3D ATMOS", true);
             }
             if(check2dAtmos.isSelected()){
-                pelicula.agregarTipo(true, "2D Atmos");
+                pelicula.getTipo().replace("2D ATMOS", true);
             }
+            
             Cine.getListaPeliculas().add(pelicula);
             Persistencia.actualizarPeliculas();
             

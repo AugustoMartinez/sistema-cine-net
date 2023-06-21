@@ -13,6 +13,9 @@ import javax.swing.DefaultComboBoxModel;
 import cine.Horario;
 import cine.cinelugar.Funcion;
 import cine.user.Sesion;
+import com.toedter.calendar.JCalendar;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
@@ -30,6 +33,8 @@ public class RegistroFuncion extends javax.swing.JFrame {
         actualizarListPeliculas();
         actualizarListHorarios();
         actualizarListSalas();
+        
+        System.out.println(Cine.getListaFunciones());
     }
 
     /**
@@ -83,6 +88,9 @@ public class RegistroFuncion extends javax.swing.JFrame {
         jCalendar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jCalendar1MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCalendar1MousePressed(evt);
             }
         });
 
@@ -162,13 +170,13 @@ public class RegistroFuncion extends javax.swing.JFrame {
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
         Funcion funcion = new Funcion();
 
-        if (retornaHorario() != null && retornaSala()!=null && retornaPelicula()!=null) {
+        if (retornaHorario() != null && retornaSala() != null && retornaPelicula() != null) {
             funcion.setNombre(listPelicula.getSelectedItem().toString());
             funcion.setHorario(retornaHorario());
             funcion.setPelicula(retornaPelicula());
-            funcion.setDia(jCalendar1.getDate());
+            funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
             funcion.setSala(retornaSala());
-            
+
             Cine.getListaFunciones().add(funcion);
             Persistencia.actualizarFunciones();
             JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
@@ -192,16 +200,37 @@ public class RegistroFuncion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_listHorarioActionPerformed
 
-    private void jCalendar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseEntered
-        // TODO add your handling code here:
-        actualizarListHorarios();
-    }//GEN-LAST:event_jCalendar1MouseEntered
-
     private void listPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculaActionPerformed
         // TODO add your handling code here:
         actualizarListSalas();
     }//GEN-LAST:event_listPeliculaActionPerformed
 
+    private void jCalendar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MousePressed
+        // TODO add your handling code here:
+        //actualizarListHorarios();
+    }//GEN-LAST:event_jCalendar1MousePressed
+
+    private void jCalendar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseEntered
+        // TODO add your handling code here:
+        actualizarListHorarios();
+    }//GEN-LAST:event_jCalendar1MouseEntered
+
+    
+    private Date convertirASoloDia(Date fecha){
+        fecha = jCalendar1.getDate();
+
+        // Obtener solo la fecha sin la hora
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        Date fechaSinHora = calendar.getTime();
+
+        return fechaSinHora;
+    }
+    
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPelicula.setModel(model);
@@ -239,18 +268,19 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void actualizarListHorarios() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-        listHorario.setModel(model);
-        if (!Cine.getListaFunciones().isEmpty()) {
+        listHorario.setModel(model); // Establecer el modelo del JComboBox
+        listHorario.removeAllItems();
+        if (!Cine.getListaFunciones().isEmpty()) { // Verificar si la lista de funciones no está vacía
             for (Funcion e : Cine.getListaFunciones()) {
-                if (e.getDia().equals(jCalendar1.getDate())) {
+                if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) { // Comprobar si la función tiene el mismo día que la fecha seleccionada en jCalendar1
                     for (Horario f : Horario.values()) {
-                        if (!e.getHorario().equals(f)) {
+                        if (e.getHorario().equals(f) == false) { // Agregar horarios diferentes al horario de la función al modelo
                             model.addElement(f.getHorario());
                         }
                     }
                 }
             }
-        } else {
+        } else { // Si la lista de funciones está vacía, agregar todos los horarios al modelo
             for (Horario f : Horario.values()) {
                 model.addElement(f.getHorario());
             }
@@ -276,14 +306,14 @@ public class RegistroFuncion extends javax.swing.JFrame {
         }
         return null;
     }
-    
-    private Sala retornaSala(){
+
+    private Sala retornaSala() {
         String str = listSala.getSelectedItem().toString();
-        for(Sala e: Cine.getListaSalas()){
-            if(str.equals(e.getNombre())){
-                if(!e.getDisponible()){
+        for (Sala e : Cine.getListaSalas()) {
+            if (str.equals(e.getNombre())) {
+                if (!e.getDisponible()) {
                     return e;
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "La sala seleccionada no está disponible");
                     return null;
                 }
@@ -291,7 +321,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
         }
         return null;
     }
-    
 
     /**
      * @param args the command line arguments

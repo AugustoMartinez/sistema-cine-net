@@ -5,9 +5,11 @@
 package ui;
 
 import cine.cinelugar.Cine;
+import cine.cinelugar.Funcion;
 import cine.cinelugar.Pelicula;
 import java.awt.Color;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -25,6 +27,7 @@ public class MenuReserva extends javax.swing.JFrame {
     public MenuReserva() {
         initComponents();
         actualizarListPeliculas();
+        actualizarListaFunciones();
         iniciar();
     }
     
@@ -75,12 +78,13 @@ public class MenuReserva extends javax.swing.JFrame {
         listPeliculas = new javax.swing.JComboBox<>();
         btnReservar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        lblSala = new javax.swing.JLabel();
-        listSalas = new javax.swing.JComboBox<>();
         btnSelectButaca = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,22 +94,22 @@ public class MenuReserva extends javax.swing.JFrame {
                 listFuncionesActionPerformed(evt);
             }
         });
-        getContentPane().add(listFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 136, 222, 34));
+        getContentPane().add(listFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 220, 360, 34));
 
         lblFunciones.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblFunciones.setText("Funciones Disponibles");
-        getContentPane().add(lblFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 97, -1, -1));
+        getContentPane().add(lblFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         lblPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblPeliculas.setText("Peliculas disponibles");
-        getContentPane().add(lblPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 12, -1, -1));
+        getContentPane().add(lblPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         listPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listPeliculasActionPerformed(evt);
             }
         });
-        getContentPane().add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 51, 222, 34));
+        getContentPane().add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 222, 34));
 
         btnReservar.setBackground(new java.awt.Color(102, 255, 51));
         btnReservar.setText("Hacer reserva");
@@ -114,7 +118,7 @@ public class MenuReserva extends javax.swing.JFrame {
                 btnReservarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 315, 120, 33));
+        getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 120, 33));
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setText("Cancelar");
@@ -123,18 +127,7 @@ public class MenuReserva extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 315, 100, 33));
-
-        lblSala.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblSala.setText("Seleccionar sala");
-        getContentPane().add(lblSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 194, -1, -1));
-
-        listSalas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listSalasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 233, 222, 35));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 100, 33));
 
         btnSelectButaca.setText("Seleccionar butaca");
         btnSelectButaca.addActionListener(new java.awt.event.ActionListener() {
@@ -142,8 +135,8 @@ public class MenuReserva extends javax.swing.JFrame {
                 btnSelectButacaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSelectButaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 233, -1, 35));
-        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 150, 200));
+        getContentPane().add(btnSelectButaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, 35));
+        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 310, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,6 +144,7 @@ public class MenuReserva extends javax.swing.JFrame {
     private void listPeliculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculasActionPerformed
         // TODO add your handling code here:
         iniciar();
+        actualizarListaFunciones();
     }//GEN-LAST:event_listPeliculasActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
@@ -163,10 +157,6 @@ public class MenuReserva extends javax.swing.JFrame {
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void listSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listSalasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listSalasActionPerformed
 
     private void btnSelectButacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectButacaActionPerformed
         // TODO add your handling code here:
@@ -210,6 +200,18 @@ public class MenuReserva extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void actualizarListaFunciones(){
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        listFunciones.setModel(model);
+        String str = retornaPelicula().getNombre();
+        for(Funcion e: Cine.getListaFunciones()){
+            if(e.getPelicula().getNombre().equals(str)){
+                SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+                model.addElement(e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario());
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
@@ -218,9 +220,7 @@ public class MenuReserva extends javax.swing.JFrame {
     private javax.swing.JLabel lblFunciones;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblPeliculas;
-    private javax.swing.JLabel lblSala;
     private javax.swing.JComboBox<String> listFunciones;
     private javax.swing.JComboBox<String> listPeliculas;
-    private javax.swing.JComboBox<String> listSalas;
     // End of variables declaration//GEN-END:variables
 }

@@ -277,17 +277,17 @@ public class ModificarPelicula extends javax.swing.JFrame {
             this.pelicula.setClasificacion(listClas.getSelectedItem().toString());
             this.pelicula.setDescripcion(txtSinopsis.getText());
             this.pelicula.setFechaEstreno((Date) dateFecha.getDate());
-            if (check3d.isSelected()) {
-                pelicula.agregarTipo(true, "3D");
+            if(check3d.isSelected()){
+                pelicula.getTipo().replace("3D", true);
             }
-            if (check2d.isSelected()) {
-                pelicula.agregarTipo(true, "2D");
+            if(check2d.isSelected()){
+                pelicula.getTipo().replace("2D", true);
             }
-            if (check3dAtmos.isSelected()) {
-                pelicula.agregarTipo(true, "3D Atmos");
+            if(check3dAtmos.isSelected()){
+                pelicula.getTipo().replace("3D ATMOS", true);
             }
-            if (check2dAtmos.isSelected()) {
-                pelicula.agregarTipo(true, "2D Atmos");
+            if(check2dAtmos.isSelected()){
+                pelicula.getTipo().replace("2D ATMOS", true);
             }
             for (int i = 0; i < Cine.getListaPeliculas().size() && flag == false; i++) {
                 if (Cine.getListaPeliculas().get(i).getNombre().equals(nombreViejo)) {

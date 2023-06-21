@@ -35,7 +35,6 @@ ui\RegistroFuncion$6.class
 cine\cinelugar\Sala.class
 excepciones\EmailException.class
 ui\ModificarSala$4.class
-ui\MenuReserva$7.class
 cine\cinelugar\Cine.class
 ui\RegistroPelicula$3.class
 ui\MenuGerente$4.class
