@@ -4,96 +4,40 @@
  */
 package ui;
 
-import cine.cinelugar.Cine;
-import cine.cinelugar.Sala;
+import cine.cinelugar.Funcion;
 import cine.user.Sesion;
-import excepciones.CampoVacioException;
-import excepciones.SoloNumerosException;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
-import persistencia.Persistencia;
 
 /**
  *
- * @author Diego
+ * @author Hoid
  */
-public class ModificarSala extends javax.swing.JFrame {
+public class ReservaButaca extends javax.swing.JFrame {
 
+    private Funcion funcion;
+    private int filas;
+    private int columnas;
     int largoBoton = 50;
     int anchoBoton = 25;
     int ejeX = 20;
     int ejeY = 20;
-    public Sala sala = new Sala();
 
     /**
-     * Creates new form ModificarSala
+     * Creates new form ReservaButaca
      */
-    public ModificarSala(Sala sala) {
-        initComponents();
-        this.sala = sala;
-        setLocationRelativeTo(null);
+    public ReservaButaca(Funcion e) {
+        this.funcion = e;
+        this.filas=e.getSala().getFilas();
+        this.columnas=e.getSala().getColumnas();
+        System.out.println(filas + " " + columnas);
         botones();
-        lblNombreSala.setText(sala.getNombre());
-        if (sala.getAtmos()) {
-            checkAtmos.setSelected(true);
-        }
+        initComponents();
     }
 
-    public ModificarSala() {
-    }
-
-    public JToggleButton[][] jtBotones = new JToggleButton[sala.getFilas()][sala.getColumnas()];
-
-    public void botones() {
-        jtBotones = new JToggleButton[sala.getFilas()][sala.getColumnas()];
-        for (int i = 0; i < sala.getFilas(); i++) {
-            for (int j = 0; j < sala.getColumnas(); j++) {
-                jtBotones[i][j] = new JToggleButton();
-                jtBotones[i][j].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
-                //jtBotones[i][j].setFont hay que hacer esto
-                AccionBotones accion = new AccionBotones();
-                jtBotones[i][j].addActionListener(accion);
-                if (sala.getButacas()[i][j].isExiste() == true) {
-                    jtBotones[i][j].setSelected(true);
-                    jtBotones[i][j].setBackground(Color.RED);
-                } else {
-                    jtBotones[i][j].setBackground(Color.BLUE);
-                }
-
-                pnlBotones.add(jtBotones[i][j]);
-                ejeX += 55;//separacion ejeX
-
-            }
-            ejeX = 20; //reseteo la poss inicial
-            ejeY += 30; //separacion ejeY
-        }
-    }
-
-    public class AccionBotones implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < sala.getFilas(); i++) {
-                for (int j = 0; j < sala.getColumnas(); j++) {
-                    if (e.getSource().equals(jtBotones[i][j])) {
-                        if (jtBotones[i][j].isSelected()) {
-                            jtBotones[i][j].setBackground(Color.RED);
-                            sala.getButacas()[i][j].setExiste(true);
-                            sala.setCapacidad(sala.getCapacidad() + 1);
-                            //aumentar contador para comparar con cantidad de boletos
-                        } else {
-                            jtBotones[i][j].setBackground(Color.BLUE);
-                            sala.getButacas()[i][j].setExiste(false);
-                            sala.setCapacidad(sala.getCapacidad() - 1);
-                            //disminuir contador
-                        }
-                    }
-                }
-            }
-        }
+    public ReservaButaca() {
     }
 
     /**
@@ -108,12 +52,10 @@ public class ModificarSala extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
         lblVolver = new javax.swing.JLabel();
-        lblModificar = new javax.swing.JLabel();
+        btnReservar = new javax.swing.JLabel();
         lblNombreSala = new javax.swing.JLabel();
-        checkAtmos = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,26 +82,17 @@ public class ModificarSala extends javax.swing.JFrame {
         });
         jPanel1.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 60, 20));
 
-        lblModificar.setText("Modificar");
-        lblModificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnReservar.setText("Reserva");
+        btnReservar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnReservar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblModificarMousePressed(evt);
+                btnReservarMousePressed(evt);
             }
         });
-        jPanel1.add(lblModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, 100, 40));
+        jPanel1.add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, 100, 40));
 
         lblNombreSala.setText("jLabel1");
         jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
-
-        checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        checkAtmos.setText("ATMOS");
-        checkAtmos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkAtmosActionPerformed(evt);
-            }
-        });
-        jPanel1.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,28 +110,75 @@ public class ModificarSala extends javax.swing.JFrame {
 
     private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
         // TODO add your handling code here:
-        if (Sesion.getTipo().equals("Admin")) {
-            this.dispose();
-            MenuAdmin admin = new MenuAdmin();
-            admin.setVisible(true);
-        } else if (Sesion.getTipo().equals("Gerente")) {
-            this.dispose();
-            MenuGerente gerente = new MenuGerente();
-            gerente.setVisible(true);
-        }
+        MenuReserva cliente = new MenuReserva();
+        cliente.setVisible(true);
+        cliente.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_lblVolverMousePressed
 
-    private void lblModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarMousePressed
-        // TODO add your handling code here:
+    public JToggleButton[][] jtBotones = new JToggleButton[filas][columnas];
 
-        String nombreviejo = sala.getNombre();
-        if (sala.getCapacidad() > 0) {
-            if (checkAtmos.isSelected()) {
+    public void botones() {
+        jtBotones = new JToggleButton[filas][columnas];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                jtBotones[i][j] = new JToggleButton();
+                jtBotones[i][j].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
+                
+                AccionBotones accion = new AccionBotones();
+                jtBotones[i][j].addActionListener(accion);
+                if (funcion.getSala().getButacas()[i][j].isExiste() == true) {
+                    jtBotones[i][j].setSelected(true);
+                    jtBotones[i][j].setBackground(Color.RED);
+                } else {
+                    jtBotones[i][j].setBackground(Color.BLUE);
+                }
+
+                pnlBotones.add(jtBotones[i][j]);
+                ejeX += 55;//separacion ejeX
+
+            }
+            ejeX = 20; //reseteo la poss inicial
+            ejeY += 30; //separacion ejeY
+        }
+    }
+
+    public class AccionBotones implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for (int i = 0; i < funcion.getSala().getFilas(); i++) {
+                for (int j = 0; j < funcion.getSala().getColumnas(); j++) {
+                    if (e.getSource().equals(jtBotones[i][j])) {
+                        if (jtBotones[i][j].isSelected()) {
+                            jtBotones[i][j].setBackground(Color.RED);
+                            funcion.getSala().getButacas()[i][j].setExiste(true);
+                            funcion.getSala().setCapacidad(funcion.getSala().getCapacidad() + 1);
+                            //aumentar contador para comparar con cantidad de boletos
+                        } else {
+                            jtBotones[i][j].setBackground(Color.BLUE);
+                            funcion.getSala().getButacas()[i][j].setExiste(false);
+                            funcion.getSala().setCapacidad(funcion.getSala().getCapacidad() - 1);
+                            //disminuir contador
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
+        // TODO add your handling code here:
+/*
+        String nombreviejo=sala.getNombre();
+        if (sala.getCapacidad()>0){
+            if(checkAtmos.isSelected()){
                 sala.setAtmos(true);
-            } else {
+            }else{
                 sala.setAtmos(false);
             }
-            boolean flag = false;
+            boolean flag=false;
             for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
                 if (Cine.getListaSalas().get(i).getNombre().equals(nombreviejo)) {
                     Cine.getListaSalas().set(i, sala);
@@ -209,16 +189,11 @@ public class ModificarSala extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Sala modificada exitosamente!" + sala.toString());
             lblVolverMousePressed(evt);
             this.dispose();
-        } else {
+        }else{
             JOptionPane.showMessageDialog(null, "La sala debe tener 1 asiento o mas!" + sala.toString());
         }
-
-
-    }//GEN-LAST:event_lblModificarMousePressed
-
-    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
-
-    }//GEN-LAST:event_checkAtmosActionPerformed
+         */
+    }//GEN-LAST:event_btnReservarMousePressed
 
     /**
      * @param args the command line arguments
@@ -237,28 +212,27 @@ public class ModificarSala extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservaButaca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservaButaca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservaButaca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarSala.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReservaButaca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new ModificarSala().setVisible(true);
+                new ReservaButaca().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox checkAtmos;
+    private javax.swing.JLabel btnReservar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblModificar;
     private javax.swing.JLabel lblNombreSala;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel pnlBotones;
