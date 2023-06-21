@@ -113,6 +113,11 @@ public class MenuReserva extends javax.swing.JFrame {
 
         btnReservar.setBackground(new java.awt.Color(102, 255, 51));
         btnReservar.setText("Hacer reserva");
+        btnReservar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnReservarMousePressed(evt);
+            }
+        });
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReservarActionPerformed(evt);
@@ -122,6 +127,11 @@ public class MenuReserva extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setText("Cancelar");
+        btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCancelarMousePressed(evt);
+            }
+        });
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -130,6 +140,11 @@ public class MenuReserva extends javax.swing.JFrame {
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 100, 33));
 
         btnSelectButaca.setText("Seleccionar butaca");
+        btnSelectButaca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSelectButacaMousePressed(evt);
+            }
+        });
         btnSelectButaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectButacaActionPerformed(evt);
@@ -153,9 +168,9 @@ public class MenuReserva extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        /*this.dispose();
         MenuCliente cliente = new MenuCliente();
-        cliente.setVisible(true);
+        cliente.setVisible(true);*/
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSelectButacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectButacaActionPerformed
@@ -166,6 +181,45 @@ public class MenuReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_listFuncionesActionPerformed
 
+    private void btnSelectButacaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectButacaMousePressed
+        // TODO add your handling code here:
+        Funcion e = new Funcion();
+        e = retornaFuncion();
+        ReservaButaca reservaButaca = new ReservaButaca(e);
+        reservaButaca.setVisible(true);
+        reservaButaca.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnSelectButacaMousePressed
+
+    private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnReservarMousePressed
+
+    private void btnCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMousePressed
+        // TODO add your handling code here:
+        MenuCliente cliente = new MenuCliente();
+        cliente.setVisible(true);
+        cliente.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarMousePressed
+
+    
+    private Funcion retornaFuncion(){
+        String str = listFunciones.getSelectedItem().toString();
+        for(Funcion e: Cine.getListaFunciones()){
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            String funcStr = e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario();
+            
+            if(funcStr.equals(str)){
+                System.out.println(e);
+                return e;
+            }
+        }
+        return null;
+    }
+    
     /**
      * @param args the command line arguments
      */

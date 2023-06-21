@@ -29,14 +29,14 @@ public class CreacionSala extends javax.swing.JFrame {
         botones();
         lblNombreSala.setText(sala.getNombre());
     }
-    
-    int filas =10;
-    int columnas =20;
+    Sala sala=new Sala();
+    int filas =sala.getFilas();
+    int columnas =sala.getColumnas();
     int largoBoton=50;
     int anchoBoton =25;
     int ejeX=20;
     int ejeY=20;
-    Sala sala=new Sala(filas,columnas);
+    
     
     
     public JToggleButton [][] jtBotones =new JToggleButton[filas][columnas];

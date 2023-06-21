@@ -22,25 +22,22 @@ import persistencia.Persistencia;
  */
 public class ModificarSala extends javax.swing.JFrame {
 
-    
-    
-    int filas =10;
-    int columnas =20;
-    int largoBoton=50;
-    int anchoBoton =25;
-    int ejeX=20;
-    int ejeY=20;
-    public Sala sala=new Sala(filas, columnas);
+    int largoBoton = 50;
+    int anchoBoton = 25;
+    int ejeX = 20;
+    int ejeY = 20;
+    public Sala sala = new Sala();
+
     /**
      * Creates new form ModificarSala
      */
     public ModificarSala(Sala sala) {
         initComponents();
-        this.sala=sala;
+        this.sala = sala;
         setLocationRelativeTo(null);
         botones();
         lblNombreSala.setText(sala.getNombre());
-        if(sala.getAtmos()){
+        if (sala.getAtmos()) {
             checkAtmos.setSelected(true);
         }
     }
@@ -48,54 +45,49 @@ public class ModificarSala extends javax.swing.JFrame {
     public ModificarSala() {
     }
 
-    
-    public JToggleButton [][] jtBotones =new JToggleButton[filas][columnas];
-    
-    public void botones(){
-        jtBotones= new JToggleButton[filas][columnas];
-        for(int i=0;i<filas; i++){
-            for(int j=0;j<columnas;j++){
-                jtBotones[i][j]= new JToggleButton();
-                jtBotones[i][j].setBounds(ejeX,ejeY,largoBoton,anchoBoton);
+    public JToggleButton[][] jtBotones = new JToggleButton[sala.getFilas()][sala.getColumnas()];
+
+    public void botones() {
+        jtBotones = new JToggleButton[sala.getFilas()][sala.getColumnas()];
+        for (int i = 0; i < sala.getFilas(); i++) {
+            for (int j = 0; j < sala.getColumnas(); j++) {
+                jtBotones[i][j] = new JToggleButton();
+                jtBotones[i][j].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
                 //jtBotones[i][j].setFont hay que hacer esto
-                AccionBotones accion=new AccionBotones();
+                AccionBotones accion = new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
-                if(sala.getButacas()[i][j].isExiste()==true)
-                {
+                if (sala.getButacas()[i][j].isExiste() == true) {
                     jtBotones[i][j].setSelected(true);
                     jtBotones[i][j].setBackground(Color.RED);
-                }else{
+                } else {
                     jtBotones[i][j].setBackground(Color.BLUE);
                 }
-                
-                
-                
-                
+
                 pnlBotones.add(jtBotones[i][j]);
-                ejeX+=55;//separacion ejeX
-                
+                ejeX += 55;//separacion ejeX
+
             }
-            ejeX=20; //reseteo la poss inicial
-            ejeY+=30; //separacion ejeY
+            ejeX = 20; //reseteo la poss inicial
+            ejeY += 30; //separacion ejeY
         }
     }
-    
-    public class AccionBotones implements ActionListener{
+
+    public class AccionBotones implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            for(int i=0; i<filas; i++){
-                for(int j=0;j<columnas;j++){
-                    if(e.getSource().equals(jtBotones[i][j])){
-                        if(jtBotones[i][j].isSelected()){
+            for (int i = 0; i < sala.getFilas(); i++) {
+                for (int j = 0; j < sala.getColumnas(); j++) {
+                    if (e.getSource().equals(jtBotones[i][j])) {
+                        if (jtBotones[i][j].isSelected()) {
                             jtBotones[i][j].setBackground(Color.RED);
                             sala.getButacas()[i][j].setExiste(true);
-                            sala.setCapacidad(sala.getCapacidad()+1);
+                            sala.setCapacidad(sala.getCapacidad() + 1);
                             //aumentar contador para comparar con cantidad de boletos
-                        }else{
+                        } else {
                             jtBotones[i][j].setBackground(Color.BLUE);
                             sala.getButacas()[i][j].setExiste(false);
-                            sala.setCapacidad(sala.getCapacidad()-1);
+                            sala.setCapacidad(sala.getCapacidad() - 1);
                             //disminuir contador
                         }
                     }
@@ -103,9 +95,6 @@ public class ModificarSala extends javax.swing.JFrame {
             }
         }
     }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -201,30 +190,30 @@ public class ModificarSala extends javax.swing.JFrame {
 
     private void lblModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarMousePressed
         // TODO add your handling code here:
-        
-        String nombreviejo=sala.getNombre();
-        if (sala.getCapacidad()>0){
-            if(checkAtmos.isSelected()){
+
+        String nombreviejo = sala.getNombre();
+        if (sala.getCapacidad() > 0) {
+            if (checkAtmos.isSelected()) {
                 sala.setAtmos(true);
+            } else {
+                sala.setAtmos(false);
             }
-            boolean flag=false;
-        for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
+            boolean flag = false;
+            for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
                 if (Cine.getListaSalas().get(i).getNombre().equals(nombreviejo)) {
                     Cine.getListaSalas().set(i, sala);
                     flag = true;
                 }
             }
-            Persistencia.actualizarSalas(); 
+            Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala modificada exitosamente!" + sala.toString());
             lblVolverMousePressed(evt);
             this.dispose();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "La sala debe tener 1 asiento o mas!" + sala.toString());
         }
-        
 
-        
-        
+
     }//GEN-LAST:event_lblModificarMousePressed
 
     private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed

@@ -1,20 +1,37 @@
 package cine.cinelugar;
 
 import cine.Costos;
+import java.util.LinkedList;
 
 public class Reserva {
     private Funcion funcion;
-    private Butaca butaca;
+    private LinkedList<String> butaca;
     private Integer numTicket;
-    private Costos costos;
+    private Integer costos;
     private Sala sala;
 
-    public Reserva(Funcion funcion, Butaca butaca, Integer numTicket, Costos costos, Sala sala) {
+    public Reserva(Funcion funcion, LinkedList<String> butaca, Integer numTicket, Sala sala) {
         this.funcion = funcion;
         this.butaca = butaca;
         this.numTicket = numTicket;
-        this.costos = costos;
         this.sala = sala;
+        this.costos=generarCosto();
+    }
+
+    public Reserva() {
+       
+    }
+    
+    private Integer generarCosto(){
+        int costo=0;
+        
+        for(Costos e: Costos.values()){
+            if(funcion.getNombre().contains(e.getTipo())){
+                costo=e.getCosto();
+            }
+        }
+        
+        return costo*butaca.size();
     }
 
     public Funcion getFuncion() {
@@ -25,11 +42,11 @@ public class Reserva {
         this.funcion = funcion;
     }
 
-    public Butaca getButaca() {
+    public LinkedList<String> getButaca() {
         return butaca;
     }
 
-    public void setButaca(Butaca butaca) {
+    public void setButaca(LinkedList<String> butaca) {
         this.butaca = butaca;
     }
 
@@ -41,11 +58,11 @@ public class Reserva {
         this.numTicket = numTicket;
     }
 
-    public Costos getCostos() {
+    public Integer getCostos() {
         return costos;
     }
 
-    public void setCostos(Costos costos) {
+    public void setCostos(Integer costos) {
         this.costos = costos;
     }
 
