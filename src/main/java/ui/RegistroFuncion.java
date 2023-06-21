@@ -33,8 +33,9 @@ public class RegistroFuncion extends javax.swing.JFrame {
     public RegistroFuncion() {
         initComponents();
         actualizarListPeliculas();
-        actualizarListHorarios();
+
         actualizarListSalas();
+        actualizarListHorarios();
 
         //System.out.println(Cine.getListaFunciones());
     }
@@ -73,6 +74,11 @@ public class RegistroFuncion extends javax.swing.JFrame {
         jLabel1.setText("Pelicula:");
 
         listSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        listSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listSalaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel2.setText("Sala:");
@@ -182,8 +188,9 @@ public class RegistroFuncion extends javax.swing.JFrame {
             Cine.getListaFunciones().add(funcion);
             Persistencia.actualizarFunciones();
             JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
-            actualizarListHorarios();
+
             actualizarListSalas();
+            actualizarListHorarios();
         }
     }//GEN-LAST:event_btnAgregarMousePressed
 
@@ -206,8 +213,10 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void listPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculaActionPerformed
         // TODO add your handling code here:
-        actualizarListHorarios();
+
         actualizarListSalas();
+        actualizarListHorarios();
+
     }//GEN-LAST:event_listPeliculaActionPerformed
 
     private void jCalendar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MousePressed
@@ -217,9 +226,16 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void jCalendar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseEntered
         // TODO add your handling code here:
-        actualizarListHorarios();
+
         actualizarListSalas();
+        actualizarListHorarios();
+
     }//GEN-LAST:event_jCalendar1MouseEntered
+
+    private void listSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listSalaActionPerformed
+        // TODO add your handling code here:
+        actualizarListHorarios();
+    }//GEN-LAST:event_listSalaActionPerformed
 
     private Date convertirASoloDia(Date fecha) {
         fecha = jCalendar1.getDate();
@@ -257,8 +273,22 @@ public class RegistroFuncion extends javax.swing.JFrame {
     private void actualizarListSalas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listSala.setModel(model);
+        for (Sala algo : Cine.getListaSalas()) {
+            if (listPelicula.getSelectedItem().toString().contains("2D ATMOS") && algo.getAtmos() == true) {
+                model.addElement(algo.getNombre());
+            } else if (listPelicula.getSelectedItem().toString().contains("2D ATMOS") && algo.getAtmos() == false) {
 
-        Map<Sala, Boolean> salasEstaticas = new HashMap<>();
+            } else if (listPelicula.getSelectedItem().toString().contains("3D ATMOS") && algo.getAtmos() == true) {
+                model.addElement(algo.getNombre());
+            } else if (listPelicula.getSelectedItem().toString().contains("3D ATMOS") && algo.getAtmos() == false) {
+
+            } else if (algo.getAtmos() == false) {
+                model.addElement(algo.getNombre());
+            }
+        }
+
+
+        /*Map<Sala, Boolean> salasEstaticas = new HashMap<>();
         for (Sala sala : Cine.getListaSalas()) {
             salasEstaticas.put(sala, true);
         } 
@@ -283,13 +313,14 @@ public class RegistroFuncion extends javax.swing.JFrame {
             if(value){
                 model.addElement(key.getNombre());
             }
-        }
+        }*/
     }
 
     private void actualizarListHorarios() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listHorario.setModel(model); // Establecer el modelo del JComboBox
         listHorario.removeAllItems();
+
 
         if (!Cine.getListaFunciones().isEmpty()) {
             LinkedHashMap<Horario, Boolean> horariosDisponibles = new LinkedHashMap<>();
@@ -299,10 +330,10 @@ public class RegistroFuncion extends javax.swing.JFrame {
             horariosDisponibles.put(Horario.TARDENOCHE, true);
             horariosDisponibles.put(Horario.NOCHE, true);
             horariosDisponibles.put(Horario.MEDIANOCHE, true);
-            String str = listPelicula.getSelectedItem().toString();
+            String str = listSala.getSelectedItem().toString();
             for (Funcion e : Cine.getListaFunciones()) {
                 if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
-                    if (e.getNombre().equals(str)) {
+                    if (e.getSala().getNombre().equals(str)) {
                         horariosDisponibles.replace(e.getHorario(), false);
                     }
                 }
@@ -315,11 +346,19 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 }
             }
         } else { // Si la lista de funciones está vacía, agregar todos los horarios al modelo
-
             for (Horario f : Horario.values()) {
                 model.addElement(f.getHorario());
             }
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     private Funcion retornaFuncion() {

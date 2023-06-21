@@ -206,6 +206,8 @@ public class ModificarSala extends javax.swing.JFrame {
         if (sala.getCapacidad()>0){
             if(checkAtmos.isSelected()){
                 sala.setAtmos(true);
+            }else{
+                sala.setAtmos(false);
             }
             boolean flag=false;
         for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
