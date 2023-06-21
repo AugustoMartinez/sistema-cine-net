@@ -6,6 +6,7 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.user.Cliente;
+import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
 /**
@@ -22,14 +23,12 @@ public class MenuCliente extends javax.swing.JFrame {
     public MenuCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Persistencia.actualizarUsuarios();
     }
 
     public MenuCliente(String email) {
         initComponents();
         this.email = email;
         this.setLocationRelativeTo(null);
-        Persistencia.actualizarUsuarios();
     }
 
     /**
@@ -46,6 +45,7 @@ public class MenuCliente extends javax.swing.JFrame {
         lbGenerarReserva = new javax.swing.JLabel();
         lbEditarDatos = new javax.swing.JLabel();
         jLbMisReservas = new javax.swing.JLabel();
+        lbDarBaja = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +72,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 lbGenerarReservaMouseClicked(evt);
             }
         });
-        jPanel1.add(lbGenerarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 280, 90));
+        jPanel1.add(lbGenerarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 280, 90));
 
         lbEditarDatos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbEditarDatos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -86,13 +86,27 @@ public class MenuCliente extends javax.swing.JFrame {
                 lbEditarDatosMousePressed(evt);
             }
         });
-        jPanel1.add(lbEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 280, 90));
+        jPanel1.add(lbEditarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 280, 90));
 
         jLbMisReservas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLbMisReservas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLbMisReservas.setText("Mis reservas");
         jLbMisReservas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLbMisReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 280, 90));
+        jPanel1.add(jLbMisReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 280, 90));
+
+        lbDarBaja.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbDarBaja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDarBaja.setText("Darse de baja");
+        lbDarBaja.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbDarBaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbDarBajaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbDarBajaMousePressed(evt);
+            }
+        });
+        jPanel1.add(lbDarBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 280, 90));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +160,32 @@ public class MenuCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lbGenerarReservaMouseClicked
 
+    private void lbDarBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDarBajaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbDarBajaMouseClicked
+
+    private void lbDarBajaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDarBajaMousePressed
+         int option = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea darse de baja?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        
+         if (option == JOptionPane.YES_OPTION) {
+         
+            for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+                if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
+                    if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
+                        Cine.getListaUsuarios().remove(i);
+                        System.out.println("entro");
+                        JOptionPane.showMessageDialog(null, "Se dio de baja correctamente!");
+                        Login log = new Login();
+                        log.setVisible(true);    
+                        this.dispose();
+
+                    }
+                }
+            }
+            Persistencia.actualizarUsuarios();
+        }
+    }//GEN-LAST:event_lbDarBajaMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -184,6 +224,7 @@ public class MenuCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLbMisReservas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbDarBaja;
     private javax.swing.JLabel lbEditarDatos;
     private javax.swing.JLabel lbGenerarReserva;
     private javax.swing.JLabel lbSalir;
