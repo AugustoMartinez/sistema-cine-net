@@ -11,6 +11,7 @@ public class Persistencia {
     public static String peliculaFile="Peliculas";
     public static String funcionFile="Funciones";
     public static String salaFile="Salas";
+    public static String reservasFile="Reservas";
     
     public static void leerDatos(){
         PersistenceCollecion<String> datosPersistenceCollecion=new PersistenceCollecion<>();
@@ -101,7 +102,6 @@ public class Persistencia {
             System.out.println("Fallo la carga de salas");
         }
     }
-    
     
     
 }

@@ -3,6 +3,7 @@ package cine.cinelugar;
 import cine.user.*;
 import java.util.ArrayList;
 import java.util.List;
+import persistencia.Persistencia;
 
 public class Cine {
     private static String direccion="";
@@ -72,6 +73,26 @@ public class Cine {
             }
         }
         return false;
+    }
+    
+    public static Cliente retornaClientePorEmail(String email) {
+        
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getEmail().equals(email) && usuario instanceof Cliente) {
+                return (Cliente)usuario;
+            }
+        }
+        return null;
+    }
+    
+    public static void reemplazarCliente(Cliente cliente){
+        for(int i = 0; i< listaUsuarios.size(); i++){
+            if (listaUsuarios.get(i).getEmail().equals(cliente.getEmail())) {
+                listaUsuarios.add(cliente);
+                Persistencia.actualizarUsuarios();
+                break;
+            }
+        }
     }
     
     public static boolean validarLoginYCargarSesion(String email, String contraseña) {

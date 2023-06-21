@@ -4,12 +4,23 @@
  */
 package ui;
 
+import cine.Costos;
+import cine.cinelugar.Butaca;
+import cine.cinelugar.Cine;
 import cine.cinelugar.Funcion;
+import cine.cinelugar.Reserva;
+import cine.cinelugar.Sala;
+import cine.user.Cliente;
 import cine.user.Sesion;
+import cine.user.Usuario;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import javax.swing.JToggleButton;
+import persistencia.Persistencia;
 
 /**
  *
@@ -20,21 +31,23 @@ public class ReservaButaca extends javax.swing.JFrame {
     private Funcion funcion;
     private int filas;
     private int columnas;
-    int largoBoton = 50;
-    int anchoBoton = 25;
-    int ejeX = 20;
-    int ejeY = 20;
+    private int largoBoton = 50;
+    private int anchoBoton = 25;
+    private int ejeX = 20;
+    private int ejeY = 20;
+    private static int cantidadButacasCompradas;
 
     /**
      * Creates new form ReservaButaca
      */
     public ReservaButaca(Funcion e) {
+        initComponents();
         this.funcion = e;
         this.filas=e.getSala().getFilas();
         this.columnas=e.getSala().getColumnas();
-        System.out.println(filas + " " + columnas);
+        
         botones();
-        initComponents();
+        ReservaButaca.cantidadButacasCompradas=0;
     }
 
     public ReservaButaca() {
@@ -128,11 +141,16 @@ public class ReservaButaca extends javax.swing.JFrame {
                 AccionBotones accion = new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
                 if (funcion.getSala().getButacas()[i][j].isExiste() == true) {
-                    jtBotones[i][j].setSelected(true);
-                    jtBotones[i][j].setBackground(Color.RED);
-                } else {
-                    jtBotones[i][j].setBackground(Color.BLUE);
-                }
+                    if(funcion.getSala().getButacas()[i][j].isOcupada()){
+                        jtBotones[i][j].setEnabled(false);
+                        jtBotones[i][j].setBackground(Color.RED);
+                    }else{
+                        jtBotones[i][j].setSelected(false);
+                        jtBotones[i][j].setBackground(Color.GRAY);
+                    }
+                }else{
+                    jtBotones[i][j].setVisible(false);
+                } 
 
                 pnlBotones.add(jtBotones[i][j]);
                 ejeX += 55;//separacion ejeX
@@ -141,6 +159,20 @@ public class ReservaButaca extends javax.swing.JFrame {
             ejeX = 20; //reseteo la poss inicial
             ejeY += 30; //separacion ejeY
         }
+    }
+    public static void aumentarButacas(){
+        ReservaButaca.cantidadButacasCompradas++;
+    }
+    public static void disminuirButacas(){
+        ReservaButaca.cantidadButacasCompradas--;
+    }
+    
+    private int generarNumeroEntero() {
+        Random random = new Random();
+        int min = 1000000;
+        int max = Integer.MAX_VALUE;
+        int numero = random.nextInt(max - min + 1) + min;
+        return numero;
     }
 
     public class AccionBotones implements ActionListener {
@@ -151,14 +183,14 @@ public class ReservaButaca extends javax.swing.JFrame {
                 for (int j = 0; j < funcion.getSala().getColumnas(); j++) {
                     if (e.getSource().equals(jtBotones[i][j])) {
                         if (jtBotones[i][j].isSelected()) {
-                            jtBotones[i][j].setBackground(Color.RED);
-                            funcion.getSala().getButacas()[i][j].setExiste(true);
-                            funcion.getSala().setCapacidad(funcion.getSala().getCapacidad() + 1);
+                            jtBotones[i][j].setBackground(Color.GREEN);
+                            funcion.getSala().getButacas()[i][j].setOcupada(true);
                             //aumentar contador para comparar con cantidad de boletos
+                            ReservaButaca.aumentarButacas();
                         } else {
-                            jtBotones[i][j].setBackground(Color.BLUE);
-                            funcion.getSala().getButacas()[i][j].setExiste(false);
-                            funcion.getSala().setCapacidad(funcion.getSala().getCapacidad() - 1);
+                            jtBotones[i][j].setBackground(Color.GRAY);
+                            funcion.getSala().getButacas()[i][j].setOcupada(false);
+                            ReservaButaca.disminuirButacas();
                             //disminuir contador
                         }
                     }
@@ -166,35 +198,38 @@ public class ReservaButaca extends javax.swing.JFrame {
             }
         }
     }
-
-
-    private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
-        // TODO add your handling code here:
-/*
-        String nombreviejo=sala.getNombre();
-        if (sala.getCapacidad()>0){
-            if(checkAtmos.isSelected()){
-                sala.setAtmos(true);
-            }else{
-                sala.setAtmos(false);
-            }
-            boolean flag=false;
-            for (int i = 0; i < Cine.getListaSalas().size() && flag == false; i++) {
-                if (Cine.getListaSalas().get(i).getNombre().equals(nombreviejo)) {
-                    Cine.getListaSalas().set(i, sala);
-                    flag = true;
+    
+    private LinkedList<String> retornaButacas(){
+        LinkedList<String> butacas = new LinkedList<>();
+        //jtBotones = new JToggleButton[filas][columnas];
+        for(int i = 0; i < filas; i ++){
+            for(int j = 0; j < columnas; j++){
+                if(jtBotones[i][j].isSelected()){
+                    butacas.add("Fila: " + i + " Columna: "+ j);
                 }
             }
-            Persistencia.actualizarSalas();
-            JOptionPane.showMessageDialog(null, "Sala modificada exitosamente!" + sala.toString());
-            lblVolverMousePressed(evt);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "La sala debe tener 1 asiento o mas!" + sala.toString());
         }
-         */
+        return butacas;
+    }
+    
+    private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
+        LinkedList<String> butacas = retornaButacas();
+        Integer numTicket=this.generarNumeroEntero();
+        Sala sala=funcion.getSala();
+        Reserva reserva = new Reserva(funcion, butacas, numTicket, sala);
+        Cliente user = Cine.retornaClientePorEmail(Sesion.emailLogeado);
+        user.agregarReserva(reserva);
+        Cine.reemplazarCliente(user);
+        Persistencia.actualizarUsuarios();
+        Persistencia.actualizarFunciones();
+        MenuReserva rem = new MenuReserva();
+        rem.setVisible(true);
+        rem.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnReservarMousePressed
 
+    
+    
     /**
      * @param args the command line arguments
      */
