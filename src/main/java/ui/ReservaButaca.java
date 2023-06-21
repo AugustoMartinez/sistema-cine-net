@@ -35,6 +35,7 @@ public class ReservaButaca extends javax.swing.JFrame {
     private int anchoBoton = 25;
     private int ejeX = 20;
     private int ejeY = 20;
+    public Sala sala;
     private static int cantidadButacasCompradas;
 
     /**
@@ -43,9 +44,9 @@ public class ReservaButaca extends javax.swing.JFrame {
     public ReservaButaca(Funcion e) {
         initComponents();
         this.funcion = e;
-        this.filas=e.getSala().getFilas();
-        this.columnas=e.getSala().getColumnas();
-        
+        this.filas=e.getSalaCopia().getFilas();
+        this.columnas=e.getSalaCopia().getColumnas();
+        this.sala = e.getSalaCopia();
         botones();
         ReservaButaca.cantidadButacasCompradas=0;
     }
@@ -122,7 +123,16 @@ public class ReservaButaca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
-        // TODO add your handling code here:
+
+        for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
+                   if (jtBotones[i][j].isSelected()) {
+                        jtBotones[i][j].setEnabled(true);
+                        jtBotones[i][j].setSelected(false);
+                   }
+                }
+        }
+        funcion=null;
         MenuReserva cliente = new MenuReserva();
         cliente.setVisible(true);
         cliente.setLocationRelativeTo(null);
@@ -179,17 +189,17 @@ public class ReservaButaca extends javax.swing.JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < funcion.getSala().getFilas(); i++) {
-                for (int j = 0; j < funcion.getSala().getColumnas(); j++) {
+            for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
                     if (e.getSource().equals(jtBotones[i][j])) {
                         if (jtBotones[i][j].isSelected()) {
                             jtBotones[i][j].setBackground(Color.GREEN);
-                            funcion.getSala().getButacas()[i][j].setOcupada(true);
+                            sala.getButacas()[i][j].setOcupada(true);
                             //aumentar contador para comparar con cantidad de boletos
                             ReservaButaca.aumentarButacas();
                         } else {
                             jtBotones[i][j].setBackground(Color.GRAY);
-                            funcion.getSala().getButacas()[i][j].setOcupada(false);
+                            sala.getButacas()[i][j].setOcupada(false);
                             ReservaButaca.disminuirButacas();
                             //disminuir contador
                         }
@@ -215,8 +225,8 @@ public class ReservaButaca extends javax.swing.JFrame {
     private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
         LinkedList<String> butacas = retornaButacas();
         Integer numTicket=this.generarNumeroEntero();
-        Sala sala=funcion.getSala();
-        Reserva reserva = new Reserva(funcion, butacas, numTicket, sala);
+        funcion.setSalaCopia(this.sala);
+        Reserva reserva = new Reserva(funcion, butacas, numTicket, this.sala);
         Cliente user = Cine.retornaClientePorEmail(Sesion.emailLogeado);
         user.agregarReserva(reserva);
         Cine.reemplazarCliente(user);
@@ -228,8 +238,6 @@ public class ReservaButaca extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnReservarMousePressed
 
-    
-    
     /**
      * @param args the command line arguments
      */

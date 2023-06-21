@@ -184,6 +184,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
             funcion.setPelicula(retornaPelicula());
             funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
             funcion.setSala(retornaSala());
+            funcion.setSalaCopia(funcion.getSala());
 
             Cine.getListaFunciones().add(funcion);
             Persistencia.actualizarFunciones();
@@ -204,7 +205,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
             MenuGerente gerente = new MenuGerente();
             gerente.setVisible(true);
         }
-
     }//GEN-LAST:event_btnVolverMousePressed
 
     private void listHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listHorarioActionPerformed
