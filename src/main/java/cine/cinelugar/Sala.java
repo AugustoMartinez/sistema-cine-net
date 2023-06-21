@@ -3,6 +3,7 @@ package cine.cinelugar;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Sala implements Serializable{
     private Integer id;
@@ -91,4 +92,21 @@ public class Sala implements Serializable{
         return capacidad;
     }
 
+        @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Sala other = (Sala) obj;
+        return Objects.equals(nombre, other.nombre);
+    }
 }

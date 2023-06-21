@@ -206,6 +206,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void listPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculaActionPerformed
         // TODO add your handling code here:
+        actualizarListHorarios();
         actualizarListSalas();
     }//GEN-LAST:event_listPeliculaActionPerformed
 
@@ -217,6 +218,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
     private void jCalendar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseEntered
         // TODO add your handling code here:
         actualizarListHorarios();
+        actualizarListSalas();
     }//GEN-LAST:event_jCalendar1MouseEntered
 
     private Date convertirASoloDia(Date fecha) {
@@ -256,15 +258,36 @@ public class RegistroFuncion extends javax.swing.JFrame {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listSala.setModel(model);
 
-        for (Sala e : Cine.getListaSalas()) {
-            if (listPelicula.getSelectedItem().toString().contains("Atmos")) {
-                if (e.getAtmos()) {
-                    model.addElement(e.getNombre());
+        Map<Sala, Boolean> salasEstaticas = new HashMap<>();
+        for (Sala sala : Cine.getListaSalas()) {
+            salasEstaticas.put(sala, true);
+            //System.out.println(salasEstaticas.get(sala));
+        }
+        
+        if (!Cine.getListaFunciones().isEmpty()) {
+            for (Funcion e : Cine.getListaFunciones()) {
+                if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
+                    if (e.getHorario().getHorario().equals(listHorario.getSelectedItem())) {
+                        for (Map.Entry<Sala, Boolean> entry : salasEstaticas.entrySet()) {
+                            Sala salita = entry.getKey();
+                            Boolean estado = entry.getValue();
+                            if (e.getSala().getNombre().equals(salita.getNombre())) {
+                                System.out.println(salasEstaticas.get(salita));
+                                salasEstaticas.put(salita, false);
+                                System.out.println(salasEstaticas.get(salita));
+                                System.out.println("CAAAAAAAAMBIOOOOOOOOOOOOO\n");
+                            }
+                        }
+                        //salasEstaticas.put(e.getSala(), false);
+                    }
                 }
-            } else {
-                if (!e.getAtmos()) {
-                    model.addElement(e.getNombre());
-                }
+            }
+        }
+        for (Map.Entry<Sala, Boolean> entry : salasEstaticas.entrySet()) {
+            Sala key = entry.getKey();
+            Boolean value = entry.getValue();
+            if(value){
+                model.addElement(key.getNombre());
             }
         }
     }
@@ -282,7 +305,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
             horariosDisponibles.put(Horario.TARDENOCHE, true);
             horariosDisponibles.put(Horario.NOCHE, true);
             horariosDisponibles.put(Horario.MEDIANOCHE, true);
-
             String str = listPelicula.getSelectedItem().toString();
             for (Funcion e : Cine.getListaFunciones()) {
                 if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
@@ -291,7 +313,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
                     }
                 }
             }
-
             for (Horario key : horariosDisponibles.keySet()) {
                 boolean value = horariosDisponibles.get(key);
                 // Realizar operaciones con la clave y el valor
@@ -299,64 +320,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
                     model.addElement(key.getHorario());
                 }
             }
-
-            /*   Funcion e = retornaFuncion();
-
-            if (e == null) {
-                for (Horario f : Horario.values()) {
-                    model.addElement(f.getHorario());
-                }
-
-            } else {
-                if (!e.getHorario().equals(Horario.MAÑANA)) {
-                    model.addElement(Horario.MAÑANA.getHorario());
-                }
-                if (!e.getHorario().equals(Horario.MEDIODIA)) {
-                    model.addElement(Horario.MEDIODIA.getHorario());
-                }
-                if (!e.getHorario().equals(Horario.TARDE)) {
-                    model.addElement(Horario.TARDE.getHorario());
-                }
-                if (!e.getHorario().equals(Horario.TARDENOCHE)) {
-                    model.addElement(Horario.TARDENOCHE.getHorario());
-                }
-                if (!e.getHorario().equals(Horario.MEDIANOCHE)) {
-                    model.addElement(Horario.MEDIANOCHE.getHorario());
-                }
-                if (!e.getHorario().equals(Horario.NOCHE)) {
-                    model.addElement(Horario.NOCHE.getHorario());
-                }
-            }
-            // Comprobar si la función tiene el mismo día que la fecha seleccionada en jCalendar1
-
-            // Verificar si la lista de funciones no está vacía
-            /*for (Funcion e : Cine.getListaFunciones()) {
-                if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) { // Comprobar si la función tiene el mismo día que la fecha seleccionada en jCalendar1
-                    if(!e.getHorario().equals(Horario.MAÑANA)){
-                        model.addElement(Horario.MAÑANA.getHorario());
-                    }
-                    if(!e.getHorario().equals(Horario.MEDIODIA)){
-                        model.addElement(Horario.MEDIODIA.getHorario());
-                    }
-                    if(!e.getHorario().equals(Horario.TARDE)){
-                        model.addElement(Horario.TARDE.getHorario());
-                    }
-                    if(!e.getHorario().equals(Horario.TARDENOCHE)){
-                        model.addElement(Horario.TARDENOCHE.getHorario());
-                    }
-                    if(!e.getHorario().equals(Horario.MEDIANOCHE)){
-                        model.addElement(Horario.MEDIANOCHE.getHorario());
-                    }
-                    
-                    
-                    for (Horario f : Horario.values()) {
-                        if (!e.getHorario().getHorario().equals(f.getHorario())) { // Agregar horarios diferentes al horario de la función al modelo
-                            System.out.println(e.getHorario().getHorario() + " | " + f.getHorario());
-                            model.addElement(f.getHorario());
-                        }
-                    }
-                }
-            }*/
         } else { // Si la lista de funciones está vacía, agregar todos los horarios al modelo
 
             for (Horario f : Horario.values()) {

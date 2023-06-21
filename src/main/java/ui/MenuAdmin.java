@@ -352,10 +352,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 }
             }
             actualizarGerentes();
-
         }
-
-
     }//GEN-LAST:event_btnBajaGerenteMousePressed
 
     private void btnCrearFuncionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMousePressed
@@ -399,6 +396,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 }
             }
             actualizarSalas();
+            Persistencia.actualizarSalas();
         }
     }//GEN-LAST:event_btnBajaSalaMousePressed
 
