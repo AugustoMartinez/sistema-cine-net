@@ -16,6 +16,8 @@ import cine.user.Sesion;
 import com.toedter.calendar.JCalendar;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
@@ -33,8 +35,8 @@ public class RegistroFuncion extends javax.swing.JFrame {
         actualizarListPeliculas();
         actualizarListHorarios();
         actualizarListSalas();
-        
-        System.out.println(Cine.getListaFunciones());
+
+        //System.out.println(Cine.getListaFunciones());
     }
 
     /**
@@ -180,6 +182,8 @@ public class RegistroFuncion extends javax.swing.JFrame {
             Cine.getListaFunciones().add(funcion);
             Persistencia.actualizarFunciones();
             JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
+            actualizarListHorarios();
+            actualizarListSalas();
         }
     }//GEN-LAST:event_btnAgregarMousePressed
 
@@ -215,8 +219,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
         actualizarListHorarios();
     }//GEN-LAST:event_jCalendar1MouseEntered
 
-    
-    private Date convertirASoloDia(Date fecha){
+    private Date convertirASoloDia(Date fecha) {
         fecha = jCalendar1.getDate();
 
         // Obtener solo la fecha sin la hora
@@ -230,7 +233,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
         return fechaSinHora;
     }
-    
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPelicula.setModel(model);
@@ -270,21 +273,108 @@ public class RegistroFuncion extends javax.swing.JFrame {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listHorario.setModel(model); // Establecer el modelo del JComboBox
         listHorario.removeAllItems();
-        if (!Cine.getListaFunciones().isEmpty()) { // Verificar si la lista de funciones no está vacía
+
+        if (!Cine.getListaFunciones().isEmpty()) {
+            LinkedHashMap<Horario, Boolean> horariosDisponibles = new LinkedHashMap<>();
+            horariosDisponibles.put(Horario.MAÑANA, true);
+            horariosDisponibles.put(Horario.MEDIODIA, true);
+            horariosDisponibles.put(Horario.TARDE, true);
+            horariosDisponibles.put(Horario.TARDENOCHE, true);
+            horariosDisponibles.put(Horario.NOCHE, true);
+            horariosDisponibles.put(Horario.MEDIANOCHE, true);
+
+            String str = listPelicula.getSelectedItem().toString();
             for (Funcion e : Cine.getListaFunciones()) {
+                if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
+                    if (e.getNombre().equals(str)) {
+                        horariosDisponibles.replace(e.getHorario(), false);
+                    }
+                }
+            }
+
+            for (Horario key : horariosDisponibles.keySet()) {
+                boolean value = horariosDisponibles.get(key);
+                // Realizar operaciones con la clave y el valor
+                if (value == true) {
+                    model.addElement(key.getHorario());
+                }
+            }
+
+            /*   Funcion e = retornaFuncion();
+
+            if (e == null) {
+                for (Horario f : Horario.values()) {
+                    model.addElement(f.getHorario());
+                }
+
+            } else {
+                if (!e.getHorario().equals(Horario.MAÑANA)) {
+                    model.addElement(Horario.MAÑANA.getHorario());
+                }
+                if (!e.getHorario().equals(Horario.MEDIODIA)) {
+                    model.addElement(Horario.MEDIODIA.getHorario());
+                }
+                if (!e.getHorario().equals(Horario.TARDE)) {
+                    model.addElement(Horario.TARDE.getHorario());
+                }
+                if (!e.getHorario().equals(Horario.TARDENOCHE)) {
+                    model.addElement(Horario.TARDENOCHE.getHorario());
+                }
+                if (!e.getHorario().equals(Horario.MEDIANOCHE)) {
+                    model.addElement(Horario.MEDIANOCHE.getHorario());
+                }
+                if (!e.getHorario().equals(Horario.NOCHE)) {
+                    model.addElement(Horario.NOCHE.getHorario());
+                }
+            }
+            // Comprobar si la función tiene el mismo día que la fecha seleccionada en jCalendar1
+
+            // Verificar si la lista de funciones no está vacía
+            /*for (Funcion e : Cine.getListaFunciones()) {
                 if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) { // Comprobar si la función tiene el mismo día que la fecha seleccionada en jCalendar1
+                    if(!e.getHorario().equals(Horario.MAÑANA)){
+                        model.addElement(Horario.MAÑANA.getHorario());
+                    }
+                    if(!e.getHorario().equals(Horario.MEDIODIA)){
+                        model.addElement(Horario.MEDIODIA.getHorario());
+                    }
+                    if(!e.getHorario().equals(Horario.TARDE)){
+                        model.addElement(Horario.TARDE.getHorario());
+                    }
+                    if(!e.getHorario().equals(Horario.TARDENOCHE)){
+                        model.addElement(Horario.TARDENOCHE.getHorario());
+                    }
+                    if(!e.getHorario().equals(Horario.MEDIANOCHE)){
+                        model.addElement(Horario.MEDIANOCHE.getHorario());
+                    }
+                    
+                    
                     for (Horario f : Horario.values()) {
-                        if (e.getHorario().equals(f) == false) { // Agregar horarios diferentes al horario de la función al modelo
+                        if (!e.getHorario().getHorario().equals(f.getHorario())) { // Agregar horarios diferentes al horario de la función al modelo
+                            System.out.println(e.getHorario().getHorario() + " | " + f.getHorario());
                             model.addElement(f.getHorario());
                         }
                     }
                 }
-            }
+            }*/
         } else { // Si la lista de funciones está vacía, agregar todos los horarios al modelo
+
             for (Horario f : Horario.values()) {
                 model.addElement(f.getHorario());
             }
         }
+    }
+
+    private Funcion retornaFuncion() {
+        String str = listPelicula.getSelectedItem().toString();
+        for (Funcion e : Cine.getListaFunciones()) {
+            if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
+                if (e.getNombre().equals(str)) {
+                    return e;
+                }
+            }
+        }
+        return null;
     }
 
     private Horario retornaHorario() {

@@ -16,9 +16,11 @@ public class Funcion implements Serializable {
         this.nombre = nombre;
         this.sala = sala;
         this.pelicula = pelicula;
+        this.dia = new Date();
     }
 
     public Funcion() {
+        this.dia = new Date();
     }
 
     @Override
