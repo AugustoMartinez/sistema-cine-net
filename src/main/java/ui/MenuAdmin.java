@@ -58,8 +58,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         listSalas = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocationByPlatform(true);
-        setUndecorated(true);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         btnCerrarSesion.setText("Cerrar sesión.");
@@ -220,7 +221,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                                 .addComponent(btnModificarPelicula)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnBajaPelicula)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(504, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +253,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(btnBajaSala)
                             .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(4, 4, 4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
                 .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

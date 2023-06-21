@@ -46,104 +46,131 @@ public class RegistroCliente extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        lblRegistrarse = new javax.swing.JLabel();
-        lblVolver = new javax.swing.JLabel();
+        btnRegistrarse = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        lblTituloRegistrar = new javax.swing.JLabel();
+        lblObligatorios = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
-        Background.setMaximumSize(new java.awt.Dimension(800, 500));
+        Background.setBackground(new java.awt.Color(51, 45, 39));
+        Background.setMaximumSize(new java.awt.Dimension(1280, 720));
         Background.setMinimumSize(new java.awt.Dimension(800, 500));
-        Background.setPreferredSize(new java.awt.Dimension(800, 500));
+        Background.setPreferredSize(new java.awt.Dimension(1280, 720));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre");
-        Background.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+        Background.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 50));
 
         lblApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
         lblApellido.setText("Apellido");
-        Background.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        Background.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 50));
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email");
-        Background.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        Background.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 90, 50));
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblPassword.setText("Password");
-        Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Contraseña");
+        Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 180, 50));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 310, -1));
+        Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 310, 50));
 
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 310, -1));
+        Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 310, 50));
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 310, -1));
+        Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 310, 50));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+        Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 310, 50));
+
+        btnRegistrarse.setBackground(new java.awt.Color(7, 10, 82));
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(204, 204, 204));
+        btnRegistrarse.setText("Registrar");
+        btnRegistrarse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
-        Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 310, -1));
+        Background.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 330, 55));
 
-        lblRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblRegistrarse.setText("Registrarse");
-        lblRegistrarse.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRegistrarseMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblRegistrarseMousePressed(evt);
+        btnSalir.setBackground(new java.awt.Color(227, 2, 36));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setFocusable(false);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
             }
         });
-        Background.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
+        Background.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, 40));
 
-        lblVolver.setText("Volver");
-        lblVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblVolverMousePressed(evt);
-            }
-        });
-        Background.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 30));
+        lblTituloRegistrar.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
+        lblTituloRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloRegistrar.setText("Registrarse Magic Cinema");
+        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
+
+        lblObligatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblObligatorios.setForeground(new java.awt.Color(204, 204, 204));
+        lblObligatorios.setText("(*)Campos Obligatorios");
+        Background.add(lblObligatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("*");
+        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 410, -1, 50));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("*");
+        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, 50));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setText("*");
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, -1, 50));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setText("*");
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 340, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 1290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(816, 508));
+        setSize(new java.awt.Dimension(1296, 728));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void lblRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblRegistrarseMouseClicked
-
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblVolverMouseClicked
-
-    private void lblRegistrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMousePressed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
         try {
             Cliente cliente = new Cliente();
@@ -167,13 +194,13 @@ public class RegistroCliente extends javax.swing.JFrame {
         } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_lblRegistrarseMousePressed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
-    private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         new Login().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblVolverMousePressed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,12 +239,18 @@ public class RegistroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblObligatorios;
     private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblRegistrarse;
-    private javax.swing.JLabel lblVolver;
+    private javax.swing.JLabel lblTituloRegistrar;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;

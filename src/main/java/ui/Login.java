@@ -8,9 +8,14 @@ import cine.cinelugar.Cine;
 import cine.user.*;
 import excepciones.CampoVacioException;
 import excepciones.EmailException;
-import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 
@@ -20,11 +25,27 @@ import validacion.Validaciones;
  */
 public class Login extends javax.swing.JFrame {
 
+    private final String imgCineDir = "src\\main\\images\\cinema-logo.png";
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        iniciar();
+    }
+
+    private void iniciar() {
+        lblImagenCine.setHorizontalAlignment(JLabel.CENTER);
+        
+        try {
+            Image img = new ImageIcon(imgCineDir).getImage();
+            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(240, 230, Image.SCALE_SMOOTH));
+            lblImagenCine.setIcon(imgIcon);
+            this.repaint();
+        } catch (Exception e) {
+            System.out.println("Error al cargar Imagen");
+        }
     }
 
     /**
@@ -41,87 +62,94 @@ public class Login extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         lblEmail = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
-        lblLogin = new javax.swing.JLabel();
-        lblRegistrarse = new javax.swing.JLabel();
+        lblCineNombre = new javax.swing.JLabel();
+        lblImagenCine = new javax.swing.JLabel();
+        btnRegistrarse = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 45, 39));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 300, -1));
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 300, 45));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 300, -1));
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, 300, 45));
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblEmail.setText("Email");
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmail.setText("Email:");
+        lblEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 45));
 
         lblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblContraseña.setText("Contraseña");
-        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+        lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        lblContraseña.setText("Contraseña:");
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 190, 45));
 
-        lblLogin.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblLogin.setText("Login");
-        lblLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblLoginMousePressed(evt);
+        lblCineNombre.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 50)); // NOI18N
+        lblCineNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblCineNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCineNombre.setText("Magic Cinema\t ");
+        jPanel1.add(lblCineNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 270, -1));
+        jPanel1.add(lblImagenCine, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 240, 230));
+
+        btnRegistrarse.setBackground(new java.awt.Color(210, 19, 18));
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel1.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 610, -1, 50));
 
-        lblRegistrarse.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
-        lblRegistrarse.setText("Registrarse");
-        lblRegistrarse.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRegistrarseMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblRegistrarseMousePressed(evt);
+        btnLogin.setBackground(new java.awt.Color(138, 0, 21));
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Iniciar Sesion");
+        btnLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(816, 508));
+        setSize(new java.awt.Dimension(1296, 728));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
-    private void lblRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMouseClicked
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblRegistrarseMouseClicked
-
-    private void lblRegistrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMousePressed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
         new RegistroCliente().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblRegistrarseMousePressed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
-    private void lblLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMousePressed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
             Validaciones.validarEmail(txtEmail.getText());
@@ -144,7 +172,7 @@ public class Login extends javax.swing.JFrame {
         } catch (CampoVacioException | EmailException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_lblLoginMousePressed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +183,7 @@ public class Login extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -176,7 +204,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         Persistencia.leerDatos();
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -186,16 +214,17 @@ public class Login extends javax.swing.JFrame {
         Admin admin = new Admin("rtoresani@gmail.com", "12345678", "Rafael", "Toresani");
         Cine.getListaUsuarios().add(admin);
         Persistencia.actualizarUsuarios();
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCineNombre;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblLogin;
-    private javax.swing.JLabel lblRegistrarse;
+    private static javax.swing.JLabel lblImagenCine;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
