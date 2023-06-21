@@ -261,9 +261,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
         Map<Sala, Boolean> salasEstaticas = new HashMap<>();
         for (Sala sala : Cine.getListaSalas()) {
             salasEstaticas.put(sala, true);
-            //System.out.println(salasEstaticas.get(sala));
-        }
-        
+        } 
         if (!Cine.getListaFunciones().isEmpty()) {
             for (Funcion e : Cine.getListaFunciones()) {
                 if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
@@ -272,13 +270,9 @@ public class RegistroFuncion extends javax.swing.JFrame {
                             Sala salita = entry.getKey();
                             Boolean estado = entry.getValue();
                             if (e.getSala().getNombre().equals(salita.getNombre())) {
-                                System.out.println(salasEstaticas.get(salita));
                                 salasEstaticas.put(salita, false);
-                                System.out.println(salasEstaticas.get(salita));
-                                System.out.println("CAAAAAAAAMBIOOOOOOOOOOOOO\n");
                             }
                         }
-                        //salasEstaticas.put(e.getSala(), false);
                     }
                 }
             }
