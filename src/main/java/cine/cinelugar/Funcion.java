@@ -8,6 +8,7 @@ public class Funcion implements Serializable {
 
     private String nombre; //nombre + tipo
     private Sala sala;
+    private Sala salaCopia;
     private Pelicula pelicula;
     private Horario horario;
     private Date dia;
@@ -15,12 +16,14 @@ public class Funcion implements Serializable {
     public Funcion(String nombre, Sala sala, Pelicula pelicula) {
         this.nombre = nombre;
         this.sala = sala;
+        this.salaCopia=this.sala;
         this.pelicula = pelicula;
         this.dia = new Date();
     }
 
     public Funcion() {
         this.dia = new Date();
+        this.salaCopia=this.sala;
     }
 
     @Override
@@ -72,4 +75,11 @@ public class Funcion implements Serializable {
         this.horario = horario;
     }
 
+    public Sala getSalaCopia() {
+        return salaCopia;
+    }
+
+    public void setSalaCopia(Sala salaCopia) {
+        this.salaCopia = salaCopia;
+    }
 }
