@@ -59,7 +59,6 @@ public class RegistroGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         Background.setBackground(new java.awt.Color(51, 45, 39));
@@ -88,16 +87,16 @@ public class RegistroGerente extends javax.swing.JFrame {
         lblPassword.setText("Contraseña");
         Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, 50));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 310, 50));
 
-        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 310, 50));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 310, 50));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 310, 50));
 
         lblTituloRegistrar.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N

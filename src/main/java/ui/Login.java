@@ -26,6 +26,8 @@ import validacion.Validaciones;
 public class Login extends javax.swing.JFrame {
 
     private final String imgCineDir = "src\\main\\images\\cinema-logo.png";
+    private final String refImg = "src\\main\\images\\reflector.png";
+    private final String refImg2 = "src\\main\\images\\reflector2.png";
 
     /**
      * Creates new form Login
@@ -37,11 +39,21 @@ public class Login extends javax.swing.JFrame {
 
     private void iniciar() {
         lblImagenCine.setHorizontalAlignment(JLabel.CENTER);
+        lblReflector1.setHorizontalAlignment(JLabel.CENTER);
+        lblReflector2.setHorizontalAlignment(JLabel.CENTER);
         
         try {
             Image img = new ImageIcon(imgCineDir).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(240, 230, Image.SCALE_SMOOTH));
             lblImagenCine.setIcon(imgIcon);
+            
+            Image img2 = new ImageIcon(refImg).getImage();
+            ImageIcon imgIcon2 = new ImageIcon(img2.getScaledInstance(130, 130, Image.SCALE_SMOOTH));
+            lblReflector1.setIcon(imgIcon2);
+            
+            Image img3 = new ImageIcon(refImg2).getImage();
+            ImageIcon imgIcon3 = new ImageIcon(img3.getScaledInstance(130, 130, Image.SCALE_SMOOTH));
+            lblReflector2.setIcon(imgIcon3);
             this.repaint();
         } catch (Exception e) {
             System.out.println("Error al cargar Imagen");
@@ -66,10 +78,10 @@ public class Login extends javax.swing.JFrame {
         lblImagenCine = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        lblReflector2 = new javax.swing.JLabel();
+        lblReflector1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 45, 39));
@@ -125,6 +137,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 240, 50));
+        jPanel1.add(lblReflector2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, 130, 130));
+        jPanel1.add(lblReflector1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, 130));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,6 +239,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblEmail;
     private static javax.swing.JLabel lblImagenCine;
+    private javax.swing.JLabel lblReflector1;
+    private javax.swing.JLabel lblReflector2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables

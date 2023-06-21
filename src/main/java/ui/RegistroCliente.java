@@ -87,16 +87,16 @@ public class RegistroCliente extends javax.swing.JFrame {
         lblPassword.setText("Contraseña");
         Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 180, 50));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 310, 50));
 
-        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 310, 50));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 310, 50));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 310, 50));
 
         btnRegistrarse.setBackground(new java.awt.Color(7, 10, 82));
