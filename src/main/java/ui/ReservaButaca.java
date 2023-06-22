@@ -226,14 +226,13 @@ public class ReservaButaca extends javax.swing.JFrame {
         
         Integer numTicket = this.generarNumeroEntero();
         funcion.setSala(funcion.getSalaCopia());
-        Reserva reserva = new Reserva(funcion, butacas, numTicket, funcion.getSalaCopia());
-        Cliente user = Cine.retornaClientePorEmail(Sesion.emailLogeado);
+        Reserva reserva = new Reserva(funcion.getNombre(), butacas, numTicket, funcion.getSala().getNombre());
+        Cliente user = Cine.retornaClientePorEmail(Sesion.getEmailLogeado());
         user.agregarReserva(reserva);
         Cine.reemplazarCliente(user);
         Persistencia.actualizarUsuarios();
         Persistencia.actualizarFunciones();
         MenuReserva rem = new MenuReserva();
-        
         rem.setVisible(true);
         rem.setLocationRelativeTo(null);
         

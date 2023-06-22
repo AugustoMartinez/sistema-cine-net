@@ -1,12 +1,14 @@
 package cine.user;
 
+
 public class Sesion {
-    public static String emailLogeado="";
-    public static String tipo="";
-
+    private static String emailLogeado="";
+    private static String tipo="";
+    
     public Sesion() {
+        
     }
-
+    
     public static String getEmailLogeado() {
         return emailLogeado;
     }

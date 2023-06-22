@@ -72,7 +72,7 @@ public class Persistencia {
         try {
             usuariosPersistenceCollecion.WriteIntoFile(listaUsuarios, usuarioFile);
         } catch (Exception e) {
-            System.out.println("Fallo la carga de usuarios");
+            System.out.println(e.getMessage());
         }
     }
     
