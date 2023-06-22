@@ -198,13 +198,7 @@ public class ReservaButaca extends javax.swing.JFrame {
         ReservaButaca.cantidadButacasCompradas--;
     }
 
-    private int generarNumeroEntero() {
-        Random random = new Random();
-        int min = 1000000;
-        int max = Integer.MAX_VALUE;
-        int numero = random.nextInt(max - min + 1) + min;
-        return numero;
-    }
+    
 
     public class AccionBotones implements ActionListener {
 
@@ -251,21 +245,15 @@ public class ReservaButaca extends javax.swing.JFrame {
             }
         }
         
-        Integer numTicket = this.generarNumeroEntero();
-        funcion.setSala(funcion.getSalaCopia());
-        Reserva reserva = new Reserva(funcion.getNombre(), butacas, numTicket, funcion.getSala().getNombre());
-        Cliente user = Cine.retornaClientePorEmail(Sesion.getEmailLogeado());
-        user.agregarReserva(reserva);
-        Cine.reemplazarCliente(user);
-        Persistencia.actualizarUsuarios();
-        Persistencia.actualizarFunciones();
-        MenuReserva rem = new MenuReserva();
-        rem.setVisible(true);
-        rem.setLocationRelativeTo(null);
-        
+        ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas);
+        confirmar.setVisible(true);
+        confirmar.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnReservarMousePressed
 
+    
+    
+    
     /**
      * @param args the command line arguments
      */

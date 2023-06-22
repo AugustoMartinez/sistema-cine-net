@@ -84,7 +84,6 @@ public class MenuReserva extends javax.swing.JFrame {
         lblFunciones = new javax.swing.JLabel();
         lblPeliculas = new javax.swing.JLabel();
         listPeliculas = new javax.swing.JComboBox<>();
-        btnReservar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnSelectButaca = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
@@ -119,20 +118,6 @@ public class MenuReserva extends javax.swing.JFrame {
         });
         getContentPane().add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 222, 34));
 
-        btnReservar.setBackground(new java.awt.Color(102, 255, 51));
-        btnReservar.setText("Hacer reserva");
-        btnReservar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnReservarMousePressed(evt);
-            }
-        });
-        btnReservar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 120, 33));
-
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,7 +143,7 @@ public class MenuReserva extends javax.swing.JFrame {
                 btnSelectButacaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSelectButaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, 35));
+        getContentPane().add(btnSelectButaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, 35));
         getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 310, 410));
 
         pack();
@@ -169,10 +154,6 @@ public class MenuReserva extends javax.swing.JFrame {
         iniciar();
         actualizarListaFunciones();
     }//GEN-LAST:event_listPeliculasActionPerformed
-
-    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReservarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
@@ -204,12 +185,6 @@ public class MenuReserva extends javax.swing.JFrame {
         reservaButaca.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnSelectButacaMousePressed
-
-    private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_btnReservarMousePressed
 
     private void btnCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMousePressed
         // TODO add your handling code here:
@@ -282,7 +257,6 @@ public class MenuReserva extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnReservar;
     private javax.swing.JButton btnSelectButaca;
     private javax.swing.JLabel lblFunciones;
     private javax.swing.JLabel lblImagen;
