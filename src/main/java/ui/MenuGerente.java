@@ -51,6 +51,7 @@ public class MenuGerente extends javax.swing.JFrame {
         listSalas = new javax.swing.JComboBox<>();
         btnModificarSala = new javax.swing.JButton();
         btnDarBajaSala = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -167,6 +168,21 @@ public class MenuGerente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, 40));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1070, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 1070, 2));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -344,6 +360,7 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> listPeliculas;
     private javax.swing.JComboBox<String> listSalas;
     // End of variables declaration//GEN-END:variables

@@ -124,7 +124,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         lblClasificacion.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         lblClasificacion.setForeground(new java.awt.Color(255, 255, 255));
         lblClasificacion.setText("Clasificacion:");
-        jPanel1.add(lblClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 150, 40));
+        jPanel1.add(lblClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 170, 40));
 
         lblTipo.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
@@ -260,7 +260,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
         );
 
         pack();
