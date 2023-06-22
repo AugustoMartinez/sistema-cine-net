@@ -9,6 +9,7 @@ import cine.cinelugar.Pelicula;
 import cine.cinelugar.Sala;
 import cine.user.Gerente;
 import cine.user.Usuario;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
@@ -164,6 +165,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btnDarBajaGerente.setBackground(new java.awt.Color(61, 0, 0));
         btnDarBajaGerente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDarBajaGerente.setForeground(new java.awt.Color(204, 204, 204));
         btnDarBajaGerente.setText("Dar de baja");
         btnDarBajaGerente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +190,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btnDarBajaSala.setBackground(new java.awt.Color(61, 0, 0));
         btnDarBajaSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDarBajaSala.setForeground(new java.awt.Color(204, 204, 204));
         btnDarBajaSala.setText("Dar de baja");
         btnDarBajaSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,10 +199,20 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, -1, 40));
 
-        btnCrearFuncion.setBackground(new java.awt.Color(51, 255, 204));
+        btnCrearFuncion.setBackground(new java.awt.Color(7, 196, 234));
         btnCrearFuncion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearFuncion.setForeground(new java.awt.Color(0, 0, 0));
         btnCrearFuncion.setText("Crear Funcion");
+        btnCrearFuncion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnCrearFuncionMouseMoved(evt);
+            }
+        });
+        btnCrearFuncion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearFuncionMouseExited(evt);
+            }
+        });
         btnCrearFuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearFuncionActionPerformed(evt);
@@ -352,6 +365,16 @@ public class MenuAdmin extends javax.swing.JFrame {
         reg.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnCrearFuncionActionPerformed
+
+    private void btnCrearFuncionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMouseMoved
+        // TODO add your handling code here:
+        btnCrearFuncion.setBackground(new Color(7,196,234));
+    }//GEN-LAST:event_btnCrearFuncionMouseMoved
+
+    private void btnCrearFuncionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMouseExited
+        // TODO add your handling code here:
+        btnCrearFuncion.setBackground(new Color(35,168,195));
+    }//GEN-LAST:event_btnCrearFuncionMouseExited
 
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();

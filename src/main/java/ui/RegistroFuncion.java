@@ -65,6 +65,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         listPelicula.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         listPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -72,9 +73,11 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 listPeliculaActionPerformed(evt);
             }
         });
+        getContentPane().add(listPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 54, 303, 36));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel1.setText("Pelicula:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 12, -1, 36));
 
         listSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         listSala.addActionListener(new java.awt.event.ActionListener() {
@@ -82,12 +85,15 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 listSalaActionPerformed(evt);
             }
         });
+        getContentPane().add(listSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 165, 303, 36));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel2.setText("Sala:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 123, -1, 36));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         jLabel3.setText("Horario:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 232, -1, -1));
 
         listHorario.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         listHorario.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +101,9 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 listHorarioActionPerformed(evt);
             }
         });
+        getContentPane().add(listHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 268, 303, -1));
 
+        jCalendar1.setBackground(new java.awt.Color(204, 255, 0));
         jCalendar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jCalendar1MouseEntered(evt);
@@ -104,6 +112,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 jCalendar1MousePressed(evt);
             }
         });
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 378, 280));
 
         btnAgregar.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         btnAgregar.setText("Agregar función.");
@@ -113,6 +122,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 btnAgregarMousePressed(evt);
             }
         });
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 435, -1, -1));
 
         btnVolver.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         btnVolver.setText("Volver");
@@ -122,58 +132,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 btnVolverMousePressed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregar)
-                        .addGap(35, 35, 35))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(listSala, 0, 303, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addComponent(listPelicula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel3))
-                            .addComponent(listHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(listSala, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(listHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnVolver))
-                .addGap(33, 33, 33))
-        );
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 435, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -7,6 +7,7 @@ package ui;
 import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
 import cine.cinelugar.Sala;
+import java.awt.Color;
 import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -78,10 +79,20 @@ public class MenuGerente extends javax.swing.JFrame {
         });
         jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, -1, 41));
 
-        btnCrearFuncion.setBackground(new java.awt.Color(51, 255, 204));
+        btnCrearFuncion.setBackground(new java.awt.Color(7, 196, 234));
         btnCrearFuncion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearFuncion.setForeground(new java.awt.Color(0, 0, 0));
         btnCrearFuncion.setText("Crear Funcion");
+        btnCrearFuncion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnCrearFuncionMouseMoved(evt);
+            }
+        });
+        btnCrearFuncion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearFuncionMouseExited(evt);
+            }
+        });
         btnCrearFuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearFuncionActionPerformed(evt);
@@ -122,7 +133,7 @@ public class MenuGerente extends javax.swing.JFrame {
         jPanel1.add(btnModificarPelicula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 220, -1, 40));
 
         btnDarBajaPelicula.setBackground(new java.awt.Color(61, 0, 0));
-        btnDarBajaPelicula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDarBajaPelicula.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDarBajaPelicula.setForeground(new java.awt.Color(204, 204, 204));
         btnDarBajaPelicula.setText("Dar de baja");
         btnDarBajaPelicula.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +171,7 @@ public class MenuGerente extends javax.swing.JFrame {
         jPanel1.add(btnModificarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 410, -1, 40));
 
         btnDarBajaSala.setBackground(new java.awt.Color(61, 0, 0));
-        btnDarBajaSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDarBajaSala.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnDarBajaSala.setForeground(new java.awt.Color(204, 204, 204));
         btnDarBajaSala.setText("Dar de baja");
         btnDarBajaSala.addActionListener(new java.awt.event.ActionListener() {
@@ -272,6 +283,16 @@ public class MenuGerente extends javax.swing.JFrame {
             Persistencia.actualizarSalas();
         }
     }//GEN-LAST:event_btnDarBajaSalaActionPerformed
+
+    private void btnCrearFuncionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMouseExited
+        // TODO add your handling code here:
+        btnCrearFuncion.setBackground(new Color(7,196,234));
+    }//GEN-LAST:event_btnCrearFuncionMouseExited
+
+    private void btnCrearFuncionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMouseMoved
+        // TODO add your handling code here:
+        btnCrearFuncion.setBackground(new Color(35,168,195));
+    }//GEN-LAST:event_btnCrearFuncionMouseMoved
 
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
