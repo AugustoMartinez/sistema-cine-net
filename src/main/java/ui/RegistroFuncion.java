@@ -185,8 +185,12 @@ public class RegistroFuncion extends javax.swing.JFrame {
             this.funcion.setHorario(retornaHorario());
             this.funcion.setPelicula(retornaPelicula());
             this.funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
-            this.funcion.setSala(Cine.retornaSalaCopia(retornaSala()));
-            this.funcion.setSalaCopia(Cine.retornaSalaCopia(funcion.getSala()));
+            try {
+                this.funcion.setSala((Sala) Cine.retornaSalaCopia(retornaSala()).clone());
+                this.funcion.setSalaCopia(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
+            } catch (CloneNotSupportedException ex) {
+                Logger.getLogger(RegistroFuncion.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Cine.getListaFunciones().add(funcion);
             Persistencia.actualizarFunciones();
             JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
