@@ -215,12 +215,9 @@ public class ReservaButaca extends javax.swing.JFrame {
                     if (e.getSource().equals(jtBotones[i][j])) {
                         if (jtBotones[i][j].isSelected()) {
                             jtBotones[i][j].setBackground(Color.GREEN);
-                            //sala.getButacas()[i][j].setOcupada(true);
-                            //aumentar contador para comparar con cantidad de boletos
                             ReservaButaca.aumentarButacas();
                         } else {
                             jtBotones[i][j].setBackground(Color.GRAY);
-                            //sala.getButacas()[i][j].setOcupada(false);
                             ReservaButaca.disminuirButacas();
                             //disminuir contador
                         }
@@ -232,7 +229,6 @@ public class ReservaButaca extends javax.swing.JFrame {
 
     private LinkedList<String> retornaButacas() {
         LinkedList<String> butacas = new LinkedList<>();
-        //jtBotones = new JToggleButton[filas][columnas];
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 if (jtBotones[i][j].isSelected()) {
