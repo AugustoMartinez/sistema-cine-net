@@ -141,6 +141,16 @@ public class Login extends javax.swing.JFrame {
         btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseMoved(evt);
+            }
+        });
+        btnRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistrarseMouseExited(evt);
+            }
+        });
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarseActionPerformed(evt);
@@ -148,11 +158,22 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 610, -1, 50));
 
-        btnLogin.setBackground(new java.awt.Color(138, 0, 21));
+        btnLogin.setBackground(new java.awt.Color(207, 14, 44));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Iniciar Sesion");
+        btnLogin.setFocusable(false);
         btnLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLogin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnLoginMouseMoved(evt);
+            }
+        });
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLoginMouseExited(evt);
+            }
+        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -209,6 +230,26 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnLoginMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseMoved
+        // TODO add your handling code here:
+        btnLogin.setBackground(new Color(138,0,21));
+    }//GEN-LAST:event_btnLoginMouseMoved
+
+    private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
+        // TODO add your handling code here:
+        btnLogin.setBackground(new Color(207,14,44));
+    }//GEN-LAST:event_btnLoginMouseExited
+
+    private void btnRegistrarseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseExited
+        // TODO add your handling code here:
+        btnRegistrarse.setBackground(new Color(210,19,18));
+    }//GEN-LAST:event_btnRegistrarseMouseExited
+
+    private void btnRegistrarseMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseMoved
+        // TODO add your handling code here:
+        btnRegistrarse.setBackground(new Color(151,9,8));
+    }//GEN-LAST:event_btnRegistrarseMouseMoved
 
     /**
      * @param args the command line arguments

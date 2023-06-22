@@ -99,6 +99,8 @@ public class CreacionSala extends javax.swing.JFrame {
         checkAtmos = new javax.swing.JCheckBox();
         btnVolver = new javax.swing.JButton();
         btnAgregarSala = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -123,7 +125,7 @@ public class CreacionSala extends javax.swing.JFrame {
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1240, 430));
+        background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1240, 430));
 
         lblNombreSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNombreSala.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,7 +139,7 @@ public class CreacionSala extends javax.swing.JFrame {
                 checkAtmosActionPerformed(evt);
             }
         });
-        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, 110, 40));
+        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 110, 40));
 
         btnVolver.setBackground(new java.awt.Color(255, 0, 30));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -157,7 +159,36 @@ public class CreacionSala extends javax.swing.JFrame {
                 btnAgregarSalaActionPerformed(evt);
             }
         });
-        background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 170, 50));
+        background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, 170, 50));
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PANTALLA");
+        jLabel1.setMaximumSize(new java.awt.Dimension(100, 16));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(247, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -247,6 +278,8 @@ public class CreacionSala extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarSala;
     private javax.swing.JButton btnVolver;
     private javax.swing.JCheckBox checkAtmos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNombreSala;
     private javax.swing.JPanel pnlBotones;
     // End of variables declaration//GEN-END:variables
