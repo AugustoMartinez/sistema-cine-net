@@ -2,7 +2,8 @@ package cine.cinelugar;
 
 import java.io.Serializable;
 
-public class Butaca implements Serializable{
+public class Butaca implements Serializable, Cloneable {
+
     private Integer posY;
     private Integer posX;
     private boolean existe;
@@ -34,8 +35,6 @@ public class Butaca implements Serializable{
     public void setExiste(boolean existe) {
         this.existe = existe;
     }
-    
-    
 
     public boolean isExiste() {
         return existe;
@@ -48,4 +47,10 @@ public class Butaca implements Serializable{
     public void setOcupada(boolean ocupada) {
         this.ocupada = ocupada;
     }
+
+    public Butaca clone() throws CloneNotSupportedException {
+        return (Butaca) super.clone();
+    }
+
+
 }
