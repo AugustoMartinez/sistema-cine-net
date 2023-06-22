@@ -57,12 +57,12 @@ public class ModificarPelicula extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblGenero = new javax.swing.JLabel();
+        lblDuracion = new javax.swing.JLabel();
+        lblClasificacion = new javax.swing.JLabel();
+        lblTipo = new javax.swing.JLabel();
+        lblSinopsis = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtDuracion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -80,49 +80,62 @@ public class ModificarPelicula extends javax.swing.JFrame {
         lblImagen = new javax.swing.JLabel();
         btnCargar = new javax.swing.JButton();
         lblTextImagen = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        lblEstreno1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 45, 39));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel1.setText("Nombre");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
+        lblNombre.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, 40));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel2.setText("Genero");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 111, -1, -1));
+        lblGenero.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblGenero.setText("Genero");
+        jPanel1.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, 40));
 
-        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel3.setText("Duracion");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 67, -1, -1));
+        lblDuracion.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblDuracion.setText("Duracion");
+        jPanel1.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, 40));
 
-        jLabel4.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel4.setText("Clasificacion");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 156, -1, -1));
+        lblClasificacion.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblClasificacion.setText("Clasificacion");
+        jPanel1.add(lblClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 150, 40));
 
-        jLabel5.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel5.setText("Fecha de estreno");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        lblTipo.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblTipo.setText("Tipo de pelicula");
+        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 200, 40));
 
-        jLabel6.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel6.setText("Sinopsis:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 207, -1, -1));
+        lblSinopsis.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblSinopsis.setText("Sinopsis:");
+        jPanel1.add(lblSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 40));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 25, 209, -1));
-        jPanel1.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 69, 80, -1));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 209, 40));
+        jPanel1.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 80, 40));
 
         txtSinopsis.setColumns(20);
+        txtSinopsis.setLineWrap(true);
         txtSinopsis.setRows(5);
+        txtSinopsis.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtSinopsis);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 237, 240, 131));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 240, 131));
 
         listGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Comedia", "Documental", "Drama", "Horror", "Suspenso" }));
         listGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -130,11 +143,11 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 listGeneroActionPerformed(evt);
             }
         });
-        jPanel1.add(listGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 112, 140, -1));
+        jPanel1.add(listGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 140, 40));
 
         listClas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "PG13", "R", "NC17" }));
-        jPanel1.add(listClas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 157, 130, -1));
-        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 155, 29));
+        jPanel1.add(listClas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 130, 40));
+        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 155, 40));
 
         btnModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnModificar.setText("Modificar");
@@ -147,7 +160,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnModificarMousePressed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 100, 40));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 580, 100, 40));
 
         btnLimpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnLimpiar.setText("Limpiar");
@@ -160,7 +173,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnLimpiarMousePressed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 100, 40));
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 100, 40));
 
         btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVolver.setText("Volver");
@@ -170,15 +183,15 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnVolverMousePressed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 94, 40));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 94, 40));
 
         check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check2d.setText("2D");
-        jPanel1.add(check2d, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 65, -1, -1));
+        jPanel1.add(check2d, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
 
         check2dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check2dAtmos.setText("2D Atmos");
-        jPanel1.add(check2dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        jPanel1.add(check2dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
 
         check3d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check3d.setText("3D");
@@ -187,7 +200,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 check3dMousePressed(evt);
             }
         });
-        jPanel1.add(check3d, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
+        jPanel1.add(check3d, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
 
         check3dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         check3dAtmos.setText("3D Atmos");
@@ -196,8 +209,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 check3dAtmosMousePressed(evt);
             }
         });
-        jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
-        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 150, 230));
+        jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 150, 230));
 
         btnCargar.setText("Cargar Imagen");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,21 +218,39 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 btnCargarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 110, 40));
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 110, 40));
 
-        lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         lblTextImagen.setText("Cargar Imagen de cartelera");
-        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
+        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, 40));
+
+        jLabel7.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Modificar Pelicula");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
+
+        jButton1.setText("Volver");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 650, -1, -1));
+
+        jButton2.setText("Limpiar");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 650, -1, -1));
+
+        jButton3.setText("Modificar");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 650, -1, -1));
+
+        lblEstreno1.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblEstreno1.setText("Fecha de estreno");
+        jPanel1.add(lblEstreno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -407,16 +438,21 @@ public class ModificarPelicula extends javax.swing.JFrame {
     private javax.swing.JCheckBox check3d;
     private javax.swing.JCheckBox check3dAtmos;
     private com.toedter.calendar.JDateChooser dateFecha;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblClasificacion;
+    private javax.swing.JLabel lblDuracion;
+    private javax.swing.JLabel lblEstreno1;
+    private javax.swing.JLabel lblGenero;
     private static javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblSinopsis;
     private javax.swing.JLabel lblTextImagen;
+    private javax.swing.JLabel lblTipo;
     private javax.swing.JComboBox<String> listClas;
     private javax.swing.JComboBox<String> listGenero;
     private javax.swing.JTextField txtDuracion;

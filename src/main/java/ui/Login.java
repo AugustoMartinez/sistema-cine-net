@@ -11,6 +11,8 @@ import excepciones.EmailException;
 import excepciones.LongitudPasswordException;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.File;
+import javax.sound.sampled.*;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -35,8 +37,28 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         iniciar();
+        //musica();
     }
 
+    /*private void musica(){
+        String filePath = "src\\main\\images\\pokemon.mp3"; // Ruta del archivo de música
+
+        try {
+            File musicPath = new File(filePath);
+            if(musicPath.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+            }
+            else{
+                System.out.println("Nao nao manito");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+    
     private void iniciar() {
         lblImagenCine.setHorizontalAlignment(JLabel.CENTER);
         lblReflector1.setHorizontalAlignment(JLabel.CENTER);

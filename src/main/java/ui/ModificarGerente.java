@@ -41,6 +41,8 @@ public class ModificarGerente extends javax.swing.JFrame {
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JButton();
+        lblTituloRegistrar = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
@@ -49,99 +51,133 @@ public class ModificarGerente extends javax.swing.JFrame {
         txtApellido = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
-        lblModificar = new javax.swing.JLabel();
-        lblVolver = new javax.swing.JLabel();
+        lblObligatorios = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
-        Background.setMaximumSize(new java.awt.Dimension(800, 500));
-        Background.setMinimumSize(new java.awt.Dimension(800, 500));
-        Background.setPreferredSize(new java.awt.Dimension(800, 500));
+        Background.setBackground(new java.awt.Color(51, 45, 39));
+        Background.setMaximumSize(new java.awt.Dimension(1280, 720));
+        Background.setMinimumSize(new java.awt.Dimension(1280, 720));
+        Background.setPreferredSize(new java.awt.Dimension(1280, 720));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnVolver.setBackground(new java.awt.Color(227, 2, 36));
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("Volver");
+        btnVolver.setFocusable(false);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        Background.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 100, 40));
+
+        lblTituloRegistrar.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
+        lblTituloRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloRegistrar.setText("Modificar gerente");
+        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre");
-        Background.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+        Background.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 50));
 
         lblApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
         lblApellido.setText("Apellido");
-        Background.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        Background.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 50));
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email");
-        Background.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        Background.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, 50));
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblPassword.setText("Password");
-        Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
+        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setText("Contraseña");
+        Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, 50));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 310, -1));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 310, 50));
 
-        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 310, -1));
+        txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 310, 50));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 310, -1));
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 310, 50));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 310, 50));
+
+        lblObligatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblObligatorios.setForeground(new java.awt.Color(204, 204, 204));
+        lblObligatorios.setText("(*)Campos Obligatorios");
+        Background.add(lblObligatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("*");
+        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 410, -1, 50));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("*");
+        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, 50));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setText("*");
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, -1, 50));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setText("*");
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 340, -1, 50));
+
+        btnModificar.setBackground(new java.awt.Color(7, 10, 82));
+        btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(204, 204, 204));
+        btnModificar.setText("Guardar cambios");
+        btnModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
-        Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 310, -1));
-
-        lblModificar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblModificar.setText("Guardar cambios");
-        lblModificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblModificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblModificarMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblModificarMousePressed(evt);
-            }
-        });
-        Background.add(lblModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
-
-        lblVolver.setText("Volver");
-        lblVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblVolverMousePressed(evt);
-            }
-        });
-        Background.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 30));
+        Background.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 330, 55));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+        MenuAdmin admin = new MenuAdmin();
+        admin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void lblModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblModificarMouseClicked
-
-    private void lblModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarMousePressed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         String emailViejo = gerente.getEmail();
         Boolean flag = false;
@@ -160,7 +196,7 @@ public class ModificarGerente extends javax.swing.JFrame {
                     if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
                         //((Gerente) Cine.getListaUsuarios().get(i)).setAdmin(false);
                         flag = true;
-                        Cine.getListaUsuarios().add(i,gerente);
+                        Cine.getListaUsuarios().set(i,gerente);
                         Persistencia.actualizarUsuarios();
                         JOptionPane.showMessageDialog(null, "Datos guardados correctamente!");
                         MenuAdmin adm = new MenuAdmin();
@@ -173,39 +209,8 @@ public class ModificarGerente extends javax.swing.JFrame {
         } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_lblModificarMousePressed
-
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
-        // TODO add your handling code here:
-        try {
-            Gerente gerente = new Gerente();
-            Validaciones.validarNombre(txtNombre.getText());
-            Validaciones.validarApellido(txtApellido.getText());
-            Validaciones.validarEmail(txtEmail.getText());
-            Validaciones.validarPassword(txtPassword.getText());
-            gerente.setNombre(txtNombre.getText());
-            gerente.setApellido(txtApellido.getText());
-            gerente.setEmail(txtEmail.getText());
-            gerente.setPassword(new String(txtPassword.getPassword()));
-            if (Cine.buscarUsuarioPorEmail(gerente.getEmail()) == true) {
-                JOptionPane.showMessageDialog(null, "El email ya se encuentra registrado");
-            } else {
-                Cine.getListaUsuarios().add(gerente);
-                Persistencia.actualizarUsuarios();
-                JOptionPane.showMessageDialog(null, "Registro exitoso!");
-                this.dispose();
-            }//Evaluar excepcion de persistencia
-        } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }//GEN-LAST:event_lblVolverMouseClicked
-
-    private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
-        // TODO add your handling code here:
-        MenuAdmin admin = new MenuAdmin();
-        admin.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblVolverMousePressed
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void cargarDatos() {
         txtNombre.setText(gerente.getNombre());
@@ -223,12 +228,18 @@ public class ModificarGerente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblModificar;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblObligatorios;
     private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblVolver;
+    private javax.swing.JLabel lblTituloRegistrar;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;

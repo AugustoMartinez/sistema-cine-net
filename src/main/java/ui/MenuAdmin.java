@@ -62,7 +62,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 45, 39));
@@ -143,7 +142,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(btnModificarPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, 40));
 
+        btnDarBajaPelicula.setBackground(new java.awt.Color(61, 0, 0));
         btnDarBajaPelicula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDarBajaPelicula.setForeground(new java.awt.Color(204, 204, 204));
         btnDarBajaPelicula.setText("Dar de baja");
         btnDarBajaPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +162,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(btnModificarGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, -1, 40));
 
+        btnDarBajaGerente.setBackground(new java.awt.Color(61, 0, 0));
         btnDarBajaGerente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDarBajaGerente.setText("Dar de baja");
         btnDarBajaGerente.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +186,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(btnModificarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, -1, 40));
 
+        btnDarBajaSala.setBackground(new java.awt.Color(61, 0, 0));
         btnDarBajaSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDarBajaSala.setText("Dar de baja");
         btnDarBajaSala.addActionListener(new java.awt.event.ActionListener() {
@@ -193,9 +196,9 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, -1, 40));
 
-        btnCrearFuncion.setBackground(new java.awt.Color(57, 91, 100));
+        btnCrearFuncion.setBackground(new java.awt.Color(51, 255, 204));
         btnCrearFuncion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnCrearFuncion.setForeground(new java.awt.Color(204, 204, 204));
+        btnCrearFuncion.setForeground(new java.awt.Color(0, 0, 0));
         btnCrearFuncion.setText("Crear Funcion");
         btnCrearFuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
