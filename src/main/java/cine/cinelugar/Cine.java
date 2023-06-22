@@ -86,11 +86,13 @@ public class Cine {
     }
     
     public static void reemplazarCliente(Cliente cliente){
-        for(int i = 0; i< listaUsuarios.size(); i++){
+        Boolean flag=false;
+        for(int i = 0; i< listaUsuarios.size() && !flag ; i++){
             if (listaUsuarios.get(i).getEmail().equals(cliente.getEmail())) {
-                listaUsuarios.add(cliente);
-                Persistencia.actualizarUsuarios();
-                break;
+                System.out.println("Encontrado --------------------------------------");
+                listaUsuarios.set(i, cliente);
+                
+                flag=true;
             }
         }
     }

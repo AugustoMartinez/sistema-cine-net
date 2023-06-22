@@ -1,16 +1,17 @@
 package cine.cinelugar;
 
 import cine.Costos;
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Reserva {
-    private Funcion funcion;
+public class Reserva implements Serializable{
+    private String funcion;
     private LinkedList<String> butaca;
     private Integer numTicket;
     private Integer costos;
-    private Sala sala;
+    private String sala;
 
-    public Reserva(Funcion funcion, LinkedList<String> butaca, Integer numTicket, Sala sala) {
+    public Reserva(String funcion, LinkedList<String> butaca, Integer numTicket, String sala) {
         this.funcion = funcion;
         this.butaca = butaca;
         this.numTicket = numTicket;
@@ -26,7 +27,7 @@ public class Reserva {
         int costo=0;
         
         for(Costos e: Costos.values()){
-            if(funcion.getNombre().contains(e.getTipo())){
+            if(funcion.contains(e.getTipo())){
                 costo=e.getCosto();
             }
         }
@@ -34,11 +35,11 @@ public class Reserva {
         return costo*butaca.size();
     }
 
-    public Funcion getFuncion() {
+    public String getFuncion() {
         return funcion;
     }
 
-    public void setFuncion(Funcion funcion) {
+    public void setFuncion(String funcion) {
         this.funcion = funcion;
     }
 
@@ -66,11 +67,11 @@ public class Reserva {
         this.costos = costos;
     }
 
-    public Sala getSala() {
+    public String getSala() {
         return sala;
     }
 
-    public void setSala(Sala sala) {
+    public void setSala(String sala) {
         this.sala = sala;
     }
     
