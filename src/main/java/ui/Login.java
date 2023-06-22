@@ -11,13 +11,9 @@ import excepciones.EmailException;
 import excepciones.LongitudPasswordException;
 import java.awt.Color;
 import java.awt.Image;
-import java.io.File;
-import javax.sound.sampled.*;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.border.LineBorder;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 
@@ -37,42 +33,22 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         iniciar();
-        //musica();
     }
 
-    /*private void musica(){
-        String filePath = "src\\main\\images\\pokemon.mp3"; // Ruta del archivo de música
-
-        try {
-            File musicPath = new File(filePath);
-            if(musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.start();
-            }
-            else{
-                System.out.println("Nao nao manito");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-    
     private void iniciar() {
         lblImagenCine.setHorizontalAlignment(JLabel.CENTER);
         lblReflector1.setHorizontalAlignment(JLabel.CENTER);
         lblReflector2.setHorizontalAlignment(JLabel.CENTER);
-        
+
         try {
             Image img = new ImageIcon(imgCineDir).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(240, 230, Image.SCALE_SMOOTH));
             lblImagenCine.setIcon(imgIcon);
-            
+
             Image img2 = new ImageIcon(refImg).getImage();
             ImageIcon imgIcon2 = new ImageIcon(img2.getScaledInstance(130, 130, Image.SCALE_SMOOTH));
             lblReflector1.setIcon(imgIcon2);
-            
+
             Image img3 = new ImageIcon(refImg2).getImage();
             ImageIcon imgIcon3 = new ImageIcon(img3.getScaledInstance(130, 130, Image.SCALE_SMOOTH));
             lblReflector2.setIcon(imgIcon3);
@@ -233,22 +209,22 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseMoved
         // TODO add your handling code here:
-        btnLogin.setBackground(new Color(138,0,21));
+        btnLogin.setBackground(new Color(138, 0, 21));
     }//GEN-LAST:event_btnLoginMouseMoved
 
     private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
         // TODO add your handling code here:
-        btnLogin.setBackground(new Color(207,14,44));
+        btnLogin.setBackground(new Color(207, 14, 44));
     }//GEN-LAST:event_btnLoginMouseExited
 
     private void btnRegistrarseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseExited
         // TODO add your handling code here:
-        btnRegistrarse.setBackground(new Color(210,19,18));
+        btnRegistrarse.setBackground(new Color(210, 19, 18));
     }//GEN-LAST:event_btnRegistrarseMouseExited
 
     private void btnRegistrarseMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarseMouseMoved
         // TODO add your handling code here:
-        btnRegistrarse.setBackground(new Color(151,9,8));
+        btnRegistrarse.setBackground(new Color(151, 9, 8));
     }//GEN-LAST:event_btnRegistrarseMouseMoved
 
     /**

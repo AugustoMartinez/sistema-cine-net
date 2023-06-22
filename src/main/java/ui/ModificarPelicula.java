@@ -94,6 +94,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         lblEstreno1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -108,7 +109,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
         lblNombre.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre.setText("Nombre:");
+        lblNombre.setText("Titulo:");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, 40));
 
         lblGenero.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
@@ -251,6 +252,11 @@ public class ModificarPelicula extends javax.swing.JFrame {
         lblEstreno1.setForeground(new java.awt.Color(255, 255, 255));
         lblEstreno1.setText("Fecha de estreno:");
         jPanel1.add(lblEstreno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 200, 40));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("(minutos)");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -429,6 +435,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
     private javax.swing.JCheckBox check3dAtmos;
     private com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

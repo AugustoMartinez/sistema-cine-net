@@ -7,7 +7,7 @@ import excepciones.LongitudPasswordException;
 import java.io.Serializable;
 import validacion.Validaciones;
 
-public abstract class Usuario implements Serializable{
+public abstract class Usuario implements Serializable {
 
     private String email;
     private String password;
@@ -29,10 +29,10 @@ public abstract class Usuario implements Serializable{
     }
 
     public void setEmail(String email) throws EmailException, CampoVacioException {
-        try{
+        try {
             Validaciones.validarEmail(email);
-            this.email=email;
-        }catch(EmailException | CampoVacioException e){
+            this.email = email;
+        } catch (EmailException | CampoVacioException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -42,10 +42,10 @@ public abstract class Usuario implements Serializable{
     }
 
     public void setPassword(String password) throws LongitudPasswordException, CampoVacioException {
-        try{
+        try {
             Validaciones.validarPassword(password);
-            this.password=password;
-        }catch(LongitudPasswordException | CampoVacioException e ){
+            this.password = password;
+        } catch (LongitudPasswordException | CampoVacioException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -55,8 +55,8 @@ public abstract class Usuario implements Serializable{
     }
 
     public void setNombre(String nombre) throws LetrasException, CampoVacioException {
-        
-        this.nombre=nombre;
+
+        this.nombre = nombre;
     }
 
     public String getApellido() {
@@ -77,7 +77,7 @@ public abstract class Usuario implements Serializable{
     @Override
     public String toString() {
         return "Informacion del usuario: { \n"
-                + "Nombre y apellido: '" + nombre +" "+ apellido + "\n"
+                + "Nombre y apellido: '" + nombre + " " + apellido + "\n"
                 + "Contraseña: " + password + "\n"
                 + "Email: '" + email + '\n' + '}';
     }
