@@ -184,7 +184,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         }
 
         txtArea.setText(texto);
-        return texto;
+        return texto;   
     }
     
     private String seleccionarTipo(){
