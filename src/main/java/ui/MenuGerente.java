@@ -51,11 +51,8 @@ public class MenuGerente extends javax.swing.JFrame {
         listSalas = new javax.swing.JComboBox<>();
         btnModificarSala = new javax.swing.JButton();
         btnDarBajaSala = new javax.swing.JButton();
-<<<<<<< Updated upstream
         jPanel2 = new javax.swing.JPanel();
-=======
         jPanel3 = new javax.swing.JPanel();
->>>>>>> Stashed changes
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -173,7 +170,7 @@ public class MenuGerente extends javax.swing.JFrame {
         });
         jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, 40));
 
-<<<<<<< Updated upstream
+
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -188,7 +185,7 @@ public class MenuGerente extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 1070, 2));
-=======
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -201,7 +198,7 @@ public class MenuGerente extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1280, 180));
->>>>>>> Stashed changes
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -381,11 +378,8 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-<<<<<<< Updated upstream
     private javax.swing.JPanel jPanel2;
-=======
     private javax.swing.JPanel jPanel3;
->>>>>>> Stashed changes
     private javax.swing.JComboBox<String> listPeliculas;
     private javax.swing.JComboBox<String> listSalas;
     // End of variables declaration//GEN-END:variables
