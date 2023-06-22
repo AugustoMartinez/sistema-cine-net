@@ -40,11 +40,23 @@ public class ModificarPelicula extends javax.swing.JFrame {
      */
     private Pelicula pelicula;
     public static final String rutaDestino = "src\\main\\images\\";
-    
+
     public ModificarPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
         initComponents();
         cargarDatos();
+    }
+
+    public void iniciar() {
+        lblImagen.setHorizontalAlignment(JLabel.CENTER);
+        lblImagen.setBorder(new LineBorder(Color.black, 2, true));
+        try {
+            Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
+            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen.setIcon(imgIcon);
+        } catch (Exception e) {
+            System.out.println("Algo se rompio al leer los datos de la Pelicula");
+        }
     }
 
     /**
@@ -70,9 +82,6 @@ public class ModificarPelicula extends javax.swing.JFrame {
         listGenero = new javax.swing.JComboBox<>();
         listClas = new javax.swing.JComboBox<>();
         dateFecha = new com.toedter.calendar.JDateChooser();
-        btnModificar = new javax.swing.JLabel();
-        btnLimpiar = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JLabel();
         check2d = new javax.swing.JCheckBox();
         check2dAtmos = new javax.swing.JCheckBox();
         check3d = new javax.swing.JCheckBox();
@@ -82,8 +91,8 @@ public class ModificarPelicula extends javax.swing.JFrame {
         lblTextImagen = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         lblEstreno1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,36 +107,42 @@ public class ModificarPelicula extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNombre.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
-        lblNombre.setText("Nombre");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, 40));
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setText("Nombre:");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, 40));
 
         lblGenero.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
-        lblGenero.setText("Genero");
-        jPanel1.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, 40));
+        lblGenero.setForeground(new java.awt.Color(255, 255, 255));
+        lblGenero.setText("Genero:");
+        jPanel1.add(lblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 100, 40));
 
         lblDuracion.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
-        lblDuracion.setText("Duracion");
-        jPanel1.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, 40));
+        lblDuracion.setForeground(new java.awt.Color(255, 255, 255));
+        lblDuracion.setText("Duracion:");
+        jPanel1.add(lblDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 110, 40));
 
         lblClasificacion.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
-        lblClasificacion.setText("Clasificacion");
-        jPanel1.add(lblClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 150, 40));
+        lblClasificacion.setForeground(new java.awt.Color(255, 255, 255));
+        lblClasificacion.setText("Clasificacion:");
+        jPanel1.add(lblClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 150, 40));
 
         lblTipo.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("Tipo de pelicula");
-        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 200, 40));
+        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 200, 40));
 
         lblSinopsis.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblSinopsis.setForeground(new java.awt.Color(255, 255, 255));
         lblSinopsis.setText("Sinopsis:");
-        jPanel1.add(lblSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 40));
+        jPanel1.add(lblSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, 40));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 209, 40));
-        jPanel1.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 80, 40));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 280, 40));
+        jPanel1.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 80, 40));
 
         txtSinopsis.setColumns(20);
         txtSinopsis.setLineWrap(true);
@@ -135,7 +150,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         txtSinopsis.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtSinopsis);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 240, 131));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 330, 210));
 
         listGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Comedia", "Documental", "Drama", "Horror", "Suspenso" }));
         listGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -143,104 +158,99 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 listGeneroActionPerformed(evt);
             }
         });
-        jPanel1.add(listGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 140, 40));
+        jPanel1.add(listGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 140, 40));
 
         listClas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "PG13", "R", "NC17" }));
-        jPanel1.add(listClas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 130, 40));
-        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, 155, 40));
-
-        btnModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnModificar.setText("Modificar");
-        btnModificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnModificarMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnModificarMousePressed(evt);
-            }
-        });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 580, 100, 40));
-
-        btnLimpiar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnLimpiar.setText("Limpiar");
-        btnLimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLimpiarMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnLimpiarMousePressed(evt);
-            }
-        });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 580, 100, 40));
-
-        btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnVolver.setText("Volver");
-        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnVolverMousePressed(evt);
-            }
-        });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 94, 40));
+        jPanel1.add(listClas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 130, 40));
+        jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 160, 230, 40));
 
         check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check2d.setForeground(new java.awt.Color(255, 255, 255));
         check2d.setText("2D");
-        jPanel1.add(check2d, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
+        jPanel1.add(check2d, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, -1, -1));
 
         check2dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check2dAtmos.setForeground(new java.awt.Color(255, 255, 255));
         check2dAtmos.setText("2D Atmos");
-        jPanel1.add(check2dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
+        jPanel1.add(check2dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, -1, -1));
 
         check3d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check3d.setForeground(new java.awt.Color(255, 255, 255));
         check3d.setText("3D");
         check3d.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 check3dMousePressed(evt);
             }
         });
-        jPanel1.add(check3d, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
+        jPanel1.add(check3d, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, -1, -1));
 
         check3dAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        check3dAtmos.setForeground(new java.awt.Color(255, 255, 255));
         check3dAtmos.setText("3D Atmos");
         check3dAtmos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 check3dAtmosMousePressed(evt);
             }
         });
-        jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
-        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 150, 230));
+        jPanel1.add(check3dAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, -1, -1));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 410, 200, 280));
 
+        btnCargar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Imagen");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 110, 40));
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 130, 40));
 
         lblTextImagen.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        lblTextImagen.setForeground(new java.awt.Color(255, 255, 255));
         lblTextImagen.setText("Cargar Imagen de cartelera");
-        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, 40));
+        jPanel1.add(lblTextImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, 40));
 
         jLabel7.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Modificar Pelicula");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(191, 4, 38));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Volver");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 650, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 100, 40));
 
-        jButton2.setText("Limpiar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 650, -1, -1));
+        btnLimpiar.setBackground(new java.awt.Color(204, 204, 204));
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(51, 51, 51));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 640, 110, 40));
 
-        jButton3.setText("Modificar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 650, -1, -1));
+        btnModificar.setBackground(new java.awt.Color(0, 179, 76));
+        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, 140, 40));
 
         lblEstreno1.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
-        lblEstreno1.setText("Fecha de estreno");
-        jPanel1.add(lblEstreno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 200, 40));
+        lblEstreno1.setForeground(new java.awt.Color(255, 255, 255));
+        lblEstreno1.setText("Fecha de estreno:");
+        jPanel1.add(lblEstreno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 200, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,31 +266,6 @@ public class ModificarPelicula extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
-        if (Sesion.getTipo().equals("Admin")) {
-            this.dispose();
-            MenuAdmin admin = new MenuAdmin();
-            admin.setVisible(true);
-        } else if (Sesion.getTipo().equals("Gerente")) {
-            this.dispose();
-            MenuGerente gerente = new MenuGerente();
-            gerente.setVisible(true);
-        }
-        
-    }
-    
-    public void iniciar(){
-        lblImagen.setHorizontalAlignment(JLabel.CENTER);
-        lblImagen.setBorder(new LineBorder(Color.black,2,true));
-        try{
-            Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
-            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
-            lblImagen.setIcon(imgIcon);
-        }catch (Exception e){
-            System.out.println("Algo se rompio al leer los datos de la Pelicula");
-        }  
-    }//GEN-LAST:event_btnVolverMousePressed
-
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
@@ -288,67 +273,6 @@ public class ModificarPelicula extends javax.swing.JFrame {
     private void listGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGeneroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listGeneroActionPerformed
-
-    private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
-
-    }//GEN-LAST:event_btnModificarMouseClicked
-
-    private void btnModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMousePressed
-        try {
-            String nombreViejo = pelicula.getNombre();
-            Boolean flag = false;
-            Validaciones.validarCampo(txtNombre.getText());
-            Validaciones.validarCampo(txtSinopsis.getText());
-            Validaciones.validarCampo(dateFecha.getDateFormatString());
-            Validaciones.validarNumeros(txtDuracion.getText());
-            
-            this.pelicula.setNombre(txtNombre.getText());
-            this.pelicula.setDuracion(Integer.parseInt(txtDuracion.getText()));
-            this.pelicula.setGenero(listGenero.getSelectedItem().toString());
-            this.pelicula.setClasificacion(listClas.getSelectedItem().toString());
-            this.pelicula.setDescripcion(txtSinopsis.getText());
-            this.pelicula.setFechaEstreno((Date) dateFecha.getDate());
-            if(check3d.isSelected()){
-                pelicula.getTipo().replace("3D", true);
-            }
-            if(check2d.isSelected()){
-                pelicula.getTipo().replace("2D", true);
-            }
-            if(check3dAtmos.isSelected()){
-                pelicula.getTipo().replace("3D ATMOS", true);
-            }
-            if(check2dAtmos.isSelected()){
-                pelicula.getTipo().replace("2D ATMOS", true);
-            }
-            for (int i = 0; i < Cine.getListaPeliculas().size() && flag == false; i++) {
-                if (Cine.getListaPeliculas().get(i).getNombre().equals(nombreViejo)) {
-                    Cine.getListaPeliculas().set(i, pelicula);
-                    flag = true;
-                }
-            }
-            Persistencia.actualizarPeliculas();
-            
-            JOptionPane.showMessageDialog(null, "Pelicula agregada exitosamente!\n" + pelicula.toString());
-        } catch (CampoVacioException | SoloNumerosException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }//GEN-LAST:event_btnModificarMousePressed
-
-    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarMouseClicked
-
-    private void btnLimpiarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMousePressed
-        // TODO add your handling code here:
-        txtNombre.setText("");
-        txtDuracion.setText("");
-        txtSinopsis.setText("");
-        check3d.setSelected(false);
-        check3dAtmos.setSelected(false);
-        check2d.setSelected(false);
-        check2dAtmos.setSelected(false);
-        dateFecha.setDate(null);
-    }//GEN-LAST:event_btnLimpiarMousePressed
 
     private void check3dMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check3dMousePressed
         // TODO add your handling code here:
@@ -364,13 +288,13 @@ public class ModificarPelicula extends javax.swing.JFrame {
         // TODO add your handling code here:
         String rutaDest = "";
         JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, JFIF, PNG & GIF", "jpg","png","gif","jfif");
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, JFIF, PNG & GIF", "jpg", "png", "gif", "jfif");
         jFileChooser.setFileFilter(filtrado);
 
         int respuesta = jFileChooser.showOpenDialog(this);
 
         try {
-            if(respuesta == jFileChooser.APPROVE_OPTION){
+            if (respuesta == jFileChooser.APPROVE_OPTION) {
                 rutaDest = rutaDestino + jFileChooser.getSelectedFile().getName();
                 Path Destino = Paths.get(rutaDest);
                 String origin = jFileChooser.getSelectedFile().getPath();
@@ -385,7 +309,74 @@ public class ModificarPelicula extends javax.swing.JFrame {
             System.out.println("Fallo la carga de datos de las imagenes");
         }
     }//GEN-LAST:event_btnCargarActionPerformed
-    
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtNombre.setText("");
+        txtDuracion.setText("");
+        txtSinopsis.setText("");
+        check3d.setSelected(false);
+        check3dAtmos.setSelected(false);
+        check2d.setSelected(false);
+        check2dAtmos.setSelected(false);
+        dateFecha.setDate(null);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        try {
+            String nombreViejo = pelicula.getNombre();
+            Boolean flag = false;
+            Validaciones.validarCampo(txtNombre.getText());
+            Validaciones.validarCampo(txtSinopsis.getText());
+            Validaciones.validarCampo(dateFecha.getDateFormatString());
+            Validaciones.validarNumeros(txtDuracion.getText());
+
+            this.pelicula.setNombre(txtNombre.getText());
+            this.pelicula.setDuracion(Integer.parseInt(txtDuracion.getText()));
+            this.pelicula.setGenero(listGenero.getSelectedItem().toString());
+            this.pelicula.setClasificacion(listClas.getSelectedItem().toString());
+            this.pelicula.setDescripcion(txtSinopsis.getText());
+            this.pelicula.setFechaEstreno((Date) dateFecha.getDate());
+            if (check3d.isSelected()) {
+                pelicula.getTipo().replace("3D", true);
+            }
+            if (check2d.isSelected()) {
+                pelicula.getTipo().replace("2D", true);
+            }
+            if (check3dAtmos.isSelected()) {
+                pelicula.getTipo().replace("3D ATMOS", true);
+            }
+            if (check2dAtmos.isSelected()) {
+                pelicula.getTipo().replace("2D ATMOS", true);
+            }
+            for (int i = 0; i < Cine.getListaPeliculas().size() && flag == false; i++) {
+                if (Cine.getListaPeliculas().get(i).getNombre().equals(nombreViejo)) {
+                    Cine.getListaPeliculas().set(i, pelicula);
+                    flag = true;
+                }
+            }
+            Persistencia.actualizarPeliculas();
+
+            JOptionPane.showMessageDialog(null, "Pelicula agregada exitosamente!\n" + pelicula.toString());
+        } catch (CampoVacioException | SoloNumerosException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (Sesion.getTipo().equals("Admin")) {
+            this.dispose();
+            MenuAdmin admin = new MenuAdmin();
+            admin.setVisible(true);
+        } else if (Sesion.getTipo().equals("Gerente")) {
+            this.dispose();
+            MenuGerente gerente = new MenuGerente();
+            gerente.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void cargarDatos() {
         //===========================
         txtDuracion.setText(String.valueOf(pelicula.getDuracion()));
@@ -397,7 +388,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
         if (pelicula.getFechaEstreno() != null) {
             dateFecha.setDate(pelicula.getFechaEstreno());
         }
-        
+
         for (Map.Entry<String, Boolean> entry : pelicula.getTipo().entrySet()) {
             String key = entry.getKey();
             Boolean value = entry.getValue();
@@ -430,17 +421,14 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton btnCargar;
-    private javax.swing.JLabel btnLimpiar;
-    private javax.swing.JLabel btnModificar;
-    private javax.swing.JLabel btnVolver;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JCheckBox check2d;
     private javax.swing.JCheckBox check2dAtmos;
     private javax.swing.JCheckBox check3d;
     private javax.swing.JCheckBox check3dAtmos;
     private com.toedter.calendar.JDateChooser dateFecha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
