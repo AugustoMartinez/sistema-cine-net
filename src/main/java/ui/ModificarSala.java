@@ -24,8 +24,8 @@ public class ModificarSala extends javax.swing.JFrame {
 
     int largoBoton = 50;
     int anchoBoton = 25;
-    int ejeX = 20;
-    int ejeY = 20;
+    int ejeX = 200;
+    int ejeY = 70;
     public Sala sala = new Sala();
 
     /**
@@ -67,7 +67,7 @@ public class ModificarSala extends javax.swing.JFrame {
                 ejeX += 55;//separacion ejeX
 
             }
-            ejeX = 20; //reseteo la poss inicial
+            ejeX = 200; //reseteo la poss inicial
             ejeY += 30; //separacion ejeY
         }
     }
@@ -107,15 +107,20 @@ public class ModificarSala extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
-        lblVolver = new javax.swing.JLabel();
-        lblModificar = new javax.swing.JLabel();
         lblNombreSala = new javax.swing.JLabel();
         checkAtmos = new javax.swing.JCheckBox();
+        btnVolver = new javax.swing.JButton();
+        btnModificarSala = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 45, 39));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1260, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
@@ -126,56 +131,63 @@ public class ModificarSala extends javax.swing.JFrame {
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        jPanel1.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 124, 1240, 460));
+        jPanel1.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1240, 430));
 
-        lblVolver.setText("Volver");
-        lblVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblVolverMousePressed(evt);
-            }
-        });
-        jPanel1.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 60, 20));
-
-        lblModificar.setText("Modificar");
-        lblModificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblModificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblModificarMousePressed(evt);
-            }
-        });
-        jPanel1.add(lblModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, 100, 40));
-
-        lblNombreSala.setText("jLabel1");
+        lblNombreSala.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
 
         checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        checkAtmos.setForeground(new java.awt.Color(255, 255, 255));
         checkAtmos.setText("ATMOS");
         checkAtmos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkAtmosActionPerformed(evt);
             }
         });
-        jPanel1.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, 110, 40));
+        jPanel1.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, 110, 40));
+
+        btnVolver.setBackground(new java.awt.Color(255, 0, 30));
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolver.setText("Atras");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 90, 40));
+
+        btnModificarSala.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnModificarSala.setText("Modificar Sala");
+        btnModificarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarSalaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 170, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
+    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
+
+    }//GEN-LAST:event_checkAtmosActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         if (Sesion.getTipo().equals("Admin")) {
             this.dispose();
@@ -186,11 +198,10 @@ public class ModificarSala extends javax.swing.JFrame {
             MenuGerente gerente = new MenuGerente();
             gerente.setVisible(true);
         }
-    }//GEN-LAST:event_lblVolverMousePressed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void lblModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblModificarMousePressed
+    private void btnModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarSalaActionPerformed
         // TODO add your handling code here:
-
         String nombreviejo = sala.getNombre();
         if (sala.getCapacidad() > 0) {
             if (checkAtmos.isSelected()) {
@@ -207,18 +218,12 @@ public class ModificarSala extends javax.swing.JFrame {
             }
             Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala modificada exitosamente!" + sala.toString());
-            lblVolverMousePressed(evt);
+            btnVolverActionPerformed(evt);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "La sala debe tener 1 asiento o mas!" + sala.toString());
         }
-
-
-    }//GEN-LAST:event_lblModificarMousePressed
-
-    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
-
-    }//GEN-LAST:event_checkAtmosActionPerformed
+    }//GEN-LAST:event_btnModificarSalaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,11 +261,11 @@ public class ModificarSala extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModificarSala;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JCheckBox checkAtmos;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblModificar;
     private javax.swing.JLabel lblNombreSala;
-    private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel pnlBotones;
     // End of variables declaration//GEN-END:variables
 }

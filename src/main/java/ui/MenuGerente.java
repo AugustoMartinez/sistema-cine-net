@@ -269,6 +269,7 @@ public class MenuGerente extends javax.swing.JFrame {
     private void btnDarBajaSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaSalaActionPerformed
         // TODO add your handling code here:
         int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
         if (option == JOptionPane.YES_OPTION) {
             String nombre = listSalas.getSelectedItem().toString();
             for (int i = 0; i < Cine.getListaSalas().size(); i++) {
@@ -302,6 +303,7 @@ public class MenuGerente extends javax.swing.JFrame {
 
         }
     }
+
     private void actualizarSalas() {
         DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
         listSalas.setModel(model2);

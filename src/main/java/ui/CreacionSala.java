@@ -29,56 +29,53 @@ public class CreacionSala extends javax.swing.JFrame {
         botones();
         lblNombreSala.setText(sala.getNombre());
     }
-    Sala sala=new Sala();
-    int filas =sala.getFilas();
-    int columnas =sala.getColumnas();
-    int largoBoton=50;
-    int anchoBoton =25;
-    int ejeX=20;
-    int ejeY=20;
-    
-    
-    
-    public JToggleButton [][] jtBotones =new JToggleButton[filas][columnas];
-    
-    public void botones(){
-        jtBotones= new JToggleButton[filas][columnas];
-        for(int i=0;i<filas; i++){
-            for(int j=0;j<columnas;j++){
-                jtBotones[i][j]= new JToggleButton();
-                jtBotones[i][j].setBounds(ejeX,ejeY,largoBoton,anchoBoton);
+    Sala sala = new Sala();
+    int filas = sala.getFilas();
+    int columnas = sala.getColumnas();
+    int largoBoton = 50;
+    int anchoBoton = 25;
+    int ejeX = 200;
+    int ejeY = 70;
+
+    public JToggleButton[][] jtBotones = new JToggleButton[filas][columnas];
+
+    public void botones() {
+        jtBotones = new JToggleButton[filas][columnas];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                jtBotones[i][j] = new JToggleButton();
+                jtBotones[i][j].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
                 //jtBotones[i][j].setFont hay que hacer esto
                 jtBotones[i][j].setBackground(Color.BLUE);
-                
-                AccionBotones accion=new AccionBotones();
+
+                AccionBotones accion = new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
-                
-                
+
                 pnlBotones.add(jtBotones[i][j]);
-                ejeX+=55;//separacion ejeX
-                
+                ejeX += 55;//separacion ejeX
+
             }
-            ejeX=20; //reseteo la poss inicial
-            ejeY+=30; //separacion ejeY
+            ejeX = 200; //reseteo la poss inicial
+            ejeY += 30; //separacion ejeY
         }
     }
-    
-    public class AccionBotones implements ActionListener{
+
+    public class AccionBotones implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            for(int i=0; i<filas; i++){
-                for(int j=0;j<columnas;j++){
-                    if(e.getSource().equals(jtBotones[i][j])){
-                        if(jtBotones[i][j].isSelected()){
+            for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
+                    if (e.getSource().equals(jtBotones[i][j])) {
+                        if (jtBotones[i][j].isSelected()) {
                             jtBotones[i][j].setBackground(Color.RED);
                             sala.getButacas()[i][j].setExiste(true);
-                            sala.setCapacidad(sala.getCapacidad()+1);
+                            sala.setCapacidad(sala.getCapacidad() + 1);
                             //aumentar contador para comparar con cantidad de boletos
-                        }else{
+                        } else {
                             jtBotones[i][j].setBackground(Color.BLUE);
                             sala.getButacas()[i][j].setExiste(false);
-                            sala.setCapacidad(sala.getCapacidad()-1);
+                            sala.setCapacidad(sala.getCapacidad() - 1);
                             //disminuir contador
                         }
                     }
@@ -98,16 +95,21 @@ public class CreacionSala extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
-        lblVolver = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         lblNombreSala = new javax.swing.JLabel();
         checkAtmos = new javax.swing.JCheckBox();
+        btnVolver = new javax.swing.JButton();
+        btnAgregarSala = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1200, 720));
+        setResizable(false);
 
+        background.setBackground(new java.awt.Color(51, 45, 39));
+        background.setMaximumSize(new java.awt.Dimension(1280, 720));
         background.setMinimumSize(new java.awt.Dimension(1280, 720));
         background.setName(""); // NOI18N
+        background.setPreferredSize(new java.awt.Dimension(1260, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
@@ -123,54 +125,59 @@ public class CreacionSala extends javax.swing.JFrame {
 
         background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1240, 430));
 
-        lblVolver.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblVolver.setText("Atras");
-        lblVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblVolverMousePressed(evt);
-            }
-        });
-        background.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 40));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Agregar Sala");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
-            }
-        });
-        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 150, 50));
-
         lblNombreSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblNombreSala.setForeground(new java.awt.Color(255, 255, 255));
         background.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
 
         checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        checkAtmos.setForeground(new java.awt.Color(255, 255, 255));
         checkAtmos.setText("ATMOS");
         checkAtmos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkAtmosActionPerformed(evt);
             }
         });
-        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, 110, 40));
+        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, 110, 40));
+
+        btnVolver.setBackground(new java.awt.Color(255, 0, 30));
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolver.setText("Atras");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        background.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 90, 40));
+
+        btnAgregarSala.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAgregarSala.setText("Agregar Sala");
+        btnAgregarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarSalaActionPerformed(evt);
+            }
+        });
+        background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 170, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
+    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
+
+    }//GEN-LAST:event_checkAtmosActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         if (Sesion.getTipo().equals("Admin")) {
             this.dispose();
@@ -181,26 +188,22 @@ public class CreacionSala extends javax.swing.JFrame {
             MenuGerente gerente = new MenuGerente();
             gerente.setVisible(true);
         }
-    }//GEN-LAST:event_lblVolverMousePressed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+    private void btnAgregarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSalaActionPerformed
         // TODO add your handling code here:
-        if(sala.getCapacidad()>0){
-            if(checkAtmos.isSelected()){
+                if (sala.getCapacidad() > 0) {
+            if (checkAtmos.isSelected()) {
                 sala.setAtmos(true);
             }
             Cine.getListaSalas().add(sala);
             Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala creada correctamente!");
-            lblVolverMousePressed(evt);
-        }else{
+            btnVolverActionPerformed(evt);
+        } else {
             JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
         }
-    }//GEN-LAST:event_jLabel2MousePressed
-
-    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
-
-    }//GEN-LAST:event_checkAtmosActionPerformed
+    }//GEN-LAST:event_btnAgregarSalaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,17 +237,17 @@ public class CreacionSala extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CreacionSala().setVisible(true);
-                
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JButton btnAgregarSala;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JCheckBox checkAtmos;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblNombreSala;
-    private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel pnlBotones;
     // End of variables declaration//GEN-END:variables
 }
