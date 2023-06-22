@@ -132,7 +132,6 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void lbEditarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditarDatosMouseClicked
         // TODO add your handling code here:
-
         for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
             if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
 

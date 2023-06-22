@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
             lblReflector2.setIcon(imgIcon3);
             this.repaint();
         } catch (Exception e) {
-            System.out.println("Error al cargar Imagen");
+            System.out.println("Error al cargar Imagenes");
         }
     }
 
@@ -267,7 +267,6 @@ public class Login extends javax.swing.JFrame {
         Admin admin = new Admin("rtoresani@gmail.com", "12345678", "Rafael", "Toresani");
         Cine.getListaUsuarios().add(admin);
         Persistencia.actualizarUsuarios();
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

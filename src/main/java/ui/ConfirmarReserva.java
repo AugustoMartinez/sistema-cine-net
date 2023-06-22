@@ -68,10 +68,11 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         lblHorario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
-        lblButacasReservadas = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnReserva = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,9 +97,6 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         lblPrecio.setText("Precio");
         jPanel1.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 325, 103));
 
-        lblButacasReservadas.setText("Butacas");
-        jPanel1.add(lblButacasReservadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 237, 147));
-
         btnCancelar.setText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -115,6 +113,16 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         });
         jPanel1.add(btnReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 145, 76));
         jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 250, 310));
+
+        txtArea.setEditable(false);
+        txtArea.setColumns(20);
+        txtArea.setLineWrap(true);
+        txtArea.setRows(5);
+        txtArea.setWrapStyleWord(true);
+        txtArea.setFocusable(false);
+        jScrollPane1.setViewportView(txtArea);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 160));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,7 +172,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         lblFecha.setText("Dia: "+format.format(funcion.getDia()));
         lblHorario.setText("Horario: "+funcion.getHorario().getHorario());
         lblPrecio.setText("Total: $" + generarCosto());
-        lblButacasReservadas.setText(agregarButacas());
+        agregarButacas();
         cargarFotito();
     }
     
@@ -172,10 +180,11 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         String texto="";
 
         for (int i = 0; i < butacasReservadas.size(); i++) {
-            texto += ("Butaca n°" + (i + 1) + " " + butacasReservadas.get(i) + "<br>");
+            texto += ("Butaca n°" + (i + 1) + " " + butacasReservadas.get(i) + "\n");
         }
 
-        return "<html>" + texto + "</html>";
+        txtArea.setText(texto);
+        return texto;
     }
     
     private String seleccionarTipo(){
@@ -188,7 +197,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
     }
 
     private void cargarFotito(){
-        final String imgCineDir = funcion.getPelicula().getRutaImagen();
+        
         lblImagen.setHorizontalAlignment(JLabel.CENTER);
         lblImagen.setBorder(new LineBorder(Color.black, 2, true));
         try {
@@ -260,12 +269,13 @@ public class ConfirmarReserva extends javax.swing.JFrame {
     private javax.swing.JButton btnReserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblButacasReservadas;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHorario;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 }
