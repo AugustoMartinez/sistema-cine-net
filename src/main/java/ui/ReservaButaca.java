@@ -35,7 +35,6 @@ public class ReservaButaca extends javax.swing.JFrame {
     private int anchoBoton = 25;
     private int ejeX = 20;
     private int ejeY = 20;
-    public Sala sala;
     private static int cantidadButacasCompradas;
 
     /**
@@ -44,11 +43,10 @@ public class ReservaButaca extends javax.swing.JFrame {
     public ReservaButaca(Funcion e) {
         initComponents();
         this.funcion = e;
-        this.filas=e.getSalaCopia().getFilas();
-        this.columnas=e.getSalaCopia().getColumnas();
-        this.sala = e.getSalaCopia();
+        this.filas = e.getSalaCopia().getFilas();
+        this.columnas = e.getSalaCopia().getColumnas();
         botones();
-        ReservaButaca.cantidadButacasCompradas=0;
+        ReservaButaca.cantidadButacasCompradas = 0;
     }
 
     public ReservaButaca() {
@@ -123,16 +121,6 @@ public class ReservaButaca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
-
-        for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
-                   if (jtBotones[i][j].isSelected()) {
-                        jtBotones[i][j].setEnabled(true);
-                        jtBotones[i][j].setSelected(false);
-                   }
-                }
-        }
-        funcion=null;
         MenuReserva cliente = new MenuReserva();
         cliente.setVisible(true);
         cliente.setLocationRelativeTo(null);
@@ -147,20 +135,20 @@ public class ReservaButaca extends javax.swing.JFrame {
             for (int j = 0; j < columnas; j++) {
                 jtBotones[i][j] = new JToggleButton();
                 jtBotones[i][j].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
-                
+
                 AccionBotones accion = new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
-                if (funcion.getSala().getButacas()[i][j].isExiste() == true) {
-                    if(funcion.getSala().getButacas()[i][j].isOcupada()){
+                if (funcion.getSalaCopia().getButacas()[i][j].isExiste() == true) {
+                    if (funcion.getSalaCopia().getButacas()[i][j].isOcupada()) {
                         jtBotones[i][j].setEnabled(false);
                         jtBotones[i][j].setBackground(Color.RED);
-                    }else{
+                    } else {
                         jtBotones[i][j].setSelected(false);
                         jtBotones[i][j].setBackground(Color.GRAY);
                     }
-                }else{
+                } else {
                     jtBotones[i][j].setVisible(false);
-                } 
+                }
 
                 pnlBotones.add(jtBotones[i][j]);
                 ejeX += 55;//separacion ejeX
@@ -170,13 +158,15 @@ public class ReservaButaca extends javax.swing.JFrame {
             ejeY += 30; //separacion ejeY
         }
     }
-    public static void aumentarButacas(){
+
+    public static void aumentarButacas() {
         ReservaButaca.cantidadButacasCompradas++;
     }
-    public static void disminuirButacas(){
+
+    public static void disminuirButacas() {
         ReservaButaca.cantidadButacasCompradas--;
     }
-    
+
     private int generarNumeroEntero() {
         Random random = new Random();
         int min = 1000000;
@@ -194,12 +184,12 @@ public class ReservaButaca extends javax.swing.JFrame {
                     if (e.getSource().equals(jtBotones[i][j])) {
                         if (jtBotones[i][j].isSelected()) {
                             jtBotones[i][j].setBackground(Color.GREEN);
-                            sala.getButacas()[i][j].setOcupada(true);
+                            //sala.getButacas()[i][j].setOcupada(true);
                             //aumentar contador para comparar con cantidad de boletos
                             ReservaButaca.aumentarButacas();
                         } else {
                             jtBotones[i][j].setBackground(Color.GRAY);
-                            sala.getButacas()[i][j].setOcupada(false);
+                            //sala.getButacas()[i][j].setOcupada(false);
                             ReservaButaca.disminuirButacas();
                             //disminuir contador
                         }
@@ -208,33 +198,45 @@ public class ReservaButaca extends javax.swing.JFrame {
             }
         }
     }
-    
-    private LinkedList<String> retornaButacas(){
+
+    private LinkedList<String> retornaButacas() {
         LinkedList<String> butacas = new LinkedList<>();
         //jtBotones = new JToggleButton[filas][columnas];
-        for(int i = 0; i < filas; i ++){
-            for(int j = 0; j < columnas; j++){
-                if(jtBotones[i][j].isSelected()){
-                    butacas.add("Fila: " + i + " Columna: "+ j);
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                if (jtBotones[i][j].isSelected()) {
+                    butacas.add("Fila: " + i + " Columna: " + j);
                 }
             }
         }
         return butacas;
     }
-    
+
     private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
         LinkedList<String> butacas = retornaButacas();
-        Integer numTicket=this.generarNumeroEntero();
-        funcion.setSalaCopia(this.sala);
-        Reserva reserva = new Reserva(funcion, butacas, numTicket, this.sala);
+        
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                if (jtBotones[i][j].isSelected() == true) {
+                    funcion.getSalaCopia().getButacas()[i][j].setOcupada(true);
+                }
+
+            }
+        }
+        
+        Integer numTicket = this.generarNumeroEntero();
+        funcion.setSala(funcion.getSalaCopia());
+        Reserva reserva = new Reserva(funcion, butacas, numTicket, funcion.getSalaCopia());
         Cliente user = Cine.retornaClientePorEmail(Sesion.emailLogeado);
         user.agregarReserva(reserva);
         Cine.reemplazarCliente(user);
         Persistencia.actualizarUsuarios();
         Persistencia.actualizarFunciones();
         MenuReserva rem = new MenuReserva();
+        
         rem.setVisible(true);
         rem.setLocationRelativeTo(null);
+        
         this.dispose();
     }//GEN-LAST:event_btnReservarMousePressed
 

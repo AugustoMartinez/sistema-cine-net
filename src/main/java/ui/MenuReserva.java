@@ -28,6 +28,7 @@ public class MenuReserva extends javax.swing.JFrame {
         initComponents();
         actualizarListPeliculas();
         actualizarListaFunciones();
+        //quieromorir();
         iniciar();
     }
     
@@ -62,6 +63,13 @@ public class MenuReserva extends javax.swing.JFrame {
         }
         return null;
     }
+    
+    
+    /*private void quieromorir(){
+        for(Funcion e: Cine.getListaFunciones()){
+            System.out.println(e); 
+        }
+    }*/
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,8 +191,14 @@ public class MenuReserva extends javax.swing.JFrame {
 
     private void btnSelectButacaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectButacaMousePressed
         // TODO add your handling code here:
-        Funcion e = new Funcion();
-        e = retornaFuncion();
+        Funcion asd = new Funcion();
+        Funcion e = retornaFuncion();
+        //System.out.println(e);
+        asd.setSala(e.getSalaCopia());
+        asd.setPelicula(e.getPelicula());
+        asd.setNombre(e.getNombre());
+        asd.setHorario(e.getHorario());
+        asd.setDia(e.getDia());
         ReservaButaca reservaButaca = new ReservaButaca(e);
         reservaButaca.setVisible(true);
         reservaButaca.setLocationRelativeTo(null);
@@ -210,10 +224,9 @@ public class MenuReserva extends javax.swing.JFrame {
         String str = listFunciones.getSelectedItem().toString();
         for(Funcion e: Cine.getListaFunciones()){
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            String funcStr = e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario();
-            
+            String funcStr = e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario(); 
             if(funcStr.equals(str)){
-                System.out.println(e);
+                //System.out.println(e);
                 return e;
             }
         }

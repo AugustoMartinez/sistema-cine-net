@@ -113,4 +113,18 @@ public class Cine {
         return false;
     }
     
+        public static Sala retornaSalaCopia(Sala salita){
+        Sala salaAgregar = new Sala();
+        salaAgregar.setAtmos(salita.getAtmos());
+        salaAgregar.setBaja(salita.getBaja());
+        salaAgregar.setButacas(salita.getButacas());
+        salaAgregar.setCapacidad(salita.getCapacidad());
+        salaAgregar.setColumnas(salita.getColumnas());
+        salaAgregar.setFilas(salita.getFilas());
+        salaAgregar.setId(salita.getId());
+        salaAgregar.setNombre(salita.getNombre());
+        salaAgregar.setDisponible(salita.getDisponible());
+        
+        return salaAgregar;
+    }
 }

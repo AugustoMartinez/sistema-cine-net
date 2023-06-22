@@ -18,6 +18,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
@@ -26,14 +28,15 @@ import persistencia.Persistencia;
  * @author Hoid
  */
 public class RegistroFuncion extends javax.swing.JFrame {
-
+    Funcion funcion;
     /**
      * Creates new form RegistroFuncion
      */
     public RegistroFuncion() {
         initComponents();
         actualizarListPeliculas();
-
+        this.funcion=new Funcion();
+        
         actualizarListSalas();
         actualizarListHorarios();
 
@@ -176,23 +179,25 @@ public class RegistroFuncion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
-        Funcion funcion = new Funcion();
-
+        
         if (retornaHorario() != null && retornaSala() != null && retornaPelicula() != null) {
-            funcion.setNombre(listPelicula.getSelectedItem().toString());
-            funcion.setHorario(retornaHorario());
-            funcion.setPelicula(retornaPelicula());
-            funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
-            funcion.setSala(retornaSala());
-            funcion.setSalaCopia(funcion.getSala());
-
+            this.funcion.setNombre(listPelicula.getSelectedItem().toString());
+            this.funcion.setHorario(retornaHorario());
+            this.funcion.setPelicula(retornaPelicula());
+            this.funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
+            this.funcion.setSala(Cine.retornaSalaCopia(retornaSala()));
+            this.funcion.setSalaCopia(Cine.retornaSalaCopia(funcion.getSala()));
             Cine.getListaFunciones().add(funcion);
             Persistencia.actualizarFunciones();
             JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
-
             actualizarListSalas();
             actualizarListHorarios();
         }
+        
+        this.dispose();
+        RegistroFuncion reg = new RegistroFuncion();
+        reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAgregarMousePressed
 
     private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
@@ -286,34 +291,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 model.addElement(algo.getNombre());
             }
         }
-
-
-        /*Map<Sala, Boolean> salasEstaticas = new HashMap<>();
-        for (Sala sala : Cine.getListaSalas()) {
-            salasEstaticas.put(sala, true);
-        } 
-        if (!Cine.getListaFunciones().isEmpty()) {
-            for (Funcion e : Cine.getListaFunciones()) {
-                if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
-                    if (e.getHorario().getHorario().equals(listHorario.getSelectedItem())) {
-                        for (Map.Entry<Sala, Boolean> entry : salasEstaticas.entrySet()) {
-                            Sala salita = entry.getKey();
-                            Boolean estado = entry.getValue();
-                            if (e.getSala().getNombre().equals(salita.getNombre())) {
-                                salasEstaticas.put(salita, false);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        for (Map.Entry<Sala, Boolean> entry : salasEstaticas.entrySet()) {
-            Sala key = entry.getKey();
-            Boolean value = entry.getValue();
-            if(value){
-                model.addElement(key.getNombre());
-            }
-        }*/
     }
 
     private void actualizarListHorarios() {
