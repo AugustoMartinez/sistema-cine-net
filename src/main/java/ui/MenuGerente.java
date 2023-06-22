@@ -51,11 +51,7 @@ public class MenuGerente extends javax.swing.JFrame {
         listSalas = new javax.swing.JComboBox<>();
         btnModificarSala = new javax.swing.JButton();
         btnDarBajaSala = new javax.swing.JButton();
-<<<<<<< HEAD
         jSeparator1 = new javax.swing.JSeparator();
-=======
-        jPanel2 = new javax.swing.JPanel();
->>>>>>> 5baca18a65555b6918b007162ef4af9ba6efd196
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -85,11 +81,6 @@ public class MenuGerente extends javax.swing.JFrame {
         btnCrearFuncion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearFuncion.setForeground(new java.awt.Color(0, 0, 0));
         btnCrearFuncion.setText("Crear Funcion");
-        btnCrearFuncion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnCrearFuncionMousePressed(evt);
-            }
-        });
         btnCrearFuncion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearFuncionActionPerformed(evt);
@@ -177,25 +168,7 @@ public class MenuGerente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, 40));
-<<<<<<< HEAD
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 313, 990, 10));
-=======
-
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1070, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 1070, 2));
->>>>>>> 5baca18a65555b6918b007162ef4af9ba6efd196
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -297,10 +270,6 @@ public class MenuGerente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDarBajaSalaActionPerformed
 
-    private void btnCrearFuncionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCrearFuncionMousePressed
-
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
@@ -379,11 +348,7 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-<<<<<<< HEAD
     private javax.swing.JSeparator jSeparator1;
-=======
-    private javax.swing.JPanel jPanel2;
->>>>>>> 5baca18a65555b6918b007162ef4af9ba6efd196
     private javax.swing.JComboBox<String> listPeliculas;
     private javax.swing.JComboBox<String> listSalas;
     // End of variables declaration//GEN-END:variables
