@@ -330,15 +330,16 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void btnDarBajaSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaSalaActionPerformed
         // TODO add your handling code here:
         int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
         if (option == JOptionPane.YES_OPTION) {
             String nombre = listSalas.getSelectedItem().toString();
-            for (int i = 0; i < Cine.getListaSalas().size(); i++) {
-                for (Sala sala : Cine.getListaSalas()) {
-                    if (sala.getNombre().equals(nombre)) {
-                        Cine.getListaSalas().remove(i);
-                    }
+            for (int i = Cine.getListaSalas().size() - 1; i >= 0; i--) {
+                Sala sala = Cine.getListaSalas().get(i);
+                if (sala.getNombre().equals(nombre)) {
+                    Cine.getListaSalas().remove(i);
                 }
             }
+            actualizarSalasNombre();
             actualizarSalas();
             Persistencia.actualizarSalas();
         }
@@ -382,6 +383,16 @@ public class MenuAdmin extends javax.swing.JFrame {
                 model2.addElement(e.getNombre());
             }
         }
+    }
+
+    private void actualizarSalasNombre() {
+        for (int i = Cine.getListaSalas().size() - 1; i >= 0; i--) {
+            Sala sala = Cine.getListaSalas().get(i);
+            sala.setNombre("Sala " + (i + 1));
+            sala.setId(i + 1);
+        }
+        actualizarSalas();
+        Persistencia.actualizarSalas();
     }
 
     /**

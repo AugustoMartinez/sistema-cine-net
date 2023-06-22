@@ -139,7 +139,7 @@ public class ModificarSala extends javax.swing.JFrame {
         jPanel1.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1240, 430));
 
         lblNombreSala.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
+        jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
 
         checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         checkAtmos.setForeground(new java.awt.Color(255, 255, 255));

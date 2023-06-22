@@ -7,6 +7,7 @@ package ui;
 import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
 import cine.cinelugar.Sala;
+import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -25,7 +26,7 @@ public class MenuGerente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         actualizarListPeliculas();
-        actualizarListSalas();
+        actualizarSalas();
     }
 
     /**
@@ -168,7 +169,10 @@ public class MenuGerente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, -1, 40));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 313, 990, 10));
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 1100, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,7 +227,6 @@ public class MenuGerente extends javax.swing.JFrame {
         // TODO add your handling code here:
         int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
-            String nombre = listSalas.getSelectedItem().toString();
             if (listPeliculas.getSelectedItem() != null) {
                 for (int i = 0; i < Cine.getListaPeliculas().size(); i++) {
                     if (Cine.getListaPeliculas().get(i).getNombre().equals(listPeliculas.getSelectedItem())) {
@@ -258,13 +261,13 @@ public class MenuGerente extends javax.swing.JFrame {
 
         if (option == JOptionPane.YES_OPTION) {
             String nombre = listSalas.getSelectedItem().toString();
-            for (int i = 0; i < Cine.getListaSalas().size(); i++) {
-                for (Sala sala : Cine.getListaSalas()) {
-                    if (sala.getNombre().equals(nombre)) {
-                        Cine.getListaSalas().remove(i);
-                    }
+            for (int i = Cine.getListaSalas().size() - 1; i >= 0; i--) {
+                Sala sala = Cine.getListaSalas().get(i);
+                if (sala.getNombre().equals(nombre)) {
+                    Cine.getListaSalas().remove(i);
                 }
             }
+            actualizarSalasNombre();
             actualizarSalas();
             Persistencia.actualizarSalas();
         }
@@ -280,24 +283,22 @@ public class MenuGerente extends javax.swing.JFrame {
         }
     }
 
-    private void actualizarListSalas() {
-        DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
-        listSalas.setModel(model2);
-        for (Sala e : Cine.getListaSalas()) {
-
-            model2.addElement(e.getNombre());
-
-        }
-    }
-
     private void actualizarSalas() {
         DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
         listSalas.setModel(model2);
         for (Sala e : Cine.getListaSalas()) {
-            if (!e.getBaja()) {
-                model2.addElement(e.getNombre());
-            }
+             model2.addElement(e.getNombre());
         }
+    }
+
+    private void actualizarSalasNombre() {
+        for (int i = Cine.getListaSalas().size() - 1; i >= 0; i--) {
+            Sala sala = Cine.getListaSalas().get(i);
+            sala.setNombre("Sala " + (i+1));
+            sala.setId(i+1);
+        }
+        actualizarSalas();
+        Persistencia.actualizarSalas();
     }
 
     /**

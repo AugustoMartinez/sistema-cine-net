@@ -22,6 +22,7 @@ E:\git\sistema-cine-net\src\main\java\ui\MenuAdmin.java
 E:\git\sistema-cine-net\src\main\java\ui\ModificarPelicula.java
 E:\git\sistema-cine-net\src\main\java\ui\ModificarUsuario.java
 E:\git\sistema-cine-net\src\main\java\cine\cinelugar\Sala.java
+E:\git\sistema-cine-net\src\main\java\ui\Prueba.java
 E:\git\sistema-cine-net\src\main\java\cine\Imprimible.java
 E:\git\sistema-cine-net\src\main\java\cine\user\Gerente.java
 E:\git\sistema-cine-net\src\main\java\excepciones\SoloNumerosException.java
@@ -36,7 +37,6 @@ E:\git\sistema-cine-net\src\main\java\ui\ModificarGerente.java
 E:\git\sistema-cine-net\src\main\java\cine\user\Admin.java
 E:\git\sistema-cine-net\src\main\java\persistencia\Persistencia.java
 E:\git\sistema-cine-net\src\main\java\cine\Horario.java
-E:\git\sistema-cine-net\src\main\java\ui\MenuClienteV2.java
 E:\git\sistema-cine-net\src\main\java\excepciones\LongitudPasswordException.java
 E:\git\sistema-cine-net\src\main\java\ui\MenuReserva.java
 E:\git\sistema-cine-net\src\main\java\cine\cinelugar\Reserva.java
