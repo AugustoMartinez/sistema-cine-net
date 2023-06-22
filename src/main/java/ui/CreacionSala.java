@@ -134,11 +134,6 @@ public class CreacionSala extends javax.swing.JFrame {
         checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         checkAtmos.setForeground(new java.awt.Color(255, 255, 255));
         checkAtmos.setText("ATMOS");
-        checkAtmos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkAtmosActionPerformed(evt);
-            }
-        });
         background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 110, 40));
 
         btnVolver.setBackground(new java.awt.Color(255, 0, 30));
@@ -204,10 +199,6 @@ public class CreacionSala extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void checkAtmosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAtmosActionPerformed
-
-    }//GEN-LAST:event_checkAtmosActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         if (Sesion.getTipo().equals("Admin")) {
@@ -223,7 +214,7 @@ public class CreacionSala extends javax.swing.JFrame {
 
     private void btnAgregarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSalaActionPerformed
         // TODO add your handling code here:
-                if (sala.getCapacidad() > 0) {
+        if (sala.getCapacidad() > 0) {
             if (checkAtmos.isSelected()) {
                 sala.setAtmos(true);
             }

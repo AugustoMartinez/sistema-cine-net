@@ -1,14 +1,14 @@
 package cine.user;
 
-
 public class Sesion {
-    private static String emailLogeado="";
-    private static String tipo="";
-    
+
+    private static String emailLogeado = "";
+    private static String tipo = "";
+
     public Sesion() {
-        
+
     }
-    
+
     public static String getEmailLogeado() {
         return emailLogeado;
     }
@@ -24,8 +24,5 @@ public class Sesion {
     public static void setTipo(String tipo) {
         Sesion.tipo = tipo;
     }
-    
-    
-    
-    
+
 }

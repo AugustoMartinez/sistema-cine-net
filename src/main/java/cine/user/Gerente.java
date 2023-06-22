@@ -1,9 +1,10 @@
 package cine.user;
 
-public class Gerente extends Usuario{
+public class Gerente extends Usuario {
+
     private boolean isAdmin;
 
-    public Gerente (String email, String password, String nombre, String apellido) {
+    public Gerente(String email, String password, String nombre, String apellido) {
         super(email, password, nombre, apellido);
         isAdmin = true;
     }
@@ -12,9 +13,7 @@ public class Gerente extends Usuario{
         this.isAdmin = true;
     }
 
-    
-    
-    public void setAdmin(boolean estado){
+    public void setAdmin(boolean estado) {
         isAdmin = estado;
     }
 
@@ -22,12 +21,6 @@ public class Gerente extends Usuario{
         return isAdmin;
     }
 
-
-    //ABM Peliculas
-
-    //ABM Funciones
-
-    //ABM Salas
     @Override
     public void logeo() {
 
