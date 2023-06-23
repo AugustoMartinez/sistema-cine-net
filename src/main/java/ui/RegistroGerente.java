@@ -62,6 +62,7 @@ public class RegistroGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setUndecorated(true);
         setResizable(false);
 
         Background1.setBackground(new java.awt.Color(9, 35, 52));
