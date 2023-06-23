@@ -183,7 +183,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        MenuCliente mc = new MenuCliente(txtEmail.getText());
+        MenuCliente mc = new MenuCliente();
         mc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -209,7 +209,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
                         Cine.getListaUsuarios().set(i, cliente);
                         Persistencia.actualizarUsuarios();
                         JOptionPane.showMessageDialog(null, "Datos guardados correctamente!");
-                        MenuCliente mc = new MenuCliente(txtEmail.getText());
+                        MenuCliente mc = new MenuCliente();
                         mc.setVisible(true);
                         this.dispose();
                     }

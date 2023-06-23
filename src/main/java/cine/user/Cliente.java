@@ -58,7 +58,7 @@ public class Cliente extends Usuario {
         // Comparar la fecha y la hora con la fecha y la hora actual
         if (fechaReservaLocalDate.isAfter(fechaActual) || (fechaReservaLocalDate.isEqual(fechaActual) && horaReserva.isAfter(horaActual))) {
             txt += listaReserva.get(i).toString();
-            if (i < listaReserva.size() - 1) {
+            if (i < listaReserva.size()-1) {
                 txt += "\n\n";
             }
         }

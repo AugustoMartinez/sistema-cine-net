@@ -6,6 +6,7 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.user.Cliente;
+import cine.user.Sesion;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
@@ -15,21 +16,24 @@ import persistencia.Persistencia;
  */
 public class MenuCliente extends javax.swing.JFrame {
 
-    String email;
+    private String email;
 
     /**
      * Creates new form MenuCliente
      */
     public MenuCliente() {
         initComponents();
+        this.email = Sesion.getEmailLogeado();
+        Persistencia.actualizarUsuarios();
         this.setLocationRelativeTo(null);
     }
 
-    public MenuCliente(String email) {
+    /*public MenuCliente(String email) {
         initComponents();
         this.email = email;
+        Persistencia.actualizarUsuarios();
         this.setLocationRelativeTo(null);
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,6 +196,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void jLbMisReservasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMisReservasMousePressed
         // TODO add your handling code here:
+        Persistencia.actualizarUsuarios();
         for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
             if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
                 if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
@@ -202,6 +207,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 }
             }
         }
+        
     }//GEN-LAST:event_jLbMisReservasMousePressed
 
     /**

@@ -18,6 +18,7 @@ public class MisReservas extends javax.swing.JFrame {
     
     public MisReservas(Cliente user) {
         initComponents();
+        
         this.user=user;
         mostrarReservas();
     }

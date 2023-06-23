@@ -57,7 +57,7 @@ public class Login extends javax.swing.JFrame {
                 Sesion.setEmailLogeado(txtEmail.getText());
                 if (Sesion.getTipo().equals("Cliente")) {
                     this.dispose();
-                    new MenuCliente(txtEmail.getText()).setVisible(true);
+                    new MenuCliente().setVisible(true);
                 } else if (Sesion.getTipo().equals("Gerente")) {
                     this.dispose();
                     new MenuGerente().setVisible(true);
@@ -296,8 +296,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMousePressed
 
     private void btnIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseEntered
-        // TODO add your handling code here:
-        btnIniciarSesion.setBorder(new LineBorder(new Color(204, 40, 54), 4, true));
+
         jPanel2.setBackground(new Color(204, 40, 54));
         btnIniciarSesion.setForeground(new Color(255, 255, 255));
         
@@ -305,7 +304,6 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseExited
         // TODO add your handling code here:
-        btnIniciarSesion.setBorder(new LineBorder(new Color(170, 34, 45), 4, true));
         jPanel2.setBackground(new Color(170, 34, 45));
         btnIniciarSesion.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnIniciarSesionMouseExited
@@ -322,14 +320,12 @@ public class Login extends javax.swing.JFrame {
 
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         // TODO add your handling code here:
-        btnSalir.setBorder(new LineBorder(new Color(170, 34, 45), 4, true));
         jPanel3.setBackground(new Color(170, 34, 45));
         btnSalir.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
         // TODO add your handling code here:
-        btnSalir.setBorder(new LineBorder(new Color(204, 40, 54), 4, true));
         jPanel3.setBackground(new Color(204, 40, 54));
         btnSalir.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnSalirMouseEntered

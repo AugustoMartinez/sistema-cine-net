@@ -216,7 +216,8 @@ public class MenuReserva extends javax.swing.JFrame {
         listFunciones.setModel(model);
         String str = Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getNombre();
         for (Funcion e : Cine.getListaFunciones()) {
-            if (e.getPelicula().getNombre().equals(str)) {
+            Boolean ocupada=e.getSala().salaOcupada();
+            if (ocupada && e.getPelicula().getNombre().equals(str) ) {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 model.addElement(e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario());
             }

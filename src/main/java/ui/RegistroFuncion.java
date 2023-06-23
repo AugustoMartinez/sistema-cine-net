@@ -14,6 +14,7 @@ import cine.Horario;
 import cine.cinelugar.Funcion;
 import cine.user.Sesion;
 import com.toedter.calendar.JCalendar;
+import excepciones.CampoVacioException;
 import excepciones.DiaNoValidoException;
 import java.util.Calendar;
 import java.util.Date;
@@ -294,11 +295,17 @@ public class RegistroFuncion extends javax.swing.JFrame {
     }
 
     private Horario retornaHorario() {
-        String str = listHorario.getSelectedItem().toString();
-        for (Horario e : Horario.values()) {
-            if (e.getHorario().equals(str)) {
-                return e;
+        
+        try {
+            Validaciones.validarCampo(listHorario.getSelectedItem().toString());
+            String str = listHorario.getSelectedItem().toString();
+            for (Horario e : Horario.values()) {
+                if (e.getHorario().equals(str)) {
+                    return e;
+                }
             }
+        } catch (NullPointerException | CampoVacioException e) {
+            JOptionPane.showMessageDialog(null, "No hay más horarios disponibles para el día seleccionado.");
         }
         return null;
     }
