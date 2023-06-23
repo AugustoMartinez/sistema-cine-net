@@ -5,9 +5,17 @@
 package ui;
 
 import cine.cinelugar.Reserva;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.HeadlessException;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,20 +31,78 @@ public class Ticket extends javax.swing.JFrame {
     private String butacas;
     private String precio;
     private String sala;
+    private String poster;
             /**
              * Creates new form Ticket
              */
-    public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String sala) {
+    
+        public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String sala, String poster) {
         initComponents();
-        this.nombre = nombre;    
+        this.nombre = nombre;
         this.ticket = ticket;
         this.tipo = tipo;
         this.fecha = fecha;
         this.hora = hora;
         this.butacas = butacas;
         this.precio = precio;
+
+        this.poster = poster;
+
         this.sala = sala;
         mostrarTicket();
+    }
+
+    private void generarPDF() {
+        Document documento = new Document();
+
+        try {
+            String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Ticket.pdf"));
+            documento.open();
+
+            Image img = null;
+
+            try {
+                img = Image.getInstance(poster);
+                img.scaleAbsolute(150, 250);
+                img.setAlignment(Element.ALIGN_CENTER);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+            Paragraph titulo = new Paragraph("Ticket n°" + ticket);
+            titulo.setAlignment(1);
+            documento.add(new Paragraph(titulo));
+            documento.add(img);
+            documento.add(new Paragraph("\n"));
+
+            PdfPTable tabla = new PdfPTable(2);
+
+            tabla.addCell("Nombre");
+            tabla.addCell(nombre);
+
+            tabla.addCell("Tipo");
+            tabla.addCell(tipo);
+
+            tabla.addCell("Fecha");
+            tabla.addCell(fecha);
+
+            tabla.addCell("Horario");
+            tabla.addCell(hora);
+
+            tabla.addCell("Total");
+            tabla.addCell("$" + precio);
+
+            documento.add(tabla);
+
+            documento.add(new Paragraph("Butacas: "));
+            documento.add(new Paragraph(butacas));
+
+            documento.close();
+            JOptionPane.showMessageDialog(null, "PDF creado en el escritorio");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 
     /**
@@ -155,6 +221,7 @@ public class Ticket extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
+        generarPDF();
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
         this.setLocationRelativeTo(null);

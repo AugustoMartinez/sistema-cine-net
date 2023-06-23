@@ -58,6 +58,30 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
+    private void validarInicioSesion() {
+        try {
+            Validaciones.validarEmail(txtEmail.getText());
+            Validaciones.validarPassword(txtPassword.getText());
+            if (Cine.validarLoginYCargarSesion(txtEmail.getText(), txtPassword.getText()) == true) {
+                Sesion.setEmailLogeado(txtEmail.getText());
+                if (Sesion.getTipo().equals("Cliente")) {
+                    this.dispose();
+                    new MenuCliente(txtEmail.getText()).setVisible(true);
+                } else if (Sesion.getTipo().equals("Gerente")) {
+                    this.dispose();
+                    new MenuGerente().setVisible(true);
+                } else if (Sesion.getTipo().equals("Admin")) {
+                    this.dispose();
+                    new MenuAdmin().setVisible(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Email o contraseña incorrecta!");
+            }
+        } catch (CampoVacioException | EmailException | LongitudPasswordException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -184,27 +208,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        try {
-            Validaciones.validarEmail(txtEmail.getText());
-            Validaciones.validarPassword(txtPassword.getText());
-            if (Cine.validarLoginYCargarSesion(txtEmail.getText(), txtPassword.getText()) == true) {
-                Sesion.setEmailLogeado(txtEmail.getText());
-                if (Sesion.getTipo().equals("Cliente")) {
-                    this.dispose();
-                    new MenuCliente(txtEmail.getText()).setVisible(true);
-                } else if (Sesion.getTipo().equals("Gerente")) {
-                    this.dispose();
-                    new MenuGerente().setVisible(true);
-                } else if (Sesion.getTipo().equals("Admin")) {
-                    this.dispose();
-                    new MenuAdmin().setVisible(true);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Email o contraseña incorrecta!");
-            }
-        } catch (CampoVacioException | EmailException | LongitudPasswordException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        validarInicioSesion();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseMoved
