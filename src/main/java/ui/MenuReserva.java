@@ -44,7 +44,7 @@ public class MenuReserva extends javax.swing.JFrame {
 
     public void iniciar() {
         lblImagen.setHorizontalAlignment(JLabel.CENTER);
-        lblImagen.setBorder(new LineBorder(Color.black, 2, true));
+        lblImagen.setBorder(new LineBorder(Color.black, 0, true));
 
         try {
             Image img = new ImageIcon(Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getRutaImagen()).getImage();
@@ -74,121 +74,132 @@ public class MenuReserva extends javax.swing.JFrame {
         listPeliculas = new javax.swing.JComboBox<>();
         lblPeliculas = new javax.swing.JLabel();
         lblFunciones = new javax.swing.JLabel();
-        btnSelectButaca = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         listFunciones = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        btnSeleccionarButacas = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnExit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
         setUndecorated(true);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, 450, 660));
+
+        listPeliculas.setBackground(new java.awt.Color(17, 61, 88));
+        listPeliculas.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        listPeliculas.setForeground(new java.awt.Color(216, 220, 255));
+        listPeliculas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         listPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listPeliculasActionPerformed(evt);
             }
         });
+        jPanel1.add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 520, 60));
 
-        lblPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblPeliculas.setText("Peliculas disponibles");
+        lblPeliculas.setBackground(new java.awt.Color(17, 61, 88));
+        lblPeliculas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblPeliculas.setForeground(new java.awt.Color(216, 220, 255));
+        lblPeliculas.setText("Seleccione la película:");
+        jPanel1.add(lblPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 330, 50));
 
-        lblFunciones.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblFunciones.setText("Funciones Disponibles");
+        lblFunciones.setBackground(new java.awt.Color(17, 61, 88));
+        lblFunciones.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblFunciones.setForeground(new java.awt.Color(216, 220, 255));
+        lblFunciones.setText("Seleccione la función:");
+        jPanel1.add(lblFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 310, -1));
 
-        btnSelectButaca.setText("Seleccionar butaca");
-        btnSelectButaca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnSelectButacaMousePressed(evt);
-            }
-        });
-        btnSelectButaca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectButacaActionPerformed(evt);
-            }
-        });
-
-        btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnCancelarMousePressed(evt);
-            }
-        });
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-
+        listFunciones.setBackground(new java.awt.Color(17, 61, 88));
+        listFunciones.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        listFunciones.setForeground(new java.awt.Color(216, 220, 255));
+        listFunciones.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         listFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listFuncionesActionPerformed(evt);
             }
         });
+        jPanel1.add(listFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 520, 60));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
-                        .addGap(180, 180, 180)
-                        .addComponent(btnSelectButaca)
-                        .addGap(272, 272, 272))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(271, 271, 271)
-                                .addComponent(lblFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(listFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(189, 189, 189)
-                                .addComponent(lblPeliculas)
-                                .addGap(39, 39, 39)
-                                .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+        jPanel2.setBackground(new java.awt.Color(17, 61, 88));
+
+        btnSeleccionarButacas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnSeleccionarButacas.setForeground(new java.awt.Color(216, 220, 255));
+        btnSeleccionarButacas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSeleccionarButacas.setText("SELECCIONE BUTACAS");
+        btnSeleccionarButacas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSeleccionarButacasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSeleccionarButacasMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSeleccionarButacasMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSeleccionarButacas, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPeliculas)
-                            .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(256, 256, 256)
-                                .addComponent(btnSelectButaca))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(btnCancelar))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSeleccionarButacas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 520, 60));
+
+        jPanel3.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnExit.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(216, 220, 255));
+        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnExit.setText("VOLVER");
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExitMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnExitMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 120, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
@@ -200,37 +211,48 @@ public class MenuReserva extends javax.swing.JFrame {
         actualizarListaFunciones();
     }//GEN-LAST:event_listPeliculasActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-        /*this.dispose();
-        MenuCliente cliente = new MenuCliente();
-        cliente.setVisible(true);*/
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void btnSelectButacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectButacaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSelectButacaActionPerformed
-
     private void listFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listFuncionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listFuncionesActionPerformed
 
-    private void btnSelectButacaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectButacaMousePressed
+    private void btnSeleccionarButacasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasMouseEntered
+        jPanel2.setBackground(new Color(26, 95, 137));
+        btnSeleccionarButacas.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnSeleccionarButacasMouseEntered
+
+    private void btnSeleccionarButacasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasMouseExited
         // TODO add your handling code here:
+        jPanel2.setBackground(new Color(17, 61, 88));
+        btnSeleccionarButacas.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnSeleccionarButacasMouseExited
+
+    private void btnSeleccionarButacasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasMousePressed
         Funcion e = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
         ReservaButaca reservaButaca = new ReservaButaca(e);
         reservaButaca.setVisible(true);
         reservaButaca.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnSelectButacaMousePressed
+    }//GEN-LAST:event_btnSeleccionarButacasMousePressed
 
-    private void btnCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMousePressed
+    private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(204, 40, 54));
+        btnExit.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnExitMouseEntered
+
+    private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(170, 34, 45));
+        btnExit.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnExitMouseExited
+
+    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
         // TODO add your handling code here:
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
         cliente.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnCancelarMousePressed
+    }//GEN-LAST:event_btnExitMousePressed
 
     /**
      * @param args the command line arguments
@@ -281,9 +303,11 @@ public class MenuReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnSelectButaca;
+    private javax.swing.JLabel btnExit;
+    private javax.swing.JLabel btnSeleccionarButacas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblFunciones;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblPeliculas;

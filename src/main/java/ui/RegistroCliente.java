@@ -59,7 +59,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnExit = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -115,8 +114,9 @@ public class RegistroCliente extends javax.swing.JFrame {
 
         lblTituloRegistrar.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lblTituloRegistrar.setForeground(new java.awt.Color(216, 220, 255));
+        lblTituloRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloRegistrar.setText("MENÚ REGISTRO CLIENTE");
-        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 440, 60));
+        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 570, 60));
 
         lblObligatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblObligatorios.setForeground(new java.awt.Color(216, 220, 255));
@@ -200,7 +200,9 @@ public class RegistroCliente extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,8 +211,7 @@ public class RegistroCliente extends javax.swing.JFrame {
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 90, 45));
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 640, 720));
+        Background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 120, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -330,7 +331,6 @@ public class RegistroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblApellido;

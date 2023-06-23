@@ -113,8 +113,9 @@ public class RegistroGerente extends javax.swing.JFrame {
 
         lblTituloRegistrar1.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lblTituloRegistrar1.setForeground(new java.awt.Color(216, 220, 255));
+        lblTituloRegistrar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloRegistrar1.setText("MENÚ REGISTRO GERENTE");
-        Background1.add(lblTituloRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 440, 60));
+        Background1.add(lblTituloRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 670, 60));
 
         lblObligatorios1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblObligatorios1.setForeground(new java.awt.Color(216, 220, 255));
@@ -198,7 +199,9 @@ public class RegistroGerente extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +210,7 @@ public class RegistroGerente extends javax.swing.JFrame {
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Background1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 90, 45));
+        Background1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 130, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
