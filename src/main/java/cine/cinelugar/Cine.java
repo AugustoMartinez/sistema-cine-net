@@ -118,6 +118,9 @@ public class Cine {
         return false;
     }
 
+    
+    //=============================== FUNCIONES DE RETORNO ===============================
+    
     public static Funcion retornaFuncion(String nombre) {
         for (Funcion e : Cine.getListaFunciones()) {
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
