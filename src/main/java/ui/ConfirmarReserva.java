@@ -142,7 +142,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
         funcion.setSala(funcion.getSalaCopia());
         Integer numTicket = this.generarNumeroEntero();
-        Reserva reserva = new Reserva(funcion.getNombre(), this.butacasReservadas, numTicket, funcion.getSala().getNombre());
+        Reserva reserva = new Reserva(funcion, this.butacasReservadas, numTicket);
         Cliente user = Cine.retornaClientePorEmail(Sesion.getEmailLogeado());
         user.agregarReserva(reserva);
         Cine.reemplazarCliente(user);

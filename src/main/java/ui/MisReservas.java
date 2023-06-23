@@ -4,8 +4,10 @@
  */
 package ui;
 
+import cine.cinelugar.Funcion;
 import cine.cinelugar.Reserva;
 import cine.user.Cliente;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -13,7 +15,7 @@ import cine.user.Cliente;
  */
 public class MisReservas extends javax.swing.JFrame {
     private Cliente user;
-
+    
     public MisReservas(Cliente user) {
         initComponents();
         this.user=user;
@@ -21,14 +23,8 @@ public class MisReservas extends javax.swing.JFrame {
     }
     
     private void mostrarReservas(){
-        String str = "";
-        for(int i=0; i<user.getListaReserva().size(); i++){
-            str+= user.getListaReserva().get(i).getFuncion();
-            str+="\n";
-            
-        }
+        String str = user.retornaStringListaReservas();
         txtArea.setText(str);
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -87,6 +83,7 @@ public class MisReservas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
 
 

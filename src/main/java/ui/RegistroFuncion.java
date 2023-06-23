@@ -14,6 +14,7 @@ import cine.Horario;
 import cine.cinelugar.Funcion;
 import cine.user.Sesion;
 import com.toedter.calendar.JCalendar;
+import excepciones.DiaNoValidoException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,21 +23,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
+import validacion.Validaciones;
 
 /**
  *
  * @author Hoid
  */
 public class RegistroFuncion extends javax.swing.JFrame {
+
     Funcion funcion;
+
     /**
      * Creates new form RegistroFuncion
      */
     public RegistroFuncion() {
         initComponents();
         actualizarListPeliculas();
-        this.funcion=new Funcion();
-        
+        this.funcion = new Funcion();
+
         actualizarListSalas();
         actualizarListHorarios();
 
@@ -138,29 +142,28 @@ public class RegistroFuncion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
-        
+
         if (retornaHorario() != null && retornaSala() != null && retornaPelicula() != null) {
             this.funcion.setNombre(listPelicula.getSelectedItem().toString());
             this.funcion.setHorario(retornaHorario());
             this.funcion.setPelicula(retornaPelicula());
-            this.funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
             try {
+                Validaciones.validarDiaFuncion(jCalendar1.getDate());
+
+                this.funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
                 this.funcion.setSala((Sala) Cine.retornaSalaCopia(retornaSala()).clone());
                 this.funcion.setSalaCopia(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
+                Cine.getListaFunciones().add(funcion);
+                Persistencia.actualizarFunciones();
+                JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
+                actualizarListSalas();
+                actualizarListHorarios();
             } catch (CloneNotSupportedException ex) {
                 Logger.getLogger(RegistroFuncion.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (DiaNoValidoException ex) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese un día válido");
             }
-            Cine.getListaFunciones().add(funcion);
-            Persistencia.actualizarFunciones();
-            JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
-            actualizarListSalas();
-            actualizarListHorarios();
         }
-        
-        this.dispose();
-        RegistroFuncion reg = new RegistroFuncion();
-        reg.setVisible(true);
-        reg.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAgregarMousePressed
 
     private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
@@ -261,7 +264,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
         listHorario.setModel(model); // Establecer el modelo del JComboBox
         listHorario.removeAllItems();
 
-
         if (!Cine.getListaFunciones().isEmpty()) {
             LinkedHashMap<Horario, Boolean> horariosDisponibles = new LinkedHashMap<>();
             horariosDisponibles.put(Horario.MAÑANA, true);
@@ -290,15 +292,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 model.addElement(f.getHorario());
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
     }
 
     private Funcion retornaFuncion() {
