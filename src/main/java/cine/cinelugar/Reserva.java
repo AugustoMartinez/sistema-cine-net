@@ -2,44 +2,63 @@ package cine.cinelugar;
 
 import cine.Costos;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
-public class Reserva implements Serializable{
-    private String funcion;
+public class Reserva implements Serializable {
+
+    private Funcion funcion;
     private LinkedList<String> butaca;
     private Integer numTicket;
     private Integer costos;
-    private String sala;
+    private final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Reserva(String funcion, LinkedList<String> butaca, Integer numTicket, String sala) {
+    public Reserva(Funcion funcion, LinkedList<String> butaca, Integer numTicket) {
         this.funcion = funcion;
         this.butaca = butaca;
         this.numTicket = numTicket;
-        this.sala = sala;
-        this.costos=generarCosto();
+        this.costos = generarCosto();
     }
 
     public Reserva() {
-       
-    }
-    
-    private Integer generarCosto(){
-        int costo=0;
-        
-        for(Costos e: Costos.values()){
-            if(funcion.contains(e.getTipo())){
-                costo=e.getCosto();
-            }
-        }
-        
-        return costo*butaca.size();
+
     }
 
-    public String getFuncion() {
+    @Override
+    public String toString() {
+        String str = "";
+        Funcion aux;
+
+        str += "Nombre: " + funcion.getNombre() + "\n"
+                + "Horario: " + funcion.getHorario().getHorario() + "\n"
+                + "Fecha: " + format.format(funcion.getDia()) + "\n"
+                + funcion.getSalaCopia().getNombre() + "\n"
+                + "Butacas:\n"; 
+        
+        str+=this.agregarButacas();
+
+        
+
+        return str;
+    }
+
+    private Integer generarCosto() {
+        int costo = 0;
+
+        for (Costos e : Costos.values()) {
+            if (funcion.getNombre().contains(e.getTipo())) {
+                costo = e.getCosto();
+            }
+        }
+
+        return costo * butaca.size();
+    }
+
+    public Funcion getFuncion() {
         return funcion;
     }
 
-    public void setFuncion(String funcion) {
+    public void setFuncion(Funcion funcion) {
         this.funcion = funcion;
     }
 
@@ -67,12 +86,13 @@ public class Reserva implements Serializable{
         this.costos = costos;
     }
 
-    public String getSala() {
-        return sala;
-    }
+    private String agregarButacas() {
+        String texto = "";
 
-    public void setSala(String sala) {
-        this.sala = sala;
+        for (int i = 0; i < butaca.size(); i++) {
+            texto += ("Butaca " + (i + 1) + " " + butaca.get(i) + "\n");
+        }
+
+        return texto;
     }
-    
 }
