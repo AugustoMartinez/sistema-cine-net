@@ -112,7 +112,9 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtEmail.setBackground(new java.awt.Color(44, 117, 160));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtEmail.setBorder(null);
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 300, 45));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
