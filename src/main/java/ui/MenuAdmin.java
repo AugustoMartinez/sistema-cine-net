@@ -244,6 +244,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         Persistencia.actualizarPeliculas();
         Persistencia.actualizarUsuarios();
         this.dispose();
+        new Login().setVisible(true);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnCargarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarPeliculaActionPerformed

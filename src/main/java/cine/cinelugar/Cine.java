@@ -4,6 +4,7 @@ import cine.user.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
 public class Cine {
@@ -129,6 +130,20 @@ public class Cine {
         for (Pelicula e : Cine.getListaPeliculas()) {
             if (nombre.contains(e.getNombre())) {
                 return e;
+            }
+        }
+        return null;
+    }
+    
+    public static Sala retornaSala(String nombre) {
+        for (Sala e : Cine.getListaSalas()) {
+            if (nombre.equals(e.getNombre())) {
+                if (!e.getDisponible()) {
+                    return e;
+                } else {
+                    JOptionPane.showMessageDialog(null, "La sala seleccionada no está disponible");
+                    return null;
+                }
             }
         }
         return null;

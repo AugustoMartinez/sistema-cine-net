@@ -141,9 +141,11 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
         Funcion funcion=new Funcion();
         Pelicula peli=new Pelicula();
+        Sala sala=new Sala();
+        sala=Cine.retornaSala(listSala.getSelectedItem().toString());
         peli=Cine.retornaPelicula(listPelicula.getSelectedItem().toString());
         
-        if (retornaHorario() != null && retornaSala() != null && peli != null) {
+        if (retornaHorario() != null && sala != null && peli != null) {
             funcion.setNombre(listPelicula.getSelectedItem().toString());
             funcion.setHorario(retornaHorario());
             funcion.setPelicula(peli);
@@ -151,15 +153,16 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 Validaciones.validarDiaFuncion(jCalendar1.getDate());
 
                 funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
-                funcion.setSala((Sala) Cine.retornaSalaCopia(retornaSala()).clone());
-                funcion.setSala(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
+                //funcion.setSala((Sala) Cine.retornaSalaCopia(sala).clone());
+                //funcion.setSala(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
+                funcion.setSala((Sala) sala.clone());
                 Cine.getListaFunciones().add(funcion);
                 Persistencia.actualizarFunciones();
                 JOptionPane.showMessageDialog(null, "Función creada exitosamente!");
                 actualizarListSalas();
                 actualizarListHorarios();
             } catch (CloneNotSupportedException ex) {
-                Logger.getLogger(RegistroFuncion.class.getName()).log(Level.SEVERE, null, ex);
+              Logger.getLogger(RegistroFuncion.class.getName()).log(Level.SEVERE, null, ex);
             } catch (DiaNoValidoException ex) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese un día válido");
             }
@@ -300,21 +303,6 @@ public class RegistroFuncion extends javax.swing.JFrame {
         for (Horario e : Horario.values()) {
             if (e.getHorario().equals(str)) {
                 return e;
-            }
-        }
-        return null;
-    }
-
-    private Sala retornaSala() {
-        String str = listSala.getSelectedItem().toString();
-        for (Sala e : Cine.getListaSalas()) {
-            if (str.equals(e.getNombre())) {
-                if (!e.getDisponible()) {
-                    return e;
-                } else {
-                    JOptionPane.showMessageDialog(null, "La sala seleccionada no está disponible");
-                    return null;
-                }
             }
         }
         return null;
