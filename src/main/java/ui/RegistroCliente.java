@@ -65,7 +65,6 @@ public class RegistroCliente extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         Background.setBackground(new java.awt.Color(9, 35, 52));
@@ -116,7 +115,8 @@ public class RegistroCliente extends javax.swing.JFrame {
 
         lblTituloRegistrar.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lblTituloRegistrar.setForeground(new java.awt.Color(216, 220, 255));
-        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 450, 60));
+        lblTituloRegistrar.setText("MENÚ REGISTRO CLIENTE");
+        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 440, 60));
 
         lblObligatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblObligatorios.setForeground(new java.awt.Color(216, 220, 255));

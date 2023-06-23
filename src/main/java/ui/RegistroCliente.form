@@ -10,9 +10,6 @@
       <Dimension value="[1280, 720]"/>
     </Property>
     <Property name="undecorated" type="boolean" value="true"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1280, 720]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -213,10 +210,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="dc" red="d8" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="MEN&#xda; REGISTRO CLIENTE"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="430" y="80" width="450" height="60"/>
+              <AbsoluteConstraints x="430" y="70" width="440" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
