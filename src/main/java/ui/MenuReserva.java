@@ -69,43 +69,43 @@ public class MenuReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        listFunciones = new javax.swing.JComboBox<>();
-        lblFunciones = new javax.swing.JLabel();
-        lblPeliculas = new javax.swing.JLabel();
-        listPeliculas = new javax.swing.JComboBox<>();
-        btnCancelar = new javax.swing.JButton();
-        btnSelectButaca = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         lblImagen = new javax.swing.JLabel();
+        listPeliculas = new javax.swing.JComboBox<>();
+        lblPeliculas = new javax.swing.JLabel();
+        lblFunciones = new javax.swing.JLabel();
+        btnSelectButaca = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        listFunciones = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        listFunciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listFuncionesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 220, 360, 34));
-
-        lblFunciones.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblFunciones.setText("Funciones Disponibles");
-        getContentPane().add(lblFunciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
-        lblPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblPeliculas.setText("Peliculas disponibles");
-        getContentPane().add(lblPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         listPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listPeliculasActionPerformed(evt);
             }
         });
-        getContentPane().add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 222, 34));
+
+        lblPeliculas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblPeliculas.setText("Peliculas disponibles");
+
+        lblFunciones.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblFunciones.setText("Funciones Disponibles");
+
+        btnSelectButaca.setText("Seleccionar butaca");
+        btnSelectButaca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSelectButacaMousePressed(evt);
+            }
+        });
+        btnSelectButaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectButacaActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar.setText("Cancelar");
@@ -119,21 +119,77 @@ public class MenuReserva extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 100, 33));
 
-        btnSelectButaca.setText("Seleccionar butaca");
-        btnSelectButaca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnSelectButacaMousePressed(evt);
-            }
-        });
-        btnSelectButaca.addActionListener(new java.awt.event.ActionListener() {
+        listFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectButacaActionPerformed(evt);
+                listFuncionesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSelectButaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, 35));
-        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 310, 410));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCancelar)
+                        .addGap(180, 180, 180)
+                        .addComponent(btnSelectButaca)
+                        .addGap(272, 272, 272))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(271, 271, 271)
+                                .addComponent(lblFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(listFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(189, 189, 189)
+                                .addComponent(lblPeliculas)
+                                .addGap(39, 39, 39)
+                                .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(listFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPeliculas)
+                            .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(256, 256, 256)
+                                .addComponent(btnSelectButaca))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(238, 238, 238)
+                                .addComponent(btnCancelar))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,6 +283,7 @@ public class MenuReserva extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSelectButaca;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFunciones;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblPeliculas;
