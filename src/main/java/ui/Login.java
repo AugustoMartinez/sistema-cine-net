@@ -26,6 +26,7 @@ import validacion.Validaciones;
 public class Login extends javax.swing.JFrame {
 
     private final String imgCineDir = "src\\main\\images\\prueba1.png";
+    private final String imgLogo = "src\\main\\images\\logo.png";
 
     /**
      * Creates new form Login
@@ -42,6 +43,9 @@ public class Login extends javax.swing.JFrame {
             Image img = new ImageIcon(imgCineDir).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(852, 720, Image.SCALE_SMOOTH));
             lblImagenCine.setIcon(imgIcon);
+            Image img2 = new ImageIcon(imgLogo).getImage();
+            ImageIcon imgIcon2 = new ImageIcon(img2.getScaledInstance(200, 200, Image.SCALE_SMOOTH));
+            lblCineNombre.setIcon(imgIcon2);
 
             this.repaint();
         } catch (Exception e) {
@@ -121,7 +125,7 @@ public class Login extends javax.swing.JFrame {
                 txtEmailMouseExited(evt);
             }
         });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 300, 45));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 300, 300, 45));
 
         txtPassword.setBackground(new java.awt.Color(17, 61, 88));
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
@@ -134,19 +138,19 @@ public class Login extends javax.swing.JFrame {
                 txtPasswordMouseExited(evt);
             }
         });
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 300, 45));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 400, 300, 45));
 
         lblEmail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(216, 220, 255));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("Email:");
         lblEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 60, 30));
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 270, 60, 30));
 
         lblContraseña.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(216, 220, 255));
         lblContraseña.setText("Contraseña:");
-        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 110, 30));
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 370, 110, 30));
 
         jPanel3.setBackground(new java.awt.Color(170, 34, 45));
 
@@ -184,8 +188,7 @@ public class Login extends javax.swing.JFrame {
         lblCineNombre.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         lblCineNombre.setForeground(new java.awt.Color(216, 220, 255));
         lblCineNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCineNombre.setText("Cine Arcano");
-        jPanel1.add(lblCineNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 250, 90));
+        jPanel1.add(lblCineNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 20, 200, 200));
         jPanel1.add(lblImagenCine, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 860, 720));
 
         jPanel2.setBackground(new java.awt.Color(170, 34, 45));
@@ -221,7 +224,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 200, 45));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 480, 200, 45));
 
         btnRegistro.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(216, 220, 255));
@@ -238,7 +241,7 @@ public class Login extends javax.swing.JFrame {
                 btnRegistroMousePressed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 70, 30));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 70, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

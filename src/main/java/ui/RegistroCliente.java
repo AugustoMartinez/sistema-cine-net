@@ -61,43 +61,38 @@ public class RegistroCliente extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
-        Background.setBackground(new java.awt.Color(51, 45, 39));
+        Background.setBackground(new java.awt.Color(9, 35, 52));
         Background.setMaximumSize(new java.awt.Dimension(1280, 720));
         Background.setMinimumSize(new java.awt.Dimension(800, 500));
         Background.setPreferredSize(new java.awt.Dimension(1280, 720));
-        Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(216, 220, 255));
         lblNombre.setText("Nombre");
-        Background.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, 50));
 
-        lblApellido.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(216, 220, 255));
         lblApellido.setText("Apellido");
-        Background.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, 50));
 
-        lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(216, 220, 255));
         lblEmail.setText("Email");
-        Background.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 90, 50));
 
-        lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblPassword.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(216, 220, 255));
         lblPassword.setText("Contraseña");
-        Background.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 180, 50));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 310, 50));
+        txtNombre.setForeground(new java.awt.Color(216, 220, 255));
 
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 310, 50));
+        txtApellido.setForeground(new java.awt.Color(216, 220, 255));
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 310, 50));
+        txtEmail.setForeground(new java.awt.Color(216, 220, 255));
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 310, 50));
+        txtPassword.setForeground(new java.awt.Color(216, 220, 255));
 
         btnRegistrarse.setBackground(new java.awt.Color(7, 10, 82));
         btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -109,7 +104,6 @@ public class RegistroCliente extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        Background.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 330, 55));
 
         btnSalir.setBackground(new java.awt.Color(227, 2, 36));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -121,49 +115,129 @@ public class RegistroCliente extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        Background.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, 40));
 
-        lblTituloRegistrar.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
-        lblTituloRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblTituloRegistrar.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        lblTituloRegistrar.setForeground(new java.awt.Color(216, 220, 255));
         lblTituloRegistrar.setText("Registrarse Magic Cinema");
-        Background.add(lblTituloRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
         lblObligatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblObligatorios.setForeground(new java.awt.Color(204, 204, 204));
+        lblObligatorios.setForeground(new java.awt.Color(216, 220, 255));
         lblObligatorios.setText("(*)Campos Obligatorios");
-        Background.add(lblObligatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 480, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("*");
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 410, -1, 50));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("*");
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, -1, 50));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("*");
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, -1, 50));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("*");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 340, -1, 50));
+
+        javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
+        Background.setLayout(BackgroundLayout);
+        BackgroundLayout.setHorizontalGroup(
+            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(790, 790, 790)
+                        .addComponent(lblObligatorios))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(490, 490, 490)
+                        .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(415, 415, 415)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addComponent(lblNombre)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addComponent(lblApellido)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addComponent(lblEmail)
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BackgroundLayout.createSequentialGroup()
+                                .addComponent(lblPassword)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(347, 347, 347))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                .addComponent(lblTituloRegistrar)
+                .addGap(423, 423, 423))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(572, 572, 572))
+        );
+        BackgroundLayout.setVerticalGroup(
+            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(lblTituloRegistrar)
+                .addGap(74, 74, 74)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lblNombre)))
+                .addGap(17, 17, 17)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblApellido))
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(lblEmail))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(lblPassword)))
+                .addGap(18, 18, 18)
+                .addComponent(lblObligatorios)
+                .addGap(30, 30, 30)
+                .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 1290, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(1296, 728));
