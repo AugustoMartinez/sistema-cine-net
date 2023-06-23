@@ -68,6 +68,9 @@ public class Cine {
         Cine.listaUsuarios = listaUsuarios;
     }
 
+    
+    //=============================== GESTION USUARIO ===============================
+    
     public static boolean buscarUsuarioPorEmail(String email) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email)) {

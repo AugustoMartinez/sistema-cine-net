@@ -103,7 +103,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-<<<<<<< Updated upstream
+
         txtEmail.setBackground(new java.awt.Color(44, 117, 160));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtEmail.setBorder(null);
@@ -119,8 +119,7 @@ public class Login extends javax.swing.JFrame {
         lblEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 45));
 
-=======
->>>>>>> Stashed changes
+
         lblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lblContraseña.setText("Contraseña:");
