@@ -23,9 +23,7 @@ import validacion.Validaciones;
  */
 public class Login extends javax.swing.JFrame {
 
-    private final String imgCineDir = "src\\main\\images\\cinema-logo.png";
-    private final String refImg = "src\\main\\images\\reflector.png";
-    private final String refImg2 = "src\\main\\images\\reflector2.png";
+    private final String imgCineDir = "src\\main\\images\\prueba1.png";
 
     /**
      * Creates new form Login
@@ -37,21 +35,12 @@ public class Login extends javax.swing.JFrame {
 
     private void iniciar() {
         lblImagenCine.setHorizontalAlignment(JLabel.CENTER);
-        lblReflector1.setHorizontalAlignment(JLabel.CENTER);
-        lblReflector2.setHorizontalAlignment(JLabel.CENTER);
 
         try {
             Image img = new ImageIcon(imgCineDir).getImage();
-            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(240, 230, Image.SCALE_SMOOTH));
+            ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(852, 720, Image.SCALE_SMOOTH));
             lblImagenCine.setIcon(imgIcon);
 
-            Image img2 = new ImageIcon(refImg).getImage();
-            ImageIcon imgIcon2 = new ImageIcon(img2.getScaledInstance(130, 130, Image.SCALE_SMOOTH));
-            lblReflector1.setIcon(imgIcon2);
-
-            Image img3 = new ImageIcon(refImg2).getImage();
-            ImageIcon imgIcon3 = new ImageIcon(img3.getScaledInstance(130, 130, Image.SCALE_SMOOTH));
-            lblReflector2.setIcon(imgIcon3);
             this.repaint();
         } catch (Exception e) {
             System.out.println("Error al cargar Imagenes");
@@ -82,6 +71,9 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,26 +84,26 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtEmail = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
-        lblEmail = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
-        lblCineNombre = new javax.swing.JLabel();
-        lblImagenCine = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
+        lblCineNombre = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
-        lblReflector2 = new javax.swing.JLabel();
-        lblReflector1 = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        txtEmail = new javax.swing.JTextField();
+        lblImagenCine = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(51, 45, 39));
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+<<<<<<< Updated upstream
         txtEmail.setBackground(new java.awt.Color(44, 117, 160));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtEmail.setBorder(null);
@@ -127,17 +119,12 @@ public class Login extends javax.swing.JFrame {
         lblEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 45));
 
+=======
+>>>>>>> Stashed changes
         lblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lblContraseña.setText("Contraseña:");
-        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 190, 45));
-
-        lblCineNombre.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 50)); // NOI18N
-        lblCineNombre.setForeground(new java.awt.Color(255, 255, 255));
-        lblCineNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCineNombre.setText("Magic Cinema\t ");
-        jPanel1.add(lblCineNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 270, -1));
-        jPanel1.add(lblImagenCine, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 240, 230));
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 190, 45));
 
         btnRegistrarse.setBackground(new java.awt.Color(210, 19, 18));
         btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -158,7 +145,13 @@ public class Login extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 610, -1, 50));
+        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, 50));
+
+        lblCineNombre.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 50)); // NOI18N
+        lblCineNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblCineNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCineNombre.setText("Magic Cinema\t ");
+        jPanel1.add(lblCineNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 270, -1));
 
         btnLogin.setBackground(new java.awt.Color(207, 14, 44));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -181,24 +174,36 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 240, 50));
-        jPanel1.add(lblReflector2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, 130, 130));
-        jPanel1.add(lblReflector1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, 130));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, 240, 50));
+
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmail.setText("Email:");
+        lblEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, 45));
+
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 300, 45));
+
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 300, 45));
+        jPanel1.add(lblImagenCine, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 860, 690));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1296, 728));
+        setSize(new java.awt.Dimension(1280, 689));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -285,8 +290,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblEmail;
     private static javax.swing.JLabel lblImagenCine;
-    private javax.swing.JLabel lblReflector1;
-    private javax.swing.JLabel lblReflector2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
