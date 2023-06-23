@@ -11,12 +11,10 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.tool.xml.html.table.Table;
 import java.awt.HeadlessException;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,12 +30,13 @@ public class Ticket extends javax.swing.JFrame {
     private String hora;
     private String butacas;
     private String precio;
+    private String sala;
     private String poster;
-
-    /**
-     * Creates new form Ticket
-     */
-    public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String poster) {
+            /**
+             * Creates new form Ticket
+             */
+    
+        public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String sala, String poster) {
         initComponents();
         this.nombre = nombre;
         this.ticket = ticket;
@@ -46,7 +45,10 @@ public class Ticket extends javax.swing.JFrame {
         this.hora = hora;
         this.butacas = butacas;
         this.precio = precio;
+
         this.poster = poster;
+
+        this.sala = sala;
         mostrarTicket();
     }
 
@@ -123,6 +125,7 @@ public class Ticket extends javax.swing.JFrame {
         lblPrecio = new javax.swing.JLabel();
         lblTicket = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
+        txtSala = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,12 +146,14 @@ public class Ticket extends javax.swing.JFrame {
 
         lblTicket.setText("Ticket");
 
-        btnGuardar.setText("Guardar Ticket");
+        btnGuardar.setText("Salir");
         btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnGuardarMousePressed(evt);
             }
         });
+
+        txtSala.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,17 +166,16 @@ public class Ticket extends javax.swing.JFrame {
                     .addComponent(lblTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSala, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -179,7 +183,9 @@ public class Ticket extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSala, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,10 +195,10 @@ public class Ticket extends javax.swing.JFrame {
                 .addComponent(lblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -202,9 +208,7 @@ public class Ticket extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,9 +221,6 @@ public class Ticket extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
-        // TODO add your handling code here:
-        /*
-         */
         generarPDF();
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
@@ -231,13 +232,14 @@ public class Ticket extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private void mostrarTicket() {
-        lblNombre.setText("Nombre: " + nombre);
+        lblNombre.setText("Nombre: "+nombre);
         lblTipo.setText("Tipo: " + tipo);
         lblFecha.setText("Fecha: " + fecha);
         lblHorario.setText("Horario: " + hora);
         lblPrecio.setText("Total: $" + precio);
-        lblTicket.setText("Ticket n°" + ticket);
+        lblTicket.setText("Ticket n°"+ticket);
         lblButacasReservadas.setText(butacas);
+        txtSala.setText("Sala: " + sala);
     }
 
 
@@ -252,5 +254,6 @@ public class Ticket extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTicket;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JLabel txtSala;
     // End of variables declaration//GEN-END:variables
 }

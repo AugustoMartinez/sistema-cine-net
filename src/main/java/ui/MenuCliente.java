@@ -92,6 +92,11 @@ public class MenuCliente extends javax.swing.JFrame {
         jLbMisReservas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLbMisReservas.setText("Mis reservas");
         jLbMisReservas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLbMisReservas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLbMisReservasMousePressed(evt);
+            }
+        });
         jPanel1.add(jLbMisReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 280, 90));
 
         lbDarBaja.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -184,6 +189,20 @@ public class MenuCliente extends javax.swing.JFrame {
             Persistencia.actualizarUsuarios();
         }
     }//GEN-LAST:event_lbDarBajaMousePressed
+
+    private void jLbMisReservasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMisReservasMousePressed
+        // TODO add your handling code here:
+        for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+            if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
+                if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
+                    MisReservas misReservas = new MisReservas((Cliente)Cine.getListaUsuarios().get(i));
+                    misReservas.setVisible(true);
+                    misReservas.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLbMisReservasMousePressed
 
     /**
      * @param args the command line arguments
