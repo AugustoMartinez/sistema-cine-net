@@ -29,7 +29,7 @@ public class Sala implements Serializable, Cloneable {
         this.atmos = false;
         this.disponible = false;
         this.baja = false;
-        this.idOculta=UUID.randomUUID().toString();
+        this.idOculta = UUID.randomUUID().toString();
         inicializarButacas();
     }
 
@@ -43,21 +43,19 @@ public class Sala implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        return "Sala: " + 
-                "\n   id" + id + 
-                "\n   nombre=" + nombre + 
-                "\n   butacas=" + butacas + 
-                "\n   capacidad=" + capacidad + 
-                "\n   filas=" + filas + 
-                "\n   columnas=" + columnas + 
-                "\n   atmos=" + atmos + 
-                "\n   disponible=" + disponible + 
-                "\n   baja=" + baja + 
-                "\n   idOculta=" + idOculta;
+        return "Sala: "
+                + "\n   id" + id
+                + "\n   nombre=" + nombre
+                + "\n   butacas=" + butacas
+                + "\n   capacidad=" + capacidad
+                + "\n   filas=" + filas
+                + "\n   columnas=" + columnas
+                + "\n   atmos=" + atmos
+                + "\n   disponible=" + disponible
+                + "\n   baja=" + baja
+                + "\n   idOculta=" + idOculta;
     }
 
-    
-    
     public Integer getFilas() {
         return filas;
     }
@@ -151,6 +149,5 @@ public class Sala implements Serializable, Cloneable {
 
         return salaCopia;
     }
-
 
 }

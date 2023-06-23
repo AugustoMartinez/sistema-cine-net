@@ -125,7 +125,7 @@ public class Cine {
         }
         return null;
     }
-    
+
     public static Pelicula retornaPelicula(String nombre) {
         for (Pelicula e : Cine.getListaPeliculas()) {
             if (nombre.contains(e.getNombre())) {
@@ -134,7 +134,7 @@ public class Cine {
         }
         return null;
     }
-    
+
     public static Sala retornaSala(String nombre) {
         for (Sala e : Cine.getListaSalas()) {
             if (nombre.equals(e.getNombre())) {
@@ -149,18 +149,4 @@ public class Cine {
         return null;
     }
 
-    public static Sala retornaSalaCopia(Sala salita) {
-        Sala salaAgregar = new Sala();
-        salaAgregar.setAtmos(salita.getAtmos());
-        salaAgregar.setBaja(salita.getBaja());
-        salaAgregar.setButacas(salita.getButacas());
-        salaAgregar.setCapacidad(salita.getCapacidad());
-        salaAgregar.setColumnas(salita.getColumnas());
-        salaAgregar.setFilas(salita.getFilas());
-        salaAgregar.setId(salita.getId());
-        salaAgregar.setNombre(salita.getNombre());
-        salaAgregar.setDisponible(salita.getDisponible());
-
-        return salaAgregar;
-    }
 }

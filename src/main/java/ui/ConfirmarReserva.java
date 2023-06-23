@@ -39,19 +39,20 @@ public class ConfirmarReserva extends javax.swing.JFrame {
     private LinkedList<String> butacasReservadas;
     private Cliente usuario;
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
     /**
      * Creates new form ConfirmarReserva
      */
-    public ConfirmarReserva(Funcion e,LinkedList<String> butacasReservadas) {
+    public ConfirmarReserva(Funcion e, LinkedList<String> butacasReservadas) {
         initComponents();
-        this.funcion=e;
-        this.butacasReservadas=butacasReservadas;
+        this.funcion = e;
+        this.butacasReservadas = butacasReservadas;
         mostrarReserva();
     }
 
     public ConfirmarReserva() {
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,8 +150,8 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         Persistencia.actualizarUsuarios();
         Persistencia.actualizarFunciones();
         JOptionPane.showMessageDialog(null, "Muchas gracias por su reserva!");
-        
-        Ticket ticket=new Ticket(funcion.getPelicula().getNombre(), numTicket.toString(), seleccionarTipo(), format.format(funcion.getDia()), funcion.getHorario().getHorario(), agregarButacas(), generarCosto().toString(), funcion.getSala().getNombre(),funcion.getPelicula().getRutaImagen());
+
+        Ticket ticket = new Ticket(funcion.getPelicula().getNombre(), numTicket.toString(), seleccionarTipo(), format.format(funcion.getDia()), funcion.getHorario().getHorario(), agregarButacas(), generarCosto().toString(), funcion.getSala().getNombre(), funcion.getPelicula().getRutaImagen());
 
         ticket.setVisible(true);
         ticket.setLocationRelativeTo(null);
@@ -165,40 +166,40 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarMousePressed
 
-    private void mostrarReserva(){
+    private void mostrarReserva() {
         String tipo = seleccionarTipo();
-        
+
         lblNombre.setText(funcion.getPelicula().getNombre());
-        lblTipo.setText("Tipo: "+tipo);
-        lblFecha.setText("Dia: "+format.format(funcion.getDia()));
-        lblHorario.setText("Horario: "+funcion.getHorario().getHorario());
+        lblTipo.setText("Tipo: " + tipo);
+        lblFecha.setText("Dia: " + format.format(funcion.getDia()));
+        lblHorario.setText("Horario: " + funcion.getHorario().getHorario());
         lblPrecio.setText("Total: $" + generarCosto());
         agregarButacas();
         cargarFotito();
     }
-    
+
     private String agregarButacas() {
-        String texto="";
+        String texto = "";
 
         for (int i = 0; i < butacasReservadas.size(); i++) {
             texto += ("Butaca n°" + (i + 1) + " " + butacasReservadas.get(i) + "\n");
         }
 
         txtArea.setText(texto);
-        return texto;   
+        return texto;
     }
-    
-    private String seleccionarTipo(){
+
+    private String seleccionarTipo() {
         for (String key : funcion.getPelicula().getTipo().keySet()) {
-            if(funcion.getNombre().contains(key)){
+            if (funcion.getNombre().contains(key)) {
                 return key;
             }
         }
         return null;
     }
 
-    private void cargarFotito(){
-        
+    private void cargarFotito() {
+
         lblImagen.setHorizontalAlignment(JLabel.CENTER);
         lblImagen.setBorder(new LineBorder(Color.black, 2, true));
         try {
@@ -208,9 +209,9 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Algo se rompio al leer los datos de la Pelicula");
         }
-        
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -245,7 +246,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private int generarNumeroEntero() {
         Random random = new Random();
         int min = 1000000;
@@ -253,16 +254,17 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         int numero = random.nextInt(max - min + 1) + min;
         return numero;
     }
-    private Integer generarCosto(){
-        int costo=0;
-        
-        for(Costos e: Costos.values()){
-            if(funcion.getNombre().contains(e.getTipo())){
-                costo=e.getCosto();
+
+    private Integer generarCosto() {
+        int costo = 0;
+
+        for (Costos e : Costos.values()) {
+            if (funcion.getNombre().contains(e.getTipo())) {
+                costo = e.getCosto();
             }
         }
-        
-        return costo*butacasReservadas.size();
+
+        return costo * butacasReservadas.size();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

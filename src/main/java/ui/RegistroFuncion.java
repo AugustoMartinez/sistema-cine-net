@@ -139,22 +139,17 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
 
-        Funcion funcion=new Funcion();
-        Pelicula peli=new Pelicula();
-        Sala sala=new Sala();
-        sala=Cine.retornaSala(listSala.getSelectedItem().toString());
-        peli=Cine.retornaPelicula(listPelicula.getSelectedItem().toString());
-        
+        Funcion funcion = new Funcion();
+        Sala sala = Cine.retornaSala(listSala.getSelectedItem().toString());
+        Pelicula peli = Cine.retornaPelicula(listPelicula.getSelectedItem().toString());
+
         if (retornaHorario() != null && sala != null && peli != null) {
             funcion.setNombre(listPelicula.getSelectedItem().toString());
             funcion.setHorario(retornaHorario());
             funcion.setPelicula(peli);
             try {
                 Validaciones.validarDiaFuncion(jCalendar1.getDate());
-
                 funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
-                //funcion.setSala((Sala) Cine.retornaSalaCopia(sala).clone());
-                //funcion.setSala(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
                 funcion.setSala((Sala) sala.clone());
                 Cine.getListaFunciones().add(funcion);
                 Persistencia.actualizarFunciones();
@@ -162,7 +157,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 actualizarListSalas();
                 actualizarListHorarios();
             } catch (CloneNotSupportedException ex) {
-              Logger.getLogger(RegistroFuncion.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegistroFuncion.class.getName()).log(Level.SEVERE, null, ex);
             } catch (DiaNoValidoException ex) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese un día válido");
             }

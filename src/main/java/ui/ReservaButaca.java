@@ -198,8 +198,6 @@ public class ReservaButaca extends javax.swing.JFrame {
         ReservaButaca.cantidadButacasCompradas--;
     }
 
-    
-
     public class AccionBotones implements ActionListener {
 
         @Override
@@ -235,7 +233,7 @@ public class ReservaButaca extends javax.swing.JFrame {
 
     private void btnReservarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservarMousePressed
         LinkedList<String> butacas = retornaButacas();
-        
+
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 if (jtBotones[i][j].isSelected() == true) {
@@ -244,16 +242,13 @@ public class ReservaButaca extends javax.swing.JFrame {
 
             }
         }
-        
+
         ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas);
         confirmar.setVisible(true);
         confirmar.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnReservarMousePressed
 
-    
-    
-    
     /**
      * @param args the command line arguments
      */

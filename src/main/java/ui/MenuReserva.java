@@ -31,7 +31,7 @@ public class MenuReserva extends javax.swing.JFrame {
         //quieromorir();
         iniciar();
     }
-    
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
@@ -41,18 +41,18 @@ public class MenuReserva extends javax.swing.JFrame {
             }
         }
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         lblImagen.setHorizontalAlignment(JLabel.CENTER);
-        lblImagen.setBorder(new LineBorder(Color.black,2,true));
-        
-        try{
+        lblImagen.setBorder(new LineBorder(Color.black, 2, true));
+
+        try {
             Image img = new ImageIcon(Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getRutaImagen()).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(imgIcon);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("No hay nada :C");
-        }  
+        }
     }
 
     /*private void quieromorir(){
@@ -60,7 +60,6 @@ public class MenuReserva extends javax.swing.JFrame {
             System.out.println(e); 
         }
     }*/
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,13 +161,7 @@ public class MenuReserva extends javax.swing.JFrame {
 
     private void btnSelectButacaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectButacaMousePressed
         // TODO add your handling code here:
-        Funcion asd = new Funcion();
         Funcion e = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
-        asd.setSala(e.getSala());
-        asd.setPelicula(e.getPelicula());
-        asd.setNombre(e.getNombre());
-        asd.setHorario(e.getHorario());
-        asd.setDia(e.getDia());
         ReservaButaca reservaButaca = new ReservaButaca(e);
         reservaButaca.setVisible(true);
         reservaButaca.setLocationRelativeTo(null);
@@ -217,13 +210,13 @@ public class MenuReserva extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void actualizarListaFunciones(){
+
+    private void actualizarListaFunciones() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listFunciones.setModel(model);
         String str = Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getNombre();
-        for(Funcion e: Cine.getListaFunciones()){
-            if(e.getPelicula().getNombre().equals(str)){
+        for (Funcion e : Cine.getListaFunciones()) {
+            if (e.getPelicula().getNombre().equals(str)) {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 model.addElement(e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario());
             }
