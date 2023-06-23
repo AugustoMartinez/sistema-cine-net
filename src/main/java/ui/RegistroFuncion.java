@@ -140,10 +140,13 @@ public class RegistroFuncion extends javax.swing.JFrame {
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
 
         Funcion funcion=new Funcion();
-        if (retornaHorario() != null && retornaSala() != null && retornaPelicula() != null) {
+        Pelicula peli=new Pelicula();
+        peli=Cine.retornaPelicula(listPelicula.getSelectedItem().toString());
+        
+        if (retornaHorario() != null && retornaSala() != null && peli != null) {
             funcion.setNombre(listPelicula.getSelectedItem().toString());
             funcion.setHorario(retornaHorario());
-            funcion.setPelicula(retornaPelicula());
+            funcion.setPelicula(peli);
             try {
                 Validaciones.validarDiaFuncion(jCalendar1.getDate());
 
@@ -292,32 +295,10 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     }
 
-    private Funcion retornaFuncion() {
-        String str = listPelicula.getSelectedItem().toString();
-        for (Funcion e : Cine.getListaFunciones()) {
-            if (e.getDia().equals(convertirASoloDia(jCalendar1.getDate()))) {
-                if (e.getNombre().equals(str)) {
-                    return e;
-                }
-            }
-        }
-        return null;
-    }
-
     private Horario retornaHorario() {
         String str = listHorario.getSelectedItem().toString();
         for (Horario e : Horario.values()) {
             if (e.getHorario().equals(str)) {
-                return e;
-            }
-        }
-        return null;
-    }
-
-    private Pelicula retornaPelicula() {
-        String str = listPelicula.getSelectedItem().toString();
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (str.contains(e.getNombre())) {
                 return e;
             }
         }

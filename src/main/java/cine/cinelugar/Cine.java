@@ -1,22 +1,23 @@
 package cine.cinelugar;
 
 import cine.user.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import persistencia.Persistencia;
 
 public class Cine {
-    private static String direccion="";
-    private static List<Sala> listaSalas= new ArrayList<>();
-    private static List<Pelicula> listaPeliculas= new ArrayList<>();
-    private static String nombre="";
-    private static List<Funcion> listaFunciones= new ArrayList<>();
-    private static List<Usuario> listaUsuarios= new ArrayList<>();
+
+    private static String direccion = "";
+    private static List<Sala> listaSalas = new ArrayList<>();
+    private static List<Pelicula> listaPeliculas = new ArrayList<>();
+    private static String nombre = "";
+    private static List<Funcion> listaFunciones = new ArrayList<>();
+    private static List<Usuario> listaUsuarios = new ArrayList<>();
 
     public Cine() {
-        
+
     }
-    
 
     public static String getDireccion() {
         return direccion;
@@ -65,7 +66,7 @@ public class Cine {
     public static void setListaUsuarios(List<Usuario> listaUsuarios) {
         Cine.listaUsuarios = listaUsuarios;
     }
-    
+
     public static boolean buscarUsuarioPorEmail(String email) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email)) {
@@ -74,47 +75,66 @@ public class Cine {
         }
         return false;
     }
-    
+
     public static Cliente retornaClientePorEmail(String email) {
-        
+
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email) && usuario instanceof Cliente) {
-                return (Cliente)usuario;
+                return (Cliente) usuario;
             }
         }
         return null;
     }
-    
-    public static void reemplazarCliente(Cliente cliente){
-        Boolean flag=false;
-        for(int i = 0; i< listaUsuarios.size() && !flag ; i++){
+
+    public static void reemplazarCliente(Cliente cliente) {
+        Boolean flag = false;
+        for (int i = 0; i < listaUsuarios.size() && !flag; i++) {
             if (listaUsuarios.get(i).getEmail().equals(cliente.getEmail())) {
                 listaUsuarios.set(i, cliente);
-                
-                flag=true;
+
+                flag = true;
             }
         }
     }
-    
+
     public static boolean validarLoginYCargarSesion(String email, String contraseña) {
         for (Usuario usuario : listaUsuarios) {
-            if (usuario.getEmail().equals(email)&& usuario.getPassword().equals(contraseña)) {
-                
-                if (usuario instanceof Cliente){
+            if (usuario.getEmail().equals(email) && usuario.getPassword().equals(contraseña)) {
+
+                if (usuario instanceof Cliente) {
                     Sesion.setTipo("Cliente");
-                }else if(usuario instanceof Gerente){
+                } else if (usuario instanceof Gerente) {
                     Sesion.setTipo("Gerente");
-                }else if (usuario instanceof Admin){
+                } else if (usuario instanceof Admin) {
                     Sesion.setTipo("Admin");
                 }
-                
                 return true;
             }
         }
         return false;
     }
+
+    public static Funcion retornaFuncion(String nombre) {
+        for (Funcion e : Cine.getListaFunciones()) {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            String funcStr = e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario();
+            if (funcStr.equals(nombre)) {
+                return e;
+            }
+        }
+        return null;
+    }
     
-        public static Sala retornaSalaCopia(Sala salita){
+    public static Pelicula retornaPelicula(String nombre) {
+        for (Pelicula e : Cine.getListaPeliculas()) {
+            if (nombre.contains(e.getNombre())) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    public static Sala retornaSalaCopia(Sala salita) {
         Sala salaAgregar = new Sala();
         salaAgregar.setAtmos(salita.getAtmos());
         salaAgregar.setBaja(salita.getBaja());
@@ -125,7 +145,7 @@ public class Cine {
         salaAgregar.setId(salita.getId());
         salaAgregar.setNombre(salita.getNombre());
         salaAgregar.setDisponible(salita.getDisponible());
-        
+
         return salaAgregar;
     }
 }

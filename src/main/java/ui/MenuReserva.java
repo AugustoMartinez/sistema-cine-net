@@ -45,8 +45,9 @@ public class MenuReserva extends javax.swing.JFrame {
     public void iniciar(){
         lblImagen.setHorizontalAlignment(JLabel.CENTER);
         lblImagen.setBorder(new LineBorder(Color.black,2,true));
+        
         try{
-            Image img = new ImageIcon(retornaPelicula().getRutaImagen()).getImage();
+            Image img = new ImageIcon(Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getRutaImagen()).getImage();
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(imgIcon);
         }catch (Exception e){
@@ -54,17 +55,6 @@ public class MenuReserva extends javax.swing.JFrame {
         }  
     }
 
-    private Pelicula retornaPelicula() {
-        String str = listPeliculas.getSelectedItem().toString();
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (str.contains(e.getNombre())) {
-                return e;
-            }
-        }
-        return null;
-    }
-    
-    
     /*private void quieromorir(){
         for(Funcion e: Cine.getListaFunciones()){
             System.out.println(e); 
@@ -173,8 +163,7 @@ public class MenuReserva extends javax.swing.JFrame {
     private void btnSelectButacaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectButacaMousePressed
         // TODO add your handling code here:
         Funcion asd = new Funcion();
-        Funcion e = retornaFuncion();
-        //System.out.println(e);
+        Funcion e = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
         asd.setSala(e.getSala());
         asd.setPelicula(e.getPelicula());
         asd.setNombre(e.getNombre());
@@ -194,20 +183,6 @@ public class MenuReserva extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarMousePressed
 
-    
-    private Funcion retornaFuncion(){
-        String str = listFunciones.getSelectedItem().toString();
-        for(Funcion e: Cine.getListaFunciones()){
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            String funcStr = e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario(); 
-            if(funcStr.equals(str)){
-                //System.out.println(e);
-                return e;
-            }
-        }
-        return null;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -246,7 +221,7 @@ public class MenuReserva extends javax.swing.JFrame {
     private void actualizarListaFunciones(){
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listFunciones.setModel(model);
-        String str = retornaPelicula().getNombre();
+        String str = Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getNombre();
         for(Funcion e: Cine.getListaFunciones()){
             if(e.getPelicula().getNombre().equals(str)){
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
