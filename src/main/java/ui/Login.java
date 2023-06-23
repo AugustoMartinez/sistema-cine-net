@@ -111,6 +111,7 @@ public class Login extends javax.swing.JFrame {
 
         txtEmail.setBackground(new java.awt.Color(17, 61, 88));
         txtEmail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(216, 220, 255));
         txtEmail.setVerifyInputWhenFocusTarget(false);
         txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -124,6 +125,7 @@ public class Login extends javax.swing.JFrame {
 
         txtPassword.setBackground(new java.awt.Color(17, 61, 88));
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(216, 220, 255));
         txtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtPasswordMouseEntered(evt);
@@ -135,14 +137,14 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 300, 45));
 
         lblEmail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        lblEmail.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmail.setForeground(new java.awt.Color(216, 220, 255));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("Email:");
         lblEmail.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 60, 30));
 
         lblContraseña.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        lblContraseña.setForeground(new java.awt.Color(216, 220, 255));
         lblContraseña.setText("Contraseña:");
         jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 110, 30));
 
@@ -153,6 +155,12 @@ public class Login extends javax.swing.JFrame {
         btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnSalir.setText("X");
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnSalirMousePressed(evt);
             }
@@ -174,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 40, 30));
 
         lblCineNombre.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        lblCineNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblCineNombre.setForeground(new java.awt.Color(216, 220, 255));
         lblCineNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCineNombre.setText("Cine Arcano");
         jPanel1.add(lblCineNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 250, 90));
@@ -220,6 +228,12 @@ public class Login extends javax.swing.JFrame {
         btnRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnRegistro.setText("Registrarse");
         btnRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegistroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegistroMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnRegistroMousePressed(evt);
             }
@@ -284,12 +298,41 @@ public class Login extends javax.swing.JFrame {
     private void btnIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseEntered
         // TODO add your handling code here:
         btnIniciarSesion.setBorder(new LineBorder(new Color(204, 40, 54), 4, true));
+        jPanel2.setBackground(new Color(204, 40, 54));
+        btnIniciarSesion.setForeground(new Color(255, 255, 255));
+        
     }//GEN-LAST:event_btnIniciarSesionMouseEntered
 
     private void btnIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarSesionMouseExited
         // TODO add your handling code here:
         btnIniciarSesion.setBorder(new LineBorder(new Color(170, 34, 45), 4, true));
+        jPanel2.setBackground(new Color(170, 34, 45));
+        btnIniciarSesion.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnIniciarSesionMouseExited
+
+    private void btnRegistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroMouseExited
+        // TODO add your handling code here:
+        btnRegistro.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnRegistroMouseExited
+
+    private void btnRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroMouseEntered
+        // TODO add your handling code here:
+        btnRegistro.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnRegistroMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        btnSalir.setBorder(new LineBorder(new Color(170, 34, 45), 4, true));
+        jPanel3.setBackground(new Color(170, 34, 45));
+        btnSalir.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        btnSalir.setBorder(new LineBorder(new Color(204, 40, 54), 4, true));
+        jPanel3.setBackground(new Color(204, 40, 54));
+        btnSalir.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnSalirMouseEntered
 
     
     
