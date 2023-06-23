@@ -32,7 +32,6 @@ public class Reserva implements Serializable {
         str += "Nombre: " + funcion.getNombre() + "\n"
                 + "Horario: " + funcion.getHorario().getHorario() + "\n"
                 + "Fecha: " + format.format(funcion.getDia()) + "\n"
-                + funcion.getSalaCopia().getNombre() + "\n"
                 + "Butacas:\n"; 
         
         str+=this.agregarButacas();

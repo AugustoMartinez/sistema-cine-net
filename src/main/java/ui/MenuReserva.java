@@ -175,7 +175,7 @@ public class MenuReserva extends javax.swing.JFrame {
         Funcion asd = new Funcion();
         Funcion e = retornaFuncion();
         //System.out.println(e);
-        asd.setSala(e.getSalaCopia());
+        asd.setSala(e.getSala());
         asd.setPelicula(e.getPelicula());
         asd.setNombre(e.getNombre());
         asd.setHorario(e.getHorario());

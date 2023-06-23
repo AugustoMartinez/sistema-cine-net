@@ -43,8 +43,8 @@ public class ReservaButaca extends javax.swing.JFrame {
     public ReservaButaca(Funcion e) {
         initComponents();
         this.funcion = e;
-        this.filas = e.getSalaCopia().getFilas();
-        this.columnas = e.getSalaCopia().getColumnas();
+        this.filas = e.getSala().getFilas();
+        this.columnas = e.getSala().getColumnas();
         botones();
         ReservaButaca.cantidadButacasCompradas = 0;
     }
@@ -169,8 +169,8 @@ public class ReservaButaca extends javax.swing.JFrame {
 
                 AccionBotones accion = new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
-                if (funcion.getSalaCopia().getButacas()[i][j].isExiste() == true) {
-                    if (funcion.getSalaCopia().getButacas()[i][j].isOcupada()) {
+                if (funcion.getSala().getButacas()[i][j].isExiste() == true) {
+                    if (funcion.getSala().getButacas()[i][j].isOcupada()) {
                         jtBotones[i][j].setEnabled(false);
                         jtBotones[i][j].setBackground(Color.RED);
                     } else {
@@ -239,7 +239,7 @@ public class ReservaButaca extends javax.swing.JFrame {
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 if (jtBotones[i][j].isSelected() == true) {
-                    funcion.getSalaCopia().getButacas()[i][j].setOcupada(true);
+                    funcion.getSala().getButacas()[i][j].setOcupada(true);
                 }
 
             }

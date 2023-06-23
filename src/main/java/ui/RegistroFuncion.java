@@ -31,16 +31,12 @@ import validacion.Validaciones;
  */
 public class RegistroFuncion extends javax.swing.JFrame {
 
-    Funcion funcion;
-
     /**
      * Creates new form RegistroFuncion
      */
     public RegistroFuncion() {
         initComponents();
         actualizarListPeliculas();
-        this.funcion = new Funcion();
-
         actualizarListSalas();
         actualizarListHorarios();
 
@@ -143,16 +139,17 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
 
+        Funcion funcion=new Funcion();
         if (retornaHorario() != null && retornaSala() != null && retornaPelicula() != null) {
-            this.funcion.setNombre(listPelicula.getSelectedItem().toString());
-            this.funcion.setHorario(retornaHorario());
-            this.funcion.setPelicula(retornaPelicula());
+            funcion.setNombre(listPelicula.getSelectedItem().toString());
+            funcion.setHorario(retornaHorario());
+            funcion.setPelicula(retornaPelicula());
             try {
                 Validaciones.validarDiaFuncion(jCalendar1.getDate());
 
-                this.funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
-                this.funcion.setSala((Sala) Cine.retornaSalaCopia(retornaSala()).clone());
-                this.funcion.setSalaCopia(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
+                funcion.setDia(convertirASoloDia(jCalendar1.getDate()));
+                funcion.setSala((Sala) Cine.retornaSalaCopia(retornaSala()).clone());
+                funcion.setSala(Cine.retornaSalaCopia((Sala) funcion.getSala().clone()));
                 Cine.getListaFunciones().add(funcion);
                 Persistencia.actualizarFunciones();
                 JOptionPane.showMessageDialog(null, "Función creada exitosamente!");

@@ -140,7 +140,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
 
     private void btnReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMousePressed
         // TODO add your handling code here:
-        funcion.setSala(funcion.getSalaCopia());
+        funcion.setSala(funcion.getSala());
         Integer numTicket = this.generarNumeroEntero();
         Reserva reserva = new Reserva(funcion, this.butacasReservadas, numTicket);
         Cliente user = Cine.retornaClientePorEmail(Sesion.getEmailLogeado());
