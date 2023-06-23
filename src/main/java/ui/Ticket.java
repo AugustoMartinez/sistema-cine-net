@@ -5,9 +5,19 @@
 package ui;
 
 import cine.cinelugar.Reserva;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.html.table.Table;
 import java.awt.HeadlessException;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,19 +32,75 @@ public class Ticket extends javax.swing.JFrame {
     private String hora;
     private String butacas;
     private String precio;
-            /**
-             * Creates new form Ticket
-             */
-    public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio) {
+    private String poster;
+
+    /**
+     * Creates new form Ticket
+     */
+    public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String poster) {
         initComponents();
-        this.nombre = nombre;    
+        this.nombre = nombre;
         this.ticket = ticket;
         this.tipo = tipo;
         this.fecha = fecha;
         this.hora = hora;
         this.butacas = butacas;
         this.precio = precio;
+        this.poster = poster;
         mostrarTicket();
+    }
+
+    private void generarPDF() {
+        Document documento = new Document();
+
+        try {
+            String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/Ticket.pdf"));
+            documento.open();
+
+            Image img = null;
+
+            try {
+                img = Image.getInstance(poster);
+                img.scaleAbsolute(150, 250);
+                img.setAlignment(Element.ALIGN_CENTER);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+            Paragraph titulo = new Paragraph("Ticket n°" + ticket);
+            titulo.setAlignment(1);
+            documento.add(new Paragraph(titulo));
+            documento.add(img);
+            documento.add(new Paragraph("\n"));
+
+            PdfPTable tabla = new PdfPTable(2);
+
+            tabla.addCell("Nombre");
+            tabla.addCell(nombre);
+
+            tabla.addCell("Tipo");
+            tabla.addCell(tipo);
+
+            tabla.addCell("Fecha");
+            tabla.addCell(fecha);
+
+            tabla.addCell("Horario");
+            tabla.addCell(hora);
+
+            tabla.addCell("Total");
+            tabla.addCell("$" + precio);
+
+            documento.add(tabla);
+
+            documento.add(new Paragraph("Butacas: "));
+            documento.add(new Paragraph(butacas));
+
+            documento.close();
+            JOptionPane.showMessageDialog(null, "PDF creado en el escritorio");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 
     /**
@@ -92,9 +158,6 @@ public class Ticket extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +168,10 @@ public class Ticket extends javax.swing.JFrame {
                                 .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,7 +179,7 @@ public class Ticket extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,7 +192,7 @@ public class Ticket extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -153,7 +219,8 @@ public class Ticket extends javax.swing.JFrame {
     private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
         // TODO add your handling code here:
         /*
-        */
+         */
+        generarPDF();
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -164,12 +231,12 @@ public class Ticket extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private void mostrarTicket() {
-        lblNombre.setText("Nombre: "+nombre);
+        lblNombre.setText("Nombre: " + nombre);
         lblTipo.setText("Tipo: " + tipo);
         lblFecha.setText("Fecha: " + fecha);
         lblHorario.setText("Horario: " + hora);
         lblPrecio.setText("Total: $" + precio);
-        lblTicket.setText("Ticket n°"+ticket);
+        lblTicket.setText("Ticket n°" + ticket);
         lblButacasReservadas.setText(butacas);
     }
 

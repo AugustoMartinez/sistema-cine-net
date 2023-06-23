@@ -150,7 +150,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         Persistencia.actualizarFunciones();
         JOptionPane.showMessageDialog(null, "Muchas gracias por su reserva!");
         
-        Ticket ticket=new Ticket(funcion.getPelicula().getNombre(), numTicket.toString(), seleccionarTipo(), format.format(funcion.getDia()), funcion.getHorario().getHorario(), agregarButacas(), generarCosto().toString());
+        Ticket ticket=new Ticket(funcion.getPelicula().getNombre(), numTicket.toString(), seleccionarTipo(), format.format(funcion.getDia()), funcion.getHorario().getHorario(), agregarButacas(), generarCosto().toString(),funcion.getPelicula().getRutaImagen());
         ticket.setVisible(true);
         ticket.setLocationRelativeTo(null);
         this.dispose();
