@@ -14,11 +14,13 @@ import cine.user.Cliente;
 import cine.user.Sesion;
 import cine.user.Usuario;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import javax.swing.JToggleButton;
 import persistencia.Persistencia;
 
@@ -222,11 +224,26 @@ public class ReservaButaca extends javax.swing.JFrame {
                 jtBotones[i][j].addActionListener(accion);
                 if (funcion.getSala().getButacas()[i][j].isExiste() == true) {
                     if (funcion.getSala().getButacas()[i][j].isOcupada()) {
-                        jtBotones[i][j].setBackground(Color.RED);
+
+                        ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-unavailable.png");
+                        Image imagenButaca = iconoButaca.getImage();
+                        ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(35, 25, Image.SCALE_DEFAULT));
+                        jtBotones[i][j].setDisabledIcon(iconoButacaAgrandado);
+                        jtBotones[i][j].setOpaque(false);
+                        jtBotones[i][j].setContentAreaFilled(false);
+                        jtBotones[i][j].setBorderPainted(false);
                         jtBotones[i][j].setEnabled(false);
                     } else {
+
+                        ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-available.png");
+                        Image imagenButaca = iconoButaca.getImage();
+                        ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(35, 25, Image.SCALE_DEFAULT));
+                        jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                        jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                        jtBotones[i][j].setOpaque(false);
+                        jtBotones[i][j].setContentAreaFilled(false);
+                        jtBotones[i][j].setBorderPainted(false);
                         jtBotones[i][j].setSelected(false);
-                        jtBotones[i][j].setBackground(new Color(44, 117, 160));
                     }
                 } else {
                     jtBotones[i][j].setVisible(false);
@@ -257,10 +274,26 @@ public class ReservaButaca extends javax.swing.JFrame {
                 for (int j = 0; j < columnas; j++) {
                     if (e.getSource().equals(jtBotones[i][j])) {
                         if (jtBotones[i][j].isSelected()) {
-                            jtBotones[i][j].setBackground(new Color(82, 170, 94));
+
+                            ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-selected.png");
+                            Image imagenButaca = iconoButaca.getImage();
+                            ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(45, 30, Image.SCALE_DEFAULT));
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setOpaque(false);
+                            jtBotones[i][j].setContentAreaFilled(false);
+                            jtBotones[i][j].setBorderPainted(false);
                             ReservaButaca.aumentarButacas();
                         } else {
-                            jtBotones[i][j].setBackground(new Color(44, 117, 160));
+
+                            ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-available.png");
+                            Image imagenButaca = iconoButaca.getImage();
+                            ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(45, 30, Image.SCALE_DEFAULT));
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setOpaque(false);
+                            jtBotones[i][j].setContentAreaFilled(false);
+                            jtBotones[i][j].setBorderPainted(false);
                             ReservaButaca.disminuirButacas();
                             //disminuir contador
                         }
