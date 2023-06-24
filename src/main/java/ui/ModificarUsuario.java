@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ui;
 
 import cine.cinelugar.Cine;
@@ -15,17 +11,11 @@ import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 
-/**
- *
- * @author dolor
- */
 public class ModificarUsuario extends javax.swing.JFrame {
 
     Cliente cliente;
 
-    /**
-     * Creates new form ModificarUsuario
-     */
+
     public ModificarUsuario(Cliente cliente) {
         initComponents();
         this.cliente = cliente;
