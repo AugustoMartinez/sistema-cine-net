@@ -268,7 +268,7 @@ public class CreacionSala extends javax.swing.JFrame {
             Cine.getListaSalas().add(sala);
             Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala creada correctamente!");
-            btnVolverActionPerformed(evt);
+            jLabel3MousePressed(evt);
         } else {
             JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
         }
