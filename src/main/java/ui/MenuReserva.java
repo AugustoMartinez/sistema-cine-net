@@ -54,7 +54,6 @@ public class MenuReserva extends javax.swing.JFrame {
         }
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -287,12 +286,17 @@ public class MenuReserva extends javax.swing.JFrame {
     private void actualizarListaFunciones() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listFunciones.setModel(model);
-        String str = Cine.retornaPelicula(listPeliculas.getSelectedItem().toString()).getNombre();
-        for (Funcion e : Cine.getListaFunciones()) {
-            Boolean ocupada=e.getSala().salaOcupada();
-            if (ocupada && e.getPelicula().getNombre().equals(str) ) {
+
+        String peliculaSeleccionada = listPeliculas.getSelectedItem().toString();
+        Pelicula pelicula = Cine.retornaPelicula(peliculaSeleccionada);
+        String str = pelicula.getNombre();
+
+        for (Funcion funcion : Cine.getListaFunciones()) {
+            Boolean ocupada = funcion.getSala().salaOcupada();
+            System.out.println(ocupada);
+            if (!ocupada && funcion.getPelicula().getNombre().equals(str)) {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                model.addElement(e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario());
+                model.addElement(funcion.getNombre() + " | " + format.format(funcion.getDia()) + " | " + funcion.getHorario().getHorario());
             }
         }
     }

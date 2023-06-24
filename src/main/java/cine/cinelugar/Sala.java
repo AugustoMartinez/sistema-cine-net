@@ -59,7 +59,7 @@ public class Sala implements Serializable, Cloneable {
     public boolean salaOcupada(){
         for(int i=0; i<filas; i++){
             for(int j=0; j<columnas; j++){
-                if(butacas[i][j].isOcupada()){
+                if(!butacas[i][j].isOcupada()){
                     return false;
                 }
             }
