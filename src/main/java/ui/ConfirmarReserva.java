@@ -63,83 +63,263 @@ public class ConfirmarReserva extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
-        lblTipo = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
-        lblHorario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JButton();
-        btnReserva = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        btnConfimarReserva = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnCancelarReserva = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        lblTipo = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblFecha = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        lblHorario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
 
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombre.setText("nombre");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 202, 37));
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel1.setText("Butacas reservadas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 330, 30));
 
-        lblTipo.setText("tipo");
-        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 49, 202, 37));
-
-        lblFecha.setText("fecha");
-        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 92, 202, 37));
-
-        lblHorario.setText("horario");
-        jPanel1.add(lblHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 135, 202, 37));
-
-        jLabel1.setText("Butacas reservadas.");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 178, 183, 31));
-
-        lblPrecio.setFont(new java.awt.Font("JetBrains Mono NL Medium", 0, 24)); // NOI18N
+        lblPrecio.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(216, 220, 255));
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecio.setText("Precio");
-        jPanel1.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 325, 103));
+        jPanel1.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 490, 320, 103));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 30, 350, 460));
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnCancelarMousePressed(evt);
-            }
-        });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 150, 75));
-
-        btnReserva.setText("Confirmar reserva");
-        btnReserva.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnReservaMousePressed(evt);
-            }
-        });
-        jPanel1.add(btnReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 145, 76));
-        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 250, 310));
+        jScrollPane1.setBackground(new java.awt.Color(20, 71, 103));
+        jScrollPane1.setForeground(new java.awt.Color(216, 220, 255));
+        jScrollPane1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
 
         txtArea.setEditable(false);
+        txtArea.setBackground(new java.awt.Color(20, 71, 103));
         txtArea.setColumns(20);
+        txtArea.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        txtArea.setForeground(new java.awt.Color(216, 220, 255));
         txtArea.setLineWrap(true);
         txtArea.setRows(5);
         txtArea.setWrapStyleWord(true);
+        txtArea.setBorder(null);
+        txtArea.setDisabledTextColor(new java.awt.Color(216, 220, 255));
         txtArea.setFocusable(false);
         jScrollPane1.setViewportView(txtArea);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 160));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 360, 500));
+
+        jPanel4.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnConfimarReserva.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnConfimarReserva.setForeground(new java.awt.Color(216, 220, 255));
+        btnConfimarReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnConfimarReserva.setText("¡RESERVAR!");
+        btnConfimarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnConfimarReservaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnConfimarReservaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnConfimarReservaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnConfimarReserva, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(btnConfimarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 600, 220, 90));
+
+        jPanel5.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnCancelarReserva.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnCancelarReserva.setForeground(new java.awt.Color(216, 220, 255));
+        btnCancelarReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCancelarReserva.setText("Cancelar");
+        btnCancelarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelarReservaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelarReservaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCancelarReservaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(btnCancelarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancelarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 170, 50));
+
+        jPanel2.setBackground(new java.awt.Color(20, 71, 103));
+
+        lblNombre.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(216, 220, 255));
+        lblNombre.setText("nombre");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 400, 50));
+
+        jPanel3.setBackground(new java.awt.Color(20, 71, 103));
+
+        lblTipo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblTipo.setForeground(new java.awt.Color(216, 220, 255));
+        lblTipo.setText("tipo");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        jPanel6.setBackground(new java.awt.Color(20, 71, 103));
+
+        lblFecha.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(216, 220, 255));
+        lblFecha.setText("fecha");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+
+        jPanel7.setBackground(new java.awt.Color(20, 71, 103));
+
+        lblHorario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblHorario.setForeground(new java.awt.Color(216, 220, 255));
+        lblHorario.setText("horario");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblHorario, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblHorario, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel2.setText("Horario");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel3.setText("Fecha");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel4.setText("Tipo");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel6.setText("Nombre");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMousePressed
+    private void btnConfimarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfimarReservaMouseEntered
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(204, 40, 54));
+        btnConfimarReserva.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnConfimarReservaMouseEntered
+
+    private void btnConfimarReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfimarReservaMouseExited
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(170, 34, 45));
+        btnConfimarReserva.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnConfimarReservaMouseExited
+
+    private void btnConfimarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfimarReservaMousePressed
         // TODO add your handling code here:
         funcion.setSala(funcion.getSala());
         Integer numTicket = this.generarNumeroEntero();
@@ -156,23 +336,35 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         ticket.setVisible(true);
         ticket.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnReservaMousePressed
+    }//GEN-LAST:event_btnConfimarReservaMousePressed
 
-    private void btnCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMousePressed
+    private void btnCancelarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMouseEntered
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(204, 40, 54));
+        btnCancelarReserva.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnCancelarReservaMouseEntered
+
+    private void btnCancelarReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMouseExited
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(170, 34, 45));
+        btnCancelarReserva.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnCancelarReservaMouseExited
+
+    private void btnCancelarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMousePressed
         // TODO add your handling code here:
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
         this.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnCancelarMousePressed
+    }//GEN-LAST:event_btnCancelarReservaMousePressed
 
     private void mostrarReserva() {
         String tipo = seleccionarTipo();
 
         lblNombre.setText(funcion.getPelicula().getNombre());
-        lblTipo.setText("Tipo: " + tipo);
-        lblFecha.setText("Dia: " + format.format(funcion.getDia()));
-        lblHorario.setText("Horario: " + funcion.getHorario().getHorario());
+        lblTipo.setText( tipo);
+        lblFecha.setText( format.format(funcion.getDia()));
+        lblHorario.setText( funcion.getHorario().getHorario());
         lblPrecio.setText("Total: $" + generarCosto());
         agregarButacas();
         cargarFotito();
@@ -268,10 +460,20 @@ public class ConfirmarReserva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnReserva;
+    private javax.swing.JLabel btnCancelarReserva;
+    private javax.swing.JLabel btnConfimarReserva;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHorario;

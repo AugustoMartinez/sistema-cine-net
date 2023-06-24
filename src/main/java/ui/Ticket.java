@@ -116,35 +116,77 @@ public class Ticket extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
-        lblTipo = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
-        lblHorario = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         lblButacasReservadas = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblHorario = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        lblTipo = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        txtSala = new javax.swing.JLabel();
         lblTicket = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
-        txtSala = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        lblNombre.setText("nombre");
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTipo.setText("tipo");
+        jPanel2.setBackground(new java.awt.Color(20, 71, 103));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblFecha.setText("fecha");
-
-        lblHorario.setText("horario");
-
-        jLabel1.setText("Butacas reservadas.");
-
+        lblButacasReservadas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblButacasReservadas.setForeground(new java.awt.Color(216, 220, 255));
         lblButacasReservadas.setText("Butacas");
+        lblButacasReservadas.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel2.add(lblButacasReservadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 390, 270));
 
-        lblPrecio.setFont(new java.awt.Font("JetBrains Mono NL Medium", 0, 24)); // NOI18N
+        lblPrecio.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(216, 220, 255));
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecio.setText("Precio");
+        jPanel2.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 240, 130));
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel1.setText("Butacas reservadas.");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 400, 31));
+
+        lblHorario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblHorario.setForeground(new java.awt.Color(216, 220, 255));
+        lblHorario.setText("horario");
+        jPanel2.add(lblHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 410, 37));
+
+        lblFecha.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(216, 220, 255));
+        lblFecha.setText("fecha");
+        jPanel2.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 400, 37));
+
+        lblTipo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblTipo.setForeground(new java.awt.Color(216, 220, 255));
+        lblTipo.setText("tipo");
+        jPanel2.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 410, 40));
+
+        lblNombre.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(216, 220, 255));
+        lblNombre.setText("nombre");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 410, 37));
+
+        txtSala.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        txtSala.setForeground(new java.awt.Color(216, 220, 255));
+        txtSala.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSala.setText("jLabel2");
+        jPanel2.add(txtSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 140, 50));
+
+        lblTicket.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        lblTicket.setForeground(new java.awt.Color(216, 220, 255));
         lblTicket.setText("Ticket");
+        jPanel2.add(lblTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 50));
 
         btnGuardar.setText("Salir");
         btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,69 +194,28 @@ public class Ticket extends javax.swing.JFrame {
                 btnGuardarMousePressed(evt);
             }
         });
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 650, 274, 51));
 
-        txtSala.setText("jLabel2");
+        jSeparator1.setBackground(new java.awt.Color(9, 35, 52));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 426, 12));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSala, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSala, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblButacasReservadas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jSeparator3.setBackground(new java.awt.Color(9, 35, 52));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 426, 12));
+
+        jSeparator4.setBackground(new java.awt.Color(9, 35, 52));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 54, 426, 12));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -239,7 +240,7 @@ public class Ticket extends javax.swing.JFrame {
         lblPrecio.setText("Total: $" + precio);
         lblTicket.setText("Ticket n°"+ticket);
         lblButacasReservadas.setText(butacas);
-        txtSala.setText("Sala: " + sala);
+        txtSala.setText(sala);
     }
 
 
@@ -247,6 +248,10 @@ public class Ticket extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblButacasReservadas;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHorario;
