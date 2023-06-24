@@ -330,15 +330,15 @@ public class ReservaButaca extends javax.swing.JFrame {
     private void btnReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMousePressed
         // TODO add your handling code here:
         LinkedList<String> butacas = retornaButacas();
-        for (int i = 0; i < this.filas; i++) {
+        /*for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 if (jtBotones[i][j].isSelected() == true) {
                     funcion.getSala().getButacas()[i][j].setOcupada(true);
                 }
 
             }
-        }
-        ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas);
+        }*/
+        ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas, jtBotones);
         confirmar.setVisible(true);
         confirmar.setLocationRelativeTo(null);
         this.dispose();

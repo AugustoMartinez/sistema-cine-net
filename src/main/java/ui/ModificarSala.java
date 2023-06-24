@@ -175,8 +175,8 @@ public class ModificarSala extends javax.swing.JFrame {
         lblNombreSala.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(lblNombreSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
 
-        checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        checkAtmos.setForeground(new java.awt.Color(255, 255, 255));
+        checkAtmos.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        checkAtmos.setForeground(new java.awt.Color(216, 220, 255));
         checkAtmos.setText("ATMOS");
         checkAtmos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,8 +189,8 @@ public class ModificarSala extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setBackground(new java.awt.Color(20, 71, 103));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(216, 220, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PANTALLA");
         jLabel1.setMaximumSize(new java.awt.Dimension(100, 16));
@@ -208,7 +208,7 @@ public class ModificarSala extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -216,7 +216,7 @@ public class ModificarSala extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(170, 34, 45));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(216, 220, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Modificar Sala");
@@ -243,7 +243,7 @@ public class ModificarSala extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(170, 34, 45));
 
-        lblVolver.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblVolver.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblVolver.setForeground(new java.awt.Color(216, 220, 255));
         lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolver.setText("Atras");

@@ -486,7 +486,7 @@ public class MenuGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearFuncionMousePressed
 
     private void btnAgregarPeliculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaMouseEntered
-        jPanel5.setBackground(new Color(12, 47, 69));
+        jPanel6.setBackground(new Color(12, 47, 69));
         btnAgregarPelicula.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnAgregarPeliculaMouseEntered
 
