@@ -631,7 +631,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnAgregarGerenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarGerenMouseExited
         // TODO add your handling code here:
-        jPanel7.setBackground(new Color(9, 36, 52));
+        jPanel6.setBackground(new Color(9, 36, 52));
         btnAgregarPelicula.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnAgregarGerenMouseExited
 
@@ -662,7 +662,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnModPeliculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModPeliculaMouseEntered
         // TODO add your handling code here:
-        jPanel7.setBackground(new Color(12, 47, 69));
+        jPanel8.setBackground(new Color(12, 47, 69));
         btnAgregarPelicula.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnModPeliculaMouseEntered
 
@@ -686,7 +686,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnModGerenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModGerenteMouseEntered
         // TODO add your handling code here:
-        jPanel7.setBackground(new Color(12, 47, 69));
+        jPanel9.setBackground(new Color(12, 47, 69));
         btnAgregarPelicula.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnModGerenteMouseEntered
 
@@ -714,13 +714,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnModSalaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModSalaMouseEntered
         // TODO add your handling code here:
-        jPanel7.setBackground(new Color(12, 47, 69));
+        jPanel10.setBackground(new Color(12, 47, 69));
         btnAgregarPelicula.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnModSalaMouseEntered
 
     private void btnModSalaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModSalaMouseExited
         // TODO add your handling code here:
-        jPanel9.setBackground(new Color(9, 36, 52));
+        jPanel10.setBackground(new Color(9, 36, 52));
         btnAgregarPelicula.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnModSalaMouseExited
 
@@ -825,13 +825,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(204, 40, 54));
+        jPanel14.setBackground(new Color(204, 40, 54));
         btnExit.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnExitMouseEntered
 
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(170, 34, 45));
+        jPanel14.setBackground(new Color(170, 34, 45));
         btnExit.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnExitMouseExited
 
@@ -845,13 +845,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnCrearFuncion1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncion1MouseEntered
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(204, 40, 54));
+        jPanel15.setBackground(new Color(204, 40, 54));
         btnExit.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnCrearFuncion1MouseEntered
 
     private void btnCrearFuncion1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncion1MouseExited
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(170, 34, 45));
+        jPanel15.setBackground(new Color(170, 34, 45));
         btnExit.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnCrearFuncion1MouseExited
 

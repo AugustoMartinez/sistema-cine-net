@@ -467,13 +467,13 @@ public class MenuGerente extends javax.swing.JFrame {
 
     private void btnCrearFuncionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMouseEntered
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(204, 40, 54));
+        jPanel4.setBackground(new Color(204, 40, 54));
         btnExit.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnCrearFuncionMouseEntered
 
     private void btnCrearFuncionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearFuncionMouseExited
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(170, 34, 45));
+        jPanel4.setBackground(new Color(170, 34, 45));
         btnExit.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnCrearFuncionMouseExited
 
@@ -492,7 +492,7 @@ public class MenuGerente extends javax.swing.JFrame {
 
     private void btnAgregarPeliculaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaMouseExited
         // TODO add your handling code here:
-        jPanel5.setBackground(new Color(9, 36, 52));
+        jPanel6.setBackground(new Color(9, 36, 52));
         btnAgregarPelicula.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnAgregarPeliculaMouseExited
 
