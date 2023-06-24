@@ -16,6 +16,7 @@ import cine.user.Sesion;
 import com.toedter.calendar.JCalendar;
 import excepciones.CampoVacioException;
 import excepciones.DiaNoValidoException;
+import java.awt.Color;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class RegistroFuncion extends javax.swing.JFrame {
         actualizarListPeliculas();
         actualizarListSalas();
         actualizarListHorarios();
-
+        jCalendar1.setBackground(new Color(9, 35, 52));
         //System.out.println(Cine.getListaFunciones());
     }
 
@@ -53,58 +54,36 @@ public class RegistroFuncion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jPanel14 = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        btnAgregar = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         listPelicula = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        listSala = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        listSala = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         listHorario = new javax.swing.JComboBox<>();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        btnAgregar = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1280, 720));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        listPelicula.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        listPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listPeliculaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 54, 303, 36));
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel1.setText("Pelicula:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 12, -1, 36));
-
-        listSala.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        listSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listSalaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 165, 303, 36));
-
-        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel2.setText("Sala:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 123, -1, 36));
-
-        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel3.setText("Horario:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 232, -1, -1));
-
-        listHorario.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        listHorario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listHorarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 268, 303, -1));
-
-        jCalendar1.setBackground(new java.awt.Color(204, 255, 0));
+        jCalendar1.setBackground(new java.awt.Color(17, 61, 88));
+        jCalendar1.setForeground(new java.awt.Color(9, 35, 52));
+        jCalendar1.setDecorationBackgroundColor(new java.awt.Color(17, 61, 88));
+        jCalendar1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jCalendar1.setSundayForeground(new java.awt.Color(170, 34, 45));
+        jCalendar1.setWeekdayForeground(new java.awt.Color(216, 220, 255));
         jCalendar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jCalendar1MouseEntered(evt);
@@ -113,27 +92,130 @@ public class RegistroFuncion extends javax.swing.JFrame {
                 jCalendar1MousePressed(evt);
             }
         });
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 378, 280));
+        jPanel1.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, 500, 400));
 
-        btnAgregar.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        btnAgregar.setText("Agregar función.");
-        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnAgregarMousePressed(evt);
-            }
-        });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 435, -1, -1));
+        jPanel14.setBackground(new java.awt.Color(170, 34, 45));
 
-        btnVolver.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        btnVolver.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(216, 220, 255));
+        btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVolver.setText("Volver");
-        btnVolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnVolverMousePressed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 435, -1, -1));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, -1, 60));
+
+        jPanel15.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnAgregar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(216, 220, 255));
+        btnAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregar.setText("Agregar función.");
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, 220, 60));
+
+        jPanel2.setBackground(new java.awt.Color(17, 61, 88));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        listPelicula.setBackground(new java.awt.Color(17, 61, 88));
+        listPelicula.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        listPelicula.setForeground(new java.awt.Color(216, 220, 255));
+        listPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listPeliculaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(listPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 400, 60));
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel1.setText("Pelicula:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 36));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel2.setText("Sala:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 36));
+
+        listSala.setBackground(new java.awt.Color(17, 61, 88));
+        listSala.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        listSala.setForeground(new java.awt.Color(216, 220, 255));
+        listSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listSalaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(listSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 400, 60));
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel3.setText("Horario:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+
+        listHorario.setBackground(new java.awt.Color(17, 61, 88));
+        listHorario.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        listHorario.setForeground(new java.awt.Color(216, 220, 255));
+        listHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listHorarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(listHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 400, 60));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 640, 480));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,10 +265,8 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void listPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPeliculaActionPerformed
         // TODO add your handling code here:
-
         actualizarListSalas();
         actualizarListHorarios();
-
     }//GEN-LAST:event_listPeliculaActionPerformed
 
     private void jCalendar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MousePressed
@@ -196,16 +276,38 @@ public class RegistroFuncion extends javax.swing.JFrame {
 
     private void jCalendar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseEntered
         // TODO add your handling code here:
-
         actualizarListSalas();
         actualizarListHorarios();
-
     }//GEN-LAST:event_jCalendar1MouseEntered
 
     private void listSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listSalaActionPerformed
         // TODO add your handling code here:
         actualizarListHorarios();
     }//GEN-LAST:event_listSalaActionPerformed
+
+    private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
+        // TODO add your handling code here:
+        jPanel14.setBackground(new Color(204, 40, 54));
+        btnVolver.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnVolverMouseEntered
+
+    private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
+        // TODO add your handling code here:
+        jPanel14.setBackground(new Color(170, 34, 45));
+        btnVolver.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnVolverMouseExited
+
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        // TODO add your handling code here:
+        jPanel15.setBackground(new Color(204, 40, 54));
+        btnAgregar.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnAgregarMouseExited
+
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+        // TODO add your handling code here:
+        jPanel15.setBackground(new Color(170, 34, 45));
+        btnAgregar.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnAgregarMouseEntered
 
     private Date convertirASoloDia(Date fecha) {
         fecha = jCalendar1.getDate();
@@ -352,6 +454,10 @@ public class RegistroFuncion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> listHorario;
     private javax.swing.JComboBox<String> listPelicula;
     private javax.swing.JComboBox<String> listSala;
