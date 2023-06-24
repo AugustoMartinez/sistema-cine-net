@@ -12,8 +12,8 @@ public class Sala implements Serializable, Cloneable {
     private String nombre;
     private Butaca[][] butacas;
     private Integer capacidad;
-    private Integer filas = 10;
-    private Integer columnas = 15;
+    private Integer filas;
+    private Integer columnas;
     private Boolean atmos;
     private Boolean disponible;
     private Boolean baja;
@@ -22,10 +22,10 @@ public class Sala implements Serializable, Cloneable {
     public Sala() {
         this.id = Cine.getListaSalas().size() + 1;
         this.nombre = "Sala " + id;
-        this.butacas = new Butaca[filas][columnas];
         this.capacidad = 0;
         this.filas = 10;
-        this.columnas = 15;
+        this.columnas = 18;
+        this.butacas = new Butaca[filas][columnas];
         this.atmos = false;
         this.disponible = false;
         this.baja = false;

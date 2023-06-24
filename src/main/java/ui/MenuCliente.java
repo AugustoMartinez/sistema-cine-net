@@ -70,6 +70,9 @@ public class MenuCliente extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbGenerarReservaMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbGenerarReservaMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -216,6 +219,9 @@ public class MenuCliente extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbSalirMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbSalirMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -320,9 +326,7 @@ public class MenuCliente extends javax.swing.JFrame {
     
     private void lbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMouseClicked
         // TODO add your handling code here:
-        Login log = new Login();
-        log.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_lbSalirMouseClicked
 
     private void lbEditarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditarDatosMouseClicked
@@ -395,6 +399,21 @@ public class MenuCliente extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jLbMisReservasMousePressed
+
+    private void lbSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMousePressed
+        // TODO add your handling code here:
+        Login log = new Login();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbSalirMousePressed
+
+    private void lbGenerarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbGenerarReservaMousePressed
+        // TODO add your handling code here:
+        MenuReserva menuReserva = new MenuReserva();
+        menuReserva.setVisible(true);
+        menuReserva.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_lbGenerarReservaMousePressed
 
     /**
      * @param args the command line arguments
