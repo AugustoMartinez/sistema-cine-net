@@ -126,15 +126,19 @@ public class CreacionSala extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(9, 35, 52));
+        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1200, 720));
         setResizable(false);
 
-        background.setBackground(new java.awt.Color(51, 45, 39));
+        background.setBackground(new java.awt.Color(9, 35, 52));
         background.setMaximumSize(new java.awt.Dimension(1280, 720));
         background.setMinimumSize(new java.awt.Dimension(1280, 720));
         background.setName(""); // NOI18N
         background.setPreferredSize(new java.awt.Dimension(1260, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlBotones.setBackground(new java.awt.Color(9, 35, 52));
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -160,7 +164,9 @@ public class CreacionSala extends javax.swing.JFrame {
 
         btnVolver.setBackground(new java.awt.Color(255, 0, 30));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Atras");
+        btnVolver.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
@@ -168,7 +174,9 @@ public class CreacionSala extends javax.swing.JFrame {
         });
         background.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 90, 40));
 
+        btnAgregarSala.setBackground(new java.awt.Color(255, 0, 30));
         btnAgregarSala.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAgregarSala.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarSala.setText("Agregar Sala");
         btnAgregarSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +185,7 @@ public class CreacionSala extends javax.swing.JFrame {
         });
         background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, 170, 50));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(20, 71, 103));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
