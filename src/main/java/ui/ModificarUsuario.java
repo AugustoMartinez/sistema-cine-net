@@ -115,7 +115,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
         lblTituloRegistrar1.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lblTituloRegistrar1.setForeground(new java.awt.Color(216, 220, 255));
         lblTituloRegistrar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloRegistrar1.setText("MENÚ REGISTRO CLIENTE");
+        lblTituloRegistrar1.setText("MODIFICAR DATOS");
         Background1.add(lblTituloRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 570, 60));
 
         lblObligatorios1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -148,7 +148,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
         btnModificar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         btnModificar.setForeground(new java.awt.Color(216, 220, 255));
         btnModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnModificar.setText("REGISTRARSE");
+        btnModificar.setText("MODIFICAR");
         btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnModificarMouseEntered(evt);

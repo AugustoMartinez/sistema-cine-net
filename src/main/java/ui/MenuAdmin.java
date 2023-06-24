@@ -41,56 +41,50 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        listPeliculas = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        listGerentes = new javax.swing.JComboBox<>();
-        listSalas = new javax.swing.JComboBox<>();
         btnCerrar = new javax.swing.JButton();
-        btnCargarPelicula = new javax.swing.JButton();
-        btnAgregarGerente = new javax.swing.JButton();
-        btnAgregarSala = new javax.swing.JButton();
-        btnModificarPelicula = new javax.swing.JButton();
-        btnDarBajaPelicula = new javax.swing.JButton();
-        btnModificarGerente = new javax.swing.JButton();
-        btnDarBajaGerente = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        btnModificarSala = new javax.swing.JButton();
-        btnDarBajaSala = new javax.swing.JButton();
         btnCrearFuncion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        listPeliculas = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnAgregarPelicula = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        btnModPelicula = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        btnBajaPelicula = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        listGerentes = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        btnAgregarGeren = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        btnModGerente = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        btnBajaGerente = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        listSalas = new javax.swing.JComboBox<>();
+        jPanel7 = new javax.swing.JPanel();
+        btnAgregarSal = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        btnModSala = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        btnBajaSala = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(51, 45, 39));
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
+        jPanel1.setEnabled(false);
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        listPeliculas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jPanel1.add(listPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 345, 40));
-
-        jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Modificaciones Peliculas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 230, 36));
-
-        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Modificaciones Sala");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 230, 36));
-
-        listGerentes.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jPanel1.add(listGerentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 345, 40));
-
-        listSalas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jPanel1.add(listSalas, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 345, 40));
 
         btnCerrar.setBackground(new java.awt.Color(191, 4, 38));
         btnCerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -102,106 +96,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                 btnCerrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 624, -1, 41));
-
-        btnCargarPelicula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnCargarPelicula.setText("Agregar pelicula");
-        btnCargarPelicula.setFocusable(false);
-        btnCargarPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarPeliculaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCargarPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, 40));
-
-        btnAgregarGerente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAgregarGerente.setText("Agregar gerente");
-        btnAgregarGerente.setFocusable(false);
-        btnAgregarGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarGerenteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAgregarGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, 40));
-
-        btnAgregarSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAgregarSala.setText("Agregar sala");
-        btnAgregarSala.setFocusable(false);
-        btnAgregarSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarSalaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, 40));
-
-        btnModificarPelicula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnModificarPelicula.setText("Modificar");
-        btnModificarPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarPeliculaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 170, -1, 40));
-
-        btnDarBajaPelicula.setBackground(new java.awt.Color(61, 0, 0));
-        btnDarBajaPelicula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnDarBajaPelicula.setForeground(new java.awt.Color(204, 204, 204));
-        btnDarBajaPelicula.setText("Dar de baja");
-        btnDarBajaPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDarBajaPeliculaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnDarBajaPelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 170, -1, 40));
-
-        btnModificarGerente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnModificarGerente.setText("Modificar");
-        btnModificarGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarGerenteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, -1, 40));
-
-        btnDarBajaGerente.setBackground(new java.awt.Color(61, 0, 0));
-        btnDarBajaGerente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnDarBajaGerente.setForeground(new java.awt.Color(204, 204, 204));
-        btnDarBajaGerente.setText("Dar de baja");
-        btnDarBajaGerente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDarBajaGerenteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnDarBajaGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 330, -1, 40));
-
-        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Modificaciones Gerente");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 230, 36));
-
-        btnModificarSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnModificarSala.setText("Modificar");
-        btnModificarSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarSalaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, -1, 40));
-
-        btnDarBajaSala.setBackground(new java.awt.Color(61, 0, 0));
-        btnDarBajaSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnDarBajaSala.setForeground(new java.awt.Color(204, 204, 204));
-        btnDarBajaSala.setText("Dar de baja");
-        btnDarBajaSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDarBajaSalaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnDarBajaSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, -1, 40));
+        jPanel1.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 650, -1, 41));
 
         btnCrearFuncion.setBackground(new java.awt.Color(7, 196, 234));
         btnCrearFuncion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnCrearFuncion.setForeground(new java.awt.Color(0, 0, 0));
         btnCrearFuncion.setText("Crear Funcion");
         btnCrearFuncion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -218,18 +116,462 @@ public class MenuAdmin extends javax.swing.JFrame {
                 btnCrearFuncionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearFuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 624, -1, 41));
+        jPanel1.add(btnCrearFuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, -1, 41));
 
         jLabel4.setFont(new java.awt.Font("Leelawadee", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Menu Administrador");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(20, 71, 103));
+
+        listPeliculas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Modificaciones Peliculas");
+
+        jPanel5.setBackground(new java.awt.Color(9, 35, 52));
+
+        btnAgregarPelicula.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnAgregarPelicula.setForeground(new java.awt.Color(216, 220, 255));
+        btnAgregarPelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarPelicula.setText("Agregar Película");
+        btnAgregarPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarPeliculaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarPeliculaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarPeliculaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+        );
+
+        jPanel8.setBackground(new java.awt.Color(9, 35, 52));
+
+        btnModPelicula.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnModPelicula.setForeground(new java.awt.Color(216, 220, 255));
+        btnModPelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnModPelicula.setText("Modificar");
+        btnModPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModPeliculaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModPeliculaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnModPeliculaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnModPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnModPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+        );
+
+        jPanel11.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnBajaPelicula.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnBajaPelicula.setForeground(new java.awt.Color(216, 220, 255));
+        btnBajaPelicula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBajaPelicula.setText("Dar de baja");
+        btnBajaPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBajaPeliculaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBajaPeliculaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBajaPeliculaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnBajaPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnBajaPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(listPeliculas, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 68, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(listPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 386, 540));
+
+        jPanel3.setBackground(new java.awt.Color(20, 71, 103));
+
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Modificaciones Gerente");
+
+        listGerentes.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+
+        jPanel6.setBackground(new java.awt.Color(9, 35, 52));
+
+        btnAgregarGeren.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnAgregarGeren.setForeground(new java.awt.Color(216, 220, 255));
+        btnAgregarGeren.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarGeren.setText("Agregar Gerente");
+        btnAgregarGeren.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarGerenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarGerenMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarGerenMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAgregarGeren, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAgregarGeren, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel9.setBackground(new java.awt.Color(9, 35, 52));
+
+        btnModGerente.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnModGerente.setForeground(new java.awt.Color(216, 220, 255));
+        btnModGerente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnModGerente.setText("Modificar");
+        btnModGerente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModGerenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModGerenteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnModGerenteMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnModGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnModGerente, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+        );
+
+        jPanel12.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnBajaGerente.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnBajaGerente.setForeground(new java.awt.Color(216, 220, 255));
+        btnBajaGerente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBajaGerente.setText("Dar de baja");
+        btnBajaGerente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBajaGerenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBajaGerenteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBajaGerenteMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 138, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnBajaGerente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 41, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel12Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnBajaGerente)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(83, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(listGerentes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(listGerentes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 90, 386, 540));
+
+        jPanel4.setBackground(new java.awt.Color(20, 71, 103));
+
+        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Modificaciones Sala");
+
+        listSalas.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+
+        jPanel7.setBackground(new java.awt.Color(9, 35, 52));
+
+        btnAgregarSal.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnAgregarSal.setForeground(new java.awt.Color(216, 220, 255));
+        btnAgregarSal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregarSal.setText("Agregar Sala");
+        btnAgregarSal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarSalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarSalMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarSalMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAgregarSal, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAgregarSal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel10.setBackground(new java.awt.Color(9, 35, 52));
+
+        btnModSala.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnModSala.setForeground(new java.awt.Color(216, 220, 255));
+        btnModSala.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnModSala.setText("Modificar");
+        btnModSala.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModSalaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModSalaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnModSalaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnModSala, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addComponent(btnModSala, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        jPanel13.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnBajaSala.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnBajaSala.setForeground(new java.awt.Color(216, 220, 255));
+        btnBajaSala.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBajaSala.setText("Dar de baja");
+        btnBajaSala.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBajaSalaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBajaSalaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBajaSalaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 162, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnBajaSala, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 41, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnBajaSala)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(listSalas, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(listSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 90, 386, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,118 +588,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_btnCerrarActionPerformed
-
-    private void btnCargarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarPeliculaActionPerformed
-        // TODO add your handling code here:
-        RegistroPelicula reg = new RegistroPelicula();
-        reg.setVisible(true);
-        reg.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_btnCargarPeliculaActionPerformed
-
-    private void btnModificarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPeliculaActionPerformed
-        // TODO add your handling code here:
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
-                this.dispose();
-                ModificarPelicula mod = new ModificarPelicula(e);
-                mod.setVisible(true);
-                mod.setLocationRelativeTo(null);
-            }
-        }
-    }//GEN-LAST:event_btnModificarPeliculaActionPerformed
-
-    private void btnDarBajaPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaPeliculaActionPerformed
-        // TODO add your handling code here:
-        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        if (option == JOptionPane.YES_OPTION) {
-            String nombre = listSalas.getSelectedItem().toString();
-            if (listPeliculas.getSelectedItem() != null) {
-                for (int i = 0; i < Cine.getListaPeliculas().size(); i++) {
-                    if (Cine.getListaPeliculas().get(i).getNombre().equals(listPeliculas.getSelectedItem())) {
-                        Cine.getListaPeliculas().remove(i);
-                    }
-                }
-            }
-            actualizarListPeliculas();
-        }
-    }//GEN-LAST:event_btnDarBajaPeliculaActionPerformed
-
-    private void btnModificarGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarGerenteActionPerformed
-        // TODO add your handling code here:
-        String nombre;
-        for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
-            if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
-                nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
-                if (nombre.equals(listGerentes.getSelectedItem())) {
-                    ModificarGerente mod = new ModificarGerente(((Gerente) Cine.getListaUsuarios().get(i)));
-                    mod.setVisible(true);
-                    mod.setLocationRelativeTo(null);
-                    this.dispose();
-                }
-            }
-        }
-    }//GEN-LAST:event_btnModificarGerenteActionPerformed
-
-    private void btnAgregarGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarGerenteActionPerformed
-        // TODO add your handling code here:
-        RegistroGerente reg = new RegistroGerente();
-        reg.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAgregarGerenteActionPerformed
-
-    private void btnDarBajaGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaGerenteActionPerformed
-        // TODO add your handling code here:
-        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja el gerente?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        if (option == JOptionPane.YES_OPTION) {
-            String nombre;
-            // FUNCIÓN FEA
-            for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
-                if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
-                    nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
-                    if (nombre.equals(listGerentes.getSelectedItem())) {
-                        Cine.getListaUsuarios().remove(i);
-                    }
-                }
-            }
-            actualizarGerentes();
-        }
-    }//GEN-LAST:event_btnDarBajaGerenteActionPerformed
-
-    private void btnAgregarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSalaActionPerformed
-        // TODO add your handling code here:
-        new CreacionSala().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAgregarSalaActionPerformed
-
-    private void btnModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarSalaActionPerformed
-        // TODO add your handling code here:
-        for (Sala e : Cine.getListaSalas()) {
-            if (e.getNombre().equals(listSalas.getSelectedItem())) {
-                this.dispose();
-                ModificarSala algo = new ModificarSala(e);
-                algo.setVisible(true);
-            }
-        }
-    }//GEN-LAST:event_btnModificarSalaActionPerformed
-
-    private void btnDarBajaSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBajaSalaActionPerformed
-        // TODO add your handling code here:
-        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
-
-        if (option == JOptionPane.YES_OPTION) {
-            String nombre = listSalas.getSelectedItem().toString();
-            for (int i = Cine.getListaSalas().size() - 1; i >= 0; i--) {
-                Sala sala = Cine.getListaSalas().get(i);
-                if (sala.getNombre().equals(nombre)) {
-                    Cine.getListaSalas().remove(i);
-                }
-            }
-            actualizarSalasNombre();
-            actualizarSalas();
-            Persistencia.actualizarSalas();
-        }
-    }//GEN-LAST:event_btnDarBajaSalaActionPerformed
 
     private void btnCrearFuncionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFuncionActionPerformed
         // TODO add your handling code here:
@@ -376,6 +606,225 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnCrearFuncion.setBackground(new Color(35,168,195));
     }//GEN-LAST:event_btnCrearFuncionMouseExited
+
+    private void btnAgregarPeliculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaMouseEntered
+        jPanel5.setBackground(new Color(12, 47, 69));
+        btnAgregarPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnAgregarPeliculaMouseEntered
+
+    private void btnAgregarPeliculaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaMouseExited
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(9, 36, 52));
+        btnAgregarPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnAgregarPeliculaMouseExited
+
+    private void btnAgregarPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPeliculaMousePressed
+        // TODO add your handling code here:
+        RegistroPelicula reg = new RegistroPelicula();
+        reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarPeliculaMousePressed
+
+    private void btnAgregarGerenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarGerenMouseEntered
+        // TODO add your handling code here:
+        jPanel6.setBackground(new Color(12, 47, 69));
+        btnAgregarPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnAgregarGerenMouseEntered
+
+    private void btnAgregarGerenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarGerenMouseExited
+        // TODO add your handling code here:
+        jPanel7.setBackground(new Color(9, 36, 52));
+        btnAgregarPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnAgregarGerenMouseExited
+
+    private void btnAgregarGerenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarGerenMousePressed
+        // TODO add your handling code here:
+        RegistroGerente reg = new RegistroGerente();
+        reg.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarGerenMousePressed
+
+    private void btnAgregarSalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSalMouseEntered
+        // TODO add your handling code here:
+        jPanel7.setBackground(new Color(12, 47, 69));
+        btnAgregarPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnAgregarSalMouseEntered
+
+    private void btnAgregarSalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSalMouseExited
+        // TODO add your handling code here:
+        jPanel7.setBackground(new Color(9, 36, 52));
+        btnAgregarPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnAgregarSalMouseExited
+
+    private void btnAgregarSalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarSalMousePressed
+        // TODO add your handling code here:
+        new CreacionSala().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarSalMousePressed
+
+    private void btnModPeliculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModPeliculaMouseEntered
+        // TODO add your handling code here:
+        jPanel7.setBackground(new Color(12, 47, 69));
+        btnAgregarPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnModPeliculaMouseEntered
+
+    private void btnModPeliculaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModPeliculaMouseExited
+        // TODO add your handling code here:
+        jPanel8.setBackground(new Color(9, 36, 52));
+        btnAgregarPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnModPeliculaMouseExited
+
+    private void btnModPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModPeliculaMousePressed
+        // TODO add your handling code here:
+        for (Pelicula e : Cine.getListaPeliculas()) {
+            if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
+                this.dispose();
+                ModificarPelicula mod = new ModificarPelicula(e);
+                mod.setVisible(true);
+                mod.setLocationRelativeTo(null);
+            }
+        }
+    }//GEN-LAST:event_btnModPeliculaMousePressed
+
+    private void btnModGerenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModGerenteMouseEntered
+        // TODO add your handling code here:
+        jPanel7.setBackground(new Color(12, 47, 69));
+        btnAgregarPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnModGerenteMouseEntered
+
+    private void btnModGerenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModGerenteMouseExited
+        // TODO add your handling code here:
+        jPanel9.setBackground(new Color(9, 36, 52));
+        btnAgregarPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnModGerenteMouseExited
+
+    private void btnModGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModGerenteMousePressed
+        // TODO add your handling code here:
+        String nombre;
+        for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+            if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
+                nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
+                if (nombre.equals(listGerentes.getSelectedItem())) {
+                    ModificarGerente mod = new ModificarGerente(((Gerente) Cine.getListaUsuarios().get(i)));
+                    mod.setVisible(true);
+                    mod.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+            }
+        }
+    }//GEN-LAST:event_btnModGerenteMousePressed
+
+    private void btnModSalaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModSalaMouseEntered
+        // TODO add your handling code here:
+        jPanel7.setBackground(new Color(12, 47, 69));
+        btnAgregarPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnModSalaMouseEntered
+
+    private void btnModSalaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModSalaMouseExited
+        // TODO add your handling code here:
+        jPanel9.setBackground(new Color(9, 36, 52));
+        btnAgregarPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnModSalaMouseExited
+
+    private void btnModSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModSalaMousePressed
+        // TODO add your handling code here:
+        for (Sala e : Cine.getListaSalas()) {
+            if (e.getNombre().equals(listSalas.getSelectedItem())) {
+                this.dispose();
+                ModificarSala algo = new ModificarSala(e);
+                algo.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_btnModSalaMousePressed
+
+    private void btnBajaPeliculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMouseEntered
+        // TODO add your handling code here:
+        jPanel11.setBackground(new Color(204, 40, 54));
+        btnBajaPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnBajaPeliculaMouseEntered
+
+    private void btnBajaPeliculaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMouseExited
+        // TODO add your handling code here:
+        jPanel11.setBackground(new Color(170, 34, 45));
+        btnBajaPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnBajaPeliculaMouseExited
+
+    private void btnBajaPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaPeliculaMousePressed
+        // TODO add your handling code here:
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre = listPeliculas.getSelectedItem().toString();
+            if (listPeliculas.getSelectedItem() != null) {
+                for (int i = 0; i < Cine.getListaPeliculas().size(); i++) {
+                    if (Cine.getListaPeliculas().get(i).getNombre().equals(listPeliculas.getSelectedItem())) {
+                        Cine.getListaPeliculas().remove(i);
+                    }
+                }
+            }
+            actualizarListPeliculas();
+        }
+    }//GEN-LAST:event_btnBajaPeliculaMousePressed
+
+    private void btnBajaGerenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaGerenteMouseEntered
+        // TODO add your handling code here:
+        jPanel12.setBackground(new Color(204, 40, 54));
+        btnBajaPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnBajaGerenteMouseEntered
+
+    private void btnBajaGerenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaGerenteMouseExited
+        // TODO add your handling code here:
+        jPanel12.setBackground(new Color(170, 34, 45));
+        btnBajaPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnBajaGerenteMouseExited
+
+    private void btnBajaGerenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaGerenteMousePressed
+        // TODO add your handling code here:
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja el gerente?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre;
+            // FUNCIÓN FEA
+            for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+                if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
+                    nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
+                    if (nombre.equals(listGerentes.getSelectedItem())) {
+                        Cine.getListaUsuarios().remove(i);
+                    }
+                }
+            }
+            actualizarGerentes();
+        }
+    }//GEN-LAST:event_btnBajaGerenteMousePressed
+
+    private void btnBajaSalaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaSalaMouseEntered
+        // TODO add your handling code here:
+        jPanel13.setBackground(new Color(204, 40, 54));
+        btnBajaPelicula.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnBajaSalaMouseEntered
+
+    private void btnBajaSalaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaSalaMouseExited
+        // TODO add your handling code here:
+        jPanel13.setBackground(new Color(170, 34, 45));
+        btnBajaPelicula.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnBajaSalaMouseExited
+
+    private void btnBajaSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBajaSalaMousePressed
+        // TODO add your handling code here:
+        int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la sala?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+        if (option == JOptionPane.YES_OPTION) {
+            String nombre = listSalas.getSelectedItem().toString();
+            for (int i = Cine.getListaSalas().size() - 1; i >= 0; i--) {
+                Sala sala = Cine.getListaSalas().get(i);
+                if (sala.getNombre().equals(nombre)) {
+                    Cine.getListaSalas().remove(i);
+                }
+            }
+            actualizarSalasNombre();
+            actualizarSalas();
+            Persistencia.actualizarSalas();
+        }
+    }//GEN-LAST:event_btnBajaSalaMousePressed
 
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -455,22 +904,34 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarGerente;
-    private javax.swing.JButton btnAgregarSala;
-    private javax.swing.JButton btnCargarPelicula;
+    private javax.swing.JLabel btnAgregarGeren;
+    private javax.swing.JLabel btnAgregarPelicula;
+    private javax.swing.JLabel btnAgregarSal;
+    private javax.swing.JLabel btnBajaGerente;
+    private javax.swing.JLabel btnBajaPelicula;
+    private javax.swing.JLabel btnBajaSala;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCrearFuncion;
-    private javax.swing.JButton btnDarBajaGerente;
-    private javax.swing.JButton btnDarBajaPelicula;
-    private javax.swing.JButton btnDarBajaSala;
-    private javax.swing.JButton btnModificarGerente;
-    private javax.swing.JButton btnModificarPelicula;
-    private javax.swing.JButton btnModificarSala;
+    private javax.swing.JLabel btnModGerente;
+    private javax.swing.JLabel btnModPelicula;
+    private javax.swing.JLabel btnModSala;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JComboBox<String> listGerentes;
     private javax.swing.JComboBox<String> listPeliculas;
     private javax.swing.JComboBox<String> listSalas;
