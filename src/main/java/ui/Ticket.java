@@ -11,6 +11,7 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -126,10 +127,11 @@ public class Ticket extends javax.swing.JFrame {
         lblNombre = new javax.swing.JLabel();
         txtSala = new javax.swing.JLabel();
         lblTicket = new javax.swing.JLabel();
-        btnGuardar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jPanel5 = new javax.swing.JPanel();
+        btnCancelarReserva = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -144,7 +146,7 @@ public class Ticket extends javax.swing.JFrame {
         lblButacasReservadas.setForeground(new java.awt.Color(216, 220, 255));
         lblButacasReservadas.setText("Butacas");
         lblButacasReservadas.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel2.add(lblButacasReservadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 390, 270));
+        jPanel2.add(lblButacasReservadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 390, 270));
 
         lblPrecio.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(216, 220, 255));
@@ -186,15 +188,7 @@ public class Ticket extends javax.swing.JFrame {
         lblTicket.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblTicket.setForeground(new java.awt.Color(216, 220, 255));
         lblTicket.setText("Ticket");
-        jPanel2.add(lblTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 50));
-
-        btnGuardar.setText("Salir");
-        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnGuardarMousePressed(evt);
-            }
-        });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 650, 274, 51));
+        jPanel2.add(lblTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 270, 50));
 
         jSeparator1.setBackground(new java.awt.Color(9, 35, 52));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 426, 12));
@@ -204,6 +198,41 @@ public class Ticket extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(9, 35, 52));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 54, 426, 12));
+
+        jPanel5.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnCancelarReserva.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnCancelarReserva.setForeground(new java.awt.Color(216, 220, 255));
+        btnCancelarReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCancelarReserva.setText("Salir");
+        btnCancelarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelarReservaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelarReservaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCancelarReservaMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancelarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancelarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 660, 110, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 720));
 
@@ -221,13 +250,25 @@ public class Ticket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
-        generarPDF();
+    private void btnCancelarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMouseEntered
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(204, 40, 54));
+        btnCancelarReserva.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnCancelarReservaMouseEntered
+
+    private void btnCancelarReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMouseExited
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(170, 34, 45));
+        btnCancelarReserva.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnCancelarReservaMouseExited
+
+    private void btnCancelarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMousePressed
+        // TODO add your handling code here:
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
         this.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnGuardarMousePressed
+    }//GEN-LAST:event_btnCancelarReservaMousePressed
 
     /**
      * @param args the command line arguments
@@ -245,10 +286,11 @@ public class Ticket extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JLabel btnCancelarReserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

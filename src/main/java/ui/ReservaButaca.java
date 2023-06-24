@@ -330,7 +330,6 @@ public class ReservaButaca extends javax.swing.JFrame {
     private void btnReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMousePressed
         // TODO add your handling code here:
         LinkedList<String> butacas = retornaButacas();
-
         for (int i = 0; i < this.filas; i++) {
             for (int j = 0; j < this.columnas; j++) {
                 if (jtBotones[i][j].isSelected() == true) {
@@ -339,7 +338,6 @@ public class ReservaButaca extends javax.swing.JFrame {
 
             }
         }
-
         ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas);
         confirmar.setVisible(true);
         confirmar.setLocationRelativeTo(null);
@@ -348,14 +346,22 @@ public class ReservaButaca extends javax.swing.JFrame {
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
         // TODO add your handling code here:
+        jPanel3.setBackground(new Color(204, 40, 54));
+        btnExit.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnExitMouseEntered
 
     private void btnExitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseExited
         // TODO add your handling code here:
+        jPanel3.setBackground(new Color(170, 34, 45));
+        btnExit.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnExitMouseExited
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
         // TODO add your handling code here:
+        MenuReserva menuReserva= new MenuReserva();
+        menuReserva.setVisible(true);
+        menuReserva.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnExitMousePressed
 
     /**
