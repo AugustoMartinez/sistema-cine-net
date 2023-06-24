@@ -120,10 +120,12 @@ public class CreacionSala extends javax.swing.JFrame {
         pnlBotones = new javax.swing.JPanel();
         lblNombreSala = new javax.swing.JLabel();
         checkAtmos = new javax.swing.JCheckBox();
-        btnVolver = new javax.swing.JButton();
-        btnAgregarSala = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(9, 35, 52));
@@ -162,29 +164,6 @@ public class CreacionSala extends javax.swing.JFrame {
         checkAtmos.setText("ATMOS");
         background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 640, 110, 40));
 
-        btnVolver.setBackground(new java.awt.Color(255, 0, 30));
-        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
-        btnVolver.setText("Atras");
-        btnVolver.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-        background.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 90, 40));
-
-        btnAgregarSala.setBackground(new java.awt.Color(255, 0, 30));
-        btnAgregarSala.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnAgregarSala.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarSala.setText("Agregar Sala");
-        btnAgregarSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarSalaActionPerformed(evt);
-            }
-        });
-        background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, 170, 50));
-
         jPanel1.setBackground(new java.awt.Color(20, 71, 103));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -214,6 +193,58 @@ public class CreacionSala extends javax.swing.JFrame {
 
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
+        jPanel2.setBackground(new java.awt.Color(170, 34, 45));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Agregar Sala");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+        );
+
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(170, 34, 45));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(216, 220, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Atras");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 90, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,20 +259,7 @@ public class CreacionSala extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-        if (Sesion.getTipo().equals("Admin")) {
-            this.dispose();
-            MenuAdmin admin = new MenuAdmin();
-            admin.setVisible(true);
-        } else if (Sesion.getTipo().equals("Gerente")) {
-            this.dispose();
-            MenuGerente gerente = new MenuGerente();
-            gerente.setVisible(true);
-        }
-    }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnAgregarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSalaActionPerformed
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
         // TODO add your handling code here:
         if (sala.getCapacidad() > 0) {
             if (checkAtmos.isSelected()) {
@@ -254,7 +272,20 @@ public class CreacionSala extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
         }
-    }//GEN-LAST:event_btnAgregarSalaActionPerformed
+    }//GEN-LAST:event_jLabel2MousePressed
+
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        // TODO add your handling code here:
+        if (Sesion.getTipo().equals("Admin")) {
+            this.dispose();
+            MenuAdmin admin = new MenuAdmin();
+            admin.setVisible(true);
+        } else if (Sesion.getTipo().equals("Gerente")) {
+            this.dispose();
+            MenuGerente gerente = new MenuGerente();
+            gerente.setVisible(true);
+        }
+    }//GEN-LAST:event_jLabel3MousePressed
 
     /**
      * @param args the command line arguments
@@ -295,11 +326,13 @@ public class CreacionSala extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btnAgregarSala;
-    private javax.swing.JButton btnVolver;
     private javax.swing.JCheckBox checkAtmos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblNombreSala;
     private javax.swing.JPanel pnlBotones;
     // End of variables declaration//GEN-END:variables
