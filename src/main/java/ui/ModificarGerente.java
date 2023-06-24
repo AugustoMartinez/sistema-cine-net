@@ -289,7 +289,6 @@ public class ModificarGerente extends javax.swing.JFrame {
         } catch (CampoVacioException | EmailException | LetrasException | LongitudPasswordException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        this.dispose();
     }//GEN-LAST:event_btnModificar1MousePressed
 
     private void cargarDatos() {

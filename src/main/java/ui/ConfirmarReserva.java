@@ -18,6 +18,11 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
+=======
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
+>>>>>>> ad4f4bc8cc880e6cbd61bd43bec02588ce4ca9d5
 import javax.swing.border.LineBorder;
 import persistencia.Persistencia;
 
@@ -29,14 +34,20 @@ public class ConfirmarReserva extends javax.swing.JFrame {
 
     private Funcion funcion;
     private LinkedList<String> butacasReservadas;
+<<<<<<< HEAD
+=======
+    private Cliente usuario;
+    JToggleButton[][] jtBotones;
+>>>>>>> ad4f4bc8cc880e6cbd61bd43bec02588ce4ca9d5
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     /**
      * Creates new form ConfirmarReserva
      */
-    public ConfirmarReserva(Funcion e, LinkedList<String> butacasReservadas) {
+    public ConfirmarReserva(Funcion e, LinkedList<String> butacasReservadas, JToggleButton[][] jtBotones) {
         initComponents();
         this.funcion = e;
+        this.jtBotones = jtBotones;
         this.butacasReservadas = butacasReservadas;
         mostrarReserva();
     }
@@ -312,6 +323,14 @@ public class ConfirmarReserva extends javax.swing.JFrame {
 
     private void btnConfimarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfimarReservaMousePressed
         // TODO add your handling code here:
+        for (int i = 0; i < funcion.getSala().getFilas(); i++) {
+            for (int j = 0; j < funcion.getSala().getColumnas(); j++) {
+                if (jtBotones[i][j].isSelected() == true) {
+                    funcion.getSala().getButacas()[i][j].setOcupada(true);
+                }
+
+            }
+        }
         funcion.setSala(funcion.getSala());
         Integer numTicket = this.generarNumeroEntero();
         Reserva reserva = new Reserva(funcion, this.butacasReservadas, numTicket);
