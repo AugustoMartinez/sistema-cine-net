@@ -8,8 +8,10 @@ import cine.cinelugar.Cine;
 import cine.cinelugar.Sala;
 import cine.user.Sesion;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import persistencia.Persistencia;
@@ -34,8 +36,8 @@ public class CreacionSala extends javax.swing.JFrame {
     int columnas = sala.getColumnas();
     int largoBoton = 50;
     int anchoBoton = 25;
-    int ejeX = 200;
-    int ejeY = 70;
+    int ejeX = 260;
+    int ejeY = 30;
 
     public JToggleButton[][] jtBotones = new JToggleButton[filas][columnas];
 
@@ -45,18 +47,24 @@ public class CreacionSala extends javax.swing.JFrame {
             for (int j = 0; j < columnas; j++) {
                 jtBotones[i][j] = new JToggleButton();
                 jtBotones[i][j].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
-                //jtBotones[i][j].setFont hay que hacer esto
-                jtBotones[i][j].setBackground(Color.BLUE);
+                ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-available.png");
+                Image imagenButaca = iconoButaca.getImage();
+                ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(35, 25, Image.SCALE_DEFAULT));
+                jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                jtBotones[i][j].setOpaque(false);
+                jtBotones[i][j].setContentAreaFilled(false);
+                jtBotones[i][j].setBorderPainted(false);
 
                 AccionBotones accion = new AccionBotones();
                 jtBotones[i][j].addActionListener(accion);
 
                 pnlBotones.add(jtBotones[i][j]);
-                ejeX += 55;//separacion ejeX
+                ejeX += 40;//separacion ejeX
 
             }
-            ejeX = 200; //reseteo la poss inicial
-            ejeY += 30; //separacion ejeY
+            ejeX = 260; //reseteo la poss inicial
+            ejeY += 44; //separacion ejeY
         }
     }
 
@@ -68,12 +76,27 @@ public class CreacionSala extends javax.swing.JFrame {
                 for (int j = 0; j < columnas; j++) {
                     if (e.getSource().equals(jtBotones[i][j])) {
                         if (jtBotones[i][j].isSelected()) {
-                            jtBotones[i][j].setBackground(Color.RED);
+                            ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-selected.png");
+                            Image imagenButaca = iconoButaca.getImage();
+                            ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(45, 30, Image.SCALE_DEFAULT));
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setOpaque(false);
+                            jtBotones[i][j].setContentAreaFilled(false);
+                            jtBotones[i][j].setBorderPainted(false);
                             sala.getButacas()[i][j].setExiste(true);
                             sala.setCapacidad(sala.getCapacidad() + 1);
                             //aumentar contador para comparar con cantidad de boletos
                         } else {
-                            jtBotones[i][j].setBackground(Color.BLUE);
+                            ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-available.png");
+                            Image imagenButaca = iconoButaca.getImage();
+                            ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(35, 25, Image.SCALE_DEFAULT));
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                            jtBotones[i][j].setOpaque(false);
+                            jtBotones[i][j].setContentAreaFilled(false);
+                            jtBotones[i][j].setBorderPainted(false);
+
                             sala.getButacas()[i][j].setExiste(false);
                             sala.setCapacidad(sala.getCapacidad() - 1);
                             //disminuir contador
@@ -103,16 +126,19 @@ public class CreacionSala extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(9, 35, 52));
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1200, 720));
         setResizable(false);
 
-        background.setBackground(new java.awt.Color(51, 45, 39));
+        background.setBackground(new java.awt.Color(9, 35, 52));
         background.setMaximumSize(new java.awt.Dimension(1280, 720));
         background.setMinimumSize(new java.awt.Dimension(1280, 720));
         background.setName(""); // NOI18N
         background.setPreferredSize(new java.awt.Dimension(1260, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlBotones.setBackground(new java.awt.Color(9, 35, 52));
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -122,10 +148,10 @@ public class CreacionSala extends javax.swing.JFrame {
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1240, 430));
+        background.add(pnlBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1240, 470));
 
         lblNombreSala.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNombreSala.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,12 +160,13 @@ public class CreacionSala extends javax.swing.JFrame {
         checkAtmos.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
         checkAtmos.setForeground(new java.awt.Color(255, 255, 255));
         checkAtmos.setText("ATMOS");
-        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 110, 40));
+        background.add(checkAtmos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 640, 110, 40));
 
         btnVolver.setBackground(new java.awt.Color(255, 0, 30));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnVolver.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Atras");
+        btnVolver.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
@@ -147,16 +174,18 @@ public class CreacionSala extends javax.swing.JFrame {
         });
         background.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 90, 40));
 
+        btnAgregarSala.setBackground(new java.awt.Color(255, 0, 30));
         btnAgregarSala.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnAgregarSala.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarSala.setText("Agregar Sala");
         btnAgregarSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarSalaActionPerformed(evt);
             }
         });
-        background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, 170, 50));
+        background.add(btnAgregarSala, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, 170, 50));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(20, 71, 103));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
