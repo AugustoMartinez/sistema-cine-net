@@ -35,9 +35,9 @@ public class MenuReserva extends javax.swing.JFrame {
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (!e.isBaja()) {
-                model.addElement(e.getNombre());
+        for (Pelicula pelicula : Cine.getListaPeliculas()) {
+            if (!pelicula.isBaja()) {
+                model.addElement(pelicula.getNombre());
             }
         }
     }
@@ -51,7 +51,7 @@ public class MenuReserva extends javax.swing.JFrame {
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(imgIcon);
         } catch (Exception e) {
-            System.out.println("No hay nada :C");
+            System.out.println("Problemas al cargar la imagen");
         }
     }
 
@@ -223,8 +223,8 @@ public class MenuReserva extends javax.swing.JFrame {
 
     private void btnSeleccionarButacasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasMousePressed
         try {
-            Funcion e = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
-            ReservaButaca reservaButaca = new ReservaButaca(e);
+            Funcion funcion = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
+            ReservaButaca reservaButaca = new ReservaButaca(funcion);
             reservaButaca.setVisible(true);
             reservaButaca.setLocationRelativeTo(null);
             this.dispose();
@@ -298,7 +298,6 @@ public class MenuReserva extends javax.swing.JFrame {
 
         for (Funcion funcion : Cine.getListaFunciones()) {
             Boolean ocupada = funcion.getSala().salaOcupada();
-            System.out.println(ocupada);
             if (!ocupada && funcion.getPelicula().getNombre().equals(str)) {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 model.addElement(funcion.getNombre() + " | " + format.format(funcion.getDia()) + " | " + funcion.getHorario().getHorario());

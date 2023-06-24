@@ -34,8 +34,10 @@ public class Ticket extends javax.swing.JFrame {
     private String precio;
     private String sala;
     private String poster;
-            /**
-             * Creates new form Ticket
+
+    /**
+     * Creates new form Ticket
+     *
      * @param nombre
      * @param ticket
      * @param sala
@@ -45,9 +47,9 @@ public class Ticket extends javax.swing.JFrame {
      * @param precio
      * @param butacas
      * @param poster
-             */
-    
-        public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String sala, String poster) {
+     */
+
+    public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String sala, String poster) {
         initComponents();
         this.nombre = nombre;
         this.ticket = ticket;
@@ -56,9 +58,7 @@ public class Ticket extends javax.swing.JFrame {
         this.hora = hora;
         this.butacas = butacas;
         this.precio = precio;
-
         this.poster = poster;
-
         this.sala = sala;
         mostrarTicket();
     }
@@ -285,12 +285,12 @@ public class Ticket extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     private void mostrarTicket() {
-        lblNombre.setText("Nombre: "+nombre);
+        lblNombre.setText("Nombre: " + nombre);
         lblTipo.setText("Tipo: " + tipo);
         lblFecha.setText("Fecha: " + fecha);
         lblHorario.setText("Horario: " + hora);
         lblPrecio.setText("Total: $" + precio);
-        lblTicket.setText("Ticket n°"+ticket);
+        lblTicket.setText("Ticket n°" + ticket);
         lblButacasReservadas.setText(butacas);
         txtSala.setText(sala);
     }

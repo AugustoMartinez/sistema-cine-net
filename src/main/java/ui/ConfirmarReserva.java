@@ -19,10 +19,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
-import persistencia.Persistencia;
-
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 import persistencia.Persistencia;
 
@@ -34,18 +30,20 @@ public class ConfirmarReserva extends javax.swing.JFrame {
 
     private Funcion funcion;
     private LinkedList<String> butacasReservadas;
-
-    private Cliente usuario;
     JToggleButton[][] jtBotones;
 
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     /**
      * Creates new form ConfirmarReserva
+     *
+     * @param funcion
+     * @param butacasReservadas
+     * @param jtBotones
      */
-    public ConfirmarReserva(Funcion e, LinkedList<String> butacasReservadas, JToggleButton[][] jtBotones) {
+    public ConfirmarReserva(Funcion funcion, LinkedList<String> butacasReservadas, JToggleButton[][] jtBotones) {
         initComponents();
-        this.funcion = e;
+        this.funcion = funcion;
         this.jtBotones = jtBotones;
         this.butacasReservadas = butacasReservadas;
         mostrarReserva();
@@ -203,8 +201,8 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +223,9 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,7 +244,9 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +265,9 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblHorario, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHorario, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,9 +375,9 @@ public class ConfirmarReserva extends javax.swing.JFrame {
         String tipo = seleccionarTipo();
 
         lblNombre.setText(funcion.getPelicula().getNombre());
-        lblTipo.setText( tipo);
-        lblFecha.setText( format.format(funcion.getDia()));
-        lblHorario.setText( funcion.getHorario().getHorario());
+        lblTipo.setText(tipo);
+        lblFecha.setText(format.format(funcion.getDia()));
+        lblHorario.setText(funcion.getHorario().getHorario());
         lblPrecio.setText("Total: $" + generarCosto());
         agregarButacas();
         cargarFotito();
@@ -408,7 +412,7 @@ public class ConfirmarReserva extends javax.swing.JFrame {
             ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(imgIcon);
         } catch (Exception e) {
-            System.out.println("Algo se rompio al leer los datos de la Pelicula");
+            System.out.println("Algo se rompio al cargar la foto");
         }
 
     }

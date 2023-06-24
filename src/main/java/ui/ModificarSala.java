@@ -7,8 +7,6 @@ package ui;
 import cine.cinelugar.Cine;
 import cine.cinelugar.Sala;
 import cine.user.Sesion;
-import excepciones.CampoVacioException;
-import excepciones.SoloNumerosException;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -32,6 +30,8 @@ public class ModificarSala extends javax.swing.JFrame {
 
     /**
      * Creates new form ModificarSala
+     *
+     * @param sala
      */
     public ModificarSala(Sala sala) {
         initComponents();
@@ -70,13 +70,13 @@ public class ModificarSala extends javax.swing.JFrame {
                     jtBotones[i][j].setBorderPainted(false);
                 } else {
                     ImageIcon iconoButaca = new ImageIcon("src\\main\\images\\seat-available.png");
-                            Image imagenButaca = iconoButaca.getImage();
-                            ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(35, 25, Image.SCALE_DEFAULT));
-                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
-                            jtBotones[i][j].setIcon(iconoButacaAgrandado);
-                            jtBotones[i][j].setOpaque(false);
-                            jtBotones[i][j].setContentAreaFilled(false);
-                            jtBotones[i][j].setBorderPainted(false);
+                    Image imagenButaca = iconoButaca.getImage();
+                    ImageIcon iconoButacaAgrandado = new ImageIcon(imagenButaca.getScaledInstance(35, 25, Image.SCALE_DEFAULT));
+                    jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                    jtBotones[i][j].setIcon(iconoButacaAgrandado);
+                    jtBotones[i][j].setOpaque(false);
+                    jtBotones[i][j].setContentAreaFilled(false);
+                    jtBotones[i][j].setBorderPainted(false);
                 }
 
                 pnlBotones.add(jtBotones[i][j]);
@@ -142,13 +142,14 @@ public class ModificarSala extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        btnModificar = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        lblVolver = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(9, 35, 52));
@@ -208,7 +209,7 @@ public class ModificarSala extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -216,13 +217,19 @@ public class ModificarSala extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(170, 34, 45));
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(216, 220, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Modificar Sala");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnModificar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(216, 220, 255));
+        btnModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnModificar.setText("Modificar Sala");
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModificarMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
+                btnModificarMousePressed(evt);
             }
         });
 
@@ -231,25 +238,31 @@ public class ModificarSala extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(170, 34, 45));
 
-        lblVolver.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        lblVolver.setForeground(new java.awt.Color(216, 220, 255));
-        lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVolver.setText("Atras");
-        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVolver.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(216, 220, 255));
+        btnVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVolver.setText("Atras");
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblVolverMousePressed(evt);
+                btnVolverMousePressed(evt);
             }
         });
 
@@ -257,11 +270,11 @@ public class ModificarSala extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(btnVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(btnVolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 90, 40));
@@ -284,7 +297,7 @@ public class ModificarSala extends javax.swing.JFrame {
 
     }//GEN-LAST:event_checkAtmosActionPerformed
 
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+    private void btnModificarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMousePressed
         // TODO add your handling code here:
         String nombreviejo = sala.getNombre();
         if (sala.getCapacidad() > 0) {
@@ -302,14 +315,14 @@ public class ModificarSala extends javax.swing.JFrame {
             }
             Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala modificada exitosamente!" + sala.toString());
-            lblVolverMousePressed(evt);
+            btnVolverMousePressed(evt);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "La sala debe tener 1 asiento o mas!" + sala.toString());
         }
-    }//GEN-LAST:event_jLabel2MousePressed
+    }//GEN-LAST:event_btnModificarMousePressed
 
-    private void lblVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMousePressed
+    private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
         // TODO add your handling code here:
         if (Sesion.getTipo().equals("Admin")) {
             this.dispose();
@@ -320,7 +333,31 @@ public class ModificarSala extends javax.swing.JFrame {
             MenuGerente gerente = new MenuGerente();
             gerente.setVisible(true);
         }
-    }//GEN-LAST:event_lblVolverMousePressed
+    }//GEN-LAST:event_btnVolverMousePressed
+
+    private void btnModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseEntered
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(204, 40, 54));
+        btnModificar.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnModificarMouseEntered
+
+    private void btnModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseExited
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(170, 34, 45));
+        btnModificar.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnModificarMouseExited
+
+    private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(204, 40, 54));
+        btnVolver.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnVolverMouseEntered
+
+    private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(170, 34, 45));
+        btnVolver.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnVolverMouseExited
 
     /**
      * @param args the command line arguments
@@ -358,15 +395,15 @@ public class ModificarSala extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnModificar;
+    private javax.swing.JLabel btnVolver;
     private javax.swing.JCheckBox checkAtmos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblNombreSala;
-    private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel pnlBotones;
     // End of variables declaration//GEN-END:variables
 }

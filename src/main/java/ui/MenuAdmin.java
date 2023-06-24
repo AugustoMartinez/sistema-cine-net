@@ -73,6 +73,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         btnCrearFuncion1 = new javax.swing.JLabel();
         lblTituloRegistrar1 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -590,6 +592,39 @@ public class MenuAdmin extends javax.swing.JFrame {
         lblTituloRegistrar1.setText("MENU ADMINISTRADOR");
         jPanel1.add(lblTituloRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 430, 60));
 
+        jPanel16.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnSalir.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(216, 220, 255));
+        btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSalir.setText("X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalirMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 40, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -674,10 +709,10 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnModPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModPeliculaMousePressed
         // TODO add your handling code here:
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
+        for (Pelicula pelicula : Cine.getListaPeliculas()) {
+            if (pelicula.getNombre().equals(listPeliculas.getSelectedItem())) {
                 this.dispose();
-                ModificarPelicula mod = new ModificarPelicula(e);
+                ModificarPelicula mod = new ModificarPelicula(pelicula);
                 mod.setVisible(true);
                 mod.setLocationRelativeTo(null);
             }
@@ -751,7 +786,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
-            String nombre = listPeliculas.getSelectedItem().toString();
             if (listPeliculas.getSelectedItem() != null) {
                 for (int i = 0; i < Cine.getListaPeliculas().size(); i++) {
                     if (Cine.getListaPeliculas().get(i).getNombre().equals(listPeliculas.getSelectedItem())) {
@@ -780,7 +814,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         int option = JOptionPane.showConfirmDialog(null, "¿Desea dar de baja el gerente?", "Confirmación", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             String nombre;
-            // FUNCIÓN FEA
+            
             for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
                 if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
                     nombre = Cine.getListaUsuarios().get(i).getNombre() + " " + Cine.getListaUsuarios().get(i).getApellido();
@@ -863,12 +897,29 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCrearFuncion1MousePressed
 
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        jPanel16.setBackground(new Color(204, 40, 54));
+        btnSalir.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        jPanel16.setBackground(new Color(170, 34, 45));
+        btnSalir.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMousePressed
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (!e.isBaja()) {
-                model.addElement(e.getNombre());
+        for (Pelicula pelicula : Cine.getListaPeliculas()) {
+            if (!pelicula.isBaja()) {
+                model.addElement(pelicula.getNombre());
             }
         }
     }
@@ -876,10 +927,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void actualizarGerentes() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listGerentes.setModel(model);
-        for (Usuario e : Cine.getListaUsuarios()) {
-            if (e instanceof Gerente) {
-                if (((Gerente) e).getIsAdmin() == true) {
-                    model.addElement(e.getNombre() + " " + e.getApellido());
+        for (Usuario usuario : Cine.getListaUsuarios()) {
+            if (usuario instanceof Gerente) {
+                if (((Gerente) usuario).getIsAdmin() == true) {
+                    model.addElement(usuario.getNombre() + " " + usuario.getApellido());
                 }
             }
         }
@@ -888,9 +939,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void actualizarSalas() {
         DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
         listSalas.setModel(model2);
-        for (Sala e : Cine.getListaSalas()) {
-            if (!e.getBaja()) {
-                model2.addElement(e.getNombre());
+        for (Sala sala : Cine.getListaSalas()) {
+            if (!sala.getBaja()) {
+                model2.addElement(sala.getNombre());
             }
         }
     }
@@ -949,6 +1000,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel btnModGerente;
     private javax.swing.JLabel btnModPelicula;
     private javax.swing.JLabel btnModSala;
+    private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -959,6 +1011,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

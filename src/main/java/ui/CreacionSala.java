@@ -123,14 +123,16 @@ public class CreacionSala extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(9, 35, 52));
         setMaximumSize(new java.awt.Dimension(1280, 720));
-        setMinimumSize(new java.awt.Dimension(1200, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         background.setBackground(new java.awt.Color(9, 35, 52));
@@ -195,13 +197,19 @@ public class CreacionSala extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(170, 34, 45));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(216, 220, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Agregar Sala");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(216, 220, 255));
+        btnAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAgregar.setText("Agregar Sala");
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
+                btnAgregarMousePressed(evt);
             }
         });
 
@@ -210,25 +218,31 @@ public class CreacionSala extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 630, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(170, 34, 45));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(216, 220, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Atras");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAtras.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAtras.setForeground(new java.awt.Color(216, 220, 255));
+        btnAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAtras.setText("Atras");
+        btnAtras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAtrasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAtrasMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
+                btnAtrasMousePressed(evt);
             }
         });
 
@@ -236,11 +250,11 @@ public class CreacionSala extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(btnAtras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(btnAtras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 90, 40));
@@ -249,7 +263,7 @@ public class CreacionSala extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +273,7 @@ public class CreacionSala extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+    private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
         // TODO add your handling code here:
         if (sala.getCapacidad() > 0) {
             if (checkAtmos.isSelected()) {
@@ -268,13 +282,13 @@ public class CreacionSala extends javax.swing.JFrame {
             Cine.getListaSalas().add(sala);
             Persistencia.actualizarSalas();
             JOptionPane.showMessageDialog(null, "Sala creada correctamente!");
-            jLabel3MousePressed(evt);
+            btnAtrasMousePressed(evt);
         } else {
             JOptionPane.showMessageDialog(null, "La sala debe contener al menos 1 asiento");
         }
-    }//GEN-LAST:event_jLabel2MousePressed
+    }//GEN-LAST:event_btnAgregarMousePressed
 
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+    private void btnAtrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMousePressed
         // TODO add your handling code here:
         if (Sesion.getTipo().equals("Admin")) {
             this.dispose();
@@ -285,7 +299,31 @@ public class CreacionSala extends javax.swing.JFrame {
             MenuGerente gerente = new MenuGerente();
             gerente.setVisible(true);
         }
-    }//GEN-LAST:event_jLabel3MousePressed
+    }//GEN-LAST:event_btnAtrasMousePressed
+
+    private void btnAtrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseEntered
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(204, 40, 54));
+        btnAtras.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnAtrasMouseEntered
+
+    private void btnAtrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMouseExited
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(170, 34, 45));
+        btnAtras.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnAtrasMouseExited
+
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+        // TODO add your handling code here:
+        jPanel2.setBackground(new Color(204, 40, 54));
+        btnAgregar.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnAgregarMouseEntered
+
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        // TODO add your handling code here:
+        jPanel2.setBackground(new Color(170, 34, 45));
+        btnAgregar.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnAgregarMouseExited
 
     /**
      * @param args the command line arguments
@@ -326,10 +364,10 @@ public class CreacionSala extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JLabel btnAgregar;
+    private javax.swing.JLabel btnAtras;
     private javax.swing.JCheckBox checkAtmos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -6,10 +6,8 @@ package ui;
 
 import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
-import com.toedter.calendar.JCalendar;
 import excepciones.CampoVacioException;
 import excepciones.SoloNumerosException;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -18,6 +16,7 @@ import validacion.Validaciones;
 import cine.user.Sesion;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -27,7 +26,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import persistencia.PersistenceCollecion;
 
 /**
  *
@@ -39,12 +37,16 @@ public class ModificarPelicula extends javax.swing.JFrame {
      * Creates new form ModificarPelicula
      */
     private Pelicula pelicula;
-    public static final String rutaDestino = "src\\main\\images\\";
+    public static final String RUTA_DESTINO = "src\\main\\images\\";
 
     public ModificarPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
         initComponents();
         cargarDatos();
+        txtNombre.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtDuracion.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtSinopsis.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        dateFecha.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
     }
 
     public void iniciar() {
@@ -142,29 +144,57 @@ public class ModificarPelicula extends javax.swing.JFrame {
         jPanel1.add(lblSinopsis, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, 40));
 
         txtNombre.setBackground(new java.awt.Color(20, 71, 103));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(216, 220, 255));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 280, 40));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 290, 40));
 
         txtDuracion.setBackground(new java.awt.Color(20, 71, 103));
+        txtDuracion.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         txtDuracion.setForeground(new java.awt.Color(216, 220, 255));
+        txtDuracion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDuracionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDuracionFocusLost(evt);
+            }
+        });
         jPanel1.add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 80, 40));
 
         txtSinopsis.setBackground(new java.awt.Color(20, 71, 103));
         txtSinopsis.setColumns(20);
+        txtSinopsis.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         txtSinopsis.setForeground(new java.awt.Color(216, 220, 255));
         txtSinopsis.setLineWrap(true);
         txtSinopsis.setRows(5);
         txtSinopsis.setWrapStyleWord(true);
+        txtSinopsis.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSinopsisFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSinopsisFocusLost(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtSinopsis);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 500, 210));
 
         listGenero.setBackground(new java.awt.Color(20, 71, 103));
+        listGenero.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         listGenero.setForeground(new java.awt.Color(216, 220, 255));
         listGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Comedia", "Documental", "Drama", "Horror", "Suspenso" }));
         listGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -172,14 +202,23 @@ public class ModificarPelicula extends javax.swing.JFrame {
                 listGeneroActionPerformed(evt);
             }
         });
-        jPanel1.add(listGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 140, 40));
+        jPanel1.add(listGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 180, 40));
 
         listClas.setBackground(new java.awt.Color(20, 71, 103));
+        listClas.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         listClas.setForeground(new java.awt.Color(216, 220, 255));
         listClas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "PG13", "R", "NC17" }));
         jPanel1.add(listClas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 130, 40));
 
         dateFecha.setBackground(new java.awt.Color(20, 71, 103));
+        dateFecha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dateFechaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dateFechaFocusLost(evt);
+            }
+        });
         jPanel1.add(dateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 230, 40));
 
         check2d.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
@@ -391,17 +430,21 @@ public class ModificarPelicula extends javax.swing.JFrame {
 
         try {
             if (respuesta == jFileChooser.APPROVE_OPTION) {
-                rutaDest = rutaDestino + jFileChooser.getSelectedFile().getName();
+                rutaDest = RUTA_DESTINO + jFileChooser.getSelectedFile().getName();
+                
                 Path Destino = Paths.get(rutaDest);
                 String origin = jFileChooser.getSelectedFile().getPath();
+                
                 Path Origen = Paths.get(origin);
                 Files.copy(Origen, Destino, StandardCopyOption.REPLACE_EXISTING);
+                
                 pelicula.setRutaImagen(rutaDest);
+                
                 Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
                 ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
                 lblImagen.setIcon(imgIcon);
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Fallo la carga de datos de las imagenes");
         }
     }//GEN-LAST:event_btnCargarActionPerformed
@@ -478,7 +521,7 @@ public class ModificarPelicula extends javax.swing.JFrame {
             Validaciones.validarNumeros(txtDuracion.getText());
 
             this.pelicula.setNombre(txtNombre.getText());
-            this.pelicula.setDuracion(Integer.parseInt(txtDuracion.getText()));
+            this.pelicula.setDuracion(Integer.valueOf(txtDuracion.getText()));
             this.pelicula.setGenero(listGenero.getSelectedItem().toString());
             this.pelicula.setClasificacion(listClas.getSelectedItem().toString());
             this.pelicula.setDescripcion(txtSinopsis.getText());
@@ -508,6 +551,46 @@ public class ModificarPelicula extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnModificarMousePressed
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        // TODO add your handling code here:
+        txtNombre.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        // TODO add your handling code here:
+        txtNombre.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtDuracionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDuracionFocusGained
+        // TODO add your handling code here:
+        txtDuracion.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtDuracionFocusGained
+
+    private void txtDuracionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDuracionFocusLost
+        // TODO add your handling code here:
+        txtDuracion.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtDuracionFocusLost
+
+    private void txtSinopsisFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSinopsisFocusGained
+        // TODO add your handling code here:
+        txtSinopsis.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtSinopsisFocusGained
+
+    private void txtSinopsisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSinopsisFocusLost
+        // TODO add your handling code here:
+        txtSinopsis.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtSinopsisFocusLost
+
+    private void dateFechaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dateFechaFocusGained
+        // TODO add your handling code here:
+        dateFecha.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_dateFechaFocusGained
+
+    private void dateFechaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dateFechaFocusLost
+        // TODO add your handling code here:
+        dateFecha.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_dateFechaFocusLost
 
     private void cargarDatos() {
         //===========================

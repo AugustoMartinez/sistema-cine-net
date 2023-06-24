@@ -8,9 +8,7 @@ import cine.cinelugar.Cine;
 import cine.cinelugar.Pelicula;
 import cine.cinelugar.Sala;
 import java.awt.Color;
-import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import persistencia.Persistencia;
 
@@ -63,6 +61,8 @@ public class MenuGerente extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         btnAgregarSal = new javax.swing.JLabel();
         lblTituloRegistrar1 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -430,6 +430,39 @@ public class MenuGerente extends javax.swing.JFrame {
         lblTituloRegistrar1.setText("MENU GERENTE");
         jPanel1.add(lblTituloRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 320, 60));
 
+        jPanel9.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnSalir.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(216, 220, 255));
+        btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSalir.setText("X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalirMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 40, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -544,10 +577,10 @@ public class MenuGerente extends javax.swing.JFrame {
 
     private void btnModPeliculaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModPeliculaMousePressed
         // TODO add your handling code here:
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (e.getNombre().equals(listPeliculas.getSelectedItem())) {
+        for (Pelicula pelicula : Cine.getListaPeliculas()) {
+            if (pelicula.getNombre().equals(listPeliculas.getSelectedItem())) {
                 this.dispose();
-                ModificarPelicula mod = new ModificarPelicula(e);
+                ModificarPelicula mod = new ModificarPelicula(pelicula);
                 mod.setVisible(true);
                 mod.setLocationRelativeTo(null);
             }
@@ -568,10 +601,10 @@ public class MenuGerente extends javax.swing.JFrame {
 
     private void btnModSalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModSalaMousePressed
         // TODO add your handling code here:
-        for (Sala e : Cine.getListaSalas()) {
-            if (e.getNombre().equals(listSalas.getSelectedItem())) {
+        for (Sala sala : Cine.getListaSalas()) {
+            if (sala.getNombre().equals(listSalas.getSelectedItem())) {
                 this.dispose();
-                ModificarSala algo = new ModificarSala(e);
+                ModificarSala algo = new ModificarSala(sala);
                 algo.setVisible(true);
             }
         }
@@ -625,12 +658,29 @@ public class MenuGerente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAgregarSalMousePressed
 
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        jPanel9.setBackground(new Color(204, 40, 54));
+        btnSalir.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        jPanel9.setBackground(new Color(170, 34, 45));
+        btnSalir.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMousePressed
+
     private void actualizarListPeliculas() {
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
         listPeliculas.setModel(model);
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (!e.isBaja()) {
-                model.addElement(e.getNombre());
+        for (Pelicula pelicula : Cine.getListaPeliculas()) {
+            if (!pelicula.isBaja()) {
+                model.addElement(pelicula.getNombre());
             }
         }
     }
@@ -638,8 +688,8 @@ public class MenuGerente extends javax.swing.JFrame {
     private void actualizarSalas() {
         DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
         listSalas.setModel(model2);
-        for (Sala e : Cine.getListaSalas()) {
-             model2.addElement(e.getNombre());
+        for (Sala sala : Cine.getListaSalas()) {
+             model2.addElement(sala.getNombre());
         }
     }
 
@@ -697,6 +747,7 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnModPelicula;
     private javax.swing.JLabel btnModSala;
+    private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -710,6 +761,7 @@ public class MenuGerente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblTituloRegistrar1;
     private javax.swing.JComboBox<String> listPeliculas;
     private javax.swing.JComboBox<String> listSalas;

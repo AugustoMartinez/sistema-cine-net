@@ -374,7 +374,7 @@ public class MenuCliente extends javax.swing.JFrame {
             lblNombreUser.setText(user.getNombre() + " " + user.getApellido());
             this.repaint();
         } catch (Exception e) {
-            System.out.println("Error al cargar Imagenes");
+            System.out.println("Error al cargar Imagen");
         }
     }
 

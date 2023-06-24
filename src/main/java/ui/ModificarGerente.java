@@ -12,6 +12,7 @@ import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import validacion.Validaciones;
 import persistencia.Persistencia;
 
@@ -29,6 +30,10 @@ public class ModificarGerente extends javax.swing.JFrame {
     public ModificarGerente(Gerente gerente) {
         initComponents();
         this.gerente = gerente;
+        txtNombre.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtApellido.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtEmail.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtPassword.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
         cargarDatos();
     }
 
@@ -64,6 +69,7 @@ public class ModificarGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setUndecorated(true);
         setResizable(false);
 
         Background.setBackground(new java.awt.Color(9, 35, 52));
@@ -196,21 +202,53 @@ public class ModificarGerente extends javax.swing.JFrame {
         txtNombre.setBackground(new java.awt.Color(17, 61, 88));
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(216, 220, 255));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
         Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 200, 300, 45));
 
         txtApellido.setBackground(new java.awt.Color(17, 61, 88));
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(216, 220, 255));
+        txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtApellidoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtApellidoFocusLost(evt);
+            }
+        });
         Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 270, 300, 45));
 
         txtEmail.setBackground(new java.awt.Color(17, 61, 88));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(216, 220, 255));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained1(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost1(evt);
+            }
+        });
         Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 340, 300, 50));
 
         txtPassword.setBackground(new java.awt.Color(17, 61, 88));
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(216, 220, 255));
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusLost(evt);
+            }
+        });
         Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 410, 300, 45));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -266,15 +304,14 @@ public class ModificarGerente extends javax.swing.JFrame {
             Validaciones.validarApellido(txtApellido.getText());
             Validaciones.validarEmail(txtEmail.getText());
             Validaciones.validarPassword(txtPassword.getText());
-            this.gerente.setNombre(txtNombre.getText());
-            this.gerente.setApellido(txtApellido.getText());
-            this.gerente.setEmail(txtEmail.getText());
-            this.gerente.setPassword(new String(txtPassword.getPassword()));
+            gerente.setNombre(txtNombre.getText());
+            gerente.setApellido(txtApellido.getText());
+            gerente.setEmail(txtEmail.getText());
+            gerente.setPassword(new String(txtPassword.getPassword()));
 
             for (int i = 0; i < Cine.getListaUsuarios().size() && flag == false; i++) {
                 if (Cine.getListaUsuarios().get(i).getEmail().equals(emailViejo)) {
                     if (Cine.getListaUsuarios().get(i) instanceof Gerente) {
-                        //((Gerente) Cine.getListaUsuarios().get(i)).setAdmin(false);
                         flag = true;
                         Cine.getListaUsuarios().set(i, gerente);
                         Persistencia.actualizarUsuarios();
@@ -290,6 +327,46 @@ public class ModificarGerente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnModificar1MousePressed
+
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        // TODO add your handling code here:
+        txtNombre.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        // TODO add your handling code here:
+        txtNombre.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusGained
+        // TODO add your handling code here:
+        txtApellido.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtApellidoFocusGained
+
+    private void txtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusLost
+        // TODO add your handling code here:
+        txtApellido.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtApellidoFocusLost
+
+    private void txtEmailFocusLost1(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost1
+        // TODO add your handling code here:
+        txtEmail.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtEmailFocusLost1
+
+    private void txtEmailFocusGained1(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained1
+        // TODO add your handling code here:
+        txtEmail.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtEmailFocusGained1
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        // TODO add your handling code here:
+        txtPassword.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        // TODO add your handling code here:
+        txtPassword.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtPasswordFocusLost
 
     private void cargarDatos() {
         txtNombre.setText(gerente.getNombre());
