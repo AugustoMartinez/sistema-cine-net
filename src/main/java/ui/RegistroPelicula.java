@@ -91,7 +91,7 @@ public class RegistroPelicula extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1280, 733));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(51, 45, 39));
+        jPanel1.setBackground(new java.awt.Color(9, 35, 52));
         jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setName(""); // NOI18N
