@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 /**
@@ -221,11 +222,15 @@ public class MenuReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeleccionarButacasMouseExited
 
     private void btnSeleccionarButacasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarButacasMousePressed
-        Funcion e = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
-        ReservaButaca reservaButaca = new ReservaButaca(e);
-        reservaButaca.setVisible(true);
-        reservaButaca.setLocationRelativeTo(null);
-        this.dispose();
+        try {
+            Funcion e = Cine.retornaFuncion(listFunciones.getSelectedItem().toString());
+            ReservaButaca reservaButaca = new ReservaButaca(e);
+            reservaButaca.setVisible(true);
+            reservaButaca.setLocationRelativeTo(null);
+            this.dispose();
+        } catch (NullPointerException n){
+            JOptionPane.showMessageDialog(null,"No hay funciones disponibles");
+        }
     }//GEN-LAST:event_btnSeleccionarButacasMousePressed
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered

@@ -8,6 +8,7 @@ import cine.cinelugar.Cine;
 import cine.user.Cliente;
 import cine.user.Sesion;
 import cine.user.Usuario;
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -22,6 +23,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private String email;
     private final String imgUser = "src\\main\\images\\user.png";
+
     /**
      * Creates new form MenuCliente
      */
@@ -39,19 +41,21 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lbGenerarReserva = new javax.swing.JLabel();
+        btnGenerarReserva = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLbMisReservas = new javax.swing.JLabel();
+        btnMisReservas = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        lbDarBaja = new javax.swing.JLabel();
+        btnDarBaja = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        lbEditarDatos = new javax.swing.JLabel();
+        btnEditarDatos = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         lbSalir = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lblUserImg = new javax.swing.JLabel();
         lblNombreUser = new javax.swing.JLabel();
         lblNombreUser1 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -62,16 +66,19 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(17, 61, 88));
 
-        lbGenerarReserva.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        lbGenerarReserva.setForeground(new java.awt.Color(216, 220, 255));
-        lbGenerarReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbGenerarReserva.setText("Generar reserva");
-        lbGenerarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGenerarReserva.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        btnGenerarReserva.setForeground(new java.awt.Color(216, 220, 255));
+        btnGenerarReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnGenerarReserva.setText("Generar reserva");
+        btnGenerarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbGenerarReservaMouseClicked(evt);
+                btnGenerarReservaMouseClicked(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lbGenerarReservaMousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGenerarReservaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGenerarReservaMouseExited(evt);
             }
         });
 
@@ -83,7 +90,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbGenerarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -92,7 +99,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbGenerarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -100,13 +107,19 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(17, 61, 88));
 
-        jLbMisReservas.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        jLbMisReservas.setForeground(new java.awt.Color(216, 220, 255));
-        jLbMisReservas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLbMisReservas.setText("Mis reservas");
-        jLbMisReservas.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMisReservas.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        btnMisReservas.setForeground(new java.awt.Color(216, 220, 255));
+        btnMisReservas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnMisReservas.setText("Mis reservas");
+        btnMisReservas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMisReservasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMisReservasMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLbMisReservasMousePressed(evt);
+                btnMisReservasMousePressed(evt);
             }
         });
 
@@ -118,7 +131,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLbMisReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMisReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
@@ -127,7 +140,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLbMisReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMisReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -135,16 +148,19 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(17, 61, 88));
 
-        lbDarBaja.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        lbDarBaja.setForeground(new java.awt.Color(216, 220, 255));
-        lbDarBaja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbDarBaja.setText("Darse de baja");
-        lbDarBaja.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDarBaja.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        btnDarBaja.setForeground(new java.awt.Color(216, 220, 255));
+        btnDarBaja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnDarBaja.setText("Darse de baja");
+        btnDarBaja.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbDarBajaMouseClicked(evt);
+                btnDarBajaMouseClicked(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lbDarBajaMousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDarBajaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDarBajaMouseExited(evt);
             }
         });
 
@@ -156,7 +172,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbDarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
@@ -165,7 +181,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbDarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -173,16 +189,19 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(17, 61, 88));
 
-        lbEditarDatos.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        lbEditarDatos.setForeground(new java.awt.Color(216, 220, 255));
-        lbEditarDatos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbEditarDatos.setText("Editar datos del usuario");
-        lbEditarDatos.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEditarDatos.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
+        btnEditarDatos.setForeground(new java.awt.Color(216, 220, 255));
+        btnEditarDatos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEditarDatos.setText("Editar datos del usuario");
+        btnEditarDatos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbEditarDatosMouseClicked(evt);
+                btnEditarDatosMouseClicked(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lbEditarDatosMousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditarDatosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditarDatosMouseExited(evt);
             }
         });
 
@@ -194,7 +213,7 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbEditarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
@@ -203,21 +222,24 @@ public class MenuCliente extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbEditarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 640, 90));
 
-        jPanel6.setBackground(new java.awt.Color(17, 61, 88));
+        jPanel6.setBackground(new java.awt.Color(139, 34, 45));
 
         lbSalir.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lbSalir.setForeground(new java.awt.Color(216, 220, 255));
         lbSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbSalir.setText("Salir");
         lbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbSalirMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbSalirMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbSalirMousePressed(evt);
@@ -289,6 +311,39 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 720));
 
+        jPanel8.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnSalir.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(216, 220, 255));
+        btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSalir.setText("X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalirMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 40, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -308,8 +363,7 @@ public class MenuCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-        private void iniciar() {
+    private void iniciar() {
         lblUserImg.setHorizontalAlignment(JLabel.CENTER);
 
         try {
@@ -323,13 +377,8 @@ public class MenuCliente extends javax.swing.JFrame {
             System.out.println("Error al cargar Imagenes");
         }
     }
-    
-    private void lbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_lbSalirMouseClicked
 
-    private void lbEditarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditarDatosMouseClicked
+    private void btnEditarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarDatosMouseClicked
         // TODO add your handling code here:
         for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
             if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
@@ -344,29 +393,22 @@ public class MenuCliente extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_lbEditarDatosMouseClicked
+    }//GEN-LAST:event_btnEditarDatosMouseClicked
 
-    private void lbEditarDatosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbEditarDatosMousePressed
-
-    }//GEN-LAST:event_lbEditarDatosMousePressed
-
-    private void lbGenerarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbGenerarReservaMouseClicked
+    private void btnGenerarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReservaMouseClicked
         // TODO add your handling code here:
         MenuReserva menuReserva = new MenuReserva();
         menuReserva.setVisible(true);
         menuReserva.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_lbGenerarReservaMouseClicked
+    }//GEN-LAST:event_btnGenerarReservaMouseClicked
 
-    private void lbDarBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDarBajaMouseClicked
+    private void btnDarBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDarBajaMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbDarBajaMouseClicked
+        int option = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea darse de baja?", "Confirmación", JOptionPane.YES_NO_OPTION);
 
-    private void lbDarBajaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDarBajaMousePressed
-         int option = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea darse de baja?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        
-         if (option == JOptionPane.YES_OPTION) {
-         
+        if (option == JOptionPane.YES_OPTION) {
+
             for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
                 if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
                     if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
@@ -374,7 +416,7 @@ public class MenuCliente extends javax.swing.JFrame {
                         System.out.println("entro");
                         JOptionPane.showMessageDialog(null, "Se dio de baja correctamente!");
                         Login log = new Login();
-                        log.setVisible(true);    
+                        log.setVisible(true);
                         this.dispose();
 
                     }
@@ -382,23 +424,23 @@ public class MenuCliente extends javax.swing.JFrame {
             }
             Persistencia.actualizarUsuarios();
         }
-    }//GEN-LAST:event_lbDarBajaMousePressed
+    }//GEN-LAST:event_btnDarBajaMouseClicked
 
-    private void jLbMisReservasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMisReservasMousePressed
+    private void btnMisReservasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisReservasMousePressed
         // TODO add your handling code here:
         Persistencia.actualizarUsuarios();
         for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
             if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
                 if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
-                    MisReservas misReservas = new MisReservas((Cliente)Cine.getListaUsuarios().get(i));
+                    MisReservas misReservas = new MisReservas((Cliente) Cine.getListaUsuarios().get(i));
                     misReservas.setVisible(true);
                     misReservas.setLocationRelativeTo(null);
                     this.dispose();
                 }
             }
         }
-        
-    }//GEN-LAST:event_jLbMisReservasMousePressed
+
+    }//GEN-LAST:event_btnMisReservasMousePressed
 
     private void lbSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMousePressed
         // TODO add your handling code here:
@@ -407,13 +449,82 @@ public class MenuCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lbSalirMousePressed
 
-    private void lbGenerarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbGenerarReservaMousePressed
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
         // TODO add your handling code here:
-        MenuReserva menuReserva = new MenuReserva();
-        menuReserva.setVisible(true);
-        menuReserva.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_lbGenerarReservaMousePressed
+        jPanel8.setBackground(new Color(204, 40, 54));
+        btnSalir.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        jPanel8.setBackground(new Color(170, 34, 45));
+        btnSalir.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMousePressed
+
+    private void btnGenerarReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReservaMouseEntered
+        // TODO add your handling code here:
+        jPanel2.setBackground(new Color(33, 119, 171));
+        btnGenerarReserva.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnGenerarReservaMouseEntered
+
+    private void btnGenerarReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReservaMouseExited
+        // TODO add your handling code here:
+        jPanel2.setBackground(new Color(17, 61, 88));
+        btnGenerarReserva.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnGenerarReservaMouseExited
+
+    private void btnMisReservasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisReservasMouseExited
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(17, 61, 88));
+        btnMisReservas.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnMisReservasMouseExited
+
+    private void btnMisReservasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisReservasMouseEntered
+        // TODO add your handling code here:
+        jPanel3.setBackground(new Color(33, 119, 171));
+        btnMisReservas.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMisReservasMouseEntered
+
+    private void btnEditarDatosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarDatosMouseEntered
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(33, 119, 171));
+        btnEditarDatos.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnEditarDatosMouseEntered
+
+    private void btnEditarDatosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarDatosMouseExited
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(17, 61, 88));
+        btnEditarDatos.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnEditarDatosMouseExited
+
+    private void btnDarBajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDarBajaMouseEntered
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(33, 119, 171));
+        btnDarBaja.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnDarBajaMouseEntered
+
+    private void btnDarBajaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDarBajaMouseExited
+        // TODO add your handling code here:
+        jPanel5.setBackground(new Color(17, 61, 88));
+        btnDarBaja.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnDarBajaMouseExited
+
+    private void lbSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMouseEntered
+        // TODO add your handling code here:
+        jPanel6.setBackground(new Color(113, 26, 35));
+        lbSalir.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_lbSalirMouseEntered
+
+    private void lbSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMouseExited
+        // TODO add your handling code here:
+        jPanel6.setBackground(new Color(139, 34, 45));
+        btnDarBaja.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_lbSalirMouseExited
 
     /**
      * @param args the command line arguments
@@ -451,7 +562,11 @@ public class MenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLbMisReservas;
+    private javax.swing.JLabel btnDarBaja;
+    private javax.swing.JLabel btnEditarDatos;
+    private javax.swing.JLabel btnGenerarReserva;
+    private javax.swing.JLabel btnMisReservas;
+    private javax.swing.JLabel btnSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -459,9 +574,7 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JLabel lbDarBaja;
-    private javax.swing.JLabel lbEditarDatos;
-    private javax.swing.JLabel lbGenerarReserva;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel lbSalir;
     private javax.swing.JLabel lblNombreUser;
     private javax.swing.JLabel lblNombreUser1;

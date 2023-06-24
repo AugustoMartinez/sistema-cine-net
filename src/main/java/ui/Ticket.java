@@ -4,14 +4,19 @@
  */
 package ui;
 
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.awt.HeadlessException;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,6 +36,15 @@ public class Ticket extends javax.swing.JFrame {
     private String poster;
             /**
              * Creates new form Ticket
+     * @param nombre
+     * @param ticket
+     * @param sala
+     * @param tipo
+     * @param fecha
+     * @param hora
+     * @param precio
+     * @param butacas
+     * @param poster
              */
     
         public Ticket(String nombre, String ticket, String tipo, String fecha, String hora, String butacas, String precio, String sala, String poster) {
@@ -63,7 +77,7 @@ public class Ticket extends javax.swing.JFrame {
                 img = Image.getInstance(poster);
                 img.scaleAbsolute(150, 250);
                 img.setAlignment(Element.ALIGN_CENTER);
-            } catch (Exception e) {
+            } catch (BadElementException | IOException e) {
                 System.out.println(e.getMessage());
             }
 
@@ -97,7 +111,7 @@ public class Ticket extends javax.swing.JFrame {
 
             documento.close();
             JOptionPane.showMessageDialog(null, "PDF creado en el escritorio");
-        } catch (Exception e) {
+        } catch (DocumentException | HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }

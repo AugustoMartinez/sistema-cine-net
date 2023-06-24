@@ -27,16 +27,13 @@ public class Reserva implements Serializable {
     @Override
     public String toString() {
         String str = "";
-        Funcion aux;
 
         str += "Nombre: " + funcion.getNombre() + "\n"
                 + "Horario: " + funcion.getHorario().getHorario() + "\n"
                 + "Fecha: " + format.format(funcion.getDia()) + "\n"
-                + "Butacas:\n"; 
-        
-        str+=this.agregarButacas();
+                + "Butacas:\n";
 
-        
+        str += this.agregarButacas();
 
         return str;
     }

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
+public class Pelicula implements Serializable {
 
-public class Pelicula implements Serializable{
     private String nombre;
     private boolean baja;
     private String genero;
@@ -15,7 +15,6 @@ public class Pelicula implements Serializable{
     private String clasificacion;
     private Date fechaEstreno;
     private String rutaImagen;
-    
 
     public Pelicula(String nombre, String genero, Integer duracion, String descripcion, String clasificacion, Date fechaEstreno, String rutaImagen) {
         this.nombre = nombre;
@@ -25,40 +24,40 @@ public class Pelicula implements Serializable{
         this.clasificacion = clasificacion;
         this.fechaEstreno = fechaEstreno;
         this.setearTipos();
-        this.baja=false;
+        this.baja = false;
         this.rutaImagen = rutaImagen;
     }
 
     public Pelicula() {
         this.setearTipos();
-        this.baja=false;
+        this.baja = false;
     }
 
     @Override
     public String toString() {
-        return "Pelicula" + 
-                "\nNombre: " + nombre + 
-                "\nGenero: " + genero + 
-                "\nDuración: " + duracion +
-                "\nTipo: " +  tipo +
-                "\nClasificación: " + clasificacion +
-                "\nEstreno: " + fechaEstreno +
-                "\nDescripción: " + descripcion +
-                "\nRutaImagen" + rutaImagen;
+        return "Pelicula"
+                + "\nNombre: " + nombre
+                + "\nGenero: " + genero
+                + "\nDuración: " + duracion
+                + "\nTipo: " + tipo
+                + "\nClasificación: " + clasificacion
+                + "\nEstreno: " + fechaEstreno
+                + "\nDescripción: " + descripcion
+                + "\nRutaImagen" + rutaImagen;
     }
-    
-    public void agregarTipo(boolean tipo, String str){
+
+    public void agregarTipo(boolean tipo, String str) {
         this.tipo.put(str, tipo);
     }
 
-    private void setearTipos(){
+    private void setearTipos() {
         this.tipo = new HashMap<>();
         this.tipo.put("2D", false);
         this.tipo.put("2D ATMOS", false);
         this.tipo.put("3D", false);
         this.tipo.put("3D ATMOS", false);
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -78,8 +77,6 @@ public class Pelicula implements Serializable{
     public void setRutaImagen(String rutaImagen) {
         this.rutaImagen = rutaImagen;
     }
-    
-    
 
     public void setBaja(boolean baja) {
         this.baja = baja;
@@ -100,8 +97,6 @@ public class Pelicula implements Serializable{
     public void setTipo(HashMap<String, Boolean> tipo) {
         this.tipo = tipo;
     }
-
-
 
     public Integer getDuracion() {
         return duracion;

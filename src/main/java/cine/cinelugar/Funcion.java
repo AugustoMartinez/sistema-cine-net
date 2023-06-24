@@ -3,7 +3,6 @@ package cine.cinelugar;
 import cine.Horario;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 public class Funcion implements Serializable {
 
@@ -29,8 +28,6 @@ public class Funcion implements Serializable {
         return "Funcion."
                 + "\nNombre: " + nombre
                 + "\nSala: " + sala;
-                //+ "\nPelicula: " + pelicula
-                //+ "\nHorario: " + horario;
     }
 
     public Date getDia() {
@@ -71,5 +68,5 @@ public class Funcion implements Serializable {
 
     public void setHorario(Horario horario) {
         this.horario = horario;
-    } 
+    }
 }

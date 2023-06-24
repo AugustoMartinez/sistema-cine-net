@@ -21,6 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import persistencia.Persistencia;
 
@@ -317,31 +318,27 @@ public class ReservaButaca extends javax.swing.JFrame {
 
     private void btnReservaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMouseEntered
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(204, 40, 54));
+        jPanel4.setBackground(new Color(204, 40, 54));
         btnReserva.setForeground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnReservaMouseEntered
 
     private void btnReservaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMouseExited
         // TODO add your handling code here:
-        jPanel3.setBackground(new Color(170, 34, 45));
+        jPanel4.setBackground(new Color(170, 34, 45));
         btnReserva.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_btnReservaMouseExited
 
     private void btnReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMousePressed
         // TODO add your handling code here:
         LinkedList<String> butacas = retornaButacas();
-        /*for (int i = 0; i < this.filas; i++) {
-            for (int j = 0; j < this.columnas; j++) {
-                if (jtBotones[i][j].isSelected() == true) {
-                    funcion.getSala().getButacas()[i][j].setOcupada(true);
-                }
-
-            }
-        }*/
-        ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas, jtBotones);
-        confirmar.setVisible(true);
-        confirmar.setLocationRelativeTo(null);
-        this.dispose();
+        if (butacas.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No selecciono ninguna butaca");
+        } else {
+            ConfirmarReserva confirmar = new ConfirmarReserva(funcion, butacas, jtBotones);
+            confirmar.setVisible(true);
+            confirmar.setLocationRelativeTo(null);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnReservaMousePressed
 
     private void btnExitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseEntered
@@ -358,7 +355,7 @@ public class ReservaButaca extends javax.swing.JFrame {
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
         // TODO add your handling code here:
-        MenuReserva menuReserva= new MenuReserva();
+        MenuReserva menuReserva = new MenuReserva();
         menuReserva.setVisible(true);
         menuReserva.setLocationRelativeTo(null);
         this.dispose();

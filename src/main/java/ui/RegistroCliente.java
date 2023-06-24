@@ -11,10 +11,8 @@ import excepciones.EmailException;
 import excepciones.LetrasException;
 import excepciones.LongitudPasswordException;
 import java.awt.Color;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import validacion.Validaciones;
 import persistencia.Persistencia;
 
@@ -29,6 +27,10 @@ public class RegistroCliente extends javax.swing.JFrame {
      */
     public RegistroCliente() {
         initComponents();
+        txtNombre.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtApellido.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtEmail.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
+        txtPassword.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
     }
 
     /**
@@ -59,6 +61,8 @@ public class RegistroCliente extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnExit = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -95,21 +99,53 @@ public class RegistroCliente extends javax.swing.JFrame {
         txtNombre.setBackground(new java.awt.Color(17, 61, 88));
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(216, 220, 255));
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
         Background.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 200, 300, 45));
 
         txtApellido.setBackground(new java.awt.Color(17, 61, 88));
         txtApellido.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(216, 220, 255));
+        txtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtApellidoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtApellidoFocusLost(evt);
+            }
+        });
         Background.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 270, 300, 45));
 
         txtEmail.setBackground(new java.awt.Color(17, 61, 88));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(216, 220, 255));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
         Background.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 340, 300, 50));
 
         txtPassword.setBackground(new java.awt.Color(17, 61, 88));
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(216, 220, 255));
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusLost(evt);
+            }
+        });
         Background.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 410, 300, 45));
 
         lblTituloRegistrar.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
@@ -213,6 +249,39 @@ public class RegistroCliente extends javax.swing.JFrame {
 
         Background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 120, 45));
 
+        jPanel4.setBackground(new java.awt.Color(170, 34, 45));
+
+        btnSalir.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(216, 220, 255));
+        btnSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSalir.setText("X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnSalirMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        Background.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 40, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -243,8 +312,7 @@ public class RegistroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarMouseExited
 
     private void btnRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMousePressed
-
-                try {
+        try {
             Cliente cliente = new Cliente();
             Validaciones.validarNombre(txtNombre.getText());
             Validaciones.validarApellido(txtApellido.getText());
@@ -288,6 +356,64 @@ public class RegistroCliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnExitMousePressed
 
+    private void txtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusGained
+        // TODO add your handling code here:
+        txtNombre.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+        
+    }//GEN-LAST:event_txtNombreFocusGained
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+        // TODO add your handling code here:
+        txtNombre.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(204, 40, 54));
+        btnSalir.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        // TODO add your handling code here:
+        jPanel4.setBackground(new Color(170, 34, 45));
+        btnSalir.setForeground(new Color(216, 220, 255));
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSalirMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMousePressed
+
+    private void txtApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusGained
+        // TODO add your handling code here:
+        txtApellido.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtApellidoFocusGained
+
+    private void txtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidoFocusLost
+        // TODO add your handling code here:
+        txtApellido.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtApellidoFocusLost
+
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        // TODO add your handling code here:
+        txtEmail.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtEmailFocusGained
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        txtEmail.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtEmailFocusLost
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        // TODO add your handling code here:
+        txtPassword.setBorder(new LineBorder(new Color(44, 117, 160), 2, true));
+    }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        // TODO add your handling code here:
+        txtPassword.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
+    }//GEN-LAST:event_txtPasswordFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -297,7 +423,7 @@ public class RegistroCliente extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-       /* try {
+ /* try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -327,12 +453,14 @@ public class RegistroCliente extends javax.swing.JFrame {
     private javax.swing.JPanel Background;
     private javax.swing.JLabel btnExit;
     private javax.swing.JLabel btnRegistrar;
+    private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblNombre;

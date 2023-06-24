@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import persistencia.Persistencia;
 
 public class Cine {
 
@@ -68,9 +67,7 @@ public class Cine {
         Cine.listaUsuarios = listaUsuarios;
     }
 
-    
     //=============================== GESTION USUARIO ===============================
-    
     public static boolean buscarUsuarioPorEmail(String email) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getEmail().equals(email)) {
@@ -118,34 +115,32 @@ public class Cine {
         return false;
     }
 
-    
     //=============================== FUNCIONES DE RETORNO ===============================
-    
     public static Funcion retornaFuncion(String nombre) {
-        for (Funcion e : Cine.getListaFunciones()) {
+        for (Funcion funcion : Cine.getListaFunciones()) {
             SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            String funcStr = e.getNombre() + " | " + format.format(e.getDia()) + " | " + e.getHorario().getHorario();
+            String funcStr = funcion.getNombre() + " | " + format.format(funcion.getDia()) + " | " + funcion.getHorario().getHorario();
             if (funcStr.equals(nombre)) {
-                return e;
+                return funcion;
             }
         }
         return null;
     }
 
     public static Pelicula retornaPelicula(String nombre) {
-        for (Pelicula e : Cine.getListaPeliculas()) {
-            if (nombre.contains(e.getNombre())) {
-                return e;
+        for (Pelicula pelicula : Cine.getListaPeliculas()) {
+            if (nombre.contains(pelicula.getNombre())) {
+                return pelicula;
             }
         }
         return null;
     }
 
     public static Sala retornaSala(String nombre) {
-        for (Sala e : Cine.getListaSalas()) {
-            if (nombre.equals(e.getNombre())) {
-                if (!e.getDisponible()) {
-                    return e;
+        for (Sala sala : Cine.getListaSalas()) {
+            if (nombre.equals(sala.getNombre())) {
+                if (!sala.getDisponible()) {
+                    return sala;
                 } else {
                     JOptionPane.showMessageDialog(null, "La sala seleccionada no está disponible");
                     return null;
