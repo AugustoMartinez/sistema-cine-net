@@ -28,7 +28,6 @@ public class MenuReserva extends javax.swing.JFrame {
         initComponents();
         actualizarListPeliculas();
         actualizarListaFunciones();
-        //quieromorir();
         iniciar();
     }
 
@@ -55,11 +54,7 @@ public class MenuReserva extends javax.swing.JFrame {
         }
     }
 
-    /*private void quieromorir(){
-        for(Funcion e: Cine.getListaFunciones()){
-            System.out.println(e); 
-        }
-    }*/
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -4,7 +4,6 @@
  */
 package ui;
 
-import cine.cinelugar.Reserva;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
@@ -12,10 +11,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -264,6 +260,7 @@ public class Ticket extends javax.swing.JFrame {
 
     private void btnCancelarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarReservaMousePressed
         // TODO add your handling code here:
+        generarPDF();
         MenuCliente cliente = new MenuCliente();
         cliente.setVisible(true);
         this.setLocationRelativeTo(null);

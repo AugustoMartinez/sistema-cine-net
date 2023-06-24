@@ -7,25 +7,17 @@ package ui;
 import cine.Costos;
 import cine.cinelugar.Cine;
 import cine.cinelugar.Funcion;
-import cine.cinelugar.Pelicula;
 import cine.cinelugar.Reserva;
 import cine.user.Cliente;
 import cine.user.Sesion;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
-import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import persistencia.Persistencia;
 
@@ -37,7 +29,6 @@ public class ConfirmarReserva extends javax.swing.JFrame {
 
     private Funcion funcion;
     private LinkedList<String> butacasReservadas;
-    private Cliente usuario;
     private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     /**

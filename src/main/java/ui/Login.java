@@ -14,7 +14,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import persistencia.Persistencia;
 import validacion.Validaciones;
@@ -34,6 +33,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         iniciar();
+        txtEmail.setBorder(new LineBorder(new Color(255, 255, 255,0), 2, true));
+        txtPassword.setBorder(new LineBorder(new Color(0, 0, 0,0), 2, true));
     }
 
     private void iniciar() {
