@@ -25,10 +25,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import persistencia.Persistencia;
 
-/**
- *
- * @author Hoid
- */
 public class ReservaButaca extends javax.swing.JFrame {
 
     private Funcion funcion;
@@ -40,9 +36,6 @@ public class ReservaButaca extends javax.swing.JFrame {
     private int ejeY = 20;
     private static int cantidadButacasCompradas;
 
-    /**
-     * Creates new form ReservaButaca
-     */
     public ReservaButaca(Funcion e) {
         initComponents();
         this.funcion = e;

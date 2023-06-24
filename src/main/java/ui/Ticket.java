@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ui;
 
 import com.itextpdf.text.BadElementException;
@@ -19,10 +15,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hoid
- */
 public class Ticket extends javax.swing.JFrame {
 
     private String nombre;

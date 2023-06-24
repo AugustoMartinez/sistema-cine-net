@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ui;
 
 import cine.cinelugar.Cine;
@@ -30,10 +26,6 @@ import persistencia.PersistenceCollecion;
 import persistencia.Persistencia;
 import validacion.Validaciones;
 
-/**
- *
- * @author Hoid
- */
 public class RegistroPelicula extends javax.swing.JFrame {
 
     Pelicula pelicula = new Pelicula();

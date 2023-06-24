@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ui;
 
 import cine.cinelugar.Cine;
@@ -16,15 +12,9 @@ import javax.swing.border.LineBorder;
 import validacion.Validaciones;
 import persistencia.Persistencia;
 
-/**
- *
- * @author Diego
- */
 public class RegistroCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroCliente
-     */
+
     public RegistroCliente() {
         initComponents();
         txtNombre.setBorder(new LineBorder(new Color(255, 255, 255, 0), 2));
