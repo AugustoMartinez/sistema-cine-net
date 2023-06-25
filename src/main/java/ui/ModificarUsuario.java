@@ -275,9 +275,9 @@ public class ModificarUsuario extends javax.swing.JFrame {
 
     private void btnVolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMousePressed
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setVisible(true);
-        login.setLocationRelativeTo(null);
+        MenuCliente menu = new MenuCliente();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnVolverMousePressed
 

@@ -410,15 +410,15 @@ public class RegistroPelicula extends javax.swing.JFrame {
         try {
             if (respuesta == jFileChooser.APPROVE_OPTION) {
                 rutaDest = RUTA_DESTINO + jFileChooser.getSelectedFile().getName();
-                
+
                 Path Destino = Paths.get(rutaDest);
                 String origin = jFileChooser.getSelectedFile().getPath();
-                
+
                 Path Origen = Paths.get(origin);
                 Files.copy(Origen, Destino, StandardCopyOption.REPLACE_EXISTING);
-                
+
                 pelicula.setRutaImagen(rutaDest);
-                
+
                 Image img = new ImageIcon(pelicula.getRutaImagen()).getImage();
                 ImageIcon imgIcon = new ImageIcon(img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
                 lblImagen.setIcon(imgIcon);
@@ -521,6 +521,15 @@ public class RegistroPelicula extends javax.swing.JFrame {
             Cine.getListaPeliculas().add(pelicula);
             Persistencia.actualizarPeliculas();
 
+            if (Sesion.getTipo().equals("Admin")) {
+                this.dispose();
+                MenuAdmin admin = new MenuAdmin();
+                admin.setVisible(true);
+            } else if (Sesion.getTipo().equals("Gerente")) {
+                this.dispose();
+                MenuGerente gerente = new MenuGerente();
+                gerente.setVisible(true);
+            }
             JOptionPane.showMessageDialog(null, "Pelicula agregada exitosamente!\n" + pelicula.toString());
         } catch (CampoVacioException | SoloNumerosException | PeliculaRegistradaException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -567,7 +576,6 @@ public class RegistroPelicula extends javax.swing.JFrame {
         dateFecha.setBorder(new LineBorder(new Color(17, 61, 88), 2, true));
     }//GEN-LAST:event_dateFechaFocusLost
 
-    
     /**
      * @param args the command line arguments
      */
