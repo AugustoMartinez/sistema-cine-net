@@ -517,20 +517,11 @@ public class RegistroPelicula extends javax.swing.JFrame {
             if (check2dAtmos.isSelected()) {
                 pelicula.getTipo().replace("2D ATMOS", true);
             }
-
             Cine.getListaPeliculas().add(pelicula);
             Persistencia.actualizarPeliculas();
-
-            if (Sesion.getTipo().equals("Admin")) {
-                this.dispose();
-                MenuAdmin admin = new MenuAdmin();
-                admin.setVisible(true);
-            } else if (Sesion.getTipo().equals("Gerente")) {
-                this.dispose();
-                MenuGerente gerente = new MenuGerente();
-                gerente.setVisible(true);
-            }
             JOptionPane.showMessageDialog(null, "Pelicula agregada exitosamente!\n" + pelicula.toString());
+            new RegistroPelicula().setVisible(true);
+            this.dispose();
         } catch (CampoVacioException | SoloNumerosException | PeliculaRegistradaException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
