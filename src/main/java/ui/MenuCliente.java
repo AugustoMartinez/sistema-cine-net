@@ -80,9 +80,6 @@ public class MenuCliente extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnGenerarReservaMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnGenerarReservaMousePressed(evt);
-            }
         });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -393,6 +390,10 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnGenerarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReservaMouseClicked
         // TODO add your handling code here:
+        MenuReserva menuReserva = new MenuReserva();
+        menuReserva.setVisible(true);
+        menuReserva.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnGenerarReservaMouseClicked
 
     private void btnDarBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDarBajaMouseClicked
@@ -537,14 +538,6 @@ public class MenuCliente extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEditarDatosMousePressed
-
-    private void btnGenerarReservaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReservaMousePressed
-        // TODO add your handling code here:
-        MenuReserva menuReserva = new MenuReserva();
-        menuReserva.setVisible(true);
-        menuReserva.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_btnGenerarReservaMousePressed
 
     /**
      * @param args the command line arguments
