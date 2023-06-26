@@ -373,11 +373,6 @@ public class Login extends javax.swing.JFrame {
 
             }
         });
-        Admin admin = new Admin("rtoresani@gmail.com", "12345678", "Rafael", "Toresani");
-        Cliente cliente=new Cliente("dp@gmail.com","12345678","Diego","Pineda");
-        Cine.getListaUsuarios().add(admin);
-        Cine.getListaUsuarios().add(cliente);
-        Persistencia.actualizarUsuarios();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
