@@ -162,6 +162,9 @@ public class MenuCliente extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnDarBajaMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnDarBajaMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -202,6 +205,9 @@ public class MenuCliente extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnEditarDatosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEditarDatosMousePressed(evt);
             }
         });
 
@@ -380,19 +386,6 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnEditarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarDatosMouseClicked
         // TODO add your handling code here:
-        for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
-            if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
-
-                if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
-                    ModificarUsuario modificarUser = new ModificarUsuario(((Cliente) Cine.getListaUsuarios().get(i)));
-                    modificarUser.setVisible(true);
-                    modificarUser.setLocationRelativeTo(null);
-                    this.dispose();
-                }
-            }
-        }
-
-
     }//GEN-LAST:event_btnEditarDatosMouseClicked
 
     private void btnGenerarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarReservaMouseClicked
@@ -405,25 +398,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void btnDarBajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDarBajaMouseClicked
         // TODO add your handling code here:
-        int option = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea darse de baja?", "Confirmación", JOptionPane.YES_NO_OPTION);
-
-        if (option == JOptionPane.YES_OPTION) {
-
-            for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
-                if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
-                    if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
-                        Cine.getListaUsuarios().remove(i);
-                        System.out.println("entro");
-                        JOptionPane.showMessageDialog(null, "Se dio de baja correctamente!");
-                        Login log = new Login();
-                        log.setVisible(true);
-                        this.dispose();
-
-                    }
-                }
-            }
-            Persistencia.actualizarUsuarios();
-        }
+        
     }//GEN-LAST:event_btnDarBajaMouseClicked
 
     private void btnMisReservasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMisReservasMousePressed
@@ -525,6 +500,44 @@ public class MenuCliente extends javax.swing.JFrame {
         jPanel6.setBackground(new Color(139, 34, 45));
         btnDarBaja.setForeground(new Color(216, 220, 255));
     }//GEN-LAST:event_lbSalirMouseExited
+
+    private void btnDarBajaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDarBajaMousePressed
+        // TODO add your handling code here:
+        int option = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea darse de baja?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+        if (option == JOptionPane.YES_OPTION) {
+
+            for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+                if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
+                    if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
+                        Cine.getListaUsuarios().remove(i);
+                        System.out.println("entro");
+                        JOptionPane.showMessageDialog(null, "Se dio de baja correctamente!");
+                        Login log = new Login();
+                        log.setVisible(true);
+                        this.dispose();
+
+                    }
+                }
+            }
+            Persistencia.actualizarUsuarios();
+        }
+    }//GEN-LAST:event_btnDarBajaMousePressed
+
+    private void btnEditarDatosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarDatosMousePressed
+        // TODO add your handling code here:
+        for (int i = 0; i < Cine.getListaUsuarios().size(); i++) {
+            if (Cine.getListaUsuarios().get(i) instanceof Cliente) {
+
+                if (Cine.getListaUsuarios().get(i).getEmail().equals(email)) {
+                    ModificarUsuario modificarUser = new ModificarUsuario(((Cliente) Cine.getListaUsuarios().get(i)));
+                    modificarUser.setVisible(true);
+                    modificarUser.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+            }
+        }
+    }//GEN-LAST:event_btnEditarDatosMousePressed
 
     /**
      * @param args the command line arguments
