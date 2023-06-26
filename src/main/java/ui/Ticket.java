@@ -120,7 +120,6 @@ public class Ticket extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lblButacasReservadas = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblHorario = new javax.swing.JLabel();
@@ -134,6 +133,8 @@ public class Ticket extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         btnCancelarReserva = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -143,12 +144,6 @@ public class Ticket extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(20, 71, 103));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblButacasReservadas.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        lblButacasReservadas.setForeground(new java.awt.Color(216, 220, 255));
-        lblButacasReservadas.setText("Butacas");
-        lblButacasReservadas.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel2.add(lblButacasReservadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 390, 270));
 
         lblPrecio.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(216, 220, 255));
@@ -236,6 +231,25 @@ public class Ticket extends javax.swing.JFrame {
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 660, 110, 50));
 
+        jScrollPane1.setBackground(new java.awt.Color(20, 71, 103));
+        jScrollPane1.setForeground(new java.awt.Color(216, 220, 255));
+        jScrollPane1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+
+        txtArea.setEditable(false);
+        txtArea.setBackground(new java.awt.Color(20, 71, 103));
+        txtArea.setColumns(20);
+        txtArea.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        txtArea.setForeground(new java.awt.Color(216, 220, 255));
+        txtArea.setLineWrap(true);
+        txtArea.setRows(5);
+        txtArea.setWrapStyleWord(true);
+        txtArea.setBorder(null);
+        txtArea.setDisabledTextColor(new java.awt.Color(216, 220, 255));
+        txtArea.setFocusable(false);
+        jScrollPane1.setViewportView(txtArea);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 370, 280));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 427, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,7 +297,7 @@ public class Ticket extends javax.swing.JFrame {
         lblHorario.setText("Horario: " + hora);
         lblPrecio.setText("Total: $" + precio);
         lblTicket.setText("Ticket n°" + ticket);
-        lblButacasReservadas.setText(butacas);
+        txtArea.setText(butacas);
         txtSala.setText(sala);
     }
 
@@ -294,16 +308,17 @@ public class Ticket extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JLabel lblButacasReservadas;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblHorario;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTicket;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JTextArea txtArea;
     private javax.swing.JLabel txtSala;
     // End of variables declaration//GEN-END:variables
 }
